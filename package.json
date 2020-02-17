@@ -25,6 +25,7 @@
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "ts-jest": "^25.2.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
