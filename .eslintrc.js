@@ -1,6 +1,14 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }, 
+    "project": './tsconfig.json'
+  },
   plugins: [
     '@typescript-eslint',
     'jest',
@@ -10,7 +18,8 @@ module.exports = {
   ],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
+    "semi": "error"
   },
   extends: [
     'airbnb-typescript',
