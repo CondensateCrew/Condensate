@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.scss';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
+<<<<<<< HEAD
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,6 +18,9 @@ function App() {
           Learn React
         </a>
       </header>
+=======
+      <h2>Hello</h2>
+>>>>>>> Rewrite App and add snapshot test
     </div>
   );
 }

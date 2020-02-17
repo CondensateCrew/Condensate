@@ -4,6 +4,7 @@ exports[`App component should match the snapshot 1`] = `
 <div
   className="App"
 >
+<<<<<<< HEAD
   <header
     className="App-header"
   >
@@ -23,5 +24,10 @@ exports[`App component should match the snapshot 1`] = `
       Learn React
     </a>
   </header>
+=======
+  <h2>
+    Hello
+  </h2>
+>>>>>>> Rewrite App and add snapshot test
 </div>
 `;
