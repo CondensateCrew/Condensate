@@ -1,12 +1,8 @@
 import React, { useState, } from 'react';
 import { useDispatch } from 'react-redux';
 import { validateCredentials } from '../../_utils';
+import { UserLoginPosting } from '../../interfaces';
 import './LoginForm.scss';
-
-interface User {
-  email: string;
-  password: string;
-}
 
 const LoginForm: React.FC = () => {
   const [ email, setEmail ] = useState<string>('');
