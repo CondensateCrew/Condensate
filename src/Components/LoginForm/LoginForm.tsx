@@ -1,5 +1,6 @@
 import React, { useState, } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { validateCredentials } from '../../_utils';
 import './LoginForm.scss';
 
 interface User {
@@ -22,21 +23,9 @@ const LoginForm: React.FC = () => {
   }
 
   const handleSubmit = () => {
-
+    validateCredentials(email)
   }
 
-  const validateCredentials = async () => {
-    const regExp = new RegExp('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/') //eslint-disable-line
-    let test = regExp.test(email)
-    let response:string;
-    test ? response = 'YippyKayYay!!' : response = 'Not a valid email address'
-    return response
-    // test ? const res = await apiCall GET : setError('Please enter a valid email address')
-    // res.status === 404 ?  setError('No user found for this email address')
-    // : !res.body.passwordMatch ? setError('Invalid password')
-    // : dispatch user + brainstorms to store and redirect
-
-  }
   return (
     <div>
       <form>
@@ -46,7 +35,7 @@ const LoginForm: React.FC = () => {
         <label htmlFor='password'>Password</label>
         <input id='password' type='password' name='password' placeholder='********' value={password} 
         onChange={(e) => handlePasswordChange(e)}></input>
-        <button type='button'>Login</button>
+        <button type='button' onSubmit={handleSubmit}>Login</button>
       </form>
     </div>
   )
