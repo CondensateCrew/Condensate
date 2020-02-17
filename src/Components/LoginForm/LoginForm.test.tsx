@@ -18,7 +18,7 @@ describe('LoginForm component', () => {
   });
   describe('Change Events', () => {
 
-  it('should update email state when change events occur', () => {
+  it('handleEmailChange: should update email state when change events occur', () => {
       const mockEvent: Object = { target: { value: 'example@email.com' } }
       const wrapper = mount(<LoginForm />);
       expect(wrapper.find('input').first().getDOMNode().value).toEqual('');
@@ -26,7 +26,7 @@ describe('LoginForm component', () => {
       expect(wrapper.find('input').first().getDOMNode().value).toEqual('example@email.com');
     });
 
-    it('should update password state when change events occur', () => {
+    it('handlePasswordChange: should update password state when change events occur', () => {
       const mockEvent: Object = { target: { value: 'password123' } }
       const wrapper = mount(<LoginForm />);
       expect(wrapper.find('input').last().getDOMNode().value).toEqual('');
