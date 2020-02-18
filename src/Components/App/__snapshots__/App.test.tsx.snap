@@ -4,6 +4,8 @@ exports[`App component should match the snapshot 1`] = `
 <div
   className="App"
 >
-  <LoginForm />
+  <h2>
+    Welcome
+  </h2>
 </div>
 `;

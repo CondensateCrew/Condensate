@@ -5,7 +5,7 @@ import LoginForm from '../LoginForm/LoginForm';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <LoginForm />
+      <h2>Welcome</h2>
     </div>
   );
 }
