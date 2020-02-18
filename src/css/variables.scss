@@ -15,8 +15,8 @@ $darken-bg-color: darken($primary-bg-color, 2%);
 $dark-shadow-primary-color: hsla(210, 35, 78, 1);
 $light-shadow-primary-color: hsla(0, 0, 100, 1);
 $dark-font-color: hsla(213, 51, 20, 1);
-$regular-hover-color: hsla(180, 100, 93, 1);
-$darken-regular-hover-color: darken($regular-hover-color, 2%);
+$regular-hover-color: hsla(195, 98, 89, 1);
+$darken-regular-hover-color: hsla(195, 98, 79, 1);
 $error-color: hsla(7, 91, 65, 1);
 $darken-error-color: darken($error-color, 2%);
 $success-color: hsla(98, 89, 82, 1);
@@ -35,12 +35,12 @@ $error-gradient: linear-gradient(130deg, $darken-error-color 0%, $error-color 10
 $success-gradient: linear-gradient(130deg, $darken-success-color 0%, $success-color 100%);
 $genius-gradient: linear-gradient(130deg, $darken-genius-color 0%, $genius-color 100%);
 
-// Mirror Gradients
-$primary-gradient-mirror: linear-gradient(130deg, $primary-bg-color 0%, $darken-bg-color 100%);
-$hover-btn-gradient-mirror: linear-gradient(130deg, $regular-hover-color 0%, $darken-regular-hover-color 100%);
+// // Mirror Gradients
+// $primary-gradient-mirror: linear-gradient(130deg, $primary-bg-color 0%, $darken-bg-color 100%);
+// $hover-btn-gradient-mirror: linear-gradient(130deg, $regular-hover-color 0%, $darken-regular-hover-color 100%);
 $error-gradient-mirror: linear-gradient(130deg, $error-color 0%, $darken-error-color 100%);
-$success-gradient-mirror: linear-gradient(130deg, $success-color 0%, $darken-success-color 100%);
-$genius-gradient-mirror: linear-gradient(130deg, $genius-color 0%, $darken-genius-color 100%);
+// $success-gradient-mirror: linear-gradient(130deg, $success-color 0%, $darken-success-color 100%);
+// $genius-gradient-mirror: linear-gradient(130deg, $genius-color 0%, $darken-genius-color 100%);
 
 // Margin and Paddings
 $largest-space: 3rem;
@@ -49,8 +49,8 @@ $medium-space: 1.5rem;
 $small-space: 1rem;
 $extra-small-space: 0.5rem;
 $tiny-space: 0.25rem;
-$button-padding-space: 0.25rem 1.25rem;
-$input-padding-space: 0.25rem 0.25rem 0.25rem 1.25rem;
+$button-padding-space: 0.5rem 1.5rem;
+$input-padding-space: 0.5rem 0.5rem 0.5rem 1.25rem;
 $one-line-padding-space: 1rem 1.5rem;
 $small-block-padding-space: 0.5rem;
 $big-block-padding-space: 1.5rem;
@@ -61,13 +61,19 @@ $one-line-border-radius: 0.75rem;
 $big-blocks-border-radius: 1rem;
 $round-border-radius: 1.5rem;
 
+$light-border: 1px solid $light-shadow-primary-transparent;
+
 // Shadows
 $logo-shadow: 0.25rem 0.25rem 0.5rem $light-shadow-primary-transparent,
               -0.25rem -0.25rem 0.5rem $dark-shadow-primary-transparent;
 $external-shadow: 0.5rem 0.5rem 0.5rem $dark-shadow-primary-transparent,
                   -0.5rem -0.5rem 1.75rem $light-shadow-primary-transparent;
-$inner-shadow: inset 0.5rem 0.5rem 0.5rem rgba(181, 200, 219, 0.5),
-               inset -0.5rem -0.5rem 1rem rgba(255, 255, 255, 0.9);
-$regular-focus-shadow: inset 0 0 10px $darken-regular-hover-color;
-$error-shadow-input: inset 0 0 1.75rem $darken-error-color;
+$inner-shadow: inset 0.5rem 0.5rem 0.5rem $dark-shadow-primary-transparent,
+               inset -0.5rem -0.5rem 1rem $light-shadow-primary-transparent;
+$regular-input-focus-shadow: inset 0 0 0.75rem $darken-regular-hover-color;
+$regular-focus-shadow: 0 0 1rem $regular-hover-color;
+$error-shadow-input: inset 0 0 0.25rem $darken-error-color;
 $error-shadow-btn: 0 0 1.75rem $darken-error-color;
+
+$regular-btn-active-shadow: inset 5px 5px 10px #ADCDD9, inset -5px -5px 10px rgba(233, 255, 255, 0.5);
+$error-btn-active-shadow: inset 5px 5px 10px #F76855, inset -5px -5px 10px #FDD4CE;
