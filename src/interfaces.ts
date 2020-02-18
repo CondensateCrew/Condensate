@@ -34,6 +34,12 @@ export interface Category {
   name: string
 }
 
+export interface Insight {
+  id: number,
+  question: string,
+  answers: string[]
+}
+
 export interface WordContext {
   type: string,
   connectedWord: string[]
@@ -46,4 +52,20 @@ export interface randomWordCollection {
 export interface ActionObject {
   type:string,
   [key: string]: any
+}
+
+export interface AppStore {
+  user: UserLoginReceived,
+  allBrainstorms: Brainstorm[],
+  categories: Category[],
+  randomWordCollections: randomWordCollection[],
+  questionTemplates: string[],
+  secretSauce: string[],
+  currentBrainstorm: Brainstorm,
+  chosenWords: string[],
+  insights: Insight[],
+  query: string,
+  filter: string,
+  timeEnded: boolean,
+  instructionsEnded: boolean
 }
