@@ -19,7 +19,7 @@ const LoginForm: React.FC = () => {
   }
 
   const handleSubmit = () => {
-    validateCredentials(email)
+    validateCredentials(email) ? console.log('Valid Email') : console.log('Please enter valid email')
   }
 
   return (
@@ -31,7 +31,7 @@ const LoginForm: React.FC = () => {
         <label htmlFor='password'>Password</label>
         <input id='password' type='password' name='password' placeholder='********' value={password} 
         onChange={(e) => handlePasswordChange(e)}></input>
-        <button type='button' onSubmit={handleSubmit}>Login</button>
+        <button type='button' onClick={handleSubmit}>Login</button>
       </form>
     </div>
   )
