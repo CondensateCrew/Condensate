@@ -5,11 +5,17 @@ import { UserLoginPosting } from '../../interfaces';
 import { addUser } from '../../redux/actions';
 import './LoginForm.scss';
 
-const LoginForm: React.FC = () => {
+interface Props {
+  isLogin: boolean,
+  toggleTab: (login: boolean) => void
+}
+
+const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const [ email, setEmail ] = useState<string>('');
   const [ password, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
 
+  const toggleForm = ():void => toggleTab(!isLogin);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setEmail(e.target.value)
@@ -33,6 +39,10 @@ const LoginForm: React.FC = () => {
 
   return (
     <div>
+      <header>
+        <h2 className='active'>Login</h2>
+        <h2 className='hidden' onClick={toggleForm}>Sign Up</h2>
+      </header>
       <form>
         <label htmlFor='email'>Email</label>
         <input id='email' type='text' name='email' placeholder='name@email.com' value={email} 

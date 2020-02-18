@@ -2,6 +2,19 @@
 
 exports[`LoginForm component should match the snapshot 1`] = `
 <div>
+  <header>
+    <h2
+      className="active"
+    >
+      Login
+    </h2>
+    <h2
+      className="hidden"
+      onClick={[Function]}
+    >
+      Sign Up
+    </h2>
+  </header>
   <form>
     <label
       htmlFor="email"
