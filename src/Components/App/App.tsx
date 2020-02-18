@@ -1,22 +1,11 @@
 import React from 'react';
 import './App.scss';
+import LoginForm from '../LoginForm/LoginForm';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Welcome</h2>
     </div>
   );
 }

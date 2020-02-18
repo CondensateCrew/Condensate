@@ -1,10 +1,11 @@
+// DATA INTERFACES
 export interface UserLoginPosting {
   email: string,
   password: string
 }
 
 export interface UserLoginReceived {
-  readonly email: string,
+  readonly id: number,
   readonly firstName: string,
   readonly lastName: string
 }
@@ -14,7 +15,10 @@ export interface UserSignupPosting {
   password: string,
   firstName: string,
   lastName: string,
+  id?: number
 }
+
+// REDUX STORE INTERFACES
 
 export interface Brainstorm {
   id?: number,
@@ -43,6 +47,11 @@ export interface WordContext {
 
 export interface randomWordCollection {
   [key: string]: WordContext
+}
+
+export interface ActionObject {
+  type:string,
+  [key: string]: any
 }
 
 export interface AppStore {
