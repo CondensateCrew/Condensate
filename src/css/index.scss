@@ -29,3 +29,54 @@ h3 {
   text-transform: uppercase;
   font-weight: 500;
 }
+
+label {
+  text-transform: uppercase;
+  font-size: 1em;
+  margin: 1em;
+}
+
+%buttons {
+  border-radius: $round-border-radius;
+  box-shadow: $external-shadow;
+  font-weight: 700;
+  text-transform: lowercase;
+  padding: $button-padding-space;
+  &:disabled {
+    box-shadow: $inner-shadow;
+    &:hover {
+      background: $primary-gradient;
+      border: 1px solid transparent;
+      box-shadow: $inner-shadow;
+    }
+  }
+}
+
+%regular-btn {
+  @extend %buttons;
+  background: $primary-gradient;
+  border: $light-border;
+  margin: $medium-space auto;
+  &:focus {
+    box-shadow: $external-shadow, $regular-focus-shadow;
+  }
+  &:hover {
+    background: $hover-btn-gradient;
+    border: 1px solid transparent;
+    box-shadow: $external-shadow, $regular-focus-shadow;
+  }
+  &:active {
+    box-shadow: $regular-btn-active-shadow;
+  }
+}
+
+%regular-input {
+  border-radius: $round-border-radius;
+  box-shadow: $inner-shadow;
+  margin-top: $extra-small-space;
+  padding: $input-padding-space;
+  width: 100%;
+  &:focus {
+    box-shadow: $inner-shadow, $regular-input-focus-shadow;
+  }
+}
