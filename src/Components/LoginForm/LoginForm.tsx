@@ -18,8 +18,16 @@ const LoginForm: React.FC = () => {
     setPassword(e.target.value)
   }
 
+  const validateEmail = () => {
+    if (!validateCredentials(email)) {
+      setError('Please enter valid email')
+    }
+  }
+
   const handleSubmit = () => {
-    validateCredentials(email) ? console.log('Valid Email') : console.log('Please enter valid email')
+    if (!validateCredentials(email)) {
+      setError('Please enter valid email')
+    }
   }
 
   return (
@@ -27,7 +35,7 @@ const LoginForm: React.FC = () => {
       <form>
         <label htmlFor='email'>Email</label>
         <input id='email' type='text' name='email' placeholder='name@email.com' value={email} 
-        onChange={(e) => handleEmailChange(e)}></input>
+        onChange={(e) => handleEmailChange(e)} onBlur={validateEmail}></input>
         <label htmlFor='password'>Password</label>
         <input id='password' type='password' name='password' placeholder='********' value={password} 
         onChange={(e) => handlePasswordChange(e)}></input>

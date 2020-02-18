@@ -11,6 +11,7 @@ exports[`LoginForm component should match the snapshot 1`] = `
     <input
       id="email"
       name="email"
+      onBlur={[Function]}
       onChange={[Function]}
       placeholder="name@email.com"
       type="text"
