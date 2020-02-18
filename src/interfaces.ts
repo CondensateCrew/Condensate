@@ -38,3 +38,8 @@ export interface WordContext {
 export interface randomWordCollection {
   [key: string]: WordContext
 }
+
+export interface ActionObject {
+  type:string,
+  [key: string]: any
+}
