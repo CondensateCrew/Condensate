@@ -4,9 +4,9 @@ const userReducer = (state:object = {}, action:ActionObject) => {
   switch(action.type) {
     case 'ADD_USER':
       return {
-        id: action.id,
-        firstName: action.firstName,
-        lastName: action.lastName
+        id: action.user.id,
+        firstName: action.user.firstName,
+        lastName: action.user.lastName
       }
     case 'LOG_OUT_USER':
       return {}
