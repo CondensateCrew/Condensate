@@ -3,3 +3,8 @@ export const validateCredentials = (email:string):boolean => {
   let test = regExp.test(email)
   return test
 }
+
+
+// // create switch case for when input fields are empty, 
+//   case (input.name === firstName):
+//     return setError
