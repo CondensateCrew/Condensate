@@ -1,2 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500,700|Varela&display=swap');
 @import "./variables.scss";
+
+body {
+  background-color: $primary-bg-color;
+  * {
+    font-family: $base-font;
+    color: $dark-font-color;
+  }
+}
+
+h1 {
+  font-family: $logo-font;
+  font-size: $logo-text;
+  letter-spacing: 0.5em;
+  text-align: right;
+  text-transform: uppercase;
+  text-shadow: $logo-shadow;
+  width: 100%;
+}
+
+h2 {
+  font-size: $big-text;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: $medium-text;
+  text-transform: uppercase;
+  font-weight: 500;
+}
