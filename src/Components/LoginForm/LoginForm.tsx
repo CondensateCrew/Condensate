@@ -2,6 +2,7 @@ import React, { useState, } from 'react';
 import { useDispatch } from 'react-redux';
 import { validateCredentials } from '../../_utils';
 import { UserLoginPosting } from '../../interfaces';
+import { addUser } from '../../redux/actions';
 import './LoginForm.scss';
 
 const LoginForm: React.FC = () => {
