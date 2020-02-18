@@ -1,0 +1,30 @@
+@import "../../css/index.scss";
+
+.welcome-page {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  min-height: 95vh;
+  align-items: center;
+  &>* {
+    width: 50%;
+  }
+  aside {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    h2 {
+      font-weight: 300;
+      line-height: 1.5em;
+      letter-spacing: 0.5em;
+      text-align: right;
+      margin-top: 4rem;
+      margin-right: 1.25rem;
+    }
+  }
+  &>div {
+    @extend %initial-form;
+  }
+}
