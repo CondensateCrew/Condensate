@@ -10,11 +10,11 @@ const LoginForm: React.FC = () => {
   const [ error, setError ] = useState<string>('');
 
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setEmail(e.target.value)
   }
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setPassword(e.target.value)
   }
 
