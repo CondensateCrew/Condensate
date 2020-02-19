@@ -1,24 +1,39 @@
 import timeEndedReducer from './timeEnded';
-import { ActionObject } from 'interfaces';
+import { ActionObject, IEndTimeAction, IReverseTimeAction } from 'interfaces';
 
 describe('instructionsEndedReducer', () => {
   it("should return initial value", () => {
+    const mockAction: ActionObject = {
+      type: '',
+      isEnded: undefined
+    };
     const expected: boolean = false;
-    const result = timeEndedReducer(undefined, {type: '', isEnded: undefined });
+    const result = timeEndedReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   });
 
-  it("should return the result of instructions end if type of action is CHANGE_IS_ENDED", () => {
-    const mockAction: ActionObject = {
-      type: 'CHANGE_IS_ENDED',
-      isEnded: true
+  it("should return true if type of action is END_TIME", () => {
+    const mockAction: IEndTimeAction = {
+      type: 'END_TIME'
     };
 
     const expected: boolean = true;
 
-    const result: boolean = timeEndedReducer(undefined, mockAction);
+    const result = timeEndedReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
-  })
+  });
+
+  it("should return false if type of action is REVERSE_TIME", () => {
+    const mockAction: IReverseTimeAction = {
+      type: 'REVERSE_TIME'
+    };
+
+    const expected: boolean = false;
+
+    const result = timeEndedReducer(true, mockAction);
+
+    expect(result).toEqual(expected);
+  });
 });
