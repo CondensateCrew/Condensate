@@ -48,7 +48,7 @@ export interface WordContext {
   connectedWord: string[]
 }
 
-export interface randomWordCollection {
+export interface RandomWordCollection {
   [key: string]: WordContext
 }
 
@@ -57,7 +57,7 @@ export interface AppStore {
   allBrainstorms: Brainstorm[],
   actions: Action[],
   categories: Category[],
-  readonly randomWordCollections: randomWordCollection[],
+  readonly randomWordCollections: RandomWordCollection[],
   readonly questionTemplates: string[],
   readonly secretSauce: string[],
   currentBrainstorm: Brainstorm,
