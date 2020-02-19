@@ -65,10 +65,10 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
         {error !== '' && <p className="error-notification">{error}</p>}
         <label htmlFor='email'>Email</label>
         <input id='email' type='text' name='email' placeholder='name@email.com' value={email} 
-        onChange={(e) => handleEmailChange(e)} onBlur={validateEmail} autoComplete='off' required></input>
+        onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' required></input>
         <label htmlFor='password'>Password</label>
         <input id='password' type='password' name='password' placeholder='********' value={password} 
-        onChange={(e) => handlePasswordChange(e)} onBlur={alertRequired} required></input>
+        onChange={handlePasswordChange} onBlur={alertRequired} required></input>
         <button type='button' disabled={disabled} onClick={handleSubmit}>Login</button>
       </form>
     </div>
