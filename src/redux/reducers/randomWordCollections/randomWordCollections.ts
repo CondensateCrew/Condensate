@@ -1,10 +1,10 @@
-import { ActionObject, randomWordCollection } from 'interfaces';
+import { ActionObject, RandomWordCollection } from 'interfaces';
 
-type state = randomWordCollection[] | [ ];
+type state = RandomWordCollection[] | [ ];
 
 const randomWordCollections = (state: state = [ ], action: ActionObject) => {
   switch(action.type) {
-    case 'ADD_RANDOM_COLLECTIONS':
+    case 'ADD_ALL_COLLECTIONS':
       return action.collections;
     default:
       return state;
