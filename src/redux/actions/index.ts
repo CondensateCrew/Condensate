@@ -5,7 +5,6 @@ import {
   UserLoginReceived,
   RandomWordCollection,
   Insight,
-  ActionObject,
   IAddUserAction,
   ILogoutUserAction,
   IAddAllActionsAction,
