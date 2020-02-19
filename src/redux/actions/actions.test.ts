@@ -237,3 +237,31 @@ describe("currentBrainstorm", () => {
   });
 });
 
+describe("chosenWords", () => {
+  it("should return object with a type of ADD_WORD when addChosenWord is called", () => {
+    const wordMock: string = 'Elephant';
+
+    const expected: interfaces.IAddChosenWordAction = {
+      type: 'ADD_WORD',
+      chosenWord: wordMock
+    };
+
+    const result = actions.addChosenWord(wordMock)
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return object with a type of REMOVE_WORD when removeChosenWord is called", () => {
+    const wordMock: string = 'Elephant';
+
+    const expected: interfaces.IRemoveChosenWordAction = {
+      type: 'REMOVE_WORD',
+      chosenWord: wordMock
+    };
+
+    const result = actions.removeChosenWord(wordMock)
+
+    expect(result).toEqual(expected);
+  });
+});
+
