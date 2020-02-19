@@ -18,7 +18,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const toggleForm = ():void => toggleTab(!isLogin);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
-    setEmail(e.target.value)
+    setEmail(e.target.value);
   }
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
@@ -27,8 +27,9 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   
   const validateEmail = () => {
     if (!validateCredentials(email)) {
-      setError('Please enter valid email')
+      return setError('Please enter valid email')
     }
+    setError('')
   }
   
   const validateButton = ():void => {
@@ -39,11 +40,17 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   
   const handleSubmit = () => {
     if (!validateCredentials(email)) {
-      setError('Please enter valid email')
+      return setError('Please enter valid email')
+    }
+  }
+
+  const alertRequired = () => {
+    if (password === '') {
+      return setError('Please enter a password')
     }
   }
   
-  useEffect(validateButton, [ email, password ]);
+  useEffect(validateButton, [ email, password, error ]);
 
   return (
     <div>
@@ -55,10 +62,10 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
         {error !== '' && <p className="error-notification">{error}</p>}
         <label htmlFor='email'>Email</label>
         <input id='email' type='text' name='email' placeholder='name@email.com' value={email} 
-        onChange={(e) => handleEmailChange(e)} onBlur={validateEmail}></input>
+        onChange={(e) => handleEmailChange(e)} onBlur={validateEmail} autoComplete='off' required></input>
         <label htmlFor='password'>Password</label>
         <input id='password' type='password' name='password' placeholder='********' value={password} 
-        onChange={(e) => handlePasswordChange(e)}></input>
+        onChange={(e) => handlePasswordChange(e)} onBlur={alertRequired} required></input>
         <button type='button' disabled={disabled} onClick={handleSubmit}>Login</button>
       </form>
     </div>
