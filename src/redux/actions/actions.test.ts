@@ -309,3 +309,29 @@ describe("query", () => {
   });
 });
 
+describe("filter", () => {
+  it("should return object with a type of ADD_FILTER when addFilter is called", () => {
+    const filterMock: string = 'Tech';
+
+    const expected: interfaces.IAddFilterAction = {
+      type: 'ADD_FILTER',
+      filter: filterMock
+    };
+
+    const result = actions.addFilter(filterMock)
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return object with a type of REMOVE_FILTER when removeFilter is called", () => {
+    const expected: interfaces.IRemoveFilterAction = {
+      type: 'REMOVE_FILTER'
+    };
+
+    const result = actions.removeFilter()
+
+    expect(result).toEqual(expected);
+  });
+});
+
+
