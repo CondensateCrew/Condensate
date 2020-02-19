@@ -6,11 +6,12 @@ import App from './Components/App/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { Store, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './redux/reducers';
+import { AppStore } from './interfaces';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store: Store<AppStore> = createStore(rootReducer, composeWithDevTools());
 
 const app = (
   <Provider store={store}>

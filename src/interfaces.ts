@@ -25,7 +25,7 @@ export interface Brainstorm {
   question: string,
   idea: string,
   action: string,
-  isGenius: string,
+  isGenius: boolean,
   categories: number[]
 }
 
@@ -49,18 +49,14 @@ export interface randomWordCollection {
   [key: string]: WordContext
 }
 
-export interface ActionObject {
-  type:string,
-  [key: string]: any
-}
-
 export interface AppStore {
   user: UserLoginReceived,
   allBrainstorms: Brainstorm[],
+  actions: string[],
   categories: Category[],
-  randomWordCollections: randomWordCollection[],
-  questionTemplates: string[],
-  secretSauce: string[],
+  readonly randomWordCollections: randomWordCollection[],
+  readonly questionTemplates: string[],
+  readonly secretSauce: string[],
   currentBrainstorm: Brainstorm,
   chosenWords: string[],
   insights: Insight[],
@@ -68,4 +64,11 @@ export interface AppStore {
   filter: string,
   timeEnded: boolean,
   instructionsEnded: boolean
+}
+
+// ACTIONS OBJECTS
+
+export interface ActionObject {
+  type: string,
+  [key: string]: any
 }
