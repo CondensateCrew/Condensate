@@ -284,3 +284,28 @@ describe("insights", () => {
   });
 });
 
+describe("query", () => {
+  it("should return object with a type of ADD_QUERY when addQuery is called", () => {
+    const queryMock: string = 'App';
+
+    const expected: interfaces.IAddQueryAction = {
+      type: 'ADD_QUERY',
+      query: queryMock
+    };
+
+    const result = actions.addQuery(queryMock)
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return object with a type of REMOVE_QUERY when removeQuery is called", () => {
+    const expected: interfaces.IRemoveQueryAction = {
+      type: 'REMOVE_QUERY'
+    };
+
+    const result = actions.removeQuery()
+
+    expect(result).toEqual(expected);
+  });
+});
+
