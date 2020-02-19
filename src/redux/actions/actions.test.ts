@@ -265,3 +265,22 @@ describe("chosenWords", () => {
   });
 });
 
+describe("insights", () => {
+  it("should return object with a type of ADD_INSIGHT when addInsight is called", () => {
+    const insightMock: interfaces.Insight = {
+      id: 1,
+      question: 'What?',
+      answers: ['Doing']
+    };
+
+    const expected: interfaces.IAddInsightAction = {
+      type: 'ADD_INSIGHT',
+      insight: insightMock
+    };
+
+    const result = actions.addInsight(insightMock)
+
+    expect(result).toEqual(expected);
+  });
+});
+
