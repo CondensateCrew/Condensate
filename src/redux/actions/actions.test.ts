@@ -117,3 +117,37 @@ describe("allBrainstorms", () => {
   });
 });
 
+describe("categories", () => {
+  it("should return object with a type of ADD_ALL_CATEGORIES when addAllCategories is called", () => {
+    const categoiesMock: interfaces.Category[] = [{
+      id: 1,
+      name: 'Tech'
+    }];
+
+    const expected: interfaces.IAddAllCategoriesAction = {
+      type: 'ADD_ALL_CATEGORIES',
+      categories: categoiesMock
+    };
+
+    const result = actions.addAllCategories(categoiesMock)
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return object with a type of ADD_CATEGORY when addNewCategory is called", () => {
+    const categoryMock: interfaces.Category = {
+      id: 1,
+      name: 'Tech'
+    };
+
+    const expected: interfaces.IAddNewCategoryAction = {
+      type: 'ADD_CATEGORY',
+      category: categoryMock
+    };
+
+    const result = actions.addNewCategory(categoryMock)
+
+    expect(result).toEqual(expected);
+  });
+});
+
