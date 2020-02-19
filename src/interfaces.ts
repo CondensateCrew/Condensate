@@ -29,7 +29,7 @@ export interface Brainstorm {
   idea: string,
   action: string,
   isGenius: boolean,
-  categories: number[]
+  categories: Category[]
 }
 
 export interface Category {
