@@ -4,6 +4,19 @@ exports[`App component should match the snapshot 1`] = `
 <div
   className="App"
 >
-  <WelcomePage />
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      path="/dashboard"
+      render={[Function]}
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
 </div>
 `;
