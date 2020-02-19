@@ -357,3 +357,24 @@ describe("timeEnded", () => {
   });
 });
 
+describe("instructionsEnded", () => {
+  it("should return object with a type of END_INSTRUCTIONS when endInstructions is called", () => {
+    const expected: interfaces.IEndInstructionsAction = {
+      type: 'END_INSTRUCTIONS'
+    };
+
+    const result = actions.endInstructions()
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return object with a type of REVERSE_INSTRUCTIONS when reverseInstructions is called", () => {
+    const expected: interfaces.IReverseInstructionsAction = {
+      type: 'REVERSE_INSTRUCTIONS'
+    };
+
+    const result = actions.reverseInstructions()
+
+    expect(result).toEqual(expected);
+  });
+});
