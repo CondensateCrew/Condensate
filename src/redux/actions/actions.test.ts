@@ -335,3 +335,25 @@ describe("filter", () => {
 });
 
 
+describe("timeEnded", () => {
+  it("should return object with a type of END_TIME when endTime is called", () => {
+    const expected: interfaces.IEndTimeAction = {
+      type: 'END_TIME'
+    };
+
+    const result = actions.endTime()
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return object with a type of REVERSE_TIME when reverseTime is called", () => {
+    const expected: interfaces.IReverseTimeAction = {
+      type: 'REVERSE_TIME'
+    };
+
+    const result = actions.reverseTime()
+
+    expect(result).toEqual(expected);
+  });
+});
+
