@@ -1,9 +1,10 @@
-import userReducer from './userReducer';
-import { ActionObject } from '../../interfaces';
-import { UserLoginReceived } from '../../interfaces';
+import userReducer from './user';
+import { ActionObject } from 'interfaces';
+import { UserLoginReceived } from 'interfaces';
 
 describe('userReducer', () => {
   let action: ActionObject;
+
   beforeEach(() => {
     action = {type: '', payload: {}}
   });
