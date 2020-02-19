@@ -205,3 +205,35 @@ describe("secretSauce", () => {
   });
 });
 
+describe("currentBrainstorm", () => {
+  it("should return object with a type of ADD_CURRENT_BRAINSTORM when addCurrentBrainstorm is called", () => {
+    const currentBrainstormMock: interfaces.Brainstorm = {
+      id: 1,
+      question: 'What?',
+      idea: 'Idea',
+      action: 'Build',
+      categories: [{id: 1, name: "Tech"}],
+      isGenius: true
+    };
+
+    const expected: interfaces.IAddCurrentBrainstormAction = {
+      type: 'ADD_CURRENT_BRAINSTORM',
+      currentBrainstorm: currentBrainstormMock
+    };
+
+    const result = actions.addCurrentBrainstorm(currentBrainstormMock)
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return object with a type of REMOVE_CURRENT_BRAINSTORM when removeCurrentBrainstorm is called", () => {
+    const expected: interfaces.IRemoveCurrentBrainstormAction = {
+      type: 'REMOVE_CURRENT_BRAINSTORM'
+    };
+
+    const result = actions.removeCurrentBrainstorm()
+
+    expect(result).toEqual(expected);
+  });
+});
+
