@@ -22,11 +22,13 @@ exports[`LoginForm component should match the snapshot 1`] = `
       Email
     </label>
     <input
+      autoComplete="off"
       id="email"
       name="email"
       onBlur={[Function]}
       onChange={[Function]}
       placeholder="name@email.com"
+      required={true}
       type="text"
       value=""
     />
@@ -38,8 +40,10 @@ exports[`LoginForm component should match the snapshot 1`] = `
     <input
       id="password"
       name="password"
+      onBlur={[Function]}
       onChange={[Function]}
       placeholder="********"
+      required={true}
       type="password"
       value=""
     />
