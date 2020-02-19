@@ -1,12 +1,16 @@
 import currentBrainstormReducer from './currentBrainstorm';
-import { ActionObject, Brainstorm } from 'interfaces';
+import { ActionObject, Brainstorm, IAddCurrentBrainstormAction, IRemoveCurrentBrainstormAction } from 'interfaces';
 
 type emptyObject = { };
 
 describe('currentBrainstormReducer', () => {
   it("should return initial value", () => {
+    const mockAction: ActionObject = {
+      type: '',
+      currentBrainstorm: undefined
+    };
     const expected: emptyObject = { };
-    const result = currentBrainstormReducer(undefined, {type: '', currentBrainstorm: undefined });
+    const result = currentBrainstormReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   });
@@ -17,10 +21,10 @@ describe('currentBrainstormReducer', () => {
       idea: 'Idea',
       action: 'Do sth',
       isGenius: true,
-      categories: [1, 2]
+      categories: [{id: 1, name: 'Tech'}]
     };
 
-    const mockAction: ActionObject = {
+    const mockAction: IAddCurrentBrainstormAction = {
       type: 'ADD_CURRENT_BRAINSTORM',
       currentBrainstorm: mockBrainstorm
     };
@@ -30,5 +34,17 @@ describe('currentBrainstormReducer', () => {
     const result: Brainstorm = currentBrainstormReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
-  })
+  });
+
+  it("should return the empty array if type of action is REMOVE_CURRENT_BRAINSTORM", () => {
+    const mockAction: IRemoveCurrentBrainstormAction = {
+      type: 'REMOVE_CURRENT_BRAINSTORM'
+    };
+
+    const expected: emptyObject = { };
+
+    const result: Brainstorm = currentBrainstormReducer(undefined, mockAction);
+
+    expect(result).toEqual(expected);
+  });
 });
