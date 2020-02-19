@@ -1,23 +1,27 @@
 import questionTemplatesReducer from './questionTemplates';
-import { ActionObject } from 'interfaces';
+import { ActionObject, IAddQuestionTemplatesAction } from 'interfaces';
 
 type emptyArray = [ ];
 
 describe('questionTemplatesReducer', () => {
   it("should return initial value", () => {
+    const mockAction: ActionObject = {
+      type: '',
+      templates: undefined
+    };
     const expected: emptyArray = [ ];
-    const result = questionTemplatesReducer(undefined, {type: '', templates: undefined });
+    const result = questionTemplatesReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   });
 
-  it("should return the array with question templates if type of action is ADD_TEMPLATES", () => {
+  it("should return the array with question templates if type of action is ADD_ALL_TEMPLATES", () => {
     const mockTemplates: string[] = [
       'What do you eat?'
     ];
 
-    const mockAction: ActionObject = {
-      type: 'ADD_TEMPLATES',
+    const mockAction: IAddQuestionTemplatesAction = {
+      type: 'ADD_ALL_TEMPLATES',
       templates: mockTemplates
     };
 
