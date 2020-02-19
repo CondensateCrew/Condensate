@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { UserSignupPosting } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
+import { useHistory } from 'react-router-dom';
 
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
 
@@ -21,6 +22,8 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const [ repeatPassword, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
+
+  let history = useHistory();
 
   const validateButton = (): void => {
     if (user.email === '') return setDisabled(true);
@@ -50,6 +53,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     if (error !== '') {
       console.log(user);
     }
+    history.push('/dashboard')
   }
 
   const toggleForm = (): void => toggleTab(!isLogin);

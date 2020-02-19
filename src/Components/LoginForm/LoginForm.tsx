@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { validateCredentials } from '../../_utils';
 import { UserLoginPosting } from '../../interfaces';
 import { addUser } from '../../redux/actions';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   isLogin: boolean,
@@ -14,6 +15,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const [ password, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
   const [ disabled, setDisabled ] = useState<boolean>(true);
+  let history = useHistory();
 
   const toggleForm = ():void => toggleTab(!isLogin);
 
@@ -42,6 +44,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
     if (!validateCredentials(email)) {
       return setError('Please enter valid email')
     }
+    history.push('/dashboard')
   }
 
   const alertRequired = () => {
