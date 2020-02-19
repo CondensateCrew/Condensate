@@ -5,3 +5,5 @@ const Dashboard: React.FC = () => {
     <h2>Condensate Dashboard</h2>
   )
 }
+
+export default Dashboard;
