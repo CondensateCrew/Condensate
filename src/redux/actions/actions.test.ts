@@ -151,3 +151,57 @@ describe("categories", () => {
   });
 });
 
+describe("randomWordCollections", () => {
+  it("should return object with a type of ADD_ALL_COLLECTIONS when addRandomWordCollections is called", () => {
+    const collectionsMock: interfaces.RandomWordCollection[] = [{
+      'goose': {
+        type: 'noun',
+        connectedWord: ['duck', 'happy', 'dinner']
+      }
+    }];
+
+    const expected: interfaces.IAddRandomWordCollectionsAction = {
+      type: 'ADD_ALL_COLLECTIONS',
+      collections: collectionsMock
+    };
+
+    const result = actions.addRandomWordCollections(collectionsMock)
+
+    expect(result).toEqual(expected);
+  });
+});
+
+describe("questionTemplates", () => {
+  it("should return object with a type of ADD_ALL_COLLECTIONS when addQuestionTemplates is called", () => {
+    const questionsMock: string[] = [
+      'What does <sth> do with <sec>?'
+    ];
+
+    const expected: interfaces.IAddQuestionTemplatesAction = {
+      type: 'ADD_ALL_TEMPLATES',
+      templates: questionsMock
+    };
+
+    const result = actions.addQuestionTemplates(questionsMock)
+
+    expect(result).toEqual(expected);
+  });
+});
+
+describe("secretSauce", () => {
+  it("should return object with a type of ADD_SECRETE_SAUSE when addSecretSauce is called", () => {
+    const secretSauceMock: string[] = [
+      'winter', 'development'
+    ];
+
+    const expected: interfaces.IAddSecretSauceAction = {
+      type: 'ADD_SECRETE_SAUSE',
+      secretSauce: secretSauceMock
+    };
+
+    const result = actions.addSecretSauce(secretSauceMock)
+
+    expect(result).toEqual(expected);
+  });
+});
+
