@@ -1,4 +1,4 @@
-import { ActionObject } from '../../interfaces';
+import { ActionObject } from 'interfaces';
 
 const userReducer = (state:object = {}, action:ActionObject) => {
   switch(action.type) {
@@ -10,7 +10,7 @@ const userReducer = (state:object = {}, action:ActionObject) => {
       }
     case 'LOG_OUT_USER':
       return {}
-    default: 
+    default:
       return state
   }
 }
