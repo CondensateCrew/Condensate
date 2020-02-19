@@ -18,7 +18,10 @@ export interface UserSignupPosting {
   id?: number
 }
 
-// REDUX STORE INTERFACES
+export interface Action {
+  id?: number,
+  name: string
+}
 
 export interface Brainstorm {
   id?: number,
@@ -52,7 +55,7 @@ export interface randomWordCollection {
 export interface AppStore {
   user: UserLoginReceived,
   allBrainstorms: Brainstorm[],
-  actions: string[],
+  actions: Action[],
   categories: Category[],
   readonly randomWordCollections: randomWordCollection[],
   readonly questionTemplates: string[],
