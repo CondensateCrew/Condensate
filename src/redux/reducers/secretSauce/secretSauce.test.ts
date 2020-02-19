@@ -5,8 +5,12 @@ type emptyArray = [];
 
 describe('secretSauceReducer', () => {
   it("should return initial value", () => {
+    const mockAction: ActionObject = {
+      type: '',
+      secretSauce: undefined
+    };
     const expected: emptyArray = [];
-    const result = secretSauceReducer(undefined, {type: '', words: undefined });
+    const result = secretSauceReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   });
@@ -18,7 +22,7 @@ describe('secretSauceReducer', () => {
 
     const mockAction: ActionObject = {
       type: 'ADD_SECRET_SAUCE',
-      words: mockWords
+      secretSauce: mockWords
     };
 
     const expected: string[] = mockWords;
