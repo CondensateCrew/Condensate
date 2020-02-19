@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { UserSignupPosting } from '../../interfaces'
-import InputElement from '../../Components/InputElement/InputElement'
+import { UserSignupPosting } from '../../interfaces';
+import InputElement from '../../Components/InputElement/InputElement';
+import { validateCredentials } from '../../_utils';
 
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
 
@@ -32,11 +33,12 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   }
 
   const validateInputs = (): void => {
-    if (user.email === '') return setError('Please, add you email!');
-    if (user.password === '') return setError('Please, add you password!');
-    if (user.firstName === '') return setError('Please, add you first name!');
-    if (user.lastName === '') return setError('Please, add you last name!');
-    if (user.password !== repeatPassword) return setError('Passwords are not the same!');
+    if (user.email === '') return setError('Please, add you email');
+    if (user.password === '') return setError('Please, add you password');
+    if (user.firstName === '') return setError('Please, add you first name');
+    if (user.lastName === '') return setError('Please, add you last name');
+    if (user.password !== repeatPassword) return setError('Passwords are not the same');
+    if (!validateCredentials(user.email)) return setError('Please, enter a valid email');
     return setError('');
   }
 
