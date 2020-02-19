@@ -4,8 +4,10 @@ type state = string[ ] | [ ];
 
 const chosenWords = (state: state = [ ], action: ActionObject) => {
   switch(action.type) {
-    case 'ADD_SELECTED_WORD':
-      return [...state, action.word];
+    case 'ADD_WORD':
+      return [...state, action.chosenWord];
+    case 'REMOVE_WORD':
+      return state.filter(word => word !== action.chosenWord);
     default:
       return state;
   }
