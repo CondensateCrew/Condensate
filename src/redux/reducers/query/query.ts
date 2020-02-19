@@ -6,6 +6,8 @@ const query = (state: state = '', action: ActionObject) => {
   switch(action.type) {
     case 'ADD_QUERY':
       return action.query;
+    case 'REMOVE_QUERY':
+      return '';
     default:
       return state;
   }
