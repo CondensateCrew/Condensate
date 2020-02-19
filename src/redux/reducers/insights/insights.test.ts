@@ -1,12 +1,16 @@
 import insightsReducer from './insights';
-import { ActionObject, Insight } from 'interfaces';
+import { ActionObject, Insight, IAddInsightAction } from 'interfaces';
 
 type emptyArray = [];
 
 describe('insightsReducer', () => {
   it("should return initial value", () => {
+    const mockAction: ActionObject = {
+      type: '',
+      insight: undefined
+    };
     const expected: emptyArray = [];
-    const result = insightsReducer(undefined, {type: '', insight: undefined });
+    const result = insightsReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   });
@@ -18,7 +22,7 @@ describe('insightsReducer', () => {
       answers: ['Fighting']
     };
 
-    const mockAction: ActionObject = {
+    const mockAction: IAddInsightAction = {
       type: 'ADD_INSIGHT',
       insight: mockInsight
     };
