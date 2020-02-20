@@ -10,6 +10,7 @@ import {
   IAddAllActionsAction,
   IAddNewActionAction,
   IAddAllBrainstormsAction,
+  IChangeBrainstormAction,
   IAddNewBrainstormAction,
   IDeleteBrainstormAction,
   IAddAllCategoriesAction,
@@ -57,6 +58,11 @@ export const addNewAction = (action: Action): IAddNewActionAction => ({
 export const addAllBrainstorms = (brainstorms: Brainstorm[]): IAddAllBrainstormsAction => ({
   type: 'ADD_ALL_BRAINSTORMS',
   brainstorms: brainstorms
+});
+
+export const toggleBrainstorm = (id: number): IChangeBrainstormAction => ({
+  type: 'TOGGLE_BRAINSTORMS',
+  id: id
 });
 
 export const addNewBrainstorm = (brainstorm: Brainstorm): IAddNewBrainstormAction => ({
