@@ -4,7 +4,7 @@ import BrainstormCategory from '../../Components/BrainstormCategory/BrainstormCa
 import mockCategories from '../../data/mockCategories';
 
 const CategoryField:React.FC = () => {
-  const categories = mockCategories.map((category:string) => <BrainstormCategory category={category}/>)
+  const categories = mockCategories.map((category:string, index:number) => <BrainstormCategory key={index} category={category}/>)
   return (
     <section className='category-field-section'>
       {categories}
