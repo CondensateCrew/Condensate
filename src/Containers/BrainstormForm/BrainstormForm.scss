@@ -3,7 +3,7 @@
 
 .brainstorm-form {
   width: 27vw;
-  height: 90vh;
+  height: 85%;
   margin: $medium-space;
   padding-top: $large-space;
   background: $primary-gradient;
@@ -12,7 +12,7 @@
 }
 
 .brainstorm-div {
-  padding: $large-space;
+  padding: $medium-space;
   text-align: left;
   label {
     margin-left: -.25vw;
@@ -21,12 +21,14 @@
 
 .brainstorm-label {
   font-size: 1.25rem;
+  padding-left: .5rem;
+  padding-bottom: 2rem;
 }
 
 .brainstorm-summary-textarea {
   width: 100%;
   padding: $large-space;
-  height: 14vh;
+  height: 10vh;
   @extend %regular-input;
   border-radius: 1rem 1rem 1rem 1rem;
 }
@@ -38,30 +40,28 @@
   width: 80%;
   margin-top: 3vh;
   margin-left: 2.5vw;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .cancel-btn {
-  width: 7vw;
-  height: 4vh;
-  border-radius: 15px 15px 15px 15px;
+  @extend %regular-btn;
   background: $error-color;
   font-weight: bold;
   &:hover {
     background: $darken-error-color;
   }
+  margin-left: -.05rem;
 }
 
 .broom {
   width: 2.5vw;
-  height: 5vh;
+  height: 4.25vh;
   padding: .5rem;
-  transform: rotate(270deg);
   border-radius: $round-border-radius;
   @extend %regular-btn;
-  box-shadow: $regular-btn-active-shadow;
   cursor: pointer;
+  margin-left: -.15rem;
 }
 
 .start-btn {

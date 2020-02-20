@@ -1,8 +1,12 @@
 import React from 'react';
+import './BrainstromCategory.scss';
 
-const BrainstormCategory:React.FC = () => {
+interface Props {
+  category:string
+}
+const BrainstormCategory:React.FC<Props> = ({ category }) => {
   return (
-    <p>A category to select: Education, Technology, Environment</p>
+    <button className='category-btn'>{category}</button>
   )
 }
 
