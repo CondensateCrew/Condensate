@@ -1,9 +1,13 @@
 import React from 'react';
+import BrainstormAction from '../../Components/BrainstormAction/BrainstormAction';
 
 const ActionsField:React.FC = () => {
   return (
-    <section>
-      <p>This is an Actions Field where the various actions will render</p>
-    </section>
+    <select className='actions-dropdown-menu'>
+      <option>Default</option>
+      <BrainstormAction />
+    </select>
   )
 }
+
+export default ActionsField;

@@ -5,3 +5,5 @@ const BrainstormCategory:React.FC = () => {
     <p>A category to select: Education, Technology, Environment</p>
   )
 }
+
+export default BrainstormCategory;
