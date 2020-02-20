@@ -40,12 +40,12 @@ $genius-gradient: linear-gradient(130deg, $darken-genius-color 0%, $genius-color
 // $hover-btn-gradient-mirror: linear-gradient(130deg, $regular-hover-color 0%, $darken-regular-hover-color 100%);
 $error-gradient-mirror: linear-gradient(130deg, $error-color 0%, $darken-error-color 100%);
 // $success-gradient-mirror: linear-gradient(130deg, $success-color 0%, $darken-success-color 100%);
-// $genius-gradient-mirror: linear-gradient(130deg, $genius-color 0%, $darken-genius-color 100%);
+$genius-gradient-mirror: linear-gradient(130deg, lighten($genius-color, 10%) 0%, darken($darken-genius-color, 10%) 100%);
 
 // Margin and Paddings
-$largest-space: 3rem;
-$large-space: 2rem;
-$medium-space: 1.5rem;
+$largest-space: 3rem; // 48
+$large-space: 2rem; // 32
+$medium-space: 1.5rem; // 24
 $small-space: 1rem;
 $extra-small-space: 0.5rem;
 $tiny-space: 0.25rem;
