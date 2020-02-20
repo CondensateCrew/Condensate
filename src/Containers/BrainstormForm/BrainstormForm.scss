@@ -1,16 +1,70 @@
 @import '../../css/variables.scss';
+@import '../../css/index.scss';
 
 .brainstorm-form {
-  width: 25vw;
-  height: 70vh;
-  margin: $large-space;
+  width: 27vw;
+  height: 90vh;
+  margin: $medium-space;
   padding-top: $large-space;
   background: $primary-gradient;
-  border-radius: 1rem 1rem 1rem 1rem;
+  border-radius: $big-blocks-border-radius;
   box-shadow: $external-shadow;
+}
+
+.brainstorm-div {
+  padding: $large-space;
+  text-align: left;
+  label {
+    margin-left: -.25vw;
+  }
 }
 
 .brainstorm-label {
   font-size: 1.25rem;
-  padding-top: 2vh;
+}
+
+.brainstorm-summary-textarea {
+  width: 100%;
+  padding: $large-space;
+  height: 14vh;
+  @extend %regular-input;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.brainstorm-form-menu {
+  @extend %regular-input;
+  display: flex;
+  height: 7vh;
+  width: 80%;
+  margin-top: 3vh;
+  margin-left: 2.5vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancel-btn {
+  width: 7vw;
+  height: 4vh;
+  border-radius: 15px 15px 15px 15px;
+  background: $error-color;
+  font-weight: bold;
+  &:hover {
+    background: $darken-error-color;
+  }
+}
+
+.broom {
+  width: 2.5vw;
+  height: 5vh;
+  padding: .5rem;
+  transform: rotate(270deg);
+  border-radius: $round-border-radius;
+  @extend %regular-btn;
+  box-shadow: $regular-btn-active-shadow;
+  cursor: pointer;
+}
+
+.start-btn {
+  @extend %regular-btn;
+  margin-left: -.25vw;
 }

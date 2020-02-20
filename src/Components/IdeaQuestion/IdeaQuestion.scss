@@ -1,12 +1,6 @@
 @import '../../css/variables.scss';
+@import '../../css/index.scss';
 
 .idea-question-input {
-  border-radius: $round-border-radius;
-  box-shadow: $inner-shadow;
-  margin-top: $extra-small-space;
-  padding: $input-padding-space;
-  width: 80%;
-  &:focus {
-    box-shadow: $regular-input-focus-shadow;
-  }
+  @extend %regular-input;
 }
