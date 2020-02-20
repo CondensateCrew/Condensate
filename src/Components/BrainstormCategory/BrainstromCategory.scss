@@ -1,0 +1,11 @@
+@import '../../css/index.scss';
+@import '../../css/variables.scss';
+
+.category-btn {
+  @extend %buttons;
+  margin: .2rem;
+  &:hover {
+    background: $hover-btn-gradient;
+    box-shadow: $external-shadow, $regular-focus-shadow;
+  }
+}
