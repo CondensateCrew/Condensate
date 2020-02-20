@@ -32,6 +32,13 @@ export interface Brainstorm {
   categories: Category[]
 }
 
+export interface IBrainstormForm {
+  id?: number, 
+  question: string,
+  categories: string[],
+  action: string
+}
+
 export interface Category {
   id: number,
   name: string
