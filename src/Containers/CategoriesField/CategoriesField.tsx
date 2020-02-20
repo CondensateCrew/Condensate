@@ -10,14 +10,13 @@ interface Props {
   setCategory: (formState: IBrainstormForm) => void
 }
 
-
 const CategoryField:React.FC<Props>= ({ formState, setCategory }) => {
   const categories = mockCategories.map((category:string, index:number) => <BrainstormCategory key={index} category={category}
   formState={formState} setCategory={setCategory}/>)
   return (
     <section className='category-field-section'>
       {categories}
-      <img className='add-category-btn' src={addIcon}/>
+      <img className='add-category-btn' alt='add-icon' src={addIcon}/>
     </section>
   )
 }

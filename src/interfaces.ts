@@ -36,7 +36,8 @@ export interface IBrainstormForm {
   id?: number, 
   question: string,
   categories: string[],
-  action: string
+  action: string,
+  reset: boolean
 }
 
 export interface Category {

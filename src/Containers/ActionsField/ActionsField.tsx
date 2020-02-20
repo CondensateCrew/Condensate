@@ -2,32 +2,35 @@ import React, { useState, useEffect } from 'react';
 import BrainstormAction from '../../Components/BrainstormAction/BrainstormAction';
 import mockActions from '../../data/mockActions';
 import './ActionsField.scss';
+import { IBrainstormForm } from '../../interfaces';
 
 interface Props {
-  // actions: any[]
-  // setAction: (action:string) => void;
+  formState: IBrainstormForm
+  setAction: (formState: IBrainstormForm) => void;
 }
 
-const ActionsField:React.FC<Props> = () => {
+const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const [ selectedAction, setSelectedAction ] = useState<string>('create an app')
 
   const handleChange = (e:React.ChangeEvent<HTMLSelectElement>):void => {
-    console.log(e.target.value)
     setSelectedAction(e.target.value)
   }
 
-  // const updateAction = () => {
-  //   setAction(selectedAction)
-  // }
+  const updateAction = () => {
+    setAction({...formState, action: selectedAction})
+    // if (formState.reset) {
+    //   setSelectedAction('create an app')
+    // }
+  }
 
-  // useEffect(updateAction, [selectedAction])
+  useEffect(updateAction, [selectedAction])
 
   const actions = mockActions.map((action:string, index:number) => <BrainstormAction 
   key={index} action={action}/>)
 
 
   return (
-    <select onChange={handleChange} className='actions-dropdown-menu'>
+    <select value={selectedAction} onChange={handleChange} className='actions-dropdown-menu'>
       {actions}
     </select>
   )

@@ -9,6 +9,8 @@ interface Props {
 
 const IdeaQuestion:React.FC<Props>= ({ formState, setQuestion }) => {
   const [ questionValue, setQuestionValue ] = useState<string>('');
+  // const [ reset, setReset ] = useState<boolean>(formState.reset);
+  // use Redux to trigger form sweep
 
   const updateQuestion = () => {
     setQuestion({...formState, question: questionValue})
@@ -18,8 +20,13 @@ const IdeaQuestion:React.FC<Props>= ({ formState, setQuestion }) => {
   }
 
   useEffect(updateQuestion, [questionValue])
+
+  // if (reset) {
+  //   setQuestionValue('')
+  // }
+
   return (
-    <input className='idea-question-input' type='text' 
+    <input className='idea-question-input' value={questionValue} type='text' 
     placeholder='Enter your idea here...' onChange={handleChange}/>
   )
 }
