@@ -9,3 +9,8 @@
     box-shadow: $external-shadow, $regular-focus-shadow;
   }
 }
+
+.active {
+  box-shadow:$regular-btn-active-shadow;
+  background: $darken-regular-hover-color;
+}
