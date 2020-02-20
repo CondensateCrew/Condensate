@@ -19,7 +19,6 @@ const BrainstormContainer:React.FC = () => {
     filterValue: state.filter
   }));
 
-  console.log(queryValue)
   const filteredBrainstorms: Brainstorm[] = allBrainstorms
     .filter((bs: Brainstorm) => (
       bs.categories.find(ctg => {
