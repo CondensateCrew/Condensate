@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Dashboard.scss';
 <<<<<<< HEAD
 import { Category } from 'interfaces';
@@ -28,12 +28,30 @@ const Dashboard: React.FC = () => {
 
 =======
 import BrainstormForm from '../BrainstormForm/BrainstormForm';
+import addIcon from '../../assets/add.svg';
 
 const Dashboard: React.FC = () => {
+  const [ brainstormFormState, setBrainstormForm ] = useState<boolean>(false)
+  let brainstormForm;
+
+  const toggleMenu = () => {
+    setBrainstormForm(!brainstormFormState)
+  }
+
+  if (brainstormFormState) {
+    brainstormForm = (<BrainstormForm brainstormFormState={brainstormFormState}
+      cancel={setBrainstormForm}/>)
+  } else {
+    brainstormForm = (
+    <div onClick={toggleMenu} className='dashboard-brainstorm-form-div'>
+      <img className='add-icon-dashboard' src={addIcon}/>
+      <h3>create new brainstorm</h3>
+    </div>
+    )}
   return (
     <main className='dashboard-main'>
       <h2>Condensate Dashboard</h2>
-        <BrainstormForm/>
+        {brainstormForm}
     </main>
 >>>>>>> Add IdeaQuestion, CategoriesField/BSCategory, ActionsField/BSAction to BSForm
   )

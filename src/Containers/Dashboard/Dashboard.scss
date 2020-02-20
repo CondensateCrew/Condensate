@@ -1,4 +1,5 @@
 @import "../../css/variables";
+@import "../../css/index.scss";
 
 .dashboard {
   display: grid;
@@ -19,4 +20,19 @@
     align-items: center;
     justify-content: space-between;
   }
+}
+
+
+.dashboard-brainstorm-form-div {
+  display: flex;
+  flex-flow: row no-wrap;
+  width: 20%;
+  @extend %regular-btn;
+  font-size: 1.15rem;
+  border-radius: 7px 7px;
+
+}
+
+.add-icon-dashboard {
+  width: 2rem;
 }
