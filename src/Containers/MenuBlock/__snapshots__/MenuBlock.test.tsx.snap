@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuBlock component should match the snapshot 1`] = `
+<div
+  className="menu-block"
+>
+  <img
+    alt="idea"
+    onClick={[Function]}
+    src="idea.svg"
+  />
+  <img
+    alt="delete"
+    onClick={[Function]}
+    src="delete.svg"
+  />
+  <img
+    alt="close"
+    onClick={[Function]}
+    src="close.svg"
+  />
+</div>
+`;
