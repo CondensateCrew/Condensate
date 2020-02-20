@@ -90,4 +90,39 @@ describe('allBrainstormsReducer', () => {
 
     expect(result).toEqual(expected);
   });
+
+  it("should return the array with updated brainstorm if type of action is TOGGLE_BRAINSTORMS", () => {
+    const mockAction: IDeleteBrainstormAction = {
+      type: 'TOGGLE_BRAINSTORMS',
+      id: 1
+    };
+
+    const mockState: Brainstorm[] = [{
+      id: 1,
+      question: 'What?',
+      idea: 'Idea',
+      action: 'Do sth',
+      isGenius: true,
+      categories: [{
+        id: 1,
+        name: 'Tech'
+      }]
+    }];
+
+    const expected: Brainstorm[] = [{
+      id: 1,
+      question: 'What?',
+      idea: 'Idea',
+      action: 'Do sth',
+      isGenius: false,
+      categories: [{
+        id: 1,
+        name: 'Tech'
+      }]
+    }];
+
+    const result = allBrainstormsReducer(mockState, mockAction);
+
+    expect(result).toEqual(expected);
+  });
 });
