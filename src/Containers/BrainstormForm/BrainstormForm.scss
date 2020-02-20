@@ -3,12 +3,13 @@
 
 .brainstorm-form {
   width: 27vw;
-  height: 85%;
+  height: fit-content;
   margin: $medium-space;
   padding-top: $large-space;
   background: $primary-gradient;
   border-radius: $big-blocks-border-radius;
   box-shadow: $external-shadow;
+  padding-bottom: $large-space;
 }
 
 .brainstorm-div {
@@ -35,11 +36,12 @@
 
 .brainstorm-form-menu {
   @extend %regular-input;
+  border-radius: 12px 12px;
   display: flex;
   height: 7vh;
-  width: 80%;
+  width: 85%;
   margin-top: 3vh;
-  margin-left: 2.5vw;
+  margin-left: 2vw;
   justify-content: center;
   align-items: center;
 }

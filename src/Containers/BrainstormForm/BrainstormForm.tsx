@@ -8,7 +8,7 @@ import ActionsField from '../ActionsField/ActionsField';
 const BrainstormForm:React.FC = () => {
   const [ question, setQuestion ] = useState<string>('');
   const [ categories, setCategory ] = useState([]);
-  const [ actions, setAction ] = useState([]);
+  const [ action, setAction ] = useState<string>('create an app');
 
   return (
     <form className='brainstorm-form'>
@@ -23,7 +23,7 @@ const BrainstormForm:React.FC = () => {
       </div>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>DESIRED ACTION</label>
-        <ActionsField />
+        <ActionsField setAction={setAction}/>
       </div>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>SUMMARY</label>
