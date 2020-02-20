@@ -1,0 +1,25 @@
+@import "../../css/variables.scss";
+
+.menu-block {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: flex-end;
+  background: $primary-gradient;
+  box-shadow: $external-shadow;
+  border-radius: $one-line-border-radius;
+  padding: $one-line-padding-space;
+  position: absolute;
+  right: 0; top: 0;
+  img {
+    width: $medium-text;
+    margin-left: $small-space;
+    &:last-child {
+      opacity: 0.4;
+      margin-left: $medium-space;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
