@@ -30,6 +30,21 @@ h3 {
   font-weight: 500;
 }
 
+h4 {
+  font-size: $medium-text;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: $small-text;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+svg {
+  cursor: pointer;
+}
+
 label {
   text-align: left;
   text-transform: uppercase;

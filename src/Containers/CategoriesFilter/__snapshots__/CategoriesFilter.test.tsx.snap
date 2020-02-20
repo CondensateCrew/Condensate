@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesFilter component should match the snapshot 1`] = `
+<section
+  className="filter closed-filter"
+>
+  <button
+    id="genius"
+    onClick={[Function]}
+  >
+    Genius
+  </button>
+  <button
+    id="Tech"
+    key="1"
+    onClick={[Function]}
+  >
+    Tech
+  </button>
+  <button
+    className="openning-btn"
+    onClick={[Function]}
+  >
+    <img
+      alt="dropdown"
+      src="down.svg"
+    />
+  </button>
+</section>
+`;
+
+exports[`CategoriesFilter component should match the snapshot if btn is clicked 1`] = `
+<section
+  className="filter"
+>
+  <div
+    className="opened-filter"
+  >
+    <div>
+      <button
+        className="genius-btn"
+        id="genius"
+      >
+        Genius
+      </button>
+      <button
+        id="Tech"
+        key="1"
+        onClick={[Function]}
+      >
+        Tech
+      </button>
+    </div>
+    <img
+      alt="dropdown"
+      onClick={[Function]}
+      src="down.svg"
+    />
+  </div>
+</section>
+`;

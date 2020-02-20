@@ -1,0 +1,103 @@
+@import "../../css/variables.scss";
+@import "../../css/index.scss";
+
+.filter {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  margin-left: $medium-space;
+  margin-top: $medium-space;
+  width: 35rem; height: 4.25rem;
+  position: relative;
+}
+
+.closed-filter {
+  align-items: center;
+  justify-content: space-between;
+  button {
+    background: $primary-gradient;
+    box-shadow: $external-shadow;
+    border-radius: $one-line-border-radius;
+    padding: $one-line-padding-space;
+    margin-left: $tiny-space;
+    height: 4.25rem;
+    font-weight: 700;
+    &.close-btn {
+      img {
+        opacity: 0.4;
+      }
+      &:hover img { opacity: 1; }
+    }
+    &.chosen-filter {
+      background: $success-gradient;
+      &:hover {
+        background: $success-gradient;
+        box-shadow: $external-shadow;
+      }
+    }
+    &#genius {
+      background: $genius-gradient;
+      margin-left: 0;
+      &:hover {
+        background: $genius-gradient-mirror;
+        box-shadow: $external-shadow, $regular-focus-shadow;
+      }
+    }
+    &:last-child {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.25rem;
+      img {
+        width: $big-text;
+      }
+    }
+    &:hover {
+      background: $hover-btn-gradient;
+      box-shadow: $external-shadow, $regular-focus-shadow;
+    }
+  }
+}
+
+.opened-filter {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: $primary-gradient;
+  box-shadow: $external-shadow;
+  border-radius: $big-blocks-border-radius;
+  padding: $one-line-padding-space;
+  min-height: 4.25rem;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 20;
+  img {
+    transform: rotate(180deg);
+    width: $big-text;
+    opacity: 0.4;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  div {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    button {
+      @extend %regular-btn;
+      font-weight: 400;
+      margin: 0;
+      margin-right: $small-space;
+      margin-bottom: $small-space;
+      &.genius-btn {
+        background: $genius-gradient;
+      }
+    }
+  }
+}

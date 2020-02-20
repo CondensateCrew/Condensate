@@ -1,0 +1,46 @@
+@import "../../css/variables.scss";
+@import "../../css/index.scss";
+
+.short-search-btn {
+  background: $primary-gradient;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: $medium-text;
+  box-shadow: $external-shadow;
+  border-radius: $one-line-border-radius;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $one-line-padding-space;
+  width: 4.25rem; height: 4.25rem;
+  img {
+    width: $big-text;
+  }
+  margin-top: 24px;
+  margin-right: 24px;
+}
+
+.search-form {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  background: $primary-gradient;
+  box-shadow: $external-shadow;
+  border-radius: $one-line-border-radius;
+  padding: $one-line-padding-space;
+  width: 40%;
+  // delete after
+  margin-top: 24px;
+  margin-right: 24px;
+  input {
+    @extend %regular-input;
+    margin-top: 0;
+    margin-right: $small-space;
+  }
+  img {
+    width: $big-text;
+  }
+}

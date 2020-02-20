@@ -85,6 +85,17 @@ describe("allBrainstorms", () => {
     expect(result).toEqual(expected);
   });
 
+  it("should return object with a type of TOGGLE_BRAINSTORMS when toggleBrainstorm is called", () => {
+    const expected: interfaces.IChangeBrainstormAction = {
+      type: 'TOGGLE_BRAINSTORMS',
+      id: 1
+    };
+
+    const result = actions.toggleBrainstorm(1)
+
+    expect(result).toEqual(expected);
+  });
+
   it("should return object with a type of ADD_BRAINSTORM when addNewBrainstorm is called", () => {
     const brainstormMock: interfaces.Brainstorm = {
       id: 1,

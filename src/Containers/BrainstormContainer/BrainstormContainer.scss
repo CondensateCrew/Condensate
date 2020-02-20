@@ -1,0 +1,10 @@
+@import "../../css/variables.scss";
+
+.bs-container {
+  display: grid;
+  grid-gap: $medium-space;
+  grid-template-columns: repeat(auto-fill, minmax(30%,1fr));
+  padding: $medium-space;
+  width: 100%; height: 80vh;
+  overflow: scroll;
+}

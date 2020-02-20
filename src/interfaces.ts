@@ -19,12 +19,12 @@ export interface UserSignupPosting {
 }
 
 export interface Action {
-  id?: number,
+  id: number,
   name: string
 }
 
 export interface Brainstorm {
-  id?: number,
+  id: number,
   question: string,
   idea: string,
   action: string,
@@ -98,6 +98,11 @@ export interface IAddNewActionAction {
 export interface IAddAllBrainstormsAction {
   type: 'ADD_ALL_BRAINSTORMS',
   brainstorms: Brainstorm[]
+}
+
+export interface IChangeBrainstormAction {
+  type: 'TOGGLE_BRAINSTORMS',
+  id: number
 }
 
 export interface IAddNewBrainstormAction {

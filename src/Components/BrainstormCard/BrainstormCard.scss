@@ -1,0 +1,73 @@
+@import "../../css/variables.scss";
+
+.bs-card {
+  background: $primary-gradient;
+  box-shadow: $external-shadow;
+  border-radius: $big-blocks-border-radius;
+  display: grid;
+  grid-template-areas: 'header' 'action' 'text' 'footer';
+  padding: $big-block-padding-space;
+  width: 100%; height: fit-content;
+  img {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+  &>header {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    h4 {
+      text-align: left;
+      line-height: 1.4em;
+      width: 80%;
+      min-height: 3.5rem;
+    }
+    &>img {
+      width: $small-text;
+      margin-left: $tiny-space;
+      margin-top: $tiny-space;
+    }
+  }
+  h5 {
+    cursor: pointer;
+    opacity: 0.5;
+    padding: $extra-small-space 0 $medium-space;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  p {
+    font-size: $tiny-text;
+  }
+  &>p {
+    line-height: 1.5em;
+    text-align: left;
+  }
+  &>footer {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-top: $medium-space;
+    height: auto;
+    p {
+      background: $primary-gradient;
+      box-shadow: $external-shadow;
+      border-radius: $round-border-radius;
+      padding: $button-padding-space;
+      margin: 0 $tiny-space;
+      &.genius-label {
+        background: $genius-gradient;
+      }
+    }
+  }
+}
