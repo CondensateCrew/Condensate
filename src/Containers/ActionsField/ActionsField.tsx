@@ -5,10 +5,10 @@ import './ActionsField.scss';
 
 interface Props {
   // actions: any[]
-  setAction: (action:string) => void;
+  // setAction: (action:string) => void;
 }
 
-const ActionsField:React.FC<Props> = ({ setAction }) => {
+const ActionsField:React.FC<Props> = () => {
   const [ selectedAction, setSelectedAction ] = useState<string>('create an app')
 
   const handleChange = (e:React.ChangeEvent<HTMLSelectElement>):void => {
@@ -16,11 +16,11 @@ const ActionsField:React.FC<Props> = ({ setAction }) => {
     setSelectedAction(e.target.value)
   }
 
-  const updateAction = () => {
-    setAction(selectedAction)
-  }
+  // const updateAction = () => {
+  //   setAction(selectedAction)
+  // }
 
-  useEffect(updateAction, [selectedAction])
+  // useEffect(updateAction, [selectedAction])
 
   const actions = mockActions.map((action:string, index:number) => <BrainstormAction 
   key={index} action={action}/>)

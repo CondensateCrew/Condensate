@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './IdeaQuestion.scss';
+import { IBrainstormForm } from '../../interfaces';
 
 interface Props {
-  setQuestion: (question: string) => void;
+  formState: IBrainstormForm;
+  setQuestion: (formState: IBrainstormForm) => void;
 }
 
-const IdeaQuestion:React.FC<Props>= ({ setQuestion }) => {
+const IdeaQuestion:React.FC<Props>= ({ formState, setQuestion }) => {
   const [ questionValue, setQuestionValue ] = useState<string>('');
 
   const updateQuestion = () => {
-    setQuestion(questionValue)
+    setQuestion({...formState, question: questionValue})
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setQuestionValue(e.target.value)

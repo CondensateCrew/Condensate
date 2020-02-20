@@ -4,10 +4,19 @@ import broom from '../../assets/broom.svg';
 import IdeaQuestion from '../../Components/IdeaQuestion/IdeaQuestion';
 import CategoriesField from '../CategoriesField/CategoriesField';
 import ActionsField from '../ActionsField/ActionsField';
+import { IBrainstormForm } from '../../interfaces';
+
+interface Categories {
+  categories: string[],
+}
 
 const BrainstormForm:React.FC = () => {
-  const [ question, setQuestion ] = useState<string>('');
-  const [ categories, setCategory ] = useState([]);
+  const [ formState, setFormState ] = useState<IBrainstormForm>({
+    question: '',
+    categories: [],
+    action: ''
+  })
+
   const [ action, setAction ] = useState<string>('create an app');
 
   return (
@@ -15,15 +24,15 @@ const BrainstormForm:React.FC = () => {
       <h2 className='brainstorm-form-h2'>CREATE NEW BRAINSTORM</h2>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>IDEA QUESTION</label>
-        <IdeaQuestion setQuestion={setQuestion}/>
+        <IdeaQuestion formState={formState} setQuestion={setFormState}/>
       </div>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>CATEGORIES</label>
-        <CategoriesField />
+        <CategoriesField formState={formState} setCategory={setFormState}/>
       </div>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>DESIRED ACTION</label>
-        <ActionsField setAction={setAction}/>
+        <ActionsField />
       </div>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>SUMMARY</label>
