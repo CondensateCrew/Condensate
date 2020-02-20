@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const BrainstormAction:React.FC = () => {
+interface Props {
+  action: string,
+  key: number,
+}
+const BrainstormAction:React.FC<Props>= ({ action }) => {
   return (
-    <option>Environment</option>
+    <option>{action}</option>
   )
 }
 

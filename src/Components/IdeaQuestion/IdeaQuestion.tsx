@@ -5,7 +5,7 @@ interface Props {
   setQuestion: (question: string) => void;
 }
 
-const IdeaQuestion:React.FC<Props>= ({setQuestion}) => {
+const IdeaQuestion:React.FC<Props>= ({ setQuestion }) => {
   const [ questionValue, setQuestionValue ] = useState<string>('');
 
   const updateQuestion = () => {
