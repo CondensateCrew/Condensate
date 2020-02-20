@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BrainstormCard component should match the snapshot 1`] = `
+<div
+  className="bs-card"
+>
+  <header>
+    <h4>
+      What?
+    </h4>
+    <img
+      alt="menu"
+      onClick={[Function]}
+      src="menu-dot.svg"
+    />
+  </header>
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
+  <footer>
+    <p
+      className="genius-label"
+    >
+      Genius
+    </p>
+    <p
+      key="ctg-tech"
+    >
+      Tech
+    </p>
+  </footer>
+</div>
+`;
+
+exports[`BrainstormCard component should match the snapshot if brainstorm is not genius 1`] = `
+<div
+  className="bs-card"
+>
+  <header>
+    <h4>
+      What?
+    </h4>
+    <img
+      alt="menu"
+      onClick={[Function]}
+      src="menu-dot.svg"
+    />
+  </header>
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
+  <footer>
+    <p
+      key="ctg-tech"
+    >
+      Tech
+    </p>
+  </footer>
+</div>
+`;
+
+exports[`BrainstormCard component should match the snapshot if brainstorm is not genius and menu is clicked 1`] = `
+<div
+  className="bs-card"
+>
+  <header>
+    <h4>
+      What?
+    </h4>
+    <MenuBlock
+      id={1}
+      setIsClicked={[Function]}
+    />
+  </header>
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
+  <footer>
+    <p
+      key="ctg-tech"
+    >
+      Tech
+    </p>
+  </footer>
+</div>
+`;
+
+exports[`BrainstormCard component should match the snapshot if menu is clicked 1`] = `
+<div
+  className="bs-card"
+>
+  <header>
+    <h4>
+      What?
+    </h4>
+    <MenuBlock
+      id={1}
+      setIsClicked={[Function]}
+    />
+  </header>
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
+  <footer>
+    <p
+      className="genius-label"
+    >
+      Genius
+    </p>
+    <p
+      key="ctg-tech"
+    >
+      Tech
+    </p>
+  </footer>
+</div>
+`;
