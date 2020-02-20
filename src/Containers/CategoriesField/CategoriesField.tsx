@@ -1,9 +1,12 @@
 import React from 'react';
+import BrainstormCategory from '../../Components/BrainstormCategory/BrainstormCategory';
 
 const CategoryField:React.FC = () => {
   return (
     <section>
-      <p>This is where the individual categories will render</p>
+      <BrainstormCategory/>
     </section>
   )
 }
+
+export default CategoryField;

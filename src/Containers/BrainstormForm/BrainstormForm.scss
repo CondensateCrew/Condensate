@@ -1,0 +1,16 @@
+@import '../../css/variables.scss';
+
+.brainstorm-form {
+  width: 25vw;
+  height: 70vh;
+  margin: $large-space;
+  padding-top: $large-space;
+  background: $primary-gradient;
+  border-radius: 1rem 1rem 1rem 1rem;
+  box-shadow: $external-shadow;
+}
+
+.brainstorm-label {
+  font-size: 1.25rem;
+  padding-top: 2vh;
+}

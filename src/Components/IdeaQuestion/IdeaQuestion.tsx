@@ -1,8 +1,11 @@
 import React from 'react';
+import './IdeaQuestion.scss';
 
 const IdeaQuestion:React.FC = () => {
   return (
-    <h2>I am the question that you wish to answer 
-      at the beginning and the end of the brainstorm</h2>
+    <input className='idea-question-input' type='text' 
+    placeholder='Enter your idea here...'/>
   )
 }
+
+export default IdeaQuestion;
