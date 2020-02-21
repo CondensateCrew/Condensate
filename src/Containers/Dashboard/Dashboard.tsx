@@ -5,12 +5,13 @@ import BrainstormContainer from '../BrainstormContainer/BrainstormContainer';
 import SearchBar from '../SearchBar/SearchBar';
 import CategoriesFilter from '../CategoriesFilter/CategoriesFilter';
 import BrainstormForm from '../BrainstormForm/BrainstormForm';
+import UserProfile from '../../Components/UserProfile/UserProfile';
 import addIcon from '../../assets/add.svg';
 
 const categories: Category[] = [
   {id: 1, name: 'Tech'},
   {id: 2, name: 'Education'},
-  {id: 3, name: 'Enviroment'},
+  {id: 3, name: 'Environment'},
   {id: 4, name: 'Money'},
   {id: 5, name: 'Food'}];
 
@@ -25,14 +26,16 @@ const Dashboard: React.FC = () => {
   brainstormFormState ? brainstormForm = (<BrainstormForm brainstormFormState={brainstormFormState}
     cancel={setBrainstormForm}/>)
   : brainstormForm = (<div onClick={toggleMenu} className='dashboard-brainstorm-form-div'>
-    <img className='add-icon-dashboard' alt='add-icon' src={addIcon}/>
-    <h3>create new brainstorm</h3>
-  </div>)
+      <img className='add-icon-dashboard' alt='add-icon' src={addIcon}/>
+      <h3>create new brainstorm</h3>
+      </div>)
+
 
   return (
     <main className="dashboard">
-      <aside>
+      <aside className='aside'>
         <h1>condensate</h1>
+        <UserProfile firstName={'Alan'} lastName={'Birds'}/>
         {brainstormForm}
       </aside>
       <header>

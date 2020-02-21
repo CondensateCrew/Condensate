@@ -1,0 +1,26 @@
+@import '../../css/index.scss';
+@import '../../css/variables.scss';
+
+.profile-pic {
+  width: 2.5rem;
+  border-radius: 1.5rem;
+  padding: $tiny-space;
+  box-shadow: $inner-shadow;
+}
+
+.user-profile-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 18vw;
+  height: 8vh;
+  border-radius: 1rem;
+  box-shadow: $external-shadow;
+}
+
+.menu-svg {
+  width: 1rem;
+  &:hover {
+    cursor:pointer;
+  }
+}

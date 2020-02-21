@@ -25,17 +25,45 @@
 
 .dashboard-brainstorm-form-div {
   display: flex;
-  flex-flow: row no-wrap;
-  width: fit-content;
+  height: 8vh;
+  width: 25vw;
   align-items: center;
-  justify-content: space-between;
-  @extend %regular-btn;
-  font-size: 1.15rem;
-  border-radius: 7px 7px;
-
+  justify-content: space-around;
+  background: $primary-gradient;
+  border: $light-border;
+  margin: $small-space auto;
+  box-shadow: $external-shadow, $regular-focus-shadow;
+  font-size: 1rem;
+  border-radius: 1rem;
 }
 
 .add-icon-dashboard {
-  width: 1rem;
-  margin-right: .5rem;
+  background-color: $dark-font-color;
+  width: $big-text;
+  &::after {
+    content: '';
+    display: block;
+    padding: 100%;
+  }
+  background: $primary-gradient;
+  border: $light-border;
+  border-radius: 1.5rem;
+  box-shadow: $external-shadow;
+  &:hover {
+    background: $hover-btn-gradient;
+    border: 1px solid transparent;
+    box-shadow: $external-shadow, $regular-focus-shadow;
+    cursor:pointer;
+  }
+  &:active {
+    box-shadow: $regular-btn-active-shadow;
+  }
+}
+
+.aside {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: justify;
+  margin: $small-space;
 }
