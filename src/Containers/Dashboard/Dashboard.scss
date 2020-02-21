@@ -40,9 +40,12 @@
 
 .add-icon-dashboard {
   background-color: $dark-font-color;
-  width: 2rem;
-  height: 2rem;
-  padding: .2rem;
+  width: $big-text;
+  &::after {
+    content: '';
+    display: block;
+    padding: 100%;
+  }
   background: $primary-gradient;
   border: $light-border;
   border-radius: 1.5rem;
