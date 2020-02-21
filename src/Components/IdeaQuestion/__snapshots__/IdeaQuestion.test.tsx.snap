@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IdeaQuestion Component should match the snapshot with all the data passed through 1`] = `
+<input
+  className="idea-question-input"
+  onChange={[Function]}
+  placeholder="Enter your idea here..."
+  type="text"
+  value=""
+/>
+`;
