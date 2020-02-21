@@ -30,11 +30,12 @@ const Dashboard: React.FC = () => {
       <h3>create new brainstorm</h3>
       </div>)
 
+
   return (
     <main className="dashboard">
       <aside className='aside'>
         <h1>condensate</h1>
-        <UserProfile firstName={'Alan'} lastName={'Bird'}/>
+        <UserProfile firstName={'Alan'} lastName={'Birds'}/>
         {brainstormForm}
       </aside>
       <header>
