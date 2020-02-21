@@ -8,6 +8,19 @@ exports[`Dashboard component should match the snapshot 1`] = `
     <h1>
       condensate
     </h1>
+    <div
+      className="dashboard-brainstorm-form-div"
+      onClick={[Function]}
+    >
+      <img
+        alt="add-icon"
+        className="add-icon-dashboard"
+        src="add.svg"
+      />
+      <h3>
+        create new brainstorm
+      </h3>
+    </div>
   </aside>
   <header>
     <CategoriesFilter
