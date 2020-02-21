@@ -26,7 +26,9 @@
 .dashboard-brainstorm-form-div {
   display: flex;
   flex-flow: row no-wrap;
-  width: 20%;
+  width: fit-content;
+  align-items: center;
+  justify-content: space-between;
   @extend %regular-btn;
   font-size: 1.15rem;
   border-radius: 7px 7px;
@@ -34,5 +36,6 @@
 }
 
 .add-icon-dashboard {
-  width: 2rem;
+  width: 1rem;
+  margin-right: .5rem;
 }
