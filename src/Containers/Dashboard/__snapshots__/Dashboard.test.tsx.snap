@@ -60,3 +60,55 @@ exports[`Dashboard component should match the snapshot 1`] = `
   <BrainstormContainer />
 </main>
 `;
+
+exports[`Dashboard component should match the snapshot when the new brainstorm button has been clicked 1`] = `
+<main
+  className="dashboard"
+>
+  <aside
+    className="aside"
+  >
+    <h1>
+      condensate
+    </h1>
+    <UserProfile
+      firstName="Alan"
+      lastName="Bird"
+    />
+    <BrainstormForm
+      brainstormFormState={true}
+      cancel={[Function]}
+    />
+  </aside>
+  <header>
+    <CategoriesFilter
+      categories={
+        Array [
+          Object {
+            "id": 1,
+            "name": "Tech",
+          },
+          Object {
+            "id": 2,
+            "name": "Education",
+          },
+          Object {
+            "id": 3,
+            "name": "Environment",
+          },
+          Object {
+            "id": 4,
+            "name": "Money",
+          },
+          Object {
+            "id": 5,
+            "name": "Food",
+          },
+        ]
+      }
+    />
+    <SearchBar />
+  </header>
+  <BrainstormContainer />
+</main>
+`;
