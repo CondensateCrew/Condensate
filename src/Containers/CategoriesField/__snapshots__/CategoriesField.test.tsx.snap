@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesField should match the snapshot 1`] = `
+<section
+  className="category-field-section"
+>
+  <BrainstormCategory
+    category="Education"
+    formState={
+      Object {
+        "action": "create an app",
+        "categories": Array [],
+        "question": "",
+        "reset": true,
+      }
+    }
+    key="0"
+    setCategory={[MockFunction]}
+  />
+  <BrainstormCategory
+    category="Technology"
+    formState={
+      Object {
+        "action": "create an app",
+        "categories": Array [],
+        "question": "",
+        "reset": true,
+      }
+    }
+    key="1"
+    setCategory={[MockFunction]}
+  />
+  <BrainstormCategory
+    category="Environment"
+    formState={
+      Object {
+        "action": "create an app",
+        "categories": Array [],
+        "question": "",
+        "reset": true,
+      }
+    }
+    key="2"
+    setCategory={[MockFunction]}
+  />
+  <BrainstormCategory
+    category="Food"
+    formState={
+      Object {
+        "action": "create an app",
+        "categories": Array [],
+        "question": "",
+        "reset": true,
+      }
+    }
+    key="3"
+    setCategory={[MockFunction]}
+  />
+  <BrainstormCategory
+    category="Music"
+    formState={
+      Object {
+        "action": "create an app",
+        "categories": Array [],
+        "question": "",
+        "reset": true,
+      }
+    }
+    key="4"
+    setCategory={[MockFunction]}
+  />
+  <img
+    alt="add-icon"
+    className="add-category-btn"
+    src="add.svg"
+  />
+</section>
+`;
