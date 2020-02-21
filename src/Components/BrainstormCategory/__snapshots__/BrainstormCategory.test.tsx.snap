@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BrainstormCategory should match the snapshot 1`] = `
+<Fragment>
+  <button
+    className="category-btn"
+    onClick={[Function]}
+    type="button"
+    value="Technology"
+  >
+    Technology
+  </button>
+</Fragment>
+`;
+
+exports[`BrainstormCategory should render a different snapshot after a click event 1`] = `
+<BrainstormCategory
+  category="Technology"
+  formState={
+    Object {
+      "action": "create an app",
+      "categories": Array [],
+      "question": "",
+      "reset": true,
+    }
+  }
+  setCategory={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "action": "create an app",
+            "categories": Array [],
+            "question": "",
+            "reset": true,
+          },
+        ],
+        Array [
+          Object {
+            "action": "create an app",
+            "categories": Array [
+              "Technology",
+            ],
+            "question": "",
+            "reset": true,
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <button
+    className="category-btn active"
+    onClick={[Function]}
+    type="button"
+    value="Technology"
+  >
+    Technology
+  </button>
+</BrainstormCategory>
+`;
