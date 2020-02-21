@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
   } else {
     brainstormForm = (
     <div onClick={toggleMenu} className='dashboard-brainstorm-form-div'>
-      <img className='add-icon-dashboard' src={addIcon}/>
+      <img className='add-icon-dashboard' alt='add-icon' src={addIcon}/>
       <h3>create new brainstorm</h3>
     </div>
     )}
