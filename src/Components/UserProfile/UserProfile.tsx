@@ -1,11 +1,21 @@
 import React from 'react';
+import AlanBird from '../../assets/avatar.jpg';
+import menu from '../../assets/menu-dot.svg';
+import './UserProfile.scss';
 
-const UserProfile:React.FC = () => {
+
+interface Props {
+  firstName: string,
+  lastName: string,
+}
+const UserProfile:React.FC<Props> = ({ firstName, lastName }) => {
   return (
-    <div>
-      <img src='' alt='image of user'/>
-      <h2><span>First Name</span><span>Last Name</span></h2>
-      <div>***menu</div>
+    <div className='user-profile-div'>
+      <img className='profile-pic' src={AlanBird} alt='image of user'/>
+      <h2><span>{firstName}</span> <span>{lastName}</span></h2>
+      <img className='menu-svg' src={menu} alt='menu-svg' />
     </div>
   )
 }
+
+export default UserProfile

@@ -4,10 +4,16 @@ exports[`Dashboard component should match the snapshot 1`] = `
 <main
   className="dashboard"
 >
-  <aside>
+  <aside
+    className="aside"
+  >
     <h1>
       condensate
     </h1>
+    <UserProfile
+      firstName="Alan"
+      lastName="Bird"
+    />
     <div
       className="dashboard-brainstorm-form-div"
       onClick={[Function]}
@@ -36,7 +42,7 @@ exports[`Dashboard component should match the snapshot 1`] = `
           },
           Object {
             "id": 3,
-            "name": "Enviroment",
+            "name": "Environment",
           },
           Object {
             "id": 4,
