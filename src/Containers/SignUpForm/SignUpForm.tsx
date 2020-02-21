@@ -47,9 +47,10 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
 
   useEffect(validateButton, [ user, repeatPassword ]);
 
-  const submitUser = (event: React.MouseEvent): void => {
+  const submitUser = (event: React.MouseEvent):void => {
     event.preventDefault();
     validateInputs();
+
     if (error !== '') {
       console.log(user);
     }
