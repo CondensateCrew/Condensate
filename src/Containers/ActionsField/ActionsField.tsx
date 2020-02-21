@@ -18,9 +18,6 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
   const updateAction = () => {
     setAction({...formState, action: selectedAction})
-    // if (formState.reset) {
-    //   setSelectedAction('create an app')
-    // }
   }
 
   useEffect(updateAction, [selectedAction])
