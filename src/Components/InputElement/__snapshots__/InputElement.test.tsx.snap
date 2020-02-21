@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm component should match the snapshot 1`] = `
+<label
+  htmlFor="first-name"
+>
+  first name
+  *
+  <input
+    id="first-name"
+    onChange={[Function]}
+    placeholder="Your First Name"
+    type="text"
+    value=""
+  />
+</label>
+`;
