@@ -23,7 +23,7 @@ describe('IdeaQuestion Component', () => {
       reset: true
     };
     let mockSetQuestion = jest.fn();
-
+    
     wrapper = shallow(<IdeaQuestion 
       formState={mockFormState} 
       setQuestion={mockSetQuestion}/>);
