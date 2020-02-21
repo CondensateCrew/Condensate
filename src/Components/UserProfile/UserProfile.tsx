@@ -2,8 +2,6 @@ import React from 'react';
 import AlanBird from '../../assets/avatar.jpg';
 import menu from '../../assets/menu-dot.svg';
 import './UserProfile.scss';
-
-
 interface Props {
   firstName: string,
   lastName: string,
