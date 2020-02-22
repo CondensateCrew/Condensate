@@ -1,10 +1,27 @@
-import React from 'react';
+import './Timer.scss';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { endTime } from 'redux/actions';
 
-const Timer:React.FC = () => {
+interface Props {
+  time: number;
+}
+
+const Timer: React.FC<Props> = ({time}) => {
+  const [ timerCount, setTimerCount ] = useState<number>(time);
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimerCount(timerCount - 1);
+    }, 1000);
+    if ( timerCount === 0 ) dispatch(endTime());
+    
+    return () => clearTimeout(timer);
+  }, [timerCount, dispatch]);
+
   return (
-    <p>This is the timer component...it will require updates to state
-      every second, via a setTimeout, until the value has reached 0, and
-      then will dispatch to the store
-    </p>
+    <p className="timer">{timerCount}</p>
   )
 }
+
+export default Timer;

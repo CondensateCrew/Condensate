@@ -1,0 +1,32 @@
+@import "../../css/variables.scss";
+@import "../../css/index.scss";
+
+.round-header {
+  align-self: start;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h1 {
+    font-size: $big-text;
+  }
+  button {
+    @extend %regular-btn;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    font-size: $medium-text;
+    text-align: left;
+    opacity: 0.4;
+    white-space: nowrap;
+    margin: 0;
+    &:hover { opacity: 1; }
+  }
+  img {
+    width: $medium-text;
+    transform: rotate(90deg);
+    margin-right: $tiny-space;
+  }
+}
