@@ -1,0 +1,60 @@
+@import '../../css/variables.scss';
+@import '../../css/index.scss';
+
+.round-two-section {
+  display: flex;
+}
+
+.instructions-div-wrapper {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question-numbers-div {
+  display: flex;
+  justify-content: center;
+    h2 {
+      @extend %buttons;
+      border-radius: .5rem;
+      margin: $extra-small-space;
+      &:active {
+        box-shadow: $inner-shadow;
+      }
+    }
+    margin: $medium-space;
+}
+
+.current-question {
+  background-color: $genius-color;
+  background-image: $genius-gradient;
+}
+
+.template-question-div-wrapper {
+  margin: $medium-space;
+}
+
+.responses-div {
+  width: 100%;
+  margin-top: $small-space;
+  height: 40vh;
+  box-shadow: $external-shadow;
+  border-radius: $big-blocks-border-radius;
+  padding: $medium-space;
+}
+
+.responses-input-div {
+  input {
+    @extend %regular-input;
+    width: 80%;
+  }
+  img {
+    width: 1.5rem;
+    margin-left: .5rem;
+    margin-bottom: -.2rem;
+    &:hover {
+      cursor:pointer;
+    }
+  }
+}

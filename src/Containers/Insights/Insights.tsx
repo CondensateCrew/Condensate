@@ -1,9 +1,18 @@
 import React from 'react';
+import Close from '../../assets/close.svg';
+import './Insights.scss';
 
-const Insights:React.FC = () => {
+interface Props {
+  text: string
+}
+
+const Insights:React.FC<Props> = ({ text }) => {
   return (
-    <section>
-      <h2>This is where previously answered random questions will be rendered</h2>
-    </section>
+    <div className='insights-div'>
+      <h3>{text}</h3>
+      <img src={Close} alt='delete icon' />
+    </div>
   )
 }
+
+export default Insights;

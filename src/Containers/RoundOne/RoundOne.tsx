@@ -1,21 +1,11 @@
-import './RoundOne.scss';
 import React from 'react';
-import Header from 'Components/Header/Header';
-import GameBoard from 'Containers/GameBoard/GameBoard';
-import ChosenWordTrain from 'Containers/ChosenWordTrain/ChosenWordTrain';
-import Timer from 'Components/Timer/Timer';
 
-const RoundOne:React.FC = () => {
+const Round1:React.FC = () => {
   return (
-    <main className="round-one-board">
-      <Header />
-      <GameBoard />
-      <footer>
-        <ChosenWordTrain />
-        <Timer time={90} />
-      </footer>
-    </main>
+    <div>
+      <h2>This is where the Word Bubbles will randomly generate.
+        This Component will mount inside of the 
+      </h2>
+    </div>
   )
 }
-
-export default RoundOne;
