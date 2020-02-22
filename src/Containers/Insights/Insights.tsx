@@ -3,14 +3,22 @@ import Close from '../../assets/close.svg';
 import './Insights.scss';
 
 interface Props {
-  text: string
+  text: string,
+  responses: string[],
+  setResponses: (responses: string[]) => void
 }
 
-const Insights:React.FC<Props> = ({ text }) => {
+const Insights:React.FC<Props> = ({ text, responses, setResponses }) => {
+
+  const removeResponse = ():void => {
+    let newResponses = responses.filter((response:string) => response !== text)
+    setResponses(newResponses)
+  }
+
   return (
     <div className='insights-div'>
       <h3>{text}</h3>
-      <img src={Close} alt='delete icon' />
+      <img onClick={removeResponse} src={Close} alt='delete icon' />
     </div>
   )
 }
