@@ -1,0 +1,9 @@
+@import "../../css/variables.scss";
+
+.timer {
+  background: $primary-gradient;
+  box-shadow: $external-shadow;
+  border-radius: $one-line-border-radius;
+  padding: $big-block-padding-space;
+  font-size: $logo-text;
+}
