@@ -1,0 +1,22 @@
+@import '../../css/variables.scss';
+@import '../../css/index.scss';
+
+.instruction-aside {
+  width: 30vw;
+  box-shadow: $external-shadow;
+  border-radius: $big-blocks-border-radius;
+}
+
+.instruction-p {
+  font-size: $small-text;
+  color: $dark-font-color;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: $inner-shadow;
+  margin: 2rem;
+  border-radius:$one-line-border-radius;
+}
+
+.instruction-h3 {
+  margin: 1rem;
+}
