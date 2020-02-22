@@ -4,6 +4,7 @@ import './App.scss';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import Dashboard from 'Containers/Dashboard/Dashboard';
 import RoundOne from 'Containers/RoundOne/RoundOne';
+import RoundTwo from 'Containers/RoundTwo/RoundTwo';
 
 const App: React.FC = () => {
   return (
@@ -11,7 +12,8 @@ const App: React.FC = () => {
       <Switch>
         <Route exact path='/' render={() => <WelcomePage />}/>
         <Route path='/dashboard' render={() => <Dashboard />}/>
-        <Route path='/round-one' render={() => <RoundOne />}/>
+        <Route path='/gameboard/round-one' render={() => <RoundOne />}/>
+        <Route path='/gameboard/round-two' render={() => <RoundTwo />}/>
         <Route component={() => <div>Not Found</div>} />
       </Switch>
     </div>
