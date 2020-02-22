@@ -15,20 +15,20 @@
 .question-numbers-div {
   display: flex;
   justify-content: center;
-    h2 {
+    h2 {  
       @extend %buttons;
       border-radius: .5rem;
       margin: $extra-small-space;
-      &:active {
-        box-shadow: $inner-shadow;
-      }
     }
     margin: $medium-space;
 }
 
-.current-question {
-  background-color: $genius-color;
-  background-image: $genius-gradient;
+h2.current-round {
+  background: $genius-gradient-mirror;
+}
+
+h2.completed-round {
+  box-shadow: $inner-shadow;
 }
 
 .template-question-div-wrapper {
