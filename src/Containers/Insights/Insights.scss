@@ -1,0 +1,20 @@
+@import '../../css/variables.scss';
+@import '../../css/index.scss';
+
+.insights-div {
+  width: 90%;
+  height: 5vh;
+  display: flex;
+  margin: $medium-space;
+  padding: $medium-space;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $smallest-border-radius;
+  img {
+    width: 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  box-shadow: $external-shadow;
+}

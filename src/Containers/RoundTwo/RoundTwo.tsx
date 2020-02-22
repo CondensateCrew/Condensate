@@ -112,3 +112,5 @@ const RoundTwo:React.FC = () => {
     </main>
   )
 }
+
+export default RoundTwo;

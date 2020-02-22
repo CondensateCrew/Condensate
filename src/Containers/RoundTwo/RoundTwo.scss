@@ -1,6 +1,7 @@
 @import '../../css/variables.scss';
 @import '../../css/index.scss';
 
+
 .round-two-main {
   footer {
     display: flex;
@@ -44,12 +45,19 @@ h2.completed-round {
 }
 
 .template-question-section-wrapper {
+.current-question {
+  background-color: $genius-color;
+  background-image: $genius-gradient;
+}
+
+.template-question-div-wrapper {
   margin: $medium-space;
 }
 
 .responses-div {
   width: 100%;
   margin-top: $small-space;
+  height: 40vh;
   box-shadow: $external-shadow;
   border-radius: $big-blocks-border-radius;
   padding: $medium-space;
@@ -69,4 +77,3 @@ h2.completed-round {
     }
   }
 }
-
