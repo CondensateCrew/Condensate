@@ -12,9 +12,8 @@ exports[`Dashboard component should match the snapshot 1`] = `
     </h1>
     <UserProfile
       firstName="Alan"
-      lastName="Bird"
+      lastName="Birds"
     />
-
     <div
       className="dashboard-brainstorm-form-div"
       onClick={[Function]}
@@ -74,7 +73,7 @@ exports[`Dashboard component should match the snapshot when the new brainstorm b
     </h1>
     <UserProfile
       firstName="Alan"
-      lastName="Bird"
+      lastName="Birds"
     />
     <BrainstormForm
       brainstormFormState={true}
