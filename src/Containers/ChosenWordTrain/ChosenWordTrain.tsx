@@ -1,9 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import './ChosenWordTrain.scss';
+import { AppStore } from 'interfaces';
 
-const ChosenWordTrain:React.FC = () => {
+const ChosenWordTrain: React.FC = () => {
+  const { chosenWords } = useSelector((store: AppStore) => ({
+    chosenWords: store.chosenWords
+  }));
+
+  const blocks = chosenWords.map((word: string) => (
+    <p key={word}>{word}</p>
+  ));
+
   return (
-    <section>
-      <h2>This is where bubbles that have been clicked will appear</h2>
-    </section>
+    <section className="chosen-train">{ blocks }</section>
   )
 }
+
+export default ChosenWordTrain;
