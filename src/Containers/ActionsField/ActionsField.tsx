@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BrainstormAction from '../../Components/BrainstormAction/BrainstormAction';
 import mockActions from '../../data/mockActions';
 import './ActionsField.scss';
+
 import { IBrainstormForm } from '../../interfaces';
 
 interface Props {
@@ -27,9 +28,11 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
 
   return (
-    <select value={selectedAction} onChange={handleChange} className='actions-dropdown-menu'>
-      {actions}
-    </select>
+    <div>
+      <select value={selectedAction} onChange={handleChange} className='actions-dropdown-menu'>
+        {actions}
+      </select>
+    </div>
   )
 }
 

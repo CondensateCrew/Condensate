@@ -6,10 +6,7 @@ exports[`BrainstormCategory should match the snapshot 1`] = `
     className="category-btn"
     onClick={[Function]}
     type="button"
-    value="Technology"
-  >
-    Technology
-  </button>
+  />
 </Fragment>
 `;
 
@@ -63,9 +60,6 @@ exports[`BrainstormCategory should render a different snapshot after a click eve
     className="category-btn active"
     onClick={[Function]}
     type="button"
-    value="Technology"
-  >
-    Technology
-  </button>
+  />
 </BrainstormCategory>
 `;

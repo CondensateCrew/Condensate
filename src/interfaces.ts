@@ -35,7 +35,7 @@ export interface Brainstorm {
 export interface IBrainstormForm {
   id?: number, 
   question: string,
-  categories: string[],
+  categories: Category[],
   action: string,
   reset: boolean
 }

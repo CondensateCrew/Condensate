@@ -25,8 +25,8 @@ const Dashboard: React.FC = () => {
 
   brainstormFormState ? brainstormForm = (<BrainstormForm brainstormFormState={brainstormFormState}
     cancel={setBrainstormForm}/>)
-  : brainstormForm = (<div onClick={toggleMenu} className='dashboard-brainstorm-form-div'>
-      <img className='add-icon-dashboard' alt='add-icon' src={addIcon}/>
+  : brainstormForm = (<div className='dashboard-brainstorm-form-div'>
+      <img onClick={toggleMenu} className='add-icon-dashboard' alt='add-icon' src={addIcon}/>
       <h3>create new brainstorm</h3>
       </div>)
 

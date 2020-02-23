@@ -1,107 +1,363 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BrainstormCategory should match the snapshot 1`] = `
-<form
-  className="brainstorm-form"
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
 >
-  <h2
-    className="brainstorm-form-h2"
-  >
-    CREATE NEW BRAINSTORM
-  </h2>
-  <div
-    className="brainstorm-div"
-  >
-    <label
-      className="brainstorm-label"
-    >
-      IDEA QUESTION
-    </label>
-    <IdeaQuestion
-      formState={
-        Object {
-          "action": "create an app",
-          "categories": Array [],
-          "question": "",
-          "reset": false,
-        }
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
       }
-      setQuestion={[Function]}
-    />
-  </div>
-  <div
-    className="brainstorm-div"
+    }
   >
-    <label
-      className="brainstorm-label"
+    <BrainstormForm
+      brainstormFormState={true}
+      cancel={[MockFunction]}
     >
-      CATEGORIES
-    </label>
-    <CategoryField
-      formState={
-        Object {
-          "action": "create an app",
-          "categories": Array [],
-          "question": "",
-          "reset": false,
-        }
-      }
-      setCategory={[Function]}
-    />
-  </div>
-  <div
-    className="brainstorm-div"
-  >
-    <label
-      className="brainstorm-label"
-    >
-      DESIRED ACTION
-    </label>
-    <ActionsField
-      formState={
-        Object {
-          "action": "create an app",
-          "categories": Array [],
-          "question": "",
-          "reset": false,
-        }
-      }
-      setAction={[Function]}
-    />
-  </div>
-  <div
-    className="brainstorm-div"
-  >
-    <label
-      className="brainstorm-label"
-    >
-      SUMMARY
-    </label>
-    <textarea
-      className="brainstorm-summary-textarea"
-      placeholder="Typed summary here..."
-    />
-  </div>
-  <div
-    className="brainstorm-form-menu"
-  >
-    <button
-      className="cancel-btn"
-      onClick={[Function]}
-      type="button"
-    >
-      cancel
-    </button>
-    <img
-      alt="broom-icon"
-      className="broom"
-      src="broom.svg"
-    />
-    <button
-      className="start-btn"
-    >
-      start
-    </button>
-  </div>
-</form>
+      <form
+        className="brainstorm-form"
+      >
+        <h2
+          className="brainstorm-form-h2"
+        >
+          CREATE NEW BRAINSTORM
+        </h2>
+        <div
+          className="brainstorm-div"
+        >
+          <label
+            className="brainstorm-label"
+          >
+            IDEA QUESTION
+          </label>
+          <IdeaQuestion
+            formState={
+              Object {
+                "action": "create an app",
+                "categories": Array [],
+                "question": "",
+                "reset": false,
+              }
+            }
+            setQuestion={[Function]}
+          >
+            <input
+              className="idea-question-input"
+              onChange={[Function]}
+              placeholder="Enter your idea here..."
+              type="text"
+              value=""
+            />
+          </IdeaQuestion>
+        </div>
+        <div
+          className="brainstorm-div"
+        >
+          <label
+            className="brainstorm-label"
+          >
+            CATEGORIES
+          </label>
+          <CategoryField
+            formState={
+              Object {
+                "action": "create an app",
+                "categories": Array [],
+                "question": "",
+                "reset": false,
+              }
+            }
+            setCategory={[Function]}
+          >
+            <section
+              className="category-field-section"
+            >
+              <BrainstormCategory
+                category={
+                  Object {
+                    "id": 1,
+                    "name": "Education",
+                  }
+                }
+                formState={
+                  Object {
+                    "action": "create an app",
+                    "categories": Array [],
+                    "question": "",
+                    "reset": false,
+                  }
+                }
+                key="0"
+                setCategory={[Function]}
+              >
+                <button
+                  className="category-btn"
+                  onClick={[Function]}
+                  type="button"
+                  value="Education"
+                >
+                  Education
+                </button>
+              </BrainstormCategory>
+              <BrainstormCategory
+                category={
+                  Object {
+                    "id": 2,
+                    "name": "Technology",
+                  }
+                }
+                formState={
+                  Object {
+                    "action": "create an app",
+                    "categories": Array [],
+                    "question": "",
+                    "reset": false,
+                  }
+                }
+                key="1"
+                setCategory={[Function]}
+              >
+                <button
+                  className="category-btn"
+                  onClick={[Function]}
+                  type="button"
+                  value="Technology"
+                >
+                  Technology
+                </button>
+              </BrainstormCategory>
+              <BrainstormCategory
+                category={
+                  Object {
+                    "id": 3,
+                    "name": "Environment",
+                  }
+                }
+                formState={
+                  Object {
+                    "action": "create an app",
+                    "categories": Array [],
+                    "question": "",
+                    "reset": false,
+                  }
+                }
+                key="2"
+                setCategory={[Function]}
+              >
+                <button
+                  className="category-btn"
+                  onClick={[Function]}
+                  type="button"
+                  value="Environment"
+                >
+                  Environment
+                </button>
+              </BrainstormCategory>
+              <BrainstormCategory
+                category={
+                  Object {
+                    "id": 4,
+                    "name": "Food",
+                  }
+                }
+                formState={
+                  Object {
+                    "action": "create an app",
+                    "categories": Array [],
+                    "question": "",
+                    "reset": false,
+                  }
+                }
+                key="3"
+                setCategory={[Function]}
+              >
+                <button
+                  className="category-btn"
+                  onClick={[Function]}
+                  type="button"
+                  value="Food"
+                >
+                  Food
+                </button>
+              </BrainstormCategory>
+              <BrainstormCategory
+                category={
+                  Object {
+                    "id": 5,
+                    "name": "Music",
+                  }
+                }
+                formState={
+                  Object {
+                    "action": "create an app",
+                    "categories": Array [],
+                    "question": "",
+                    "reset": false,
+                  }
+                }
+                key="4"
+                setCategory={[Function]}
+              >
+                <button
+                  className="category-btn"
+                  onClick={[Function]}
+                  type="button"
+                  value="Music"
+                >
+                  Music
+                </button>
+              </BrainstormCategory>
+              <img
+                alt="add-icon"
+                className="add-category-btn"
+                src="add.svg"
+              />
+            </section>
+          </CategoryField>
+        </div>
+        <div
+          className="brainstorm-div"
+        >
+          <label
+            className="brainstorm-label"
+          >
+            DESIRED ACTION
+          </label>
+          <ActionsField
+            formState={
+              Object {
+                "action": "create an app",
+                "categories": Array [],
+                "question": "",
+                "reset": false,
+              }
+            }
+            setAction={[Function]}
+          >
+            <div>
+              <select
+                className="actions-dropdown-menu"
+                onChange={[Function]}
+                value="create an app"
+              >
+                <BrainstormAction
+                  action="Create an App"
+                  key="0"
+                >
+                  <option>
+                    Create an App
+                  </option>
+                </BrainstormAction>
+                <BrainstormAction
+                  action="Write a Story"
+                  key="1"
+                >
+                  <option>
+                    Write a Story
+                  </option>
+                </BrainstormAction>
+                <BrainstormAction
+                  action="Plan a Lesson"
+                  key="2"
+                >
+                  <option>
+                    Plan a Lesson
+                  </option>
+                </BrainstormAction>
+                <BrainstormAction
+                  action="Make a Recipe"
+                  key="3"
+                >
+                  <option>
+                    Make a Recipe
+                  </option>
+                </BrainstormAction>
+                <BrainstormAction
+                  action="Write a Song"
+                  key="4"
+                >
+                  <option>
+                    Write a Song
+                  </option>
+                </BrainstormAction>
+              </select>
+            </div>
+          </ActionsField>
+        </div>
+        <div
+          className="brainstorm-div"
+        >
+          <label
+            className="brainstorm-label"
+          >
+            SUMMARY
+          </label>
+          <textarea
+            className="brainstorm-summary-textarea"
+            placeholder="Typed summary here..."
+            readOnly={true}
+            value=""
+          />
+        </div>
+        <div
+          className="brainstorm-form-menu"
+        >
+          <button
+            className="cancel-btn"
+            onClick={[Function]}
+            type="button"
+          >
+            cancel
+          </button>
+          <img
+            alt="broom-icon"
+            className="broom"
+            src="broom.svg"
+          />
+          <button
+            className="start-btn"
+            disabled={true}
+            onClick={[Function]}
+            type="button"
+          >
+            start
+          </button>
+        </div>
+      </form>
+    </BrainstormForm>
+  </Router>
+</MemoryRouter>
 `;

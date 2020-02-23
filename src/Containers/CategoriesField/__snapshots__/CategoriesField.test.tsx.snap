@@ -5,7 +5,12 @@ exports[`CategoriesField should match the snapshot 1`] = `
   className="category-field-section"
 >
   <BrainstormCategory
-    category="Education"
+    category={
+      Object {
+        "id": 1,
+        "name": "Education",
+      }
+    }
     formState={
       Object {
         "action": "create an app",
@@ -18,7 +23,12 @@ exports[`CategoriesField should match the snapshot 1`] = `
     setCategory={[MockFunction]}
   />
   <BrainstormCategory
-    category="Technology"
+    category={
+      Object {
+        "id": 2,
+        "name": "Technology",
+      }
+    }
     formState={
       Object {
         "action": "create an app",
@@ -31,7 +41,12 @@ exports[`CategoriesField should match the snapshot 1`] = `
     setCategory={[MockFunction]}
   />
   <BrainstormCategory
-    category="Environment"
+    category={
+      Object {
+        "id": 3,
+        "name": "Environment",
+      }
+    }
     formState={
       Object {
         "action": "create an app",
@@ -44,7 +59,12 @@ exports[`CategoriesField should match the snapshot 1`] = `
     setCategory={[MockFunction]}
   />
   <BrainstormCategory
-    category="Food"
+    category={
+      Object {
+        "id": 4,
+        "name": "Food",
+      }
+    }
     formState={
       Object {
         "action": "create an app",
@@ -57,7 +77,12 @@ exports[`CategoriesField should match the snapshot 1`] = `
     setCategory={[MockFunction]}
   />
   <BrainstormCategory
-    category="Music"
+    category={
+      Object {
+        "id": 5,
+        "name": "Music",
+      }
+    }
     formState={
       Object {
         "action": "create an app",
