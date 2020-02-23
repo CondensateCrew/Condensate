@@ -1,9 +1,13 @@
 import React from 'react';
 import './TemplateQuestion.scss';
 
-const TemplateQuestion:React.FC = () => {
+interface Props {
+  templateQuestion: string
+}
+
+const TemplateQuestion:React.FC<Props> = ({ templateQuestion }) => {
   return ( 
-    <h3 className='template-question-h3'>A goose flies south</h3>
+    <h3 className='template-question-h3'>{templateQuestion}</h3>
   )
 }
 

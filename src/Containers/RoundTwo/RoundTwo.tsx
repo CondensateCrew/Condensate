@@ -1,4 +1,9 @@
-import React, { useState, MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
+import React, { useState, useEffect, MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppStore } from 'interfaces';
+import { useHistory } from 'react-router-dom';
+import { addQuestionTemplates, reverseTime } from 'redux/actions';
+import mockQuestionTemplate from 'data/mockQuestionTemplate';
 import Instruction from 'Components/Instruction/Instruction';
 import TemplateQuestion from 'Components/TemplateQuestion/TemplateQuestion';
 import GenerateInsights from 'Components/GenerateInsights/GenerateInsights';
@@ -10,6 +15,32 @@ import './RoundTwo.scss';
 const RoundTwo:React.FC = () => {
   const [ inputValue, setInputValue ] = useState<string>('')
   const [ responses, setResponses ] = useState<string[]>([])
+  const [ currentStep, setCurrentStep] = useState<number>(0)
+  const [ time, setTime ] = useState<number>(90)
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(addQuestionTemplates(mockQuestionTemplate))
+    return () => {
+    };
+  }, []);
+  let history = useHistory();
+
+
+  useEffect(() => {
+    if (timeEnded) {
+      if (currentStep >= 2) {
+        history.push('/gameboard/round-three')
+      }
+      setCurrentStep(currentStep + 1)
+      dispatch(reverseTime())
+    }
+  })
+
+  const { timeEnded, questionTemplates } = useSelector((state: AppStore) => ({
+    timeEnded: state.timeEnded,
+    questionTemplates: state.questionTemplates
+  }))
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
@@ -43,7 +74,7 @@ const RoundTwo:React.FC = () => {
       <Instruction/>
       </div>
       <section className='template-question-section-wrapper'>
-        <TemplateQuestion />
+        <TemplateQuestion templateQuestion={questionTemplates[currentStep]}/>
         <div className='responses-div'>
           {insights}
           <div className='responses-input-div'>
@@ -55,7 +86,7 @@ const RoundTwo:React.FC = () => {
       </section>
     </section>
     <footer>
-      <Timer time={90}/>
+      {!timeEnded && <Timer time={time}/>}
     </footer>
     </main>
   )
