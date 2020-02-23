@@ -11,19 +11,27 @@ const mockDispatch = jest.fn();
 
 describe('BrainstormCategory', () => {
   let wrapper;
+  beforeEach(() => {
+    jest.mock('react-router-dom', () => ({
+      useHistory: () => ({
+        push: jest.fn(),
+      }),
+    }));
+
+    const mockBrainstormFormState = true;
+    const mockCancel = jest.fn();
+
+    wrapper = mount(<MemoryRouter 
+      initialEntries={[ { pathname: '/', key: 'testKey' } ]}><BrainstormForm 
+      brainstormFormState={mockBrainstormFormState}
+      cancel={mockCancel}/></MemoryRouter>)
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('should match the snapshot', () => {
-    const mockBrainstormFormState = true;
-    const mockCancel = jest.fn();
-
-    wrapper = shallow(<BrainstormForm 
-      brainstormFormState={mockBrainstormFormState}
-      cancel={mockCancel}
-    />);
-
     expect(wrapper).toMatchSnapshot();
   });
 
