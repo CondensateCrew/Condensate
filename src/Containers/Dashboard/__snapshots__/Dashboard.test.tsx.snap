@@ -75,10 +75,6 @@ exports[`Dashboard component should match the snapshot when the new brainstorm b
       firstName="Alan"
       lastName="Birds"
     />
-    <BrainstormForm
-      brainstormFormState={true}
-      cancel={[Function]}
->
     <div
       className="dashboard-brainstorm-form-div"
     >
