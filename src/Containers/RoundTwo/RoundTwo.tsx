@@ -1,8 +1,10 @@
 import React, { useState, MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
-import Instruction from '../../Components/Instruction/Instruction';
-import TemplateQuestion from '../../Components/TemplateQuestion/TemplateQuestion';
-import GenerateInsights from '../../Components/GenerateInsights/GenerateInsights';
-import Check from '../../assets/check.svg';
+import Instruction from 'Components/Instruction/Instruction';
+import TemplateQuestion from 'Components/TemplateQuestion/TemplateQuestion';
+import GenerateInsights from 'Components/GenerateInsights/GenerateInsights';
+import Header from 'Components/Header/Header';
+import Timer from 'Components/Timer/Timer';
+import Check from 'assets/check.svg';
 import './RoundTwo.scss';
 
 const RoundTwo:React.FC = () => {
@@ -29,6 +31,8 @@ const RoundTwo:React.FC = () => {
   })
 
   return (
+    <main className='round-two-main'>
+    <Header />
     <section className='round-two-section'>
       <div className='instructions-div-wrapper'>
         <div className='question-numbers-div'>
@@ -38,7 +42,7 @@ const RoundTwo:React.FC = () => {
         </div>
       <Instruction/>
       </div>
-      <div className='template-question-div-wrapper'>
+      <section className='template-question-section-wrapper'>
         <TemplateQuestion />
         <div className='responses-div'>
           {insights}
@@ -48,7 +52,11 @@ const RoundTwo:React.FC = () => {
             <img src={Check} onClick={handleSubmit} alt='submit-checkmark-icon' />
           </div>
         </div>
-      </div>
+      </section>
     </section>
+    <footer>
+      <Timer time={90}/>
+    </footer>
+    </main>
   )
 }
