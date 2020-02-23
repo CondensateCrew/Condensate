@@ -64,23 +64,23 @@ const RoundTwo:React.FC = () => {
   let displayRounds;
     if (currentStep === 0) {
       displayRounds = [
-      <h2 id='one' className='question-number-h2 current-round'>1</h2>,
-      <h2 id='two' className='question-number-h2'>2</h2>,
-      <h2 id='three' className='question-number-h2'>3</h2>
+      <h2 key='one' id='one' className='question-number-h2 current-round'>1</h2>,
+      <h2 key='two' id='two' className='question-number-h2'>2</h2>,
+      <h2 key='three' id='three' className='question-number-h2'>3</h2>
       ]
     } 
     if (currentStep === 1) {
       displayRounds = [
-      <h2 id='one' className='question-number-h2 completed-round'>1</h2>,
-      <h2 id='two' className='question-number-h2 current-round'>2</h2>,
-      <h2 id='three' className='question-number-h2'>3</h2>
+      <h2 key='one' id='one' className='question-number-h2 completed-round'>1</h2>,
+      <h2 key='two' id='two' className='question-number-h2 current-round'>2</h2>,
+      <h2 key='three' id='three' className='question-number-h2'>3</h2>
       ]
     }
     if (currentStep === 2) {
       displayRounds = [
-      <h2 id='one' className='question-number-h2 completed-round'>1</h2>,
-      <h2 id='two' className='question-number-h2 completed-round'>2</h2>,
-      <h2 id='three' className='question-number-h2 current-round'>3</h2>
+      <h2 key='one' id='one' className='question-number-h2 completed-round'>1</h2>,
+      <h2 key='two' id='two' className='question-number-h2 completed-round'>2</h2>,
+      <h2 key='three' id='three' className='question-number-h2 current-round'>3</h2>
       ]
     }
 
