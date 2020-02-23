@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChosenWordTrain component should match the snapshot 1`] = `
+<section
+  className="chosen-train"
+>
+  <p
+    key="Temp"
+  >
+    Temp
+  </p>
+</section>
+`;
