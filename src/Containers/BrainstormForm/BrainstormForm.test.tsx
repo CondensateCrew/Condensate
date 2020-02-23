@@ -1,17 +1,16 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { IBrainstormForm } from '../../interfaces';
 import BrainstormForm from './BrainstormForm';
+import { useDispatch } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
+
+const mockDispatch = jest.fn();
+    jest.mock('react-redux', () => ({
+      useDispatch: () => mockDispatch
+    }));
 
 describe('BrainstormCategory', () => {
   let wrapper;
-  beforeEach(() => {
-    interface Props {
-      brainstormFormState: boolean,
-      cancel: (brainstormFormState:boolean) => void;
-    }
-  });
-
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -32,11 +31,11 @@ describe('BrainstormCategory', () => {
     const mockBrainstormFormState = true;
     const mockCancel = jest.fn();
 
-    wrapper = mount(<BrainstormForm 
+    wrapper = mount(<MemoryRouter 
+      initialEntries={[ { pathname: '/', key: 'testKey' } ]}><BrainstormForm 
       brainstormFormState={mockBrainstormFormState}
-      cancel={mockCancel}
-    />);
-    
+      cancel={mockCancel}/></MemoryRouter>)
+
     const instance = wrapper.instance();
 
     wrapper.find('.cancel-btn').simulate('click');
