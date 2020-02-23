@@ -11,18 +11,3 @@ exports[`RoundOne component should match the snapshot 1`] = `
   </footer>
 </main>
 `;
-
-exports[`RoundOne component should match the snapshot if time is ended 1`] = `
-<main
-  className="round-one-board"
->
-  <Redirect
-    to="/round-two"
-  />
-  <Header />
-  <GameBoard />
-  <footer>
-    <ChosenWordTrain />
-  </footer>
-</main>
-`;
