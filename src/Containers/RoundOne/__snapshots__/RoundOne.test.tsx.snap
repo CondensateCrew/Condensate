@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoundOne component should match the snapshot 1`] = `
+<main
+  className="round-one-board"
+>
+  <Header />
+  <GameBoard />
+  <footer>
+    <ChosenWordTrain />
+  </footer>
+</main>
+`;
+
+exports[`RoundOne component should match the snapshot if time is ended 1`] = `
+<main
+  className="round-one-board"
+>
+  <Redirect
+    to="/round-two"
+  />
+  <Header />
+  <GameBoard />
+  <footer>
+    <ChosenWordTrain />
+  </footer>
+</main>
+`;
