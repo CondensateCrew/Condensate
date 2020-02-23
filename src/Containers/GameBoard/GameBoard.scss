@@ -1,0 +1,159 @@
+@import '../../css/variables.scss';
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+.game-board {
+  position: relative;
+  .bubble {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary-gradient;
+    border-radius: 50%;
+    box-shadow: $doubled-shadow;
+    font-size: $big-text;
+    line-height: 1em;
+    width: fit-content;
+    position: absolute;
+    z-index: 20;
+    $total: 8;
+    @for $i from 1 through $total {
+      &:nth-child(#{$i}) {
+        $new: $i - 1;
+        animation: appearing 8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation-delay: $i * 0.5s;
+        opacity: 0;
+      }
+    }
+    &:nth-child(1) {
+      top: 5%; left: 5%;
+    }
+    &:nth-child(4) {
+      top: 12%; left: 35%;
+    }
+    &:nth-child(5) {
+      top: 38%; left: 87%;
+    }
+    &:nth-child(6) {
+      top: 5%; left: 65%;
+    }
+    &:nth-child(2) {
+      top: 80%; left: 70%;
+    }
+    &:nth-child(3) {
+      top: 80%; left: 25%;
+    }
+    &:nth-child(7) {
+      top: 53%; left: 48%;
+    }
+    &:nth-child(8) {
+      top: 50%; left: 8%;
+    }
+    span {
+      padding: 0 $small-space;
+    }
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.bubble-rounds {
+  @extend %rounds;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  animation-delay: 1.5s;
+  justify-content: center;
+  width: 75%; height: 75%;
+  z-index: -15;
+  &::before {
+    @extend %rounds;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    width: 40%; height: 40%;
+    z-index: -10;
+  }
+  &::after {
+    @extend %rounds;
+    animation-delay: 0s;
+    width: 10%; height: 10%;
+    z-index: -5;
+  }
+}
+
+.disappeared {
+  position: relative;
+  background: none !important;
+  box-shadow: none !important;
+  &::before {
+    @extend %rounds;
+    animation-delay: 2s;
+    width: 100%; height: 100%;
+    z-index: -20;
+  }
+}
+
+@keyframes appearing {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes disappearing {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes spread {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+%rounds {
+  content: '';
+  border-radius: 50%;
+  box-shadow: $doubled-small-shadow;
+  position: absolute;
+  animation: spread 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}

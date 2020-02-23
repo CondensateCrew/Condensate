@@ -1,0 +1,15 @@
+@import "../../css/variables.scss";
+
+.chosen-train {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  width: 80vw;
+  p {
+    background: $primary-gradient;
+    box-shadow: $external-shadow;
+    border-radius: $one-line-border-radius;
+    padding: $one-line-padding-space;
+    margin-left: $small-space;
+  }
+}
