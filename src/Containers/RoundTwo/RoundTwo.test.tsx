@@ -1,6 +1,6 @@
 import React from 'react';
 import RoundTwo from './RoundTwo';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import mockQuestionTemplate from 'data/mockQuestionTemplate';
