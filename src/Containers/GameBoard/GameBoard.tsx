@@ -23,7 +23,7 @@ const GameBoard: React.FC = () => {
     }, 8000);
 
     return () => clearTimeout(timer);
-  });
+  }, []);
 
   useEffect(() => {
     if( chosenWords.length === 9 || timeEnded ) setIsRedirected(true);
