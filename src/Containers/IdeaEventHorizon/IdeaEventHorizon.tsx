@@ -9,3 +9,5 @@ const IdeaEventHorizon:React.FC = () => {
     </section>
   )
 }
+
+export default IdeaEventHorizon;
