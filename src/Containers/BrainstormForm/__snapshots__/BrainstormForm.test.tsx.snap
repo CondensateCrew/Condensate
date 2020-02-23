@@ -99,6 +99,7 @@ exports[`BrainstormCategory should match the snapshot 1`] = `
     />
     <button
       className="start-btn"
+      type="button"
     >
       start
     </button>

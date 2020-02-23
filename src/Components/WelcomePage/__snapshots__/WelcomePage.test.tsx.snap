@@ -12,7 +12,7 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
         "entries": Array [
           Object {
             "hash": "",
-            "key": "culmuf",
+            "key": "4yaweg",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -26,7 +26,7 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "culmuf",
+          "key": "4yaweg",
           "pathname": "/",
           "search": "",
           "state": undefined,

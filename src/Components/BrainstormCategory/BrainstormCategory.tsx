@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './BrainstormCategory.scss';
-import { IBrainstormForm } from '../../interfaces';
+import { IBrainstormForm, Category } from '../../interfaces';
 interface Props {
-  category: string,
+  category: Category,
   formState: IBrainstormForm,
   setCategory: (formState: IBrainstormForm) => void;
 }
@@ -18,7 +18,7 @@ const BrainstormCategory:React.FC<Props> = ({ category, formState, setCategory }
       setCategory({...formState, categories: [...formState.categories, category]})
     }
     if (!active) {
-      let newCategories = formState.categories.filter((cat:string) => cat !== category)
+      let newCategories = formState.categories.filter((ctg:Category) => ctg !== category)
       setCategory({...formState, categories: newCategories})
     }
   }
@@ -26,8 +26,8 @@ const BrainstormCategory:React.FC<Props> = ({ category, formState, setCategory }
   useEffect(addRemoveCategory, [!active])
   let button; 
 
-  active ? button = (<button type='button' className='category-btn active' value={category} onClick={toggleActive}>{category}</button>)
-  : button = (<button type='button' className='category-btn' value={category} onClick={toggleActive}>{category}</button>)
+  active ? button = (<button type='button' className='category-btn active' value={category.name} onClick={toggleActive}>{category}</button>)
+  : button = (<button type='button' className='category-btn' value={category.name} onClick={toggleActive}>{category}</button>)
 
   return (
     <>
