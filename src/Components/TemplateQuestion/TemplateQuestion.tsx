@@ -6,7 +6,7 @@ interface Props {
 }
 
 const TemplateQuestion:React.FC<Props> = ({ templateQuestion }) => {
-  return (
+  return ( 
     <h3 className='template-question-h3'>{templateQuestion}</h3>
   )
 }
