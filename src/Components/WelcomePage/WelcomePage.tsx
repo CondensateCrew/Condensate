@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import './WelcomePage.scss';
 import LoginForm from '../LoginForm/LoginForm';
 import SignUpForm from '../../Containers/SignUpForm/SignUpForm';
-import LoginForm from '../../Components/LoginForm/LoginForm';
 
 const WelcomePage: React.FC = () => {
-  const [ isLogin, setIsLogin ] = useState<boolean>(false);
+  const [ isLogin, setIsLogin ] = useState<boolean>(true);
 
   return (
     <main className="welcome-page">
