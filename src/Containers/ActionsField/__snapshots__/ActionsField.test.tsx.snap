@@ -1,32 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionsField should match the snapshot 1`] = `
-<select
-  className="actions-dropdown-menu"
-  onChange={[Function]}
-  value="create an app"
->
-  <BrainstormAction
-    action="Create an App"
-    key="0"
-  />
-  <BrainstormAction
-    action="Write a Story"
-    key="1"
-  />
-  <BrainstormAction
-    action="Plan a Lesson"
-    key="2"
-  />
-  <BrainstormAction
-    action="Make a Recipe"
-    key="3"
-  />
-  <BrainstormAction
-    action="Write a Song"
-    key="4"
-  />
-</select>
+<div>
+  <select
+    className="actions-dropdown-menu"
+    onChange={[Function]}
+    value="create an app"
+  >
+    <BrainstormAction
+      action="Create an App"
+      key="0"
+    />
+    <BrainstormAction
+      action="Write a Story"
+      key="1"
+    />
+    <BrainstormAction
+      action="Plan a Lesson"
+      key="2"
+    />
+    <BrainstormAction
+      action="Make a Recipe"
+      key="3"
+    />
+    <BrainstormAction
+      action="Write a Song"
+      key="4"
+    />
+  </select>
+</div>
 `;
 
 exports[`ActionsField should update the local state when change event occurs 1`] = `
@@ -72,51 +74,53 @@ exports[`ActionsField should update the local state when change event occurs 1`]
     }
   }
 >
-  <select
-    className="actions-dropdown-menu"
-    onChange={[Function]}
-    value="Write a Book"
-  >
-    <BrainstormAction
-      action="Create an App"
-      key="0"
+  <div>
+    <select
+      className="actions-dropdown-menu"
+      onChange={[Function]}
+      value="Write a Book"
     >
-      <option>
-        Create an App
-      </option>
-    </BrainstormAction>
-    <BrainstormAction
-      action="Write a Story"
-      key="1"
-    >
-      <option>
-        Write a Story
-      </option>
-    </BrainstormAction>
-    <BrainstormAction
-      action="Plan a Lesson"
-      key="2"
-    >
-      <option>
-        Plan a Lesson
-      </option>
-    </BrainstormAction>
-    <BrainstormAction
-      action="Make a Recipe"
-      key="3"
-    >
-      <option>
-        Make a Recipe
-      </option>
-    </BrainstormAction>
-    <BrainstormAction
-      action="Write a Song"
-      key="4"
-    >
-      <option>
-        Write a Song
-      </option>
-    </BrainstormAction>
-  </select>
+      <BrainstormAction
+        action="Create an App"
+        key="0"
+      >
+        <option>
+          Create an App
+        </option>
+      </BrainstormAction>
+      <BrainstormAction
+        action="Write a Story"
+        key="1"
+      >
+        <option>
+          Write a Story
+        </option>
+      </BrainstormAction>
+      <BrainstormAction
+        action="Plan a Lesson"
+        key="2"
+      >
+        <option>
+          Plan a Lesson
+        </option>
+      </BrainstormAction>
+      <BrainstormAction
+        action="Make a Recipe"
+        key="3"
+      >
+        <option>
+          Make a Recipe
+        </option>
+      </BrainstormAction>
+      <BrainstormAction
+        action="Write a Song"
+        key="4"
+      >
+        <option>
+          Write a Song
+        </option>
+      </BrainstormAction>
+    </select>
+  </div>
 </ActionsField>
 `;

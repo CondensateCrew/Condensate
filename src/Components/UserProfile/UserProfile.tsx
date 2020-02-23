@@ -9,7 +9,7 @@ interface Props {
 const UserProfile:React.FC<Props> = ({ firstName, lastName }) => {
   return (
     <div className='user-profile-div'>
-      <img className='profile-pic' src={AlanBird} alt='image of user'/>
+      <img className='profile-pic' src={AlanBird} alt='user profile'/>
       <h2><span>{firstName}</span> <span>{lastName}</span></h2>
       <img className='menu-svg' src={menu} alt='menu-svg' />
     </div>

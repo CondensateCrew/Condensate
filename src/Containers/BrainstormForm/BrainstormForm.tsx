@@ -5,8 +5,9 @@ import broom from 'assets/broom.svg';
 import IdeaQuestion from 'Components/IdeaQuestion/IdeaQuestion';
 import CategoriesField from '../CategoriesField/CategoriesField';
 import ActionsField from '../ActionsField/ActionsField';
-import { IBrainstormForm } from 'interfaces';
-import { addCurrentBrainstorm } from '../../redux/actions';
+import { IBrainstormForm, Category } from 'interfaces';
+import { addCurrentBrainstorm } from 'redux/actions';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   brainstormFormState: boolean,
@@ -21,11 +22,9 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
   });
   const [ disabled, setIsDisabled ] = useState<boolean>(true);
   const [ error, setError ] = useState<string>('');
+  const [ summary, setSummary ] = useState<string>('');
   const dispatch = useDispatch();
-
-  const resetReset = () => {
-    setFormState({...formState, reset: false})
-  }
+  let history = useHistory();
 
   const resetForm = ():void => {
       setFormState({
@@ -49,6 +48,18 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
     if (formState.categories === []) return setError('Please select a category');
   }
 
+  const writeSummary = ():void => {
+    let categoriesSum = formState.categories.map((ctg:Category) => {
+      if (ctg.name === 'Environment') {
+        return 'the environment'
+      } else {
+        return ctg.name.toLowerCase();
+      }
+    });
+
+    setSummary(`I want to ${formState.action} about ${categoriesSum.join(', the')} to answer the question: ${formState.question}`)
+  }
+
   const handleSubmit = ():void => {
     let currentBS = {
       id: 4,
@@ -60,15 +71,20 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
     }
     validateFields(formState) ? dispatch(addCurrentBrainstorm(currentBS))
     : writeError();
+
+    history.push('/gameboard/round-one');
   }
 
 
 
   useEffect(() => {
-    if (formState.reset) {
-      return resetReset()
-    }
-  })
+      if (validateFields(formState)) {
+        setIsDisabled(false)
+        writeSummary();
+      } else {
+        setIsDisabled(true)
+      }
+  }, [formState])
 
   return (
     <form className='brainstorm-form'>
@@ -88,12 +104,12 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
       </div>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>SUMMARY</label>
-        <textarea className='brainstorm-summary-textarea' placeholder='Typed summary here...'></textarea>
+        <textarea readOnly className='brainstorm-summary-textarea' value={summary} placeholder='Typed summary here...'></textarea>
       </div>
       <div className='brainstorm-form-menu'>
         <button type='button' className='cancel-btn' onClick={resetForm}>cancel</button>
         <img className='broom' alt='broom-icon' src={broom}/>
-        <button type='button' className='start-btn'>start</button>
+        <button type='button' onClick={handleSubmit} disabled={disabled} className='start-btn'>start</button>
       </div>
     </form>
   )

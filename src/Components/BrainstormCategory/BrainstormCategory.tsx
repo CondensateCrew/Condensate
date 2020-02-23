@@ -26,8 +26,8 @@ const BrainstormCategory:React.FC<Props> = ({ category, formState, setCategory }
   useEffect(addRemoveCategory, [!active])
   let button; 
 
-  active ? button = (<button type='button' className='category-btn active' value={category.name} onClick={toggleActive}>{category}</button>)
-  : button = (<button type='button' className='category-btn' value={category.name} onClick={toggleActive}>{category}</button>)
+  active ? button = (<button type='button' className='category-btn active' value={category.name} onClick={toggleActive}>{category.name}</button>)
+  : button = (<button type='button' className='category-btn' value={category.name} onClick={toggleActive}>{category.name}</button>)
 
   return (
     <>
