@@ -57,7 +57,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
       }
     });
 
-    setSummary(`I want to ${formState.action} about ${categoriesSum.join(', ')} to answer the question: ${formState.question}`)
+    setSummary(`I want to ${formState.action.toLowerCase()} about ${categoriesSum.join(', ')} to answer the question: ${formState.question}`)
   }
 
   const handleSubmit = ():void => {
