@@ -71,6 +71,7 @@ const RoundTwo:React.FC = () => {
     } 
     if (currentStep === 1) {
       displayRounds = [
+
       <h2 key='one' id='one' className='question-number-h2 completed-round'>1</h2>,
       <h2 key='two' id='two' className='question-number-h2 current-round'>2</h2>,
       <h2 key='three' id='three' className='question-number-h2'>3</h2>
