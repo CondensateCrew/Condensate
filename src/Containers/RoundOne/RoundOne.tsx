@@ -25,4 +25,4 @@ const RoundOne:React.FC = () => {
   )
 }
 
-export default Round1;
+export default RoundOne;
