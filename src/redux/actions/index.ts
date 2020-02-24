@@ -30,7 +30,8 @@ import {
   IEndTimeAction,
   IReverseTimeAction,
   IEndInstructionsAction,
-  IReverseInstructionsAction
+  IReverseInstructionsAction,
+  IRemoveAllWordsAction,
 } from 'interfaces';
 
 // user reducer action creators
@@ -123,6 +124,10 @@ export const addChosenWord = (chosenWord: string): IAddChosenWordAction => ({
 export const removeChosenWord = (chosenWord: string): IRemoveChosenWordAction => ({
   type: 'REMOVE_WORD',
   chosenWord: chosenWord
+});
+
+export const removeAllWords = (): IRemoveAllWordsAction => ({
+  type: 'REMOVE_ALL_WORDS'
 });
 
 // insights reducer action creators
