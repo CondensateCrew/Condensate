@@ -1,0 +1,46 @@
+@import '../../css/index.scss';
+@import '../../css/variables.scss';
+
+.final-idea-field-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 85%;
+}
+
+.final-idea-question-div {
+  width: 62%;
+  h3 {
+    // width: 100%;
+    border-radius: $one-line-border-radius;
+    box-shadow: $external-shadow;
+    padding: $medium-space;
+  }
+  margin: $small-space;
+}
+
+.final-idea-field-div {
+  width: 62%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-radius: $one-line-border-radius;
+  box-shadow: $external-shadow;
+  padding: $medium-space;
+
+  textarea {
+    resize: none;
+    width: 95%;
+    height: 25vh;
+    padding: $medium-space;
+    box-shadow: $inner-shadow;
+    border-radius: $one-line-border-radius;
+  }
+
+  button {
+    @extend %regular-btn;
+  }
+}

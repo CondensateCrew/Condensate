@@ -1,0 +1,10 @@
+@import '../../css/index.scss';
+@import '../../css/variables.scss';
+
+.idea-event-horizon-section {
+  display: flex;
+  padding: $largest-space;
+  aside {
+    width: 15%;
+  }
+}
