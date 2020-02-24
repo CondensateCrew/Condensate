@@ -1,5 +1,5 @@
 import chosenWordsReducer from './chosenWords';
-import { ActionObject, IAddChosenWordAction, IRemoveChosenWordAction } from 'interfaces';
+import { ActionObject, IAddChosenWordAction, IRemoveChosenWordAction, IRemoveAllWordsAction } from 'interfaces';
 
 type emptyArray = [ ];
 
@@ -36,6 +36,18 @@ describe('chosenWordsReducer', () => {
     const mockAction: IRemoveChosenWordAction = {
       type: 'REMOVE_WORD',
       chosenWord: mockChosenWord
+    };
+
+    const expected: emptyArray = [ ];
+
+    const result: string[] = chosenWordsReducer(['Bear'], mockAction);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return the empty array if type of action is REMOVE_ALL_WORDS", () => {
+    const mockAction: IRemoveAllWordsAction = {
+      type: 'REMOVE_ALL_WORDS'
     };
 
     const expected: emptyArray = [ ];
