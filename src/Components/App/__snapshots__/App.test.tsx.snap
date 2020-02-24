@@ -16,6 +16,7 @@ exports[`App component should match the snapshot 1`] = `
     />
     <Route
       path="/gameboard/round-two"
+      path="/instructions"
       render={[Function]}
     />
     <Route
