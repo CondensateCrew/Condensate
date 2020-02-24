@@ -1,7 +1,14 @@
 import React from 'react';
+import './TemplateQuestion.scss';
 
-const TemplateQuestion:React.FC = () => {
+interface Props {
+  templateQuestion: string
+}
+
+const TemplateQuestion:React.FC<Props> = ({ templateQuestion }) => {
   return ( 
-    <h2>This is a template question used in Round2 and Round3</h2>
+    <h3 className='template-question-h3'>{templateQuestion}</h3>
   )
 }
+
+export default TemplateQuestion;

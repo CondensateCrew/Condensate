@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoundTwo Component should match the snapshot when rendering for the first time 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <RoundTwo>
+      <main
+        className="round-two-main"
+      >
+        <Header>
+          <header
+            className="round-header"
+          >
+            <button
+              onClick={[Function]}
+            >
+              <img
+                alt="back"
+                src="down.svg"
+              />
+              to dashboard
+            </button>
+            <h1>
+              Condensate
+            </h1>
+          </header>
+        </Header>
+        <section
+          className="round-two-section"
+        >
+          <div
+            className="instructions-div-wrapper"
+          >
+            <div
+              className="question-numbers-div"
+            >
+              <h2
+                className="question-number-h2 current-round"
+                id="one"
+                key="one"
+              >
+                1
+              </h2>
+              <h2
+                className="question-number-h2"
+                id="two"
+                key="two"
+              >
+                2
+              </h2>
+              <h2
+                className="question-number-h2"
+                id="three"
+                key="three"
+              >
+                3
+              </h2>
+            </div>
+            <Instruction>
+              <aside
+                className="instruction-aside"
+              >
+                <h3
+                  className="instruction-h3"
+                >
+                  Instructions
+                </h3>
+                <p
+                  className="instruction-p"
+                >
+                  For each chosen word, you will be asked to come up with as many questions as you can in the time alloted.
+                  <br />
+                  <br />
+                  The more spontaneous and provocative the better!
+                  <br />
+                  <br />
+                  Example:
+                  <br />
+                  <br />
+                   'When does a goose choose to fly?'
+                </p>
+              </aside>
+            </Instruction>
+          </div>
+          <section
+            className="template-question-section-wrapper"
+          >
+            <TemplateQuestion
+              templateQuestion="A goose flies south."
+            >
+              <h3
+                className="template-question-h3"
+              >
+                A goose flies south.
+              </h3>
+            </TemplateQuestion>
+            <section
+              className="responses-section"
+            >
+              <div
+                className="responses-div"
+              />
+              <div
+                className="responses-input-div"
+              >
+                <input
+                  autoComplete="off"
+                  id="responses-input"
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="Write your question here..."
+                  type="text"
+                  value=""
+                />
+                <img
+                  alt="submit-checkmark-icon"
+                  onClick={[Function]}
+                  src="check.svg"
+                />
+              </div>
+            </section>
+          </section>
+        </section>
+        <footer>
+          <Timer
+            time={90}
+          >
+            <p
+              className="timer"
+            >
+              90
+            </p>
+          </Timer>
+        </footer>
+      </main>
+    </RoundTwo>
+  </Router>
+</MemoryRouter>
+`;
