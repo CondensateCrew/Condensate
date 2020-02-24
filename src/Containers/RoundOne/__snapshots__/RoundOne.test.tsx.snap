@@ -8,6 +8,9 @@ exports[`RoundOne component should match the snapshot 1`] = `
   <GameBoard />
   <footer>
     <ChosenWordTrain />
+    <Timer
+      time={90}
+    />
   </footer>
 </main>
 `;

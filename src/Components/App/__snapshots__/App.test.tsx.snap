@@ -15,11 +15,19 @@ exports[`App component should match the snapshot 1`] = `
       render={[Function]}
     />
     <Route
+<<<<<<< Updated upstream
       path="/gameboard/round-one"
       render={[Function]}
     />
     <Route
       path="/gameboard/round-two"
+=======
+      path="/gameboard/round-two"
+      render={[Function]}
+    />
+    <Route
+      path="/round-one"
+>>>>>>> Stashed changes
       render={[Function]}
     />
     <Route

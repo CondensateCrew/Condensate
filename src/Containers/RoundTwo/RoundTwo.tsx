@@ -2,7 +2,7 @@ import React, { useState, useEffect, MouseEvent, ChangeEvent, KeyboardEvent } fr
 import { useSelector, useDispatch } from 'react-redux';
 import { AppStore } from 'interfaces';
 import { useHistory } from 'react-router-dom';
-import { addQuestionTemplates, reverseTime } from 'redux/actions';
+import { addQuestionTemplates, reverseTime, addInsight } from 'redux/actions';
 import mockQuestionTemplate from 'data/mockQuestionTemplate';
 import Instruction from 'Components/Instruction/Instruction';
 import TemplateQuestion from 'Components/TemplateQuestion/TemplateQuestion';
@@ -32,6 +32,11 @@ const RoundTwo:React.FC = () => {
       if (currentStep >= 2) {
         history.push('/gameboard/round-three')
       }
+      dispatch(addInsight({
+        id: currentStep, 
+        question: questionTemplates[currentStep],
+        answers: responses
+      }))
       setCurrentStep(currentStep + 1)
       dispatch(reverseTime())
     }
