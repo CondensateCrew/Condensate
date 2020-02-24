@@ -55,11 +55,13 @@ h2.completed-round {
 }
 
 .responses-div {
+  max-height: 50vh;
   width: 100%;
   margin-top: $small-space;
   box-shadow: $external-shadow;
   border-radius: $big-blocks-border-radius;
   padding: $medium-space;
+  overflow: scroll;
 }
 
 .responses-input-div {

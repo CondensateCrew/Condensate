@@ -38,6 +38,7 @@ const RoundTwo:React.FC = () => {
         answers: responses
       }))
       setCurrentStep(currentStep + 1)
+      setResponses([])
       dispatch(reverseTime())
     }
   })
@@ -59,12 +60,16 @@ const RoundTwo:React.FC = () => {
   }
 
   const handleSubmit = (e: MouseEvent<HTMLElement> | KeyboardEvent<HTMLInputElement>) => {
+    if (inputValue === '') {
+      return
+    }
     setResponses([...responses, inputValue])
     setInputValue('')
   }
 
-  let insights = responses.map((insight:string) => {
-    return <GenerateInsights text={insight} responses={responses} setResponses={setResponses}/>
+  let insights = responses.map((insight:string, idx:number) => {
+    return <GenerateInsights text={insight} responses={responses} 
+    key={idx} id={idx} setResponses={setResponses}/>
   })
 
   let displayRounds;
@@ -106,7 +111,7 @@ const RoundTwo:React.FC = () => {
           {insights}
           <div className='responses-input-div'>
             <input id='responses-input' onKeyDown={handleInputSubmit} onChange={handleChange}
-            type='text' value={inputValue} placeholder='Write your question here...'></input>
+            type='text' value={inputValue} autoComplete='off' placeholder='Write your question here...'></input>
             <img src={Check} onClick={handleSubmit} alt='submit-checkmark-icon' />
           </div>
         </div>

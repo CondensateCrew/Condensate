@@ -6,17 +6,20 @@ interface Props {
   text: string,
   responses: string[],
   setResponses: (responses: string[]) => void
+  key:number,
+  id:number
 }
 
-const GenerateInsights:React.FC<Props> = ({ text, responses, setResponses }) => {
+const GenerateInsights:React.FC<Props> = ({ text, responses, setResponses, key, id }) => {
 
-  const removeResponse = ():void => {
-    let newResponses = responses.filter((response:string) => response !== text)
-    setResponses(newResponses)
+  const removeResponse = (e: React.SyntheticEvent<HTMLElement>):void => {
+    let newResponses = responses;
+    newResponses.splice(id, 1)
+    setResponses([...newResponses])
   }
 
   return (
-    <div className='insights-div'>
+    <div className='insights-div' key={key} id={id.toString()}>
       <h3>{text}</h3>
       <img onClick={removeResponse} src={Close} alt='delete icon' />
     </div>
