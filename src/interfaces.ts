@@ -144,7 +144,7 @@ export interface IAddQuestionTemplatesAction {
 }
 
 export interface IAddSecretSauceAction {
-  type: 'ADD_SECRETE_SAUSE',
+  type: 'ADD_SECRET_SAUCE',
   secretSauce: string[]
 }
 
