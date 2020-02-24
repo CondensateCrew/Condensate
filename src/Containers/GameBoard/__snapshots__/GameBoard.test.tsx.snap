@@ -4,101 +4,28 @@ exports[`GameBoard component should match the snapshot 1`] = `
 <main
   className="game-board"
 >
-  <p
-    className="bubble"
-    key="container-1"
-  >
-    <div />
-    <span
-      id="container"
-      onClick={[Function]}
-    >
-      container
-    </span>
-  </p>
-  <p
-    className="bubble"
-    key="book-2"
-  >
-    <div />
-    <span
-      id="book"
-      onClick={[Function]}
-    >
-      book
-    </span>
-  </p>
-  <p
-    className="bubble"
-    key="sport-3"
-  >
-    <div />
-    <span
-      id="sport"
-      onClick={[Function]}
-    >
-      sport
-    </span>
-  </p>
-  <p
-    className="bubble"
-    key="time-4"
-  >
-    <div />
-    <span
-      id="time"
-      onClick={[Function]}
-    >
-      time
-    </span>
-  </p>
-  <p
-    className="bubble"
-    key="cloud-5"
-  >
-    <div />
-    <span
-      id="cloud"
-      onClick={[Function]}
-    >
-      cloud
-    </span>
-  </p>
-  <p
-    className="bubble"
-    key="water-6"
-  >
-    <div />
-    <span
-      id="water"
-      onClick={[Function]}
-    >
-      water
-    </span>
-  </p>
-  <p
-    className="bubble"
-    key="security-7"
-  >
-    <div />
-    <span
-      id="security"
-      onClick={[Function]}
-    >
-      security
-    </span>
-  </p>
-  <p
-    className="bubble"
-    key="color-8"
-  >
-    <div />
-    <span
-      id="color"
-      onClick={[Function]}
-    >
-      color
-    </span>
-  </p>
+  <BubblesAll />
+</main>
+`;
+
+exports[`GameBoard component should match the snapshot if there is all 9 words 1`] = `
+<main
+  className="game-board"
+>
+  <BubblesReducer
+    chosenWords={
+      Array [
+        "Rest",
+        "Toy",
+        "Snow",
+        "Owl",
+        "Oil",
+        "Grid",
+        "Math",
+        "Leg",
+        "Men",
+      ]
+    }
+  />
 </main>
 `;
