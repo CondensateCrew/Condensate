@@ -1,6 +1,7 @@
 import React from 'react';
 import GameBoard from './GameBoard';
 import { shallow } from 'enzyme';
+import { addChosenWord } from 'redux/actions';
 const mockDispatch = jest.fn();
 
 jest.mock('redux/actions');
