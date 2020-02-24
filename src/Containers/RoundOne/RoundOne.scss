@@ -1,11 +1,11 @@
 @import "../../css/variables.scss";
 
 .round-one-board {
-  padding: $small-space;
   display: grid;
   grid-template-rows: 1fr 8fr 1fr;
   height: 100vh;
   overflow: hidden;
+  padding: $medium-space;
   footer {
     align-self: end;
     display: -webkit-flex;
