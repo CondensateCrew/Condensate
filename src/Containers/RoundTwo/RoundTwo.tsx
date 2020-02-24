@@ -60,6 +60,7 @@ const RoundTwo:React.FC = () => {
 
   const handleSubmit = (e: MouseEvent<HTMLElement> | KeyboardEvent<HTMLInputElement>) => {
     setResponses([...responses, inputValue])
+    setInputValue('')
   }
 
   let insights = responses.map((insight:string) => {

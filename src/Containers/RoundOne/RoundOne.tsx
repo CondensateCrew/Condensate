@@ -9,3 +9,5 @@ const Round1:React.FC = () => {
     </div>
   )
 }
+
+export default Round1;
