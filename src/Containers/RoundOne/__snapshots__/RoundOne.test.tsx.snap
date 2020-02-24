@@ -1,13 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RoundOne component should match the snapshot 1`] = `
-<<<<<<< HEAD
-<div>
-  <h2>
-    This is where the Word Bubbles will randomly generate. This Component will mount inside of the
-  </h2>
-</div>
-=======
 <main
   className="round-one-board"
 >
@@ -18,24 +11,6 @@ exports[`RoundOne component should match the snapshot 1`] = `
     <Timer
       time={90}
     />
-<<<<<<< HEAD
-=======
-  </footer>
-</main>
-`;
-
-exports[`RoundOne component should match the snapshot if time is ended 1`] = `
-<main
-  className="round-one-board"
->
-  <Header />
-  <GameBoard />
-  <footer>
-    <ChosenWordTrain />
-    <Timer
-      time={90}
-    />
->>>>>>> 78709f68b952bc755af90522a99d8121acc83743
   </footer>
 </main>
 `;
@@ -53,5 +28,4 @@ exports[`RoundOne component should match the snapshot if time is ended 1`] = `
     />
   </footer>
 </main>
->>>>>>> Update RoundOne component tests
 `;
