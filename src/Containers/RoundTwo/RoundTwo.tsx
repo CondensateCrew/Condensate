@@ -32,6 +32,7 @@ const RoundTwo:React.FC = () => {
       if (currentStep >= 2) {
         history.push('/gameboard/round-three')
       }
+
       dispatch(addInsight({
         id: currentStep, 
         question: questionTemplates[currentStep],
