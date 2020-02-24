@@ -1,6 +1,6 @@
 import React from 'react';
 import './DisplayInsights.scss';
-import down from '../../assets/down.svg';
+import down from 'assets/down.svg';
 
 const DisplayInsights:React.FC = () => {
   return (
