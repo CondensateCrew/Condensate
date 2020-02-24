@@ -10,14 +10,16 @@
 }
 
 .final-idea-question-div {
+  display: flex;
+  justify-content: space-evenly;
   width: 62%;
-  h3 {
-    // width: 100%;
-    border-radius: $one-line-border-radius;
-    box-shadow: $external-shadow;
-    padding: $medium-space;
-  }
+  border-radius: $one-line-border-radius;
+  box-shadow: $external-shadow;
+  padding: $medium-space;
   margin: $small-space;
+  img {
+    width: 1.25rem;
+  }
 }
 
 .final-idea-field-div {
