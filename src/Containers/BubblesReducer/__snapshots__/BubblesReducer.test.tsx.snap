@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BubblesReducer component should match the snapshot 1`] = `
+<BubblesReducer
+  chosenWords={
+    Array [
+      "Rest",
+      "Toy",
+      "Snow",
+      "Owl",
+      "Oil",
+      "Grid",
+      "Math",
+      "Leg",
+      "Men",
+    ]
+  }
+>
+  <section
+    className="limited-bbls"
+  >
+    <h3>
+      Choose one
+    </h3>
+    <section>
+      <p
+        className="bubble"
+        key="Rest-1"
+      >
+        <span />
+        <button
+          disabled={false}
+          id="rest"
+          onClick={[Function]}
+        >
+          Rest
+        </button>
+      </p>
+      <p
+        className="bubble"
+        key="Toy-2"
+      >
+        <span />
+        <button
+          disabled={false}
+          id="toy"
+          onClick={[Function]}
+        >
+          Toy
+        </button>
+      </p>
+      <p
+        className="bubble"
+        key="Snow-3"
+      >
+        <span />
+        <button
+          disabled={false}
+          id="snow"
+          onClick={[Function]}
+        >
+          Snow
+        </button>
+      </p>
+    </section>
+  </section>
+</BubblesReducer>
+`;

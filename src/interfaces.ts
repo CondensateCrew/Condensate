@@ -205,3 +205,7 @@ export interface IEndInstructionsAction {
 export interface IReverseInstructionsAction {
   type: 'REVERSE_INSTRUCTIONS'
 }
+
+export interface IRemoveAllWordsAction {
+  type: 'REMOVE_ALL_WORDS'
+}

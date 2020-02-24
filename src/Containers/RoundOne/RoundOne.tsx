@@ -1,13 +1,29 @@
+import './RoundOne.scss';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { AppStore } from 'interfaces';
+import Header from 'Components/Header/Header';
+import GameBoard from 'Containers/GameBoard/GameBoard';
+import ChosenWordTrain from 'Containers/ChosenWordTrain/ChosenWordTrain';
+import Timer from 'Components/Timer/Timer';
 
-const Round1:React.FC = () => {
+const RoundOne:React.FC = () => {
+  const { timeEnded } = useSelector((store: AppStore) => ({
+    timeEnded: store.timeEnded,
+  }));
+
   return (
-    <div>
-      <h2>This is where the Word Bubbles will randomly generate.
-        This Component will mount inside of the 
-      </h2>
-    </div>
+    <main className="round-one-board">
+      <Header />
+      <GameBoard />
+      { !timeEnded &&
+        <footer>
+          <ChosenWordTrain />
+          <Timer time={90} />
+        </footer>
+      }
+    </main>
   )
 }
 
-export default Round1;
+export default RoundOne;

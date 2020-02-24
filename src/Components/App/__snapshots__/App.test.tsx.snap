@@ -19,6 +19,10 @@ exports[`App component should match the snapshot 1`] = `
       render={[Function]}
     />
     <Route
+      path="/instructions"
+      render={[Function]}
+    />
+    <Route
       path="/round-one"
       render={[Function]}
     />

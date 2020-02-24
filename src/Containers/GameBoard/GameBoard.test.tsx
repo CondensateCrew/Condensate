@@ -5,41 +5,27 @@ import { addChosenWord } from 'redux/actions';
 const mockDispatch = jest.fn();
 
 jest.mock('redux/actions');
+let mockWords: string[];
 jest.mock('react-redux', () => ({
-  useSelector: () => ({
-    chosenWords: ['Rest'],
-    timeEnded: false,
-  }),
+  useSelector: () => mockWords,
   useDispatch: () => mockDispatch
 }));
 
 describe('GameBoard component', () => {
-  let wrapper: any;
 
-  beforeEach(() => {
-    wrapper = shallow(<GameBoard />);
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it('should match the snapshot', () => {
+    mockWords = ['Rest'];
+    const wrapper = shallow(<GameBoard />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should call addChosenWord when bubble is clicked', () => {
-    wrapper.find('#water').simulate('click', {
-      target: {
-        parentNode: {
-          classList: { add: jest.fn() }
-        },
-        previousSibling: {
-          classList: { add: jest.fn() }
-        },
-        style: {
-          animation: ''
-        },
-        id: 'water'
-      }
-    });
-
-    expect(addChosenWord).toHaveBeenCalledWith('water');
+  it('should match the snapshot if there is all 9 words', () => {
+    mockWords = ['Rest', 'Toy', 'Snow', 'Owl', 'Oil', 'Grid', 'Math', 'Leg', 'Men'];
+    const wrapper = shallow(<GameBoard />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

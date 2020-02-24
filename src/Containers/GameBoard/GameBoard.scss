@@ -7,9 +7,32 @@
 }
 
 .game-board {
-  position: relative;
+  &>section {
+    height: 100%;
+    position: relative;
+    &.limited-bbls {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      &>section {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .bubble {
+        margin: 0 2*$large-space;
+        width: 200px; height: 200px;
+      }
+    }
+  }
   .bubble {
-    cursor: pointer;
+    animation: appearing 8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     box-sizing: border-box;
     display: -webkit-flex;
     display: -ms-flex;
@@ -22,49 +45,51 @@
     font-size: $big-text;
     line-height: 1em;
     width: fit-content;
-    position: absolute;
     z-index: 20;
-    $total: 8;
-    @for $i from 1 through $total {
-      &:nth-child(#{$i}) {
-        $new: $i - 1;
-        animation: appearing 8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation-delay: $i * 0.5s;
-        opacity: 0;
-      }
-    }
-    &:nth-child(1) {
-      top: 5%; left: 5%;
-    }
-    &:nth-child(4) {
-      top: 12%; left: 35%;
-    }
-    &:nth-child(5) {
-      top: 38%; left: 87%;
-    }
-    &:nth-child(6) {
-      top: 5%; left: 65%;
-    }
-    &:nth-child(2) {
-      top: 80%; left: 70%;
-    }
-    &:nth-child(3) {
-      top: 80%; left: 25%;
-    }
-    &:nth-child(7) {
-      top: 53%; left: 48%;
-    }
-    &:nth-child(8) {
-      top: 50%; left: 8%;
-    }
-    span {
+    button {
+      cursor: pointer;
       padding: 0 $small-space;
     }
-    &:after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-      width: 100%;
+    &.randomly {
+      position: absolute;
+      $total: 8;
+      @for $i from 1 through $total {
+        &:nth-child(#{$i}) {
+          $new: $i - 1;
+          animation-delay: $i * 0.5s;
+          opacity: 0;
+        }
+      }
+      &:nth-child(1) {
+        top: 5%; left: 5%;
+      }
+      &:nth-child(4) {
+        top: 12%; left: 35%;
+      }
+      &:nth-child(5) {
+        top: 38%; left: 87%;
+      }
+      &:nth-child(6) {
+        top: 5%; left: 65%;
+      }
+      &:nth-child(2) {
+        top: 80%; left: 70%;
+      }
+      &:nth-child(3) {
+        top: 80%; left: 25%;
+      }
+      &:nth-child(7) {
+        top: 53%; left: 48%;
+      }
+      &:nth-child(8) {
+        top: 50%; left: 8%;
+      }
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+        width: 100%;
+      }
     }
   }
 }
