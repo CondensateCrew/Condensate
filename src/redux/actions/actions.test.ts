@@ -274,6 +274,16 @@ describe("chosenWords", () => {
 
     expect(result).toEqual(expected);
   });
+
+  it("should return object with a type of REMOVE_ALL_WORDS when removeAllWords is called", () => {
+    const expected: interfaces.IRemoveAllWordsAction = {
+      type: 'REMOVE_ALL_WORDS'
+    };
+
+    const result = actions.removeAllWords()
+
+    expect(result).toEqual(expected);
+  });
 });
 
 describe("insights", () => {
