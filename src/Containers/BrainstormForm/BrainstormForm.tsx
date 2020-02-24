@@ -73,6 +73,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
     : writeError();
 
     history.push('/gameboard/round-one');
+    history.push('/instructions');
   }
 
 
