@@ -134,13 +134,17 @@ exports[`RoundTwo Component should match the snapshot when rendering for the fir
                 A goose flies south.
               </h3>
             </TemplateQuestion>
-            <div
-              className="responses-div"
+            <section
+              className="responses-section"
             >
+              <div
+                className="responses-div"
+              />
               <div
                 className="responses-input-div"
               >
                 <input
+                  autoComplete="off"
                   id="responses-input"
                   onChange={[Function]}
                   onKeyDown={[Function]}
@@ -154,7 +158,7 @@ exports[`RoundTwo Component should match the snapshot when rendering for the fir
                   src="check.svg"
                 />
               </div>
-            </div>
+            </section>
           </section>
         </section>
         <footer>

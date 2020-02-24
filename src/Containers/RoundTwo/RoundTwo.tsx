@@ -54,7 +54,7 @@ const RoundTwo:React.FC = () => {
 
   const handleInputSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) {
-      setResponses([...responses, inputValue])
+      setResponses([inputValue, ...responses])
       setInputValue('')
     }
   }
@@ -63,7 +63,7 @@ const RoundTwo:React.FC = () => {
     if (inputValue === '') {
       return
     }
-    setResponses([...responses, inputValue])
+    setResponses([inputValue, ...responses])
     setInputValue('')
   }
 
@@ -107,14 +107,16 @@ const RoundTwo:React.FC = () => {
       </div>
       <section className='template-question-section-wrapper'>
         <TemplateQuestion templateQuestion={questionTemplates[currentStep]}/>
-        <div className='responses-div'>
-          {insights}
+        <section className='responses-section'>
+          <div className='responses-div'>
+            {insights}
+          </div>
           <div className='responses-input-div'>
             <input id='responses-input' onKeyDown={handleInputSubmit} onChange={handleChange}
             type='text' value={inputValue} autoComplete='off' placeholder='Write your question here...'></input>
             <img src={Check} onClick={handleSubmit} alt='submit-checkmark-icon' />
           </div>
-        </div>
+        </section>
       </section>
     </section>
     <footer>

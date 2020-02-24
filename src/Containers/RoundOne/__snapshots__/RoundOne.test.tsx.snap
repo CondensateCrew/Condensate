@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RoundOne component should match the snapshot 1`] = `
-<main
-  className="round-one-board"
->
-  <Header />
-  <GameBoard />
-  <footer>
-    <ChosenWordTrain />
-    <Timer
-      time={90}
-    />
-  </footer>
-</main>
+<div>
+  <h2>
+    This is where the Word Bubbles will randomly generate. This Component will mount inside of the
+  </h2>
+</div>
 `;
