@@ -30,7 +30,7 @@ const Instructions:React.FC<Props> = ({ type }) => {
     const timer = setInterval(() => {
       setLine(instructions[count]);
       setCount(count + 1);
-    }, 6000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [instructions, count]);
