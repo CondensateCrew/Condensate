@@ -72,7 +72,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
     validateFields(formState) ? dispatch(addCurrentBrainstorm(currentBS))
     : writeError();
 
-    history.push('/instructions');
+    history.push('/instructions/first-rd');
   }
 
 
