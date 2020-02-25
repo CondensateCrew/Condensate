@@ -2,75 +2,89 @@
 @import '../../css/index.scss';
 
 .brainstorm-form {
-  width: 27vw;
-  height: fit-content;
-  margin: $medium-space;
-  padding-top: $large-space;
+  padding: $big-block-padding-space;
   background: $primary-gradient;
   border-radius: $big-blocks-border-radius;
   box-shadow: $external-shadow;
-  padding-bottom: $large-space;
+  overflow: scroll;
+  h2 {
+    font-size: $medium-text;
+  }
 }
 
 .brainstorm-div {
-  padding: $medium-space;
   text-align: left;
+  margin: $large-space 0;
   label {
-    margin-left: -.25vw;
+    font-size: $small-text;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 20;
+    img {
+      cursor: pointer;
+      width: $small-text;
+      margin-right: $small-space;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
   }
   textarea {
+    @extend %regular-input;
+    border-radius: $one-line-border-radius;
     resize: none;
-    padding: 1rem;
+    padding: $small-space;
+    height: 6rem;
   }
-}
-
-.brainstorm-label {
-  font-size: 1.25rem;
-  padding-left: .5rem;
-  padding-bottom: 2rem;
-}
-
-.brainstorm-summary-textarea {
-  width: 100%;
-  padding: $large-space;
-  height: 10vh;
-  @extend %regular-input;
-  border-radius: 1rem 1rem 1rem 1rem;
 }
 
 .brainstorm-form-menu {
   @extend %regular-input;
-  border-radius: 12px 12px;
   display: flex;
-  height: 7vh;
-  width: 85%;
-  margin-top: 3vh;
-  margin-left: 2vw;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  border-radius: $one-line-border-radius;
+  width: 100%;
+  padding: $one-line-padding-space;
 }
 
 .cancel-btn {
   @extend %regular-btn;
+  margin: 0;
   background: $error-color;
   font-weight: bold;
   &:hover {
     background: $darken-error-color;
   }
-  margin-left: -.05rem;
 }
 
-.broom {
-  width: 2.5vw;
-  height: 4.25vh;
-  padding: .5rem;
+.clean-btn {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: $extra-small-space;
   border-radius: $round-border-radius;
   @extend %regular-btn;
   cursor: pointer;
-  margin-left: -.15rem;
+  img {
+    width: $small-text;
+  }
 }
 
 .start-btn {
+  margin: 0;
   @extend %regular-btn;
-  margin-left: -.25vw;
 }
