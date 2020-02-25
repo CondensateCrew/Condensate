@@ -15,8 +15,10 @@ const CategoryField:React.FC<Props>= ({ formState, setCategory }) => {
   formState={formState} setCategory={setCategory}/>)
   return (
     <section className='category-field-section'>
+      {
+        // <img className='add-category-btn' alt='add-icon' src={addIcon}/>
+      }
       {categories}
-      <img className='add-category-btn' alt='add-icon' src={addIcon}/>
     </section>
   )
 }
