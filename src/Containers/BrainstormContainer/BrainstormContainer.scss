@@ -1,11 +1,11 @@
 @import "../../css/variables.scss";
 
 .bs-container {
-  display: grid;
-  grid-gap: $medium-space;
-  grid-template-columns: repeat(auto-fill, minmax(48%,1fr));
-  padding: $medium-space;
-  width: 100%; height: 85vh;
-  overflow: scroll;
-  padding-bottom: 2*$large-space;
+  // break-inside: avoid;
+  column-count: 2;
+  column-width: 28rem;
+  column-gap: $medium-space;
+  margin-top: $medium-space;
+  margin-left: $medium-space;
+  padding-right: $medium-space;
 }
