@@ -108,7 +108,7 @@ exports[`BubblesAll component should match the snapshot if time is ended 1`] = `
   className="all-bbls"
 >
   <Redirect
-    to="/round-two"
+    to="/instructions/second-rd"
   />
 </section>
 `;
