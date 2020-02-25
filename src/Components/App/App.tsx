@@ -15,7 +15,7 @@ const App: React.FC = () => {
       <Switch>
         <Route exact path='/' render={() => <WelcomePage />}/>
         <Route path='/dashboard' render={() => <Dashboard />}/>
-        <Route path='/instructions' render={() => <Instructions />}/>
+        <Route path='/instructions/:type' render={({match}) => <Instructions type={match.params.type} />}/>
         <Route path='/round-one' render={() => <RoundOne />}/>
         <Route path='/round-two' render={() => <RoundTwo />}/>
         <Route path='/round-three' render={() => <IdeaEventHorizon />}/>
