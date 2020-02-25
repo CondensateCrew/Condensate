@@ -2,6 +2,14 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import UserProfile from './UserProfile';
 
+const mockDispatch = jest.fn();
+jest.mock('react-redux', () => ({
+  useSelector: () => ({
+    firstName: 'Alan',
+    lastName: 'Birds'
+  }),
+  useDispatch: () => mockDispatch
+}));
 
 describe('UserProfile', () => {
   let wrapper;

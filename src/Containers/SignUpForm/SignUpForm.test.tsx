@@ -4,6 +4,11 @@ import { UserSignupPosting } from '../../interfaces';
 import SignUpForm from './SignUpForm';
 import { MemoryRouter } from 'react-router-dom';
 
+const mockDispatch = jest.fn();
+jest.mock('react-redux', () => ({
+  useDispatch: () => mockDispatch
+}));
+
 describe('SignUpForm component', () => {
   let wrapper;
   beforeEach(() => {

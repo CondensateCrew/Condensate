@@ -10,10 +10,7 @@ exports[`Dashboard component should match the snapshot 1`] = `
     <h1>
       condensate
     </h1>
-    <UserProfile
-      firstName="Alan"
-      lastName="Birds"
-    />
+    <UserProfile />
     <div
       className="dashboard-brainstorm-form-div"
     >
@@ -71,10 +68,7 @@ exports[`Dashboard component should match the snapshot when the new brainstorm b
     <h1>
       condensate
     </h1>
-    <UserProfile
-      firstName="Alan"
-      lastName="Birds"
-    />
+    <UserProfile />
     <div
       className="dashboard-brainstorm-form-div"
     >
