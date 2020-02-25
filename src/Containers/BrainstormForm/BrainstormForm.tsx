@@ -72,7 +72,6 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
     validateFields(formState) ? dispatch(addCurrentBrainstorm(currentBS))
     : writeError();
 
-    history.push('/gameboard/round-one');
     history.push('/instructions');
   }
 

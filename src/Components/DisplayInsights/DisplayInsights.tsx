@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { addInsight } from 'redux/actions';
+// import { addInsight } from 'redux/actions';
 import { AppStore, Insight } from 'interfaces';
 import mockInsights from 'data/mockInsights';
 import './DisplayInsights.scss';
