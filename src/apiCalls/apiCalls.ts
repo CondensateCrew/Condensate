@@ -17,7 +17,7 @@ export const getUser = async (options:IOptions) => {
   try {
     const res = await fetch('https://condensate-backend.herokuapp.com/login', options)
     if (res.status !== 303) {
-      throw Error('Failure to get new user')
+      throw Error('Failure to get user')
     }
     return await res.json()
 

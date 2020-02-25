@@ -5,7 +5,7 @@ export interface UserLoginPosting {
 }
 
 export interface UserLoginReceived {
-  readonly id: number,
+  readonly id: string,
   readonly firstName: string,
   readonly lastName: string
 }
