@@ -16,27 +16,29 @@ const categories: Category[] = [
   {id: 5, name: 'Food'}];
 
 const Dashboard: React.FC = () => {
-  const [ brainstormFormState, setBrainstormForm ] = useState<boolean>(false)
-  let brainstormForm;
+  const [ brainstormFormState, setBrainstormForm ] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setBrainstormForm(!brainstormFormState)
-  }
-
-  brainstormFormState ? brainstormForm = (<BrainstormForm brainstormFormState={brainstormFormState}
-    cancel={setBrainstormForm}/>)
-  : brainstormForm = (<div className='dashboard-brainstorm-form-div'>
-      <img onClick={toggleMenu} className='add-icon-dashboard' alt='add-icon' src={addIcon}/>
-      <h3>create new brainstorm</h3>
-      </div>)
-
+  };
 
   return (
     <main className="dashboard">
       <aside className='aside'>
         <h1>condensate</h1>
         <UserProfile firstName={'Alan'} lastName={'Birds'}/>
-        {brainstormForm}
+        {
+          brainstormFormState
+          ? <BrainstormForm
+            brainstormFormState={brainstormFormState}
+            cancel={setBrainstormForm}/>
+          : <div className='dashboard-brainstorm-form-div'>
+              <button>
+                <img onClick={toggleMenu} alt='add-icon' src={addIcon}/>
+              </button>
+              <h3>start new brainstorm</h3>
+            </div>
+        }
       </aside>
       <header>
         <CategoriesFilter {...{categories}} />
