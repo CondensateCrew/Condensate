@@ -112,7 +112,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
       </div>
       <div className='brainstorm-form-menu'>
         <button type='button' className='cancel-btn' onClick={resetForm}>cancel</button>
-        <img className='broom' alt='broom-icon' src={broom}/>
+        <button className='clean-btn'><img className='broom' alt='broom-icon' src={broom}/></button>
         <button type='button' onClick={handleSubmit} disabled={disabled} className='start-btn'>start</button>
       </div>
     </form>
