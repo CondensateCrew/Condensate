@@ -2,10 +2,19 @@
 @import '../../css/index.scss';
 
 .round-two-main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  header {
+    width: 100%;
+  }
   footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
+    width: 100%;
     p {
       width: fit-content;
     }
@@ -26,7 +35,7 @@
 .question-numbers-div {
   display: flex;
   justify-content: center;
-    h2 {  
+    h2 {
       @extend %buttons;
       border-radius: $one-line-border-radius;
       padding: $one-line-padding-space;
@@ -71,12 +80,18 @@ h2.completed-round {
 }
 
 .responses-input-div {
+  padding: 0 $small-space;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
   input {
     @extend %regular-input;
     width: 80%;
+    margin-right: $small-space;
   }
   img {
-    width: 1.5rem;
+    width: $medium-text;
     margin-left: .5rem;
     margin-bottom: -.2rem;
     &:hover {

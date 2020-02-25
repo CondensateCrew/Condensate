@@ -42,7 +42,7 @@ const RoundTwo:React.FC = () => {
       }
 
       dispatch(addInsight({
-        id: currentStep, 
+        id: currentStep,
         question: questionTemplates[currentStep],
         answers: responses
       }))
@@ -52,7 +52,7 @@ const RoundTwo:React.FC = () => {
     }
   },)
 
-  
+
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
@@ -74,7 +74,7 @@ const RoundTwo:React.FC = () => {
   }
 
   let insights = responses.map((insight:string, idx:number) => {
-    return <GenerateInsights text={insight} responses={responses} 
+    return <GenerateInsights text={insight} responses={responses}
     key={idx} id={idx} setResponses={setResponses}/>
   })
 
@@ -85,7 +85,7 @@ const RoundTwo:React.FC = () => {
       <h2 key='two' id='two' className='question-number-h2'>2</h2>,
       <h2 key='three' id='three' className='question-number-h2'>3</h2>
       ]
-    } 
+    }
     if (currentStep === 1) {
       displayRounds = [
       <h2 key='one' id='one' className='question-number-h2 completed-round'>1</h2>,
@@ -103,31 +103,26 @@ const RoundTwo:React.FC = () => {
 
   return (
     <main className='round-two-main'>
-    <Header />
-    <section className='round-two-section'>
-      <div className='instructions-div-wrapper'>
-        <div className='question-numbers-div'>
-          {displayRounds}
-        </div>
-      <Instruction/>
-      </div>
+      <Header />
       <section className='template-question-section-wrapper'>
         <TemplateQuestion templateQuestion={questionTemplates[currentStep]}/>
         <section className='responses-section'>
-          <div className='responses-div'>
-            {insights}
-          </div>
           <div className='responses-input-div'>
             <input id='responses-input' onKeyDown={handleInputSubmit} onChange={handleChange}
             type='text' value={inputValue} autoComplete='off' placeholder='Write your question here...'></input>
             <img src={Check} onClick={handleSubmit} alt='submit-checkmark-icon' />
           </div>
+          <div className='responses-div'>
+            {insights}
+          </div>
         </section>
       </section>
-    </section>
-    <footer>
-      {!timeEnded && <Timer time={time}/>}
-    </footer>
+      <footer>
+        <div className='question-numbers-div'>
+          {displayRounds}
+        </div>
+        {!timeEnded && <Timer time={time}/>}
+      </footer>
     </main>
   )
 }
