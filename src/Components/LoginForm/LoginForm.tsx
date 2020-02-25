@@ -28,21 +28,26 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setPassword(e.target.value)
   }
-  
+
   const validateEmail = () => {
     if (!validateCredentials(email)) {
       return setError('Please enter valid email')
     }
     setError('')
   }
-  
+
   const validateButton = ():void => {
     if (email.length > 0 && password.length > 0) {
       setDisabled(false)
     }
   }
+<<<<<<< HEAD
   
   const handleSubmit = async () => {
+=======
+
+  const handleSubmit = () => {
+>>>>>>> Refactor LoginPage code
     if (!validateCredentials(email)) {
       return setError('Please enter valid email')
     }
@@ -72,7 +77,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       return setError('Please enter a password')
     }
   }
-  
+
   useEffect(validateButton, [ email, password, error ]);
 
   return (
@@ -83,12 +88,14 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       </header>
       <form>
         {error !== '' && <p className="error-notification">{error}</p>}
-        <label htmlFor='email'>Email</label>
-        <input id='email' type='text' name='email' placeholder='name@email.com' value={email} 
-        onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' required></input>
-        <label htmlFor='password'>Password</label>
-        <input id='password' type='password' name='password' placeholder='********' value={password} 
-        onChange={handlePasswordChange} onBlur={alertRequired} required></input>
+        <label htmlFor='email'>Email
+          <input id='email' type='text' name='email' placeholder='name@email.com' value={email}
+          onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' required />
+        </label>
+        <label htmlFor='password'>Password
+          <input id='password' type='password' name='password' placeholder='********' value={password}
+          onChange={handlePasswordChange} onBlur={alertRequired} required />
+        </label>
         <button type='button' disabled={disabled} onClick={handleSubmit}>Login</button>
       </form>
     </div>
