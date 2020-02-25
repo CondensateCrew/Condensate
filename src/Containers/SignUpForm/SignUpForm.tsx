@@ -78,7 +78,6 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       lastName: newUser.last_name
     }
     dispatch(addUser(modifiedUser))
-    console.log(newUser)
     history.push('/dashboard')
   }
 

@@ -1,8 +1,6 @@
-import { UserSignupPosting, IOptions } from 'interfaces';
+import { IOptions } from 'interfaces';
 
 export const postUser = async (options:IOptions) => {
-  console.log(options)
-
   try {
     const res = await fetch('https://condensate-backend.herokuapp.com/users', options)
     if (!res.ok) {
@@ -15,6 +13,19 @@ export const postUser = async (options:IOptions) => {
   }
 }
 
-export const getUser = async () => {
-  const userToken = await fetch('')
+export const getUser = async (options:IOptions) => {
+  try {
+    const res = await fetch('https://condensate-backend.herokuapp.com/login', options)
+    if (res.status !== 303) {
+      throw Error('Failure to get new user')
+    }
+    return await res.json()
+
+  } catch(error) {
+    throw Error(error)
+  }
+}
+
+export const getSetUp = async () => {
+
 }

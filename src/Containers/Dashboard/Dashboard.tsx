@@ -35,7 +35,7 @@ const Dashboard: React.FC = () => {
     <main className="dashboard">
       <aside className='aside'>
         <h1>condensate</h1>
-        <UserProfile firstName={'Alan'} lastName={'Birds'}/>
+        <UserProfile />
         {brainstormForm}
       </aside>
       <header>

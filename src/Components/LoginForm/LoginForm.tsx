@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { validateCredentials } from '../../_utils';
-import { UserLoginPosting } from '../../interfaces';
-import { addUser } from '../../redux/actions';
+import { validateCredentials } from '_utils';
+import { getUser } from 'apiCalls/apiCalls';
+import { UserLoginPosting } from 'interfaces';
+import { addUser } from 'redux/actions';
 import { useHistory } from 'react-router-dom';
 
 interface Props {
@@ -15,6 +16,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const [ password, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
   const [ disabled, setDisabled ] = useState<boolean>(true);
+  const dispatch = useDispatch();
   let history = useHistory();
 
   const toggleForm = ():void => toggleTab(!isLogin);
@@ -40,10 +42,28 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
     }
   }
   
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!validateCredentials(email)) {
       return setError('Please enter valid email')
     }
+    const options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
+    }
+
+    const user = await getUser(options)
+    const modifiedUser = {
+      id: user.token,
+      firstName: user.first_name,
+      lastName: user.last_name
+    }
+    dispatch(addUser(modifiedUser))
     history.push('/dashboard')
   }
 

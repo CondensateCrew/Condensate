@@ -1,12 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { AppStore } from 'interfaces';
 import AlanBird from '../../assets/avatar.jpg';
 import menu from '../../assets/menu-dot.svg';
 import './UserProfile.scss';
-interface Props {
-  firstName: string,
-  lastName: string,
-}
-const UserProfile:React.FC<Props> = ({ firstName, lastName }) => {
+
+const UserProfile:React.FC = () => {
+  const { firstName, lastName } = useSelector((state:AppStore) => ({
+    firstName: state.user.firstName,
+    lastName: state.user.lastName
+  }))
+
   return (
     <div className='user-profile-div'>
       <img className='profile-pic' src={AlanBird} alt='user profile'/>
