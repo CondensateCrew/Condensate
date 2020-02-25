@@ -18,7 +18,7 @@ enum checkType {
 
 enum placeholderText {
   'first-name' = 'Your First Name',
-  'last-name' = 'Your First Name',
+  'last-name' = 'Your Last Name',
   'email' = 'email@mail.com',
   'password' = 'Your Password',
   'repeat-password' = 'Repeat Password',
