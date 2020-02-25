@@ -46,9 +46,3 @@ export const postBrainstorm = async (options:IOptions) => {
     throw Error(error)
   }
 }
-// { "idea": "First Idea",
-//  "id": "b1dbd403ad7a5c034854a25a93e70cef",
-//   "action": "Write a magazine article",
-//    "isGenuis": "False",
-//     "question": "Write a piece about exercise habits",
-//      "categories": [{"name": "Health"}] }",
