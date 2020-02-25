@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import InputElement from './InputElement';
 import { mount, shallow } from 'enzyme';
@@ -34,7 +38,7 @@ describe('LoginForm component', () => {
     const mockSetPassword = jest.fn();
     const mockSetError = jest.fn();
 
-    wrapper = shallow(<InputElement 
+    wrapper = shallow(<InputElement
       typeInput={mockTypeInput}
       user={mockUser}
       setPassword={mockSetPassword}
@@ -57,7 +61,7 @@ describe('LoginForm component', () => {
       const mockSetPassword = jest.fn();
       const mockSetError = jest.fn();
 
-      wrapper = mount(<InputElement 
+      wrapper = mount(<InputElement
         typeInput={mockTypeInput}
         user={mockUser}
         setPassword={mockSetPassword}
@@ -65,7 +69,7 @@ describe('LoginForm component', () => {
         setError={mockSetError}
       />);
       const mockEvent = {target: {value: 'Goose'}};
-      
+
       expect(wrapper.find('input').getDOMNode().value).toEqual('');
       wrapper.find('input').simulate('change', mockEvent);
       expect(wrapper.find('input').getDOMNode().value).toEqual('Goose');
@@ -83,7 +87,7 @@ describe('LoginForm component', () => {
       const mockSetPassword = jest.fn();
       const mockSetError = jest.fn();
 
-      wrapper = mount(<InputElement 
+      wrapper = mount(<InputElement
         typeInput={mockTypeInput}
         user={mockUser}
         setPassword={mockSetPassword}
@@ -91,7 +95,7 @@ describe('LoginForm component', () => {
         setError={mockSetError}
       />);
       const mockEvent = {target: {value: 'Goose'}};
-      
+
       const instance = wrapper.instance();
 
       wrapper.find('input').simulate('change', mockEvent);
@@ -99,4 +103,3 @@ describe('LoginForm component', () => {
     });
   });
 });
-

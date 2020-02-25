@@ -4,7 +4,7 @@ import * as actions from './';
 describe("user", () => {
   it("should return object with a type of ADD_USER when addUser is called", () => {
     const userMock: interfaces.UserLoginReceived = {
-      id: 1,
+      id: '1',
       firstName: 'Ray',
       lastName: 'Z'
     };
@@ -200,13 +200,13 @@ describe("questionTemplates", () => {
 });
 
 describe("secretSauce", () => {
-  it("should return object with a type of ADD_SECRETE_SAUSE when addSecretSauce is called", () => {
+  it("should return object with a type of ADD_SECRET_SAUCE when addSecretSauce is called", () => {
     const secretSauceMock: string[] = [
       'winter', 'development'
     ];
 
     const expected: interfaces.IAddSecretSauceAction = {
-      type: 'ADD_SECRETE_SAUSE',
+      type: 'ADD_SECRET_SAUCE',
       secretSauce: secretSauceMock
     };
 

@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { IBrainstormForm } from '../../interfaces';
@@ -23,16 +27,16 @@ describe('IdeaQuestion Component', () => {
       reset: true
     };
     let mockSetQuestion = jest.fn();
-    
-    wrapper = shallow(<IdeaQuestion 
-      formState={mockFormState} 
+
+    wrapper = shallow(<IdeaQuestion
+      formState={mockFormState}
       setQuestion={mockSetQuestion}/>);
 
     expect(wrapper).toMatchSnapshot();
   });
   describe('handleChange', () => {
     it('should update question when change events occur', () => {
-      const mockEvent: Object = {target: {value: 'What is love?'}} 
+      const mockEvent: Object = {target: {value: 'What is love?'}}
       let mockFormState = {
         question: '',
         categories: [],
@@ -41,8 +45,8 @@ describe('IdeaQuestion Component', () => {
       };
       let mockSetQuestion = jest.fn();
 
-      wrapper = mount(<IdeaQuestion 
-        formState={mockFormState} 
+      wrapper = mount(<IdeaQuestion
+        formState={mockFormState}
         setQuestion={mockSetQuestion}/>);
 
       wrapper.find('input').simulate('change', mockEvent);
@@ -50,5 +54,3 @@ describe('IdeaQuestion Component', () => {
     });
   });
 });
-
-
