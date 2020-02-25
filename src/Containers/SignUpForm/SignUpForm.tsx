@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addUser } from 'redux/actions';
 import { UserSignupPosting } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
 import { useHistory } from 'react-router-dom';
+import { postUser } from 'apiCalls/apiCalls';
 
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
 
@@ -22,7 +25,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const [ repeatPassword, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
-
+  const dispatch = useDispatch();
   let history = useHistory();
 
   const validateButton = (): void => {
@@ -47,13 +50,35 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
 
   useEffect(validateButton, [ user, repeatPassword ]);
 
-  const submitUser = (event: React.MouseEvent):void => {
+  const submitUser = async (event: React.MouseEvent) => {
     event.preventDefault();
     validateInputs();
 
     if (error !== '') {
       console.log(user);
     }
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        first_name: user.firstName,
+        last_name: user.lastName,
+        email: user.email,
+        password: user.password
+      })
+    }
+
+    const newUser = await postUser(options)
+    const modifiedUser = {
+      id: newUser.token,
+      firstName: newUser.first_name,
+      lastName: newUser.last_name
+    }
+    dispatch(addUser(modifiedUser))
+    console.log(newUser)
     history.push('/dashboard')
   }
 

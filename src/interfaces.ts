@@ -209,3 +209,12 @@ export interface IReverseInstructionsAction {
 export interface IRemoveAllWordsAction {
   type: 'REMOVE_ALL_WORDS'
 }
+export interface IHeaders {
+  [key: string]: string
+}
+
+export interface IOptions {
+  method: string,
+  headers: IHeaders,
+  body: string
+}
