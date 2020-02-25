@@ -4,10 +4,10 @@
   background: $primary-gradient;
   box-shadow: $external-shadow;
   border-radius: $big-blocks-border-radius;
-  display: grid;
-  grid-template-areas: 'header' 'action' 'text' 'footer';
+  break-inside: avoid;
+  display: inline-block;
   padding: $big-block-padding-space;
-  width: 100%; height: fit-content;
+  margin-bottom: $medium-space;
   img {
     cursor: pointer;
     &:hover {
@@ -28,7 +28,6 @@
       text-align: left;
       line-height: 1.4em;
       width: 90%;
-      min-height: 3.5rem;
 
     }
     &>img {
