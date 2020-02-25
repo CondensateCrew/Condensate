@@ -17,14 +17,15 @@ exports[`Dashboard component should match the snapshot 1`] = `
     <div
       className="dashboard-brainstorm-form-div"
     >
-      <img
-        alt="add-icon"
-        className="add-icon-dashboard"
-        onClick={[Function]}
-        src="add.svg"
-      />
+      <button>
+        <img
+          alt="add-icon"
+          onClick={[Function]}
+          src="add.svg"
+        />
+      </button>
       <h3>
-        create new brainstorm
+        start new brainstorm
       </h3>
     </div>
   </aside>
@@ -57,7 +58,9 @@ exports[`Dashboard component should match the snapshot 1`] = `
     />
     <SearchBar />
   </header>
-  <BrainstormContainer />
+  <main>
+    <BrainstormContainer />
+  </main>
 </main>
 `;
 
@@ -78,14 +81,15 @@ exports[`Dashboard component should match the snapshot when the new brainstorm b
     <div
       className="dashboard-brainstorm-form-div"
     >
-      <img
-        alt="add-icon"
-        className="add-icon-dashboard"
-        onClick={[Function]}
-        src="add.svg"
-      />
+      <button>
+        <img
+          alt="add-icon"
+          onClick={[Function]}
+          src="add.svg"
+        />
+      </button>
       <h3>
-        create new brainstorm
+        start new brainstorm
       </h3>
     </div>
   </aside>
@@ -118,6 +122,8 @@ exports[`Dashboard component should match the snapshot when the new brainstorm b
     />
     <SearchBar />
   </header>
-  <BrainstormContainer />
+  <main>
+    <BrainstormContainer />
+  </main>
 </main>
 `;

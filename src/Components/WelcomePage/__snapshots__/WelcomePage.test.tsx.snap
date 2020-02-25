@@ -132,7 +132,7 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
                   <input
                     id="last-name"
                     onChange={[Function]}
-                    placeholder="Your First Name"
+                    placeholder="Your Last Name"
                     type="text"
                     value=""
                   />

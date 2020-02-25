@@ -1,33 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionsField should match the snapshot 1`] = `
-<div>
-  <select
-    className="actions-dropdown-menu"
-    onChange={[Function]}
-    value="create an app"
+<div
+  className="action-toggle"
+>
+  <header
+    className=""
+    onClick={[Function]}
   >
-    <BrainstormAction
-      action="Create an App"
-      key="0"
+    <p
+      className="chosen"
+    >
+      Create an app
+    </p>
+    <img
+      alt="down"
+      src="down.svg"
     />
-    <BrainstormAction
-      action="Write a Story"
-      key="1"
-    />
-    <BrainstormAction
-      action="Plan a Lesson"
-      key="2"
-    />
-    <BrainstormAction
-      action="Make a Recipe"
-      key="3"
-    />
-    <BrainstormAction
-      action="Write a Song"
-      key="4"
-    />
-  </select>
+  </header>
 </div>
 `;
 
