@@ -20,6 +20,10 @@
     align-items: center;
     justify-content: space-between;
   }
+  main {
+    height: 100%; width: 100%;
+    overflow-y: scroll;
+  }
 }
 
 .dashboard-brainstorm-form-div {
