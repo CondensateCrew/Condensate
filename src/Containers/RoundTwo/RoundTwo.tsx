@@ -49,12 +49,9 @@ const RoundTwo:React.FC = () => {
       setResponses([])
       dispatch(reverseTime())
     }
-  })
+  },)
 
-  const { timeEnded, questionTemplates } = useSelector((state: AppStore) => ({
-    timeEnded: state.timeEnded,
-    questionTemplates: state.questionTemplates
-  }))
+  
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
