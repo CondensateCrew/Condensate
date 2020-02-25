@@ -21,6 +21,8 @@ const BrainstormContainer:React.FC = () => {
 
   const filteredBrainstorms: Brainstorm[] = allBrainstorms
     .filter((bs: Brainstorm) => (
+      filterValue === 'genius' && bs.isGenius === true
+      ||
       bs.categories.find(ctg => {
         return (filterValue === '')
           ? ctg.name !== filterValue
