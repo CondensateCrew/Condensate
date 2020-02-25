@@ -169,3 +169,19 @@ label {
   0% { width: 0.1rem; }
   100% { width: 5rem; }
 }
+
+%hover-transform {
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+%one-line-block {
+  box-shadow: $external-shadow;
+  border-radius: $one-line-border-radius;
+  background: $primary-gradient;
+}
