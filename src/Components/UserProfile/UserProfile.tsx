@@ -1,19 +1,7 @@
-<<<<<<< HEAD
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { AppStore } from 'interfaces';
-import AlanBird from '../../assets/avatar.jpg';
-import menu from '../../assets/menu-dot.svg';
-import './UserProfile.scss';
-
-const UserProfile:React.FC = () => {
-  const { firstName, lastName } = useSelector((state:AppStore) => ({
-    firstName: state.user.firstName,
-    lastName: state.user.lastName
-  }))
-=======
 import './UserProfile.scss';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { AppStore } from 'interfaces';
 import AlanBird from '../../assets/avatar.jpg';
 import menu from '../../assets/menu-dot.svg';
 import close from '../../assets/close.svg';
@@ -21,19 +9,17 @@ import logout from '../../assets/logout.svg';
 import { logOutUser } from 'redux/actions';
 import { useDispatch } from 'react-redux';
 
-interface Props {
-  firstName: string,
-  lastName: string,
-}
-
-const UserProfile:React.FC<Props> = ({ firstName, lastName }) => {
+const UserProfile:React.FC = () => {
   const dispatch = useDispatch();
+  const { firstName, lastName } = useSelector((state:AppStore) => ({
+    firstName: state.user.firstName,
+    lastName: state.user.lastName
+  }));
+
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
 
   const toggleMenu = (): void => setIsClicked(!isClicked);
-
   const logoutUser = () => dispatch(logOutUser());
->>>>>>> Refactor UserProfile code
 
   return (
     <div className='user-profile-div'>

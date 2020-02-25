@@ -27,7 +27,18 @@ const Dashboard: React.FC = () => {
       <aside className='aside'>
         <h1>condensate</h1>
         <UserProfile />
-        {brainstormForm}
+        {
+          brainstormFormState
+          ? <BrainstormForm
+            brainstormFormState={brainstormFormState}
+            cancel={setBrainstormForm}/>
+          : <div className='dashboard-brainstorm-form-div'>
+              <button>
+                <img onClick={toggleMenu} alt='add-icon' src={addIcon}/>
+              </button>
+              <h3>start new brainstorm</h3>
+            </div>
+        }
       </aside>
       <header>
         <CategoriesFilter {...{categories}} />

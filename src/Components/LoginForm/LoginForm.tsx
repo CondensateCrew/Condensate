@@ -41,13 +41,8 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       setDisabled(false)
     }
   }
-<<<<<<< HEAD
   
   const handleSubmit = async () => {
-=======
-
-  const handleSubmit = () => {
->>>>>>> Refactor LoginPage code
     if (!validateCredentials(email)) {
       return setError('Please enter valid email')
     }
