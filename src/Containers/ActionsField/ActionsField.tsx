@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import BrainstormAction from '../../Components/BrainstormAction/BrainstormAction';
 import mockActions from '../../data/mockActions';
 import './ActionsField.scss';
 import down from 'assets/down.svg';
