@@ -7,13 +7,11 @@ interface Props {
   setCategory: (formState: IBrainstormForm) => void;
 }
 const BrainstormCategory:React.FC<Props> = ({ category, formState, setCategory }) => {
-  const [active, setActive] = useState<boolean>(false)
+  const [ active, setActive ] = useState<boolean>(false);
 
-  const toggleActive = (e:React.MouseEvent<HTMLButtonElement>):void => {
-    setActive(!active)
-  }
+  const toggleActive = (): void => setActive(!active);
 
-  const addRemoveCategory = ():void => {
+  const addRemoveCategory = (): void => {
     if (active) {
       setCategory({...formState, categories: [...formState.categories, category]})
     }
@@ -23,16 +21,12 @@ const BrainstormCategory:React.FC<Props> = ({ category, formState, setCategory }
     }
   }
 
-  useEffect(addRemoveCategory, [!active])
-  let button; 
+  useEffect(addRemoveCategory, [ active ]);
 
-  active ? button = (<button type='button' className='category-btn active' value={category.name} onClick={toggleActive}>{category.name}</button>)
-  : button = (<button type='button' className='category-btn' value={category.name} onClick={toggleActive}>{category.name}</button>)
+  const btnClassName = active ? 'category-btn active' : 'category-btn';
 
   return (
-    <>
-    {button}
-    </>
+    <button type='button' className={btnClassName} value={category.name} onClick={toggleActive}>{category.name}</button>
   )
 }
 
