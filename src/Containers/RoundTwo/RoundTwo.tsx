@@ -16,7 +16,7 @@ const RoundTwo:React.FC = () => {
   const [ inputValue, setInputValue ] = useState<string>('')
   const [ responses, setResponses ] = useState<string[]>([])
   const [ currentStep, setCurrentStep] = useState<number>(0)
-  const [ time, setTime ] = useState<number>(90)
+  const [ time, setTime ] = useState<number>(90)//eslint-disable-line
 
   const dispatch = useDispatch();
   let history = useHistory();
@@ -34,7 +34,8 @@ const RoundTwo:React.FC = () => {
   }, [dispatch]);
 
 
-  useEffect(() => {
+  useEffect(() => {//eslint-disable-line
+
     if (timeEnded)  {
       if (currentStep >= 2) {
         history.push('/round-three')

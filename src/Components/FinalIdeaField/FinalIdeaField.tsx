@@ -21,7 +21,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
   }
 
 
-  const postBrainstormIdea = () => {
+  const postBrainstormIdea = () => {//eslint-disable-line
     // apiCall to POST final idea to the server, then redirect back to dashboard
   }
 

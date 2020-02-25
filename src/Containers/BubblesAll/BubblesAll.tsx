@@ -19,7 +19,7 @@ const BubblesAll: React.FC = () => {
     }, 8000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [randomWords]);
 
   const sendToChosen = (event: React.MouseEvent) => {
     const currentTarget = event.target as HTMLElement;

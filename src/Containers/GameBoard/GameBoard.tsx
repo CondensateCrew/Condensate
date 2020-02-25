@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';//eslint-disable-line
 import { useSelector, useDispatch } from 'react-redux';
 import './GameBoard.scss';
 import { AppStore } from 'interfaces';
@@ -14,7 +14,7 @@ const GameBoard: React.FC = () => {
     if( chosenWords.length === 9) {
       dispatch(endTime());
     }
-  }, [ chosenWords ]);
+  }, [ chosenWords, dispatch ]);
 
   return (
     <main className="game-board">

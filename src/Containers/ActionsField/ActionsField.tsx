@@ -28,7 +28,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
   useEffect(updateAction, [ selectedAction ]);
 
-  const actions = mockActions.map((action:string, index:number) => {
+  const actions = mockActions.map((action:string, index:number) => {//eslint-disable-line
     if (selectedAction.toLowerCase() !== action.toLowerCase()) {
       return <li key={index} onClick={handleChange}>{action}</li>
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';//eslint-disable-line
 import './IdeaEventHorizon.scss';
 import Header from 'Components/Header/Header';
 import FinalIdeaField from 'Components/FinalIdeaField/FinalIdeaField';

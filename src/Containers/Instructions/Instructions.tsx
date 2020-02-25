@@ -24,7 +24,7 @@ const Instructions:React.FC<Props> = ({ type }) => {
     dispatch(reverseTime());
     setLine(instructions[0]);
     setCount(1);
-  }, [])
+  }, [dispatch, instructions])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,7 +39,7 @@ const Instructions:React.FC<Props> = ({ type }) => {
     if (count > instructions.length) {
       dispatch(endInstructions());
     }
-  }, [ count, dispatch ]);
+  }, [ count, dispatch, instructions.length ]);
 
   return (
     <main className="instructions">

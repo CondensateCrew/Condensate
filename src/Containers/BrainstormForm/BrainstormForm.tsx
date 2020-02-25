@@ -79,14 +79,15 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
 
   const toggleCategory = (): void => setIsClickedCategory(!isClickedCategory);
 
-  useEffect(() => {
+  useEffect(() => {//eslint-disable-line
       if (validateFields(formState)) {
         setIsDisabled(false)
         writeSummary();
       } else {
         setIsDisabled(true)
       }
-  }, [formState])
+  }, [formState])//eslint-disable-line
+
 
   return (
     <form className='brainstorm-form'>

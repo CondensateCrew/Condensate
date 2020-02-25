@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';//eslint-disable-line
 // import { addInsight } from 'redux/actions';
-import { AppStore, Insight } from 'interfaces';
+import { AppStore, Insight } from 'interfaces';//eslint-disable-line
 import mockInsights from 'data/mockInsights';
 import './DisplayInsights.scss';
 import down from 'assets/down.svg';
 
 const DisplayInsights:React.FC = () => {
   const [ currentStep, setCurrentStep ] = useState<number>(0)
-  const [ insights, setInsights ] = useState<Insight[]>(mockInsights)
+  const [ insights, setInsights ] = useState<Insight[]>(mockInsights)//eslint-disable-line
   
   // const insights = useSelector((state: AppStore) => state.insights)
 

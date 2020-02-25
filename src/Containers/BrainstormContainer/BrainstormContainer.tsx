@@ -21,16 +21,16 @@ const BrainstormContainer:React.FC = () => {
 
   const filteredBrainstorms: Brainstorm[] = allBrainstorms
     .filter((bs: Brainstorm) => (
-      filterValue === 'genius' && bs.isGenius === true
-      ||
+      filterValue === 'genius' && bs.isGenius === true//eslint-disable-line
+      ||//eslint-disable-line
       bs.categories.find(ctg => {
         return (filterValue === '')
           ? ctg.name !== filterValue
           : ctg.name === filterValue
       })
-      && (bs.question.toLowerCase().includes(queryValue.toLowerCase())
-      || bs.idea.toLowerCase().includes(queryValue.toLowerCase())
-      || bs.action.toLowerCase().includes(queryValue.toLowerCase()))
+      && (bs.question.toLowerCase().includes(queryValue.toLowerCase())//eslint-disable-line
+      || bs.idea.toLowerCase().includes(queryValue.toLowerCase())//eslint-disable-line
+      || bs.action.toLowerCase().includes(queryValue.toLowerCase()))//eslint-disable-line
     ));
 
   const cards = filteredBrainstorms.map((bs: Brainstorm) => (

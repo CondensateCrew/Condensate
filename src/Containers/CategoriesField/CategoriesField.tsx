@@ -2,7 +2,7 @@ import React from 'react';
 import './CategoriesField.scss';
 import BrainstormCategory from '../../Components/BrainstormCategory/BrainstormCategory';
 import mockCategories from '../../data/mockCategories';
-import addIcon from '../../assets/add.svg';
+import addIcon from '../../assets/add.svg';//eslint-disable-line
 import { IBrainstormForm, Category } from '../../interfaces';
 
 interface Props {
