@@ -40,7 +40,7 @@ const BubblesAll: React.FC = () => {
     <section className="all-bbls">
       { !timeEnded
         ? bubbleEls
-        : <Redirect to='/round-two' />
+        : <Redirect to='/instructions/second-rd' />
       }
     </section>
   )
