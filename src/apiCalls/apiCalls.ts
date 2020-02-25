@@ -29,3 +29,17 @@ export const getUser = async (options:IOptions) => {
 export const getSetUp = async () => {
 
 }
+
+export const getDashboard = async () => {
+
+}
+
+export const postBrainstorm = async () => {
+
+}
+// { "idea": "First Idea",
+//  "id": "b1dbd403ad7a5c034854a25a93e70cef",
+//   "action": "Write a magazine article",
+//    "isGenuis": "False",
+//     "question": "Write a piece about exercise habits",
+//      "categories": [{"name": "Health"}] }",
