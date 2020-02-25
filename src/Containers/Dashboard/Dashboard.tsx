@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
         <CategoriesFilter {...{categories}} />
         <SearchBar />
       </header>
-      <BrainstormContainer />
+      <main><BrainstormContainer /></main>
     </main>
   )
 }
