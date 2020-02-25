@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import BubblesReducer from './BubblesReducer';
 import { mount } from 'enzyme';

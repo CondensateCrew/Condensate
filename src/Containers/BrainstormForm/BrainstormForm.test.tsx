@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import BrainstormForm from './BrainstormForm';
@@ -21,8 +25,8 @@ describe('BrainstormCategory', () => {
     const mockBrainstormFormState = true;
     const mockCancel = jest.fn();
 
-    wrapper = mount(<MemoryRouter 
-      initialEntries={[ { pathname: '/', key: 'testKey' } ]}><BrainstormForm 
+    wrapper = mount(<MemoryRouter
+      initialEntries={[ { pathname: '/', key: 'testKey' } ]}><BrainstormForm
       brainstormFormState={mockBrainstormFormState}
       cancel={mockCancel}/></MemoryRouter>)
   });
@@ -39,8 +43,8 @@ describe('BrainstormCategory', () => {
     const mockBrainstormFormState = true;
     const mockCancel = jest.fn();
 
-    wrapper = mount(<MemoryRouter 
-      initialEntries={[ { pathname: '/', key: 'testKey' } ]}><BrainstormForm 
+    wrapper = mount(<MemoryRouter
+      initialEntries={[ { pathname: '/', key: 'testKey' } ]}><BrainstormForm
       brainstormFormState={mockBrainstormFormState}
       cancel={mockCancel}/></MemoryRouter>)
 

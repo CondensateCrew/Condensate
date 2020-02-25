@@ -10,17 +10,12 @@ exports[`UserProfile should match the snapshot 1`] = `
     src="avatar.jpg"
   />
   <h2>
-    <span>
-      Alan
-    </span>
-     
-    <span>
-      Birds
-    </span>
+    Alan Birds
   </h2>
   <img
     alt="menu-svg"
     className="menu-svg"
+    onClick={[Function]}
     src="menu-dot.svg"
   />
 </div>

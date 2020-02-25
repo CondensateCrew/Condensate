@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import Instructions from './Instructions';
 import { mount } from 'enzyme';
@@ -21,7 +25,7 @@ describe('Instructions component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  
+
   it('should match the snapshot for type first-rd', () => {
     mockValue = false;
     const wrapper = mount(

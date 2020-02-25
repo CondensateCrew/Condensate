@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { IBrainstormForm } from '../../interfaces';
@@ -71,7 +74,7 @@ describe('BrainstormCategory', () => {
     />);
     const instance = wrapper.instance();
     wrapper.find('button').simulate('click');
-    
+
     expect(mockSetCategory).toHaveBeenCalled();
   });
 });

@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { UserSignupPosting } from '../../interfaces';
@@ -30,8 +34,8 @@ describe('SignUpForm component', () => {
 
   it('should match the snapshot', () => {
     const mockToggle = jest.fn();
-      wrapper = shallow(<MemoryRouter initialEntries={[ { pathname: '/', key: 'testKey' } ]}><SignUpForm 
-        isLogin={false} 
+      wrapper = shallow(<MemoryRouter initialEntries={[ { pathname: '/', key: 'testKey' } ]}><SignUpForm
+        isLogin={false}
         toggleTab={mockToggle}
         /></MemoryRouter>);
 
@@ -42,11 +46,11 @@ describe('SignUpForm component', () => {
     it('should render a disabled button if not all form fields are filled', () => {
         const mockEvent: Object = { target: { value: 'Goose' } }
         const mockToggle = jest.fn();
-        wrapper = mount(<MemoryRouter><SignUpForm 
-          isLogin={true} 
+        wrapper = mount(<MemoryRouter><SignUpForm
+          isLogin={true}
           toggleTab={mockToggle}
           /></MemoryRouter>);
-        
+
         wrapper.find('input').first().simulate('change', mockEvent);
         expect(wrapper.find('button').getDOMNode().disabled).toEqual(true);
     });
@@ -58,11 +62,11 @@ describe('SignUpForm component', () => {
         const mockEvent5: Object = { target: { value: 'password123' } };
 
         const mockToggle = jest.fn();
-        wrapper = mount(<MemoryRouter><SignUpForm 
-          isLogin={true} 
+        wrapper = mount(<MemoryRouter><SignUpForm
+          isLogin={true}
           toggleTab={mockToggle}
           /></MemoryRouter>);
-        
+
         wrapper.find('input').first().simulate('change', mockEvent);
         wrapper.find('#last-name').first().simulate('change', mockEvent2);
         wrapper.find('#email').first().simulate('change', mockEvent3);
@@ -73,7 +77,7 @@ describe('SignUpForm component', () => {
     });
 
     it('should render an error message if an invalid email is entered', () => {
-      // BUG WITH RENDERING THE ERROR MESSAGE OF THE SIGNUP FORM 
+      // BUG WITH RENDERING THE ERROR MESSAGE OF THE SIGNUP FORM
       // DUE TO ASYNC OF SETSTATE THE FORM PROCEEDS TO DASHBOARD BEFORE
       // UPDATING THE ERROR PORTION OF STATE
     });
