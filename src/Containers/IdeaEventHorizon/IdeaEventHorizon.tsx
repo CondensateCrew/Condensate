@@ -1,11 +1,24 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import './IdeaEventHorizon.scss';
+import Header from 'Components/Header/Header';
+import FinalIdeaField from 'Components/FinalIdeaField/FinalIdeaField';
+import SecretSauce from 'Components/SecretSauce/SecretSauce';
+import DisplayInsights from 'Components/DisplayInsights/DisplayInsights';
 
 const IdeaEventHorizon:React.FC = () => {
   return (
-    <section>
-      <h2>This is the final round container where the user is prompted to revisit
-        their original question.
-      </h2>
-    </section>
+    <main>
+      <Header />
+      <section className='idea-event-horizon-section'>
+        <FinalIdeaField />
+        <aside>
+          <SecretSauce />
+          <DisplayInsights />
+        </aside>
+      </section>
+    </main>
   )
 }
+
+export default IdeaEventHorizon;

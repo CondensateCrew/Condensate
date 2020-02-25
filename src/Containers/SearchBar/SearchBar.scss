@@ -18,8 +18,6 @@
   img {
     width: $big-text;
   }
-  margin-top: 24px;
-  margin-right: 24px;
 }
 
 .search-form {
@@ -32,9 +30,6 @@
   border-radius: $one-line-border-radius;
   padding: $one-line-padding-space;
   width: 40%;
-  // delete after
-  margin-top: 24px;
-  margin-right: 24px;
   input {
     @extend %regular-input;
     margin-top: 0;

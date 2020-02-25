@@ -1,13 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BrainstormCategory should match the snapshot 1`] = `
-<Fragment>
-  <button
-    className="category-btn"
-    onClick={[Function]}
-    type="button"
-  />
-</Fragment>
+<button
+  className="category-btn"
+  onClick={[Function]}
+  type="button"
+/>
 `;
 
 exports[`BrainstormCategory should render a different snapshot after a click event 1`] = `

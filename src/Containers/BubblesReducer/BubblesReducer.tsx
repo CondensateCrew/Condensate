@@ -36,7 +36,7 @@ const BubblesReducer: React.FC<Props> = ({ chosenWords }) => {
       reducedBubbles.map((bbl: string) => dispatch(addChosenWord(bbl)));
       setIsRedirected(true);
     }
-  }, [reducedBubbles])
+  }, [reducedBubbles]);
 
   const bubbleEls: JSX.Element[] = bubbles.map((bubble: string, i: number) => (
     <p

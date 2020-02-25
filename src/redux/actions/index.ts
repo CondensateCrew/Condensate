@@ -101,7 +101,7 @@ export const addQuestionTemplates = (templates: string[]): IAddQuestionTemplates
 
 // secretSauce reducer action creators
 export const addSecretSauce = (secretSauce: string[]): IAddSecretSauceAction => ({
-  type: 'ADD_SECRETE_SAUSE',
+  type: 'ADD_SECRET_SAUCE',
   secretSauce: secretSauce
 });
 

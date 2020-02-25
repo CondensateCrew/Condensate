@@ -19,18 +19,25 @@ const RoundTwo:React.FC = () => {
   const [ time, setTime ] = useState<number>(90)
 
   const dispatch = useDispatch();
+  let history = useHistory();
+
+  const { timeEnded, questionTemplates } = useSelector((state: AppStore) => ({
+    timeEnded: state.timeEnded,
+    questionTemplates: state.questionTemplates
+  }))
+
+
   useEffect(() => {
     dispatch(addQuestionTemplates(mockQuestionTemplate))
     return () => {
     };
-  }, []);
-  let history = useHistory();
+  }, [dispatch]);
 
 
   useEffect(() => {
-    if (timeEnded) {
+    if (timeEnded)  {
       if (currentStep >= 2) {
-        history.push('/gameboard/round-three')
+        history.push('/round-three')
       }
 
       dispatch(addInsight({
@@ -42,12 +49,9 @@ const RoundTwo:React.FC = () => {
       setResponses([])
       dispatch(reverseTime())
     }
-  })
+  },)
 
-  const { timeEnded, questionTemplates } = useSelector((state: AppStore) => ({
-    timeEnded: state.timeEnded,
-    questionTemplates: state.questionTemplates
-  }))
+  
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)

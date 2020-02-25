@@ -4,13 +4,13 @@
 .dashboard {
   display: grid;
   grid-template-areas: 'aside header' 'aside main';
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1.08fr 2.92fr;
   grid-template-rows: 1fr 8fr;
   aside {
     grid-area: aside;
     h1 {
       font-size: $big-text;
-      text-align: left;
+      text-align: center;
     }
   }
   header {
@@ -20,43 +20,48 @@
     align-items: center;
     justify-content: space-between;
   }
+  main {
+    height: 100%; width: 100%;
+    overflow-y: scroll;
+  }
 }
-
 
 .dashboard-brainstorm-form-div {
   display: flex;
-  height: 8vh;
-  width: 25vw;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background: $primary-gradient;
-  border: $light-border;
-  margin: $small-space auto;
-  box-shadow: $external-shadow, $regular-focus-shadow;
-  font-size: 1rem;
-  border-radius: 1rem;
-}
-
-.add-icon-dashboard {
-  background-color: $dark-font-color;
-  width: $big-text;
-  &::after {
-    content: '';
-    display: block;
-    padding: 100%;
-  }
-  background: $primary-gradient;
-  border: $light-border;
-  border-radius: 1.5rem;
   box-shadow: $external-shadow;
-  &:hover {
-    background: $hover-btn-gradient;
-    border: 1px solid transparent;
-    box-shadow: $external-shadow, $regular-focus-shadow;
-    cursor:pointer;
+  border-radius: $one-line-border-radius;
+  padding: $one-line-padding-space;
+  h3 {
+    font-size: $small-text;
+    font-weight: 700;
+    text-align: left;
+    width: 100%;
   }
-  &:active {
-    box-shadow: $regular-btn-active-shadow;
+  button {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary-gradient;
+    border-radius: $round-border-radius;
+    padding: $extra-small-space;
+    box-shadow: $external-shadow;
+    margin-right: $small-space;
+    img {
+      width: $big-text;
+      opacity: 0.4;
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
   }
 }
 
@@ -65,5 +70,4 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: justify;
-  margin: $small-space;
 }

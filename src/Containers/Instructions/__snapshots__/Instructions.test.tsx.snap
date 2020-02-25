@@ -1,25 +1,239 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Instructions component should match the snapshot 1`] = `
-<main
-  className="instructions"
+exports[`Instructions component should match the snapshot for type first-rd 1`] = `
+<Instructions
+  type="first-rd"
 >
-  <Header />
-  <section>
-    <p />
-  </section>
-</main>
+  <main
+    className="instructions"
+  >
+    <Header>
+      <header
+        className="round-header"
+      >
+        <button
+          onClick={[Function]}
+        >
+          <img
+            alt="back"
+            src="down.svg"
+          />
+          to dashboard
+        </button>
+        <h1>
+          Condensate
+        </h1>
+      </header>
+    </Header>
+    <section>
+      <p>
+        In the next 90 seconds choose 9 words
+      </p>
+    </section>
+  </main>
+</Instructions>
 `;
 
-exports[`Instructions component should match the snapshot 2`] = `
-<main
-  className="instructions"
+exports[`Instructions component should match the snapshot for type second-rd 1`] = `
+<Instructions
+  type="second-rd"
 >
-  <Header />
-  <section>
-    <Redirect
-      to="/round-one"
-    />
-  </section>
-</main>
+  <main
+    className="instructions"
+  >
+    <Header>
+      <header
+        className="round-header"
+      >
+        <button
+          onClick={[Function]}
+        >
+          <img
+            alt="back"
+            src="down.svg"
+          />
+          to dashboard
+        </button>
+        <h1>
+          Condensate
+        </h1>
+      </header>
+    </Header>
+    <section>
+      <p>
+        You will have 90 seconds
+      </p>
+    </section>
+  </main>
+</Instructions>
+`;
+
+exports[`Instructions component should match the snapshot if instructions ended for type first-rd 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "REPLACE",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/round-one",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/round-one",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Instructions
+      type="first-rd"
+    >
+      <main
+        className="instructions"
+      >
+        <Header>
+          <header
+            className="round-header"
+          >
+            <button
+              onClick={[Function]}
+            >
+              <img
+                alt="back"
+                src="down.svg"
+              />
+              to dashboard
+            </button>
+            <h1>
+              Condensate
+            </h1>
+          </header>
+        </Header>
+        <section>
+          <Redirect
+            to="/round-one"
+          >
+            <Lifecycle
+              onMount={[Function]}
+              onUpdate={[Function]}
+              to="/round-one"
+            />
+          </Redirect>
+        </section>
+      </main>
+    </Instructions>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`Instructions component should match the snapshot if instructions ended for type second-rd 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+        "pathname": "/",
+      },
+    ]
+  }
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "REPLACE",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/round-two",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/round-two",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Instructions
+      type="second-rd"
+    >
+      <main
+        className="instructions"
+      >
+        <Header>
+          <header
+            className="round-header"
+          >
+            <button
+              onClick={[Function]}
+            >
+              <img
+                alt="back"
+                src="down.svg"
+              />
+              to dashboard
+            </button>
+            <h1>
+              Condensate
+            </h1>
+          </header>
+        </Header>
+        <section>
+          <Redirect
+            to="/round-two"
+          >
+            <Lifecycle
+              onMount={[Function]}
+              onUpdate={[Function]}
+              to="/round-two"
+            />
+          </Redirect>
+        </section>
+      </main>
+    </Instructions>
+  </Router>
+</MemoryRouter>
 `;

@@ -5,7 +5,7 @@ export interface UserLoginPosting {
 }
 
 export interface UserLoginReceived {
-  readonly id: number,
+  readonly id: string,
   readonly firstName: string,
   readonly lastName: string
 }
@@ -144,7 +144,7 @@ export interface IAddQuestionTemplatesAction {
 }
 
 export interface IAddSecretSauceAction {
-  type: 'ADD_SECRETE_SAUSE',
+  type: 'ADD_SECRET_SAUCE',
   secretSauce: string[]
 }
 
@@ -208,4 +208,13 @@ export interface IReverseInstructionsAction {
 
 export interface IRemoveAllWordsAction {
   type: 'REMOVE_ALL_WORDS'
+}
+export interface IHeaders {
+  [key: string]: string
+}
+
+export interface IOptions {
+  method: string,
+  headers: IHeaders,
+  body: string
 }

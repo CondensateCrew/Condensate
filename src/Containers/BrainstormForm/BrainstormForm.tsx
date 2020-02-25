@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './BrainstormForm.scss';
 import broom from 'assets/broom.svg';
+import down from 'assets/down.svg';
 import IdeaQuestion from 'Components/IdeaQuestion/IdeaQuestion';
 import CategoriesField from '../CategoriesField/CategoriesField';
 import ActionsField from '../ActionsField/ActionsField';
@@ -23,6 +24,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
   const [ disabled, setIsDisabled ] = useState<boolean>(true);
   const [ error, setError ] = useState<string>('');
   const [ summary, setSummary ] = useState<string>('');
+  const [ isClickedCategory, setIsClickedCategory ] = useState<boolean>(false);
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -72,11 +74,10 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
     validateFields(formState) ? dispatch(addCurrentBrainstorm(currentBS))
     : writeError();
 
-    history.push('/gameboard/round-one');
-    history.push('/instructions');
+    history.push('/instructions/first-rd');
   }
 
-
+  const toggleCategory = (): void => setIsClickedCategory(!isClickedCategory);
 
   useEffect(() => {
       if (validateFields(formState)) {
@@ -96,8 +97,10 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
         <IdeaQuestion formState={formState} setQuestion={setFormState} />
       </div>
       <div className='brainstorm-div'>
-        <label className='brainstorm-label'>CATEGORIES</label>
-        <CategoriesField formState={formState} setCategory={setFormState}/>
+        <label className='brainstorm-label'>CATEGORIES
+          <img src={down} alt="down" onClick={toggleCategory}/>
+        </label>
+        {isClickedCategory && <CategoriesField formState={formState} setCategory={setFormState} />}
       </div>
       <div className='brainstorm-div'>
         <label className='brainstorm-label'>DESIRED ACTION</label>
@@ -109,7 +112,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
       </div>
       <div className='brainstorm-form-menu'>
         <button type='button' className='cancel-btn' onClick={resetForm}>cancel</button>
-        <img className='broom' alt='broom-icon' src={broom}/>
+        <button className='clean-btn'><img className='broom' alt='broom-icon' src={broom}/></button>
         <button type='button' onClick={handleSubmit} disabled={disabled} className='start-btn'>start</button>
       </div>
     </form>

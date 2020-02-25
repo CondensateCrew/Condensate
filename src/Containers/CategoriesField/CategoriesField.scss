@@ -5,6 +5,7 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  padding: $extra-small-space;
 }
 
 .add-category-btn {
@@ -13,7 +14,7 @@
   padding: .2rem;
   background: $primary-gradient;
   border: $light-border;
-  border-radius: 1.5rem;
+  border-radius: $round-border-radius;
   box-shadow: $external-shadow;
   &:hover {
     background: $hover-btn-gradient;

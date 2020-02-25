@@ -6,6 +6,8 @@ import Dashboard from '../../Containers/Dashboard/Dashboard';
 import RoundOne from 'Containers/RoundOne/RoundOne';
 import RoundTwo from 'Containers/RoundTwo/RoundTwo';
 import Instructions from 'Containers/Instructions/Instructions';
+import IdeaEventHorizon from 'Containers/IdeaEventHorizon/IdeaEventHorizon'; 
+
 
 const App: React.FC = () => {
   return (
@@ -13,9 +15,10 @@ const App: React.FC = () => {
       <Switch>
         <Route exact path='/' render={() => <WelcomePage />}/>
         <Route path='/dashboard' render={() => <Dashboard />}/>
-        <Route path='/gameboard/round-two' render={() => <RoundTwo />}/>
-        <Route path='/instructions' render={() => <Instructions />}/>
+        <Route path='/instructions/:type' render={({match}) => <Instructions type={match.params.type} />}/>
         <Route path='/round-one' render={() => <RoundOne />}/>
+        <Route path='/round-two' render={() => <RoundTwo />}/>
+        <Route path='/round-three' render={() => <IdeaEventHorizon />}/>
         <Route component={() => <div>Not Found</div>} />
       </Switch>
     </div>

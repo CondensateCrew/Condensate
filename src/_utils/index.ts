@@ -3,7 +3,3 @@ export const validateCredentials = (email:string):boolean => {
   let test = regExp.test(email)
   return test
 }
-
-// export const validateSession = (stateObject:object):boolean => {
-
-// }

@@ -3,6 +3,11 @@ import WelcomePage from './WelcomePage';
 import { mount, shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 
+const mockDispatch = jest.fn();
+jest.mock('react-redux', () => ({
+  useDispatch: () => mockDispatch
+}));
+
 describe('WelcomePage Component', () => {
   let wrapper;
 

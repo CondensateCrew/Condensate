@@ -3,6 +3,11 @@ import LoginForm from './LoginForm';
 import { mount, shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 
+const mockDispatch = jest.fn();
+    jest.mock('react-redux', () => ({
+      useDispatch: () => mockDispatch
+    }));
+
 describe('LoginForm component', () => {
   let wrapper;
   beforeEach(() => {

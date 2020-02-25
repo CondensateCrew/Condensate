@@ -94,10 +94,5 @@ exports[`CategoriesField should match the snapshot 1`] = `
     key="4"
     setCategory={[MockFunction]}
   />
-  <img
-    alt="add-icon"
-    className="add-category-btn"
-    src="add.svg"
-  />
 </section>
 `;
