@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCurrentBrainstorm } from 'redux/actions';
+import { postBrainstorm } from 'apiCalls/apiCalls';
 import { AppStore } from 'interfaces';
 import mockCurrentBrainstorm from 'data/mockCurrentBrainstorm';
 import './FinalIdeaField.scss';
@@ -9,6 +10,13 @@ import './FinalIdeaField.scss';
 const FinalIdeaField:React.FC = () => {
   const [ brainstormIdea, setBrainstormIdea ] = useState<string>('');
   const dispatch = useDispatch();
+  const { id, action, isGenius, question, categories } = useSelector((state: AppStore) => ({
+    id: state.user.id,
+    action: state.currentBrainstorm.action,
+    isGenius: state.currentBrainstorm.isGenius,
+    question: state.currentBrainstorm.question,
+    categories: state.currentBrainstorm.categories
+  }))
 
   useEffect(() => {
     dispatch(addCurrentBrainstorm(mockCurrentBrainstorm))
@@ -20,10 +28,26 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
     setBrainstormIdea(e.target.value)
   }
 
+  // const postBrainstormIdea = async () => {
+  //   const brainstorm = {
+  //     idea: brainstormIdea,
+  //     id, 
+  //     action,
+  //     isGenius,
+  //     question,
+  //     categories
+  //   }
 
-  const postBrainstormIdea = () => {//eslint-disable-line
-    // apiCall to POST final idea to the server, then redirect back to dashboard
-  }
+  //   const options = {
+  //     method: 'POST',
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(brainstorm)
+  //   }
+
+  //   const res = await postBrainstorm(options)
+  // }
 
   return (
     <section className='final-idea-field-section'>
