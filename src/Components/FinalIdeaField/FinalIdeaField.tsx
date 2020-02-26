@@ -4,7 +4,7 @@ import { addCurrentBrainstorm } from 'redux/actions';
 import { AppStore } from 'interfaces';
 import mockCurrentBrainstorm from 'data/mockCurrentBrainstorm';
 import './FinalIdeaField.scss';
-import edit from '../../assets/edit.svg';
+// import edit from '../../assets/edit.svg';
 
 const FinalIdeaField:React.FC = () => {
   const [ brainstormIdea, setBrainstormIdea ] = useState<string>('');
@@ -29,7 +29,9 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
     <section className='final-idea-field-section'>
       <div className='final-idea-question-div'>
         <h3>{originalQuestion}</h3>
-        <img src={edit} alt='pencil'/>
+        {
+          // <img src={edit} alt='pencil'/>
+        }
       </div>
       <div className='final-idea-field-div'>
         <textarea onChange={handleChange} value={brainstormIdea}
