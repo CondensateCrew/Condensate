@@ -66,7 +66,10 @@ exports[`BrainstormForm should match the snapshot 1`] = `
           <IdeaQuestion
             formState={
               Object {
-                "action": undefined,
+                "action": Object {
+                  "action": "Create an App",
+                  "id": 1,
+                },
                 "categories": Array [],
                 "question": "",
                 "reset": false,
@@ -108,7 +111,10 @@ exports[`BrainstormForm should match the snapshot 1`] = `
           <ActionsField
             formState={
               Object {
-                "action": undefined,
+                "action": Object {
+                  "action": "Create an App",
+                  "id": 1,
+                },
                 "categories": Array [],
                 "question": "",
                 "reset": false,

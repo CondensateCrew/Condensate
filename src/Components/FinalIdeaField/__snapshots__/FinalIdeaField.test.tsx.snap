@@ -22,6 +22,7 @@ exports[`FinalIdeaField component should match the snapshot 1`] = `
       />
       <button
         onClick={[Function]}
+        type="button"
       >
         Post Idea
       </button>

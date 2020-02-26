@@ -128,12 +128,12 @@ exports[`RoundTwo Component should match the snapshot when rendering for the fir
             </h2>
           </div>
           <Timer
-            time={90}
+            time={60}
           >
             <p
               className="timer"
             >
-              90
+              60
             </p>
           </Timer>
         </footer>
