@@ -120,8 +120,8 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   return (
     <div className="sign-up-form">
       <header>
-        <h2 className="hidden" onClick={toggleForm}>Login</h2>
         <h2 className="active">Sign Up</h2>
+        <h2 className="hidden" onClick={toggleForm}>Login</h2>
       </header>
       <form>
         {error !== '' && <p className="error-notification">{error}</p>}
