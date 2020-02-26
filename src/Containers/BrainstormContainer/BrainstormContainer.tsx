@@ -1,9 +1,7 @@
 import './BrainstormContainer.scss';
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { addAllBrainstorms } from 'redux/actions';
+import React from 'react';
+import { useSelector } from "react-redux";
 import { Brainstorm, AppStore } from 'interfaces';
-import mockBrainstorms from './mockData'
 import BrainstormCard from 'Components/BrainstormCard/BrainstormCard';
 
 const BrainstormContainer:React.FC = () => {

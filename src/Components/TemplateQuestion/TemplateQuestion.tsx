@@ -1,5 +1,4 @@
 import React from 'react';
-import { WordSample } from 'interfaces';
 import './TemplateQuestion.scss';
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
 }
 
 const TemplateQuestion:React.FC<Props> = ({ templateQuestion }) => {
-  return ( 
+  return (
     <h3 className='template-question-h3'>{templateQuestion}</h3>
   )
 }

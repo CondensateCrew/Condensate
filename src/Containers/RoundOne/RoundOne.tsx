@@ -19,7 +19,7 @@ const RoundOne:React.FC = () => {
       { !timeEnded &&
         <footer>
           <ChosenWordTrain />
-          <Timer time={90} />
+          <Timer time={60} />
         </footer>
       }
     </main>

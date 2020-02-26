@@ -2,8 +2,7 @@ import React, { useState, useEffect, MouseEvent, ChangeEvent, KeyboardEvent } fr
 import { useSelector, useDispatch } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { useHistory } from 'react-router-dom';
-import { addQuestionTemplates, reverseTime, addInsight } from 'redux/actions';
-import mockQuestionTemplate from 'data/mockQuestionTemplate';
+import { reverseTime, addInsight } from 'redux/actions';
 import TemplateQuestion from 'Components/TemplateQuestion/TemplateQuestion';
 import GenerateInsights from 'Components/GenerateInsights/GenerateInsights';
 import Header from 'Components/Header/Header';
@@ -43,7 +42,7 @@ const RoundTwo:React.FC = () => {
         history.push('/round-three')
       }
       dispatch(addInsight({
-        id: currentStep, 
+        id: currentStep,
         question: prompts[currentStep],
         answers: responses
       }))

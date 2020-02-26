@@ -11,7 +11,7 @@ const BubblesAll: React.FC = () => {
     timeEnded: store.timeEnded,
     randomWordCollections: store.randomWordCollections
   }));
-  
+
   let randomWords = randomWordCollections.map((word: WordSample) => word.word)
   const firstStack = randomWords.splice(0, 8);
 
@@ -23,7 +23,7 @@ const BubblesAll: React.FC = () => {
     }, 8000);
 
     return () => clearTimeout(timer);
-  }, [randomWords]);
+  }, []); //eslint-disable-line
 
   const sendToChosen = (event: React.MouseEvent) => {
     const currentTarget = event.target as HTMLElement;

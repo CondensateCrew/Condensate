@@ -23,7 +23,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const toggleBlock = (): void => setIsClicked(!isClicked);
 
   const updateAction = () => {
-    let newChosenAction = actionsCollection.filter((action:Action) => {
+    let newChosenAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
       if (action.action === selectedAction) {
         return action
       }
@@ -33,7 +33,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
   useEffect(updateAction, [ selectedAction ]);
 
-  const actions = actionsCollection.map((action:Action, index:number) => {//eslint-disable-line
+  const actions = actionsCollection.map((action:Action) => {//eslint-disable-line
     if (selectedAction.toLowerCase() !== action.action.toLowerCase()) {
       return <li key={action.id} onClick={handleChange}>{action.action}</li>
     }
