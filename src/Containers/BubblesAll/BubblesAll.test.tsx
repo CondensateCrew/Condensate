@@ -7,7 +7,13 @@ let mockTime: boolean;
 
 jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
-  useSelector: () => mockTime
+  useSelector: () => ({
+    timeEnded: mockTime,
+    randomWordCollections: [{
+      word: 'Goose',
+      sentence: 'Goose is walking'
+    }]
+  })
 }));
 
 describe('BubblesAll component', () => {

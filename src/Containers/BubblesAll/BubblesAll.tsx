@@ -7,12 +7,12 @@ import { addChosenWord } from 'redux/actions';
 
 const BubblesAll: React.FC = () => {
   const dispatch = useDispatch();
-  // let randomWords: string[] = Object.keys(collection);
   const { timeEnded, randomWordCollections } = useSelector((store: AppStore) => ({
     timeEnded: store.timeEnded,
     randomWordCollections: store.randomWordCollections
   }));
-  let randomWords = randomWordCollections.map((word:WordSample) => word.word)
+  
+  let randomWords = randomWordCollections.map((word: WordSample) => word.word)
   const firstStack = randomWords.splice(0, 8);
 
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);

@@ -6,98 +6,14 @@ exports[`BubblesAll component should match the snapshot 1`] = `
 >
   <p
     className="bubble randomly"
-    key="container-1"
+    key="Goose-1"
   >
     <span />
     <button
-      id="container"
+      id="goose"
       onClick={[Function]}
     >
-      container
-    </button>
-  </p>
-  <p
-    className="bubble randomly"
-    key="book-2"
-  >
-    <span />
-    <button
-      id="book"
-      onClick={[Function]}
-    >
-      book
-    </button>
-  </p>
-  <p
-    className="bubble randomly"
-    key="sport-3"
-  >
-    <span />
-    <button
-      id="sport"
-      onClick={[Function]}
-    >
-      sport
-    </button>
-  </p>
-  <p
-    className="bubble randomly"
-    key="time-4"
-  >
-    <span />
-    <button
-      id="time"
-      onClick={[Function]}
-    >
-      time
-    </button>
-  </p>
-  <p
-    className="bubble randomly"
-    key="cloud-5"
-  >
-    <span />
-    <button
-      id="cloud"
-      onClick={[Function]}
-    >
-      cloud
-    </button>
-  </p>
-  <p
-    className="bubble randomly"
-    key="water-6"
-  >
-    <span />
-    <button
-      id="water"
-      onClick={[Function]}
-    >
-      water
-    </button>
-  </p>
-  <p
-    className="bubble randomly"
-    key="security-7"
-  >
-    <span />
-    <button
-      id="security"
-      onClick={[Function]}
-    >
-      security
-    </button>
-  </p>
-  <p
-    className="bubble randomly"
-    key="color-8"
-  >
-    <span />
-    <button
-      id="color"
-      onClick={[Function]}
-    >
-      color
+      Goose
     </button>
   </p>
 </section>
