@@ -27,7 +27,7 @@ exports[`Instructions component should match the snapshot for type first-rd 1`] 
     </Header>
     <section>
       <p>
-        In the next 90 seconds choose 9 words
+        In the next 60 seconds choose 9 words
       </p>
     </section>
   </main>
@@ -61,7 +61,7 @@ exports[`Instructions component should match the snapshot for type second-rd 1`]
     </Header>
     <section>
       <p>
-        You will have 90 seconds
+        You will have 60 seconds
       </p>
     </section>
   </main>
