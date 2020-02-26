@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { Redirect } from 'react-router-dom';
 // import collection from './mockData';
-import { addChosenWord } from 'redux/actions';
+import { addChosenWord, reverseInstructions } from 'redux/actions';
 
 const BubblesAll: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,8 @@ const BubblesAll: React.FC = () => {
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);
 
   useEffect(() => {
+    dispatch(reverseInstructions());
+    
     const timer = setInterval(() => {
       setBubbles(randomWords.splice(0, 8));
     }, 8000);
