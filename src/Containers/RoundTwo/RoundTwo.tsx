@@ -75,30 +75,13 @@ const RoundTwo:React.FC = () => {
   let insights = responses.map((insight:string, idx:number) => {
     return <GenerateInsights text={insight} responses={responses}
     key={idx} id={idx} setResponses={setResponses}/>
-  })
+  });
 
-  let displayRounds;
-    if (currentStep === 0) {
-      displayRounds = [
-      <h2 key='one' id='one' className='question-number-h2 current-round'>1</h2>,
-      <h2 key='two' id='two' className='question-number-h2'>2</h2>,
-      <h2 key='three' id='three' className='question-number-h2'>3</h2>
-      ]
-    }
-    if (currentStep === 1) {
-      displayRounds = [
-      <h2 key='one' id='one' className='question-number-h2 completed-round'>1</h2>,
-      <h2 key='two' id='two' className='question-number-h2 current-round'>2</h2>,
-      <h2 key='three' id='three' className='question-number-h2'>3</h2>
-      ]
-    }
-    if (currentStep === 2) {
-      displayRounds = [
-      <h2 key='one' id='one' className='question-number-h2 completed-round'>1</h2>,
-      <h2 key='two' id='two' className='question-number-h2 completed-round'>2</h2>,
-      <h2 key='three' id='three' className='question-number-h2 current-round'>3</h2>
-      ]
-    }
+  const displayRounds = ['1', '2', '3'].map((step: string, ind: number) => {
+    const current = (currentStep === ind) ? 'current-round' : '';
+    const addClass = (currentStep > ind) ? 'completed-round' : current;
+    return <h2 key={ind} id={`step-${ind}`} className={`question-number-h2 ${addClass}`}>{step}</h2>
+  });
 
   return (
     <main className='round-two-main'>
@@ -106,11 +89,11 @@ const RoundTwo:React.FC = () => {
       <section className='template-question-section-wrapper'>
         <TemplateQuestion templateQuestion={questionTemplates[currentStep]}/>
         <section className='responses-section'>
-          <div className='responses-input-div'>
+          <header>
             <input id='responses-input' onKeyDown={handleInputSubmit} onChange={handleChange}
-            type='text' value={inputValue} autoComplete='off' placeholder='Write your question here...'></input>
+            type='text' value={inputValue} autoComplete='off' placeholder='Write your question here...' />
             <img src={Check} onClick={handleSubmit} alt='submit-checkmark-icon' />
-          </div>
+          </header>
           <div className='responses-div'>
             {insights}
           </div>
