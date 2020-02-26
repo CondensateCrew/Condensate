@@ -13,7 +13,7 @@ export const getUser = async (options:IOptions) => {
   if (res.status !== 303) {
     throw Error('Failure to get user')
   }
-  
+
   return await res.json()
 }
 

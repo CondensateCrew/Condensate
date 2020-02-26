@@ -1,13 +1,15 @@
 /**
  * @jest-environment jsdom
  */
-
-import React from 'react';
 import { IOptions, UserLoginReceived } from 'interfaces';
-import {shallow} from 'enzyme';
 import { postUser, getUser } from './apiCalls';
 
 describe('apiCalls', () => {
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe('postUser', () => {
     let mockUser, mockOptions:IOptions, mockResponse:UserLoginReceived;
     beforeEach(() => {
@@ -46,6 +48,7 @@ describe('apiCalls', () => {
 
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
+
     it('should return an object with all the user data', () => {
       window.fetch= jest.fn().mockImplementation(() => {
         return Promise.resolve({
@@ -56,6 +59,7 @@ describe('apiCalls', () => {
 
       expect(postUser(mockOptions)).resolves.toEqual(mockResponse);
     });
+
     it('SAD: should throw an error if response is not okay', () => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.resolve({
@@ -64,6 +68,7 @@ describe('apiCalls', () => {
       });
       expect(postUser(mockOptions)).rejects.toEqual(Error('Failure to post new user'))
     });
+
     it('SAD: should throw an error if the promise does not resolve', () => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.reject(Error('fetch failed'))
@@ -72,6 +77,7 @@ describe('apiCalls', () => {
       expect(postUser(mockOptions)).rejects.toEqual(Error('fetch failed'))
     });
   });
+
   describe('getUser', () => {
     let mockUser, mockOptions:IOptions, mockResponse:UserLoginReceived;
     beforeEach(() => {
@@ -96,11 +102,12 @@ describe('apiCalls', () => {
 
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.resolve({
-          ok: true,
+          status: 303,
           json: () => Promise.resolve(mockResponse)
         });
       });
     });
+
     it('should fetch with the correct arguments', () => {
       const expected = ['https://condensate-backend.herokuapp.com/login', mockOptions];
 
@@ -110,13 +117,6 @@ describe('apiCalls', () => {
     });
 
     it('should return an object with all the user data', () => {
-      window.fetch= jest.fn().mockImplementation(() => {
-        return Promise.resolve({
-          status: 303,
-          json: () => Promise.resolve(mockResponse)
-        });
-      });
-
       expect(getUser(mockOptions)).resolves.toEqual(mockResponse);
     });
 
@@ -134,7 +134,7 @@ describe('apiCalls', () => {
         return Promise.reject(Error('fetch failed'))
       });
 
-      expect(getUser(mockOptions)).rejects.toEqual(Error('fetch failed'))
+      expect(getUser(mockOptions)).rejects.toThrowError('fetch failed')
     });
   });
 
