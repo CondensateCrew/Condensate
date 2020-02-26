@@ -10,13 +10,21 @@ interface Props {
 }
 
 const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
-  const [ selectedAction, setSelectedAction ] = useState<string>('Create an app');
+  const [ selectedAction, setSelectedAction ] = useState<Action>({id: 1, action: 'Create an app'});
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
   const actionsCollection = useSelector((store:AppStore) => store.actions);
 
   const handleChange = (e:React.MouseEvent<HTMLElement>):void => {
     const currentTarget = e.target as HTMLElement;
-    setSelectedAction(currentTarget.innerText);
+
+    let newAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
+        if (action.action === currentTarget.innerText) {
+          return action
+        }
+    });
+
+    setSelectedAction(newAction[0]);
+    updateAction();
     setIsClicked(false);
   }
 
@@ -24,7 +32,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
   const updateAction = () => {
     let newChosenAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
-      if (action.action === selectedAction) {
+      if (action.action === selectedAction.action) {
         return action
       }
     })
@@ -34,7 +42,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   useEffect(updateAction, [ selectedAction ]);
 
   const actions = actionsCollection.map((action:Action) => {//eslint-disable-line
-    if (selectedAction.toLowerCase() !== action.action.toLowerCase()) {
+    if (selectedAction.action.toLowerCase() !== action.action.toLowerCase()) {
       return <li key={action.id} onClick={handleChange}>{action.action}</li>
     }
   });
@@ -44,7 +52,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   return (
     <div className="action-toggle">
       <header className={headerState} onClick={toggleBlock}>
-        <p className="chosen">{selectedAction}</p>
+        <p className="chosen">{selectedAction.action}</p>
         <img src={down} alt="down"/>
       </header>
       {isClicked &&

@@ -35,6 +35,8 @@ export const getDashboard = async (options:IOptions) => {
 
 export const postBrainstorm = async (options:IOptions) => {
   const res = await fetch('https://condensate-backend.herokuapp.com/ideas', options)
+  console.log(res)
+  console.log(res.body)
   if (!res.ok) {
     throw Error('Failure to post brainstorm')
   }

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { postBrainstorm } from 'apiCalls/apiCalls';
 import { AppStore } from 'interfaces';
+import { addNewBrainstorm } from 'redux/actions';
 import './FinalIdeaField.scss';
 // import edit from '../../assets/edit.svg';
 import { useHistory } from 'react-router-dom';
 
 const FinalIdeaField:React.FC = () => {
   const [ brainstormIdea, setBrainstormIdea ] = useState<string>('');
+  const dispatch = useDispatch();
   const { id, action, isGenius, question, categories } = useSelector((state: AppStore) => ({
     id: state.user.id,
     action: state.currentBrainstorm.action,
@@ -27,7 +29,16 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
     const brainstorm = {
       idea: brainstormIdea,
       id,
-      action,
+      action: action.action,
+      isGenius,
+      question,
+      categories
+    }
+
+    const otherBrainstorm = {
+      response: brainstormIdea,
+      id: Date.now(),
+      action: action,
       isGenius,
       question,
       categories
@@ -42,6 +53,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
     }
 
     const res = await postBrainstorm(options) //eslint-disable-line
+    dispatch(addNewBrainstorm(otherBrainstorm));
     history.push('/dashboard')
   }
 
@@ -56,7 +68,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       <div className='final-idea-field-div'>
         <textarea onChange={handleChange} value={brainstormIdea}
         placeholder="Type your idea here..."></textarea>
-        <button onClick={postBrainstormIdea}>Post Idea</button>
+        <button type='button' onClick={postBrainstormIdea}>Post Idea</button>
       </div>
     </section>
   )
