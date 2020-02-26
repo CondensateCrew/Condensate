@@ -66,8 +66,8 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       body: JSON.stringify({
         first_name: user.firstName,
         last_name: user.lastName,
+        password: user.password,
         email: user.email,
-        password: user.password
       })
     }
 
@@ -82,15 +82,16 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: modifiedUser.id
+      body: JSON.stringify({token: modifiedUser.id})
     }
+
     const setUpRes = await getSetUp(setUpDashOptions);
     const dashRes = await getDashboard(setUpDashOptions);
 
-    dispatch(addUser(modifiedUser));
-    dispatch(addWordSamples(setUpRes));
-    dispatch(addAllActions(dashRes.actions));
-    dispatch(addAllCategories(dashRes.categories));
+    await dispatch(addUser(modifiedUser));
+    await dispatch(addWordSamples(setUpRes));
+    await dispatch(addAllActions(dashRes.actions));
+    await dispatch(addAllCategories(dashRes.categories));
     history.push('/dashboard')
   }
 

@@ -9,7 +9,7 @@ export const postUser = async (options:IOptions) => {
     return await res.json()
 
   } catch(error) {
-    throw Error(error)
+    console.error(error)
   }
 }
 
@@ -22,14 +22,14 @@ export const getUser = async (options:IOptions) => {
     return await res.json()
 
   } catch(error) {
-    throw Error(error)
+    console.error(error)
   }
 }
 
 export const getSetUp = async (options:IOptions) => {
   try {
     const res = await fetch('https://condensate-backend.herokuapp.com/game_setup', options)
-    if (!res.ok) {
+    if (res.status !== 200) {
       throw Error('Failure to get game setup: words and examples')
     }
     return await res.json()
@@ -48,7 +48,7 @@ export const getDashboard = async (options:IOptions) => {
     return await res.json()
 
   } catch(error) {
-    throw Error(error)
+    console.error(error)
   }
 }
 
