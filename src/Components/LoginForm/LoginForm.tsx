@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { validateCredentials } from '_utils';
 import { getUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
-import { UserLoginPosting } from 'interfaces';//eslint-disable-line
 import { addUser, addWordSamples, addAllActions, addAllCategories } from 'redux/actions';
 import { useHistory } from 'react-router-dom';
 
