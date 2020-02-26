@@ -18,14 +18,14 @@ Fullstack brainstorming web app
 
 ## Tech Stack
 
-** Front-end **
+**Front-end**
 
 - TypeScript
 - React
 - Redux
 - TDD with jest
 
-[** Back-end **](https://github.com/CondensateCrew/condensate_backend)
+[**Back-end**](https://github.com/CondensateCrew/condensate_backend)
 
 - Python
 - Flask
