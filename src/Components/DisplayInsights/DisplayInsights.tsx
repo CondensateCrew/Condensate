@@ -11,8 +11,8 @@ const DisplayInsights:React.FC = () => {
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
   const insights = useSelector((store: AppStore) => store.insights);
 
-  const responses = insights[currentStep].answers.map((answer:string) => {
-    return <li>{answer}</li>
+  const responses = insights[currentStep].answers.map((answer:string, index: number) => {
+    return <li key={index}>{answer}</li>
   });
 
   const showNextInsight = ():void => {

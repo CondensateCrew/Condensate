@@ -43,16 +43,12 @@ exports[`DisplayInsights component should match the snapshot if block is opened 
     className="display-insights-body-div"
   >
     <h2>
-      A goose flies south
+      Play with a toy
     </h2>
-    <li>
-      Why is the goose flying?
-    </li>
-    <li>
-      How does a goose fly?
-    </li>
-    <li>
-      Why not fly south?
+    <li
+      key="0"
+    >
+      Do I?
     </li>
   </ul>
   <button

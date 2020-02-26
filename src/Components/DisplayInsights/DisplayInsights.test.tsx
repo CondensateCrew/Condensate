@@ -2,6 +2,16 @@ import React from 'react';
 import DisplayInsights from './DisplayInsights';
 import { shallow } from 'enzyme';
 
+jest.mock('react-redux', () => ({
+  useSelector: () => [{
+    question: {
+      word: 'Toy',
+      sentence: 'Play with a toy'
+    },
+    answers: ['Do I?']
+  }]
+}));
+
 describe('DisplayInsights component', () => {
   it('should match the snapshot', () => {
     const wrapper = shallow(<DisplayInsights />);
