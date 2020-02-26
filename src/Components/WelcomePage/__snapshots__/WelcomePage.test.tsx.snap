@@ -66,15 +66,15 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
           >
             <header>
               <h2
+                className="active"
+              >
+                Sign Up
+              </h2>
+              <h2
                 className="hidden"
                 onClick={[Function]}
               >
                 Login
-              </h2>
-              <h2
-                className="active"
-              >
-                Sign Up
               </h2>
             </header>
             <form>
