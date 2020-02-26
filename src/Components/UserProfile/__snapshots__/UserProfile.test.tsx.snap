@@ -20,3 +20,32 @@ exports[`UserProfile should match the snapshot 1`] = `
   />
 </div>
 `;
+
+exports[`UserProfile should match the snapshot if menu is clicked 1`] = `
+<div
+  className="user-profile-div"
+>
+  <img
+    alt="user profile"
+    className="profile-pic"
+    src="avatar.jpg"
+  />
+  <h2>
+    Alan Birds
+  </h2>
+  <section>
+    <img
+      alt="logout"
+      className="logout"
+      onClick={[Function]}
+      src="logout.svg"
+    />
+    <img
+      alt="close"
+      className="close"
+      onClick={[Function]}
+      src="close.svg"
+    />
+  </section>
+</div>
+`;
