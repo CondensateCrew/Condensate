@@ -26,12 +26,30 @@ export const getUser = async (options:IOptions) => {
   }
 }
 
-export const getSetUp = async () => {
+export const getSetUp = async (options:IOptions) => {
+  try {
+    const res = await fetch('https://condensate-backend.herokuapp.com/game_setup', options)
+    if (!res.ok) {
+      throw Error('Failure to get game setup: words and examples')
+    }
+    return await res.json()
 
+  } catch(error) {
+    throw Error(error)
+  }
 }
 
-export const getDashboard = async () => {
+export const getDashboard = async (options:IOptions) => {
+  try {
+    const res = await fetch('https://condensate-backend.herokuapp.com/dashboard', options)
+    if (!res.ok) {
+      throw Error('Failure to get all brainstorms, actions, and categories')
+    }
+    return await res.json()
 
+  } catch(error) {
+    throw Error(error)
+  }
 }
 
 export const postBrainstorm = async (options:IOptions) => {
