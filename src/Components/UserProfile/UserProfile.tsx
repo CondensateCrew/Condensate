@@ -24,7 +24,7 @@ const UserProfile:React.FC = () => {
   return (
     <div className='user-profile-div'>
       <img className='profile-pic' src={AlanBird} alt='user profile'/>
-      <h2>{`${firstName} ${lastName}`}</h2>
+      <h2>{`${firstName || 'Alan'} ${lastName || 'Birds'}`}</h2>
       {!isClicked
         ? <img className='menu-svg' src={menu} alt='menu-svg' onClick={toggleMenu} />
         : <section>
