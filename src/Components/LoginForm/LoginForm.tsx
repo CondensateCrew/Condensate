@@ -80,7 +80,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
 
     await dispatch(addUser(modifiedUser));
     await dispatch(addWordSamples(setUpRes));
-    await dispatch(addSecretSauce(secretSauce))
+    await dispatch(addSecretSauce(secretSauce));
     await dispatch(addAllActions(dashRes.actions));
     await dispatch(addAllCategories(dashRes.categories));
     await dispatch(addAllBrainstorms(dashRes.brainstorms))

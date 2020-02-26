@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addUser, addWordSamples, addAllActions, addAllCategories } from 'redux/actions';
-import { UserSignupPosting } from '../../interfaces';
+import { addUser, addWordSamples, addAllActions, addAllCategories, addSecretSauce } from 'redux/actions';
+import { UserSignupPosting, WordSample } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
 import { useHistory } from 'react-router-dom';
@@ -87,10 +87,14 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
 
     const setUpRes = await getSetUp(setUpDashOptions);
     const dashRes = await getDashboard(setUpDashOptions);
+    const secretSauce = await setUpRes.map((word: WordSample):string => {
+      return word.word
+    });
 
     await dispatch(addUser(modifiedUser));
     await dispatch(addWordSamples(setUpRes));
     await dispatch(addAllActions(dashRes.actions));
+    await dispatch(addSecretSauce(secretSauce));
     await dispatch(addAllCategories(dashRes.categories));
     history.push('/dashboard')
   }
