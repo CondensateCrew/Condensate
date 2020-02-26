@@ -14,7 +14,7 @@
 
 Fullstack brainstorming web app
 
-[Link to Heroku]()
+[Link to Heroku](https://condensate-app.herokuapp.com/)
 
 ## Tech Stack
 
@@ -25,7 +25,23 @@ Fullstack brainstorming web app
 - Redux
 - TDD with jest
 
-** Back-end **
+[** Back-end **](https://github.com/CondensateCrew/condensate_backend)
+
+- Python
+- Flask
+- PostgreSQL
+- SQLAlchemy
+- Pytest
+
+Integration with TravisCI
+Deployment with Heroku
+
+## Setup
+
+- `git clone https://github.com/CondensateCrew/condensate_backend.git`
+- `npm i`
+- `npm start` - for run app locally
+- `npm test` - for run tests
 
 ## Screenshots
 
