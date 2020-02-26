@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addNewBrainstorm } from 'redux/actions';
+import { useSelector } from 'react-redux';
 import { postBrainstorm } from 'apiCalls/apiCalls';
 import { AppStore } from 'interfaces';
 import './FinalIdeaField.scss';
@@ -9,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 
 const FinalIdeaField:React.FC = () => {
   const [ brainstormIdea, setBrainstormIdea ] = useState<string>('');
-  const dispatch = useDispatch();
   const { id, action, isGenius, question, categories } = useSelector((state: AppStore) => ({
     id: state.user.id,
     action: state.currentBrainstorm.action,
@@ -28,7 +26,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
   const postBrainstormIdea = async () => {
     const brainstorm = {
       idea: brainstormIdea,
-      id, 
+      id,
       action,
       isGenius,
       question,

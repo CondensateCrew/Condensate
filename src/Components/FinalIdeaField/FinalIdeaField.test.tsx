@@ -5,14 +5,18 @@
 import React from 'react';
 import FinalIdeaField from './FinalIdeaField';
 import { mount } from 'enzyme';
-import { addCurrentBrainstorm } from 'redux/actions';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
   useSelector: () => 'question?'
 }));
-jest.mock('redux/actions');
+
+jest.mock('react-router-dom', () => ({
+  useHistory: () => ({
+    push: jest.fn(),
+  }),
+}));
 
 describe('FinalIdeaField component', () => {
   let wrapper: any;
@@ -27,9 +31,5 @@ describe('FinalIdeaField component', () => {
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should call addCurrentBrainstorm after rendering', () => {
-    expect(addCurrentBrainstorm).toHaveBeenCalled();
   });
 });

@@ -20,7 +20,9 @@ exports[`FinalIdeaField component should match the snapshot 1`] = `
         placeholder="Type your idea here..."
         value=""
       />
-      <button>
+      <button
+        onClick={[Function]}
+      >
         Post Idea
       </button>
     </div>
