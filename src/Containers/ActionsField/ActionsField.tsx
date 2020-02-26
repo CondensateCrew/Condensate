@@ -33,7 +33,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
   const actions = actionsCollection.map((action:Action, index:number) => {//eslint-disable-line
     if (selectedAction.toLowerCase() !== action.action.toLowerCase()) {
-      return <li key={index} onClick={handleChange}>{action}</li>
+      return <li key={index} onClick={handleChange}>{action.action}</li>
     }
   });
 
