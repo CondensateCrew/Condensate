@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { validateCredentials } from '_utils';
-import { getUser } from 'apiCalls/apiCalls';
+import { getUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
 import { UserLoginPosting } from 'interfaces';//eslint-disable-line
-import { addUser } from 'redux/actions';
+import { addUser, addWordSamples, addAllActions, addAllCategories } from 'redux/actions';
 import { useHistory } from 'react-router-dom';
 
 interface Props {
@@ -58,11 +58,27 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
     }
 
     const user = await getUser(options)
+
     const modifiedUser = {
       id: user.token,
       firstName: user.first_name,
       lastName: user.last_name
     }
+    const setUpDashOptions = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({token: modifiedUser.id})
+    }
+
+    const setUpRes = await getSetUp(setUpDashOptions);
+    const dashRes = await getDashboard(setUpDashOptions);
+
+    await dispatch(addUser(modifiedUser));
+    await dispatch(addWordSamples(setUpRes));
+    await dispatch(addAllActions(dashRes.actions));
+    await dispatch(addAllCategories(dashRes.categories));
     dispatch(addUser(modifiedUser))
     history.push('/dashboard')
   }

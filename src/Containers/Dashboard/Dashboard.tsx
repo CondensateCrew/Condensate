@@ -9,13 +9,6 @@ import BrainstormForm from '../BrainstormForm/BrainstormForm';
 import UserProfile from '../../Components/UserProfile/UserProfile';
 import addIcon from '../../assets/add.svg';
 
-// const categories: Category[] = [
-//   {id: 1, name: 'Tech'},
-//   {id: 2, name: 'Education'},
-//   {id: 3, name: 'Environment'},
-//   {id: 4, name: 'Money'},
-//   {id: 5, name: 'Food'}];
-
 const Dashboard: React.FC = () => {
   const [ brainstormFormState, setBrainstormForm ] = useState<boolean>(false);
   const categories = useSelector((store:AppStore) => store.categories);
