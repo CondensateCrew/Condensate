@@ -80,6 +80,9 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
   const toggleCategory = (): void => setIsClickedCategory(!isClickedCategory);
 
   useEffect(() => {//eslint-disable-line
+    if (!formState.action) {
+      setFormState({...formState, action: {id: 1, action: 'Create an App'}})
+    }
       if (validateFields(formState)) {
         setIsDisabled(false)
         writeSummary();

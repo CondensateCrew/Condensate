@@ -53,7 +53,7 @@ const BubblesReducer: React.FC<Props> = ({ chosenWords }) => {
       <section>
         {!isRedirected
           ? bubbleEls
-          : <Redirect to='/round-two' />
+          : <Redirect to='/instructions/second-rd' />
         }
       </section>
     </section>
