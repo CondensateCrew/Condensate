@@ -3,15 +3,18 @@
 
 .insights-div {
   width: 90%;
-  height: 5vh;
   display: flex;
-  margin: $medium-space;
-  padding: $medium-space;
   justify-content: space-between;
   align-items: center;
-  border-radius: $smallest-border-radius;
+  @extend %one-line-block;
+  border-radius: $one-line-border-radius;
+  padding: $one-line-padding-space;
+  margin: $small-space auto;
   img {
+    cursor: pointer;
     width: 1rem;
+    opacity: 0.4;
+    @extend %hover-transform;
   }
   h3 {
     font-size: 1rem;
