@@ -18,11 +18,11 @@ const BubblesAll: React.FC = () => {
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = setInterval(() => {
       setBubbles(randomWords.splice(0, 8));
     }, 8000);
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(timer);
   }, []); //eslint-disable-line
 
   const sendToChosen = (event: React.MouseEvent) => {

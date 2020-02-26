@@ -18,7 +18,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
   const [ formState, setFormState ] = useState<IBrainstormForm>({
     question: '',
     categories: [],
-    action: {id: 1, action: 'create an app'},
+    action: {id: 1, action: 'Create an App'},
     reset: false
   });
   const [ disabled, setIsDisabled ] = useState<boolean>(true);
@@ -64,7 +64,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
 
   const handleSubmit = ():void => {
     let currentBS = {
-      id: 4,
+      id: Date.now(),
       question: formState.question,
       response: '',
       action: formState.action,
