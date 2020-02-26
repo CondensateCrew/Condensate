@@ -7,7 +7,7 @@ import { IOptions, UserLoginReceived } from 'interfaces';
 import {shallow} from 'enzyme';
 import { postUser, getUser } from './apiCalls';
 
-describe.skip('apiCalls', () => {
+describe('apiCalls', () => {
   describe('postUser', () => {
     let mockUser, mockOptions:IOptions, mockResponse:UserLoginReceived;
     beforeEach(() => {
@@ -108,30 +108,33 @@ describe.skip('apiCalls', () => {
 
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
+
     it('should return an object with all the user data', () => {
       window.fetch= jest.fn().mockImplementation(() => {
         return Promise.resolve({
-          ok: true,
+          status: 303,
           json: () => Promise.resolve(mockResponse)
         });
       });
 
       expect(getUser(mockOptions)).resolves.toEqual(mockResponse);
     });
+
     it('SAD: should throw an error if response is not okay', () => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.resolve({
-          ok: false
+          status: 500
         })
       });
-      expect(postUser(mockOptions)).rejects.toEqual(Error('Failure to get user'))
+      expect(getUser(mockOptions)).rejects.toEqual(Error('Failure to get user'))
     });
+
     it('SAD: should throw an error if the promise does not resolve', () => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.reject(Error('fetch failed'))
       });
 
-      expect(postUser(mockOptions)).rejects.toEqual(Error('fetch failed'))
+      expect(getUser(mockOptions)).rejects.toEqual(Error('fetch failed'))
     });
   });
 
