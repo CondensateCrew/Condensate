@@ -34,7 +34,7 @@ describe("actions", () => {
   it("should return object with a type of ADD_ALL_ACTIONS when addAllActions is called", () => {
     const actionsMock: interfaces.Action[] = [{
       id: 1,
-      name: 'Build an app'
+      action: 'Build an app'
     }];
 
     const expected: interfaces.IAddAllActionsAction = {
@@ -50,7 +50,7 @@ describe("actions", () => {
   it("should return object with a type of ADD_NEW_ACTION when addNewAction is called", () => {
     const actionMock: interfaces.Action = {
       id: 1,
-      name: 'Build an app'
+      action: 'Build an app'
     };
 
     const expected: interfaces.IAddNewActionAction = {
@@ -69,8 +69,11 @@ describe("allBrainstorms", () => {
     const brainstormsMock: interfaces.Brainstorm[] = [{
       id: 1,
       question: 'What?',
-      idea: 'Idea',
-      action: 'Build',
+      response: 'Idea',
+      action: {
+        id: 1,
+        action: 'Build an app'
+      },
       categories: [{id: 1, name: "Tech"}],
       isGenius: true
     }];
@@ -100,8 +103,11 @@ describe("allBrainstorms", () => {
     const brainstormMock: interfaces.Brainstorm = {
       id: 1,
       question: 'What?',
-      idea: 'Idea',
-      action: 'Build',
+      response: 'Idea',
+      action: {
+        id: 1,
+        action: 'Build an app'
+      },
       categories: [{id: 1, name: "Tech"}],
       isGenius: true
     };
@@ -164,19 +170,17 @@ describe("categories", () => {
 
 describe("randomWordCollections", () => {
   it("should return object with a type of ADD_ALL_COLLECTIONS when addRandomWordCollections is called", () => {
-    const collectionsMock: interfaces.RandomWordCollection[] = [{
-      'goose': {
-        type: 'noun',
-        connectedWord: ['duck', 'happy', 'dinner']
-      }
+    const collectionsMock: interfaces.WordSample[] = [{
+      word: 'goose',
+      sentence: 'wash your goose'
     }];
 
-    const expected: interfaces.IAddRandomWordCollectionsAction = {
+    const expected: interfaces.IAddWordSamplesAction = {
       type: 'ADD_ALL_COLLECTIONS',
       collections: collectionsMock
     };
 
-    const result = actions.addRandomWordCollections(collectionsMock)
+    const result = actions.addWordSamples(collectionsMock)
 
     expect(result).toEqual(expected);
   });
@@ -221,8 +225,11 @@ describe("currentBrainstorm", () => {
     const currentBrainstormMock: interfaces.Brainstorm = {
       id: 1,
       question: 'What?',
-      idea: 'Idea',
-      action: 'Build',
+      response: 'Idea',
+      action: {
+        id: 1,
+        action: 'Build an app'
+      },
       categories: [{id: 1, name: "Tech"}],
       isGenius: true
     };
@@ -290,7 +297,10 @@ describe("insights", () => {
   it("should return object with a type of ADD_INSIGHT when addInsight is called", () => {
     const insightMock: interfaces.Insight = {
       id: 1,
-      question: 'What?',
+      question: {
+        word: 'goose',
+        sentence: 'wash your goose'
+      },
       answers: ['Doing']
     };
 
@@ -354,7 +364,6 @@ describe("filter", () => {
     expect(result).toEqual(expected);
   });
 });
-
 
 describe("timeEnded", () => {
   it("should return object with a type of END_TIME when endTime is called", () => {
