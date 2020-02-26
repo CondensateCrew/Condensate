@@ -8,8 +8,9 @@ import down from 'assets/down.svg';
 
 const DisplayInsights:React.FC = () => {
   const [ currentStep, setCurrentStep ] = useState<number>(0)
+  const [ isClicked, setIsClicked ] = useState<boolean>(false);
   const [ insights, setInsights ] = useState<Insight[]>(mockInsights)//eslint-disable-line
-  
+
   // const insights = useSelector((state: AppStore) => state.insights)
 
   const showNextInsight = ():void => {
@@ -18,21 +19,29 @@ const DisplayInsights:React.FC = () => {
     } else {
       setCurrentStep(currentStep + 1)
     }
-  }
+  };
+
+  const toggleBlock = () => setIsClicked(!isClicked);
+  const upClass = (isClicked) ? 'up-btn' : '';
 
   return (
     <section className='display-insights-section'>
-      <div className='display-insights-header-div'>
+      <header>
         <h3>Insights</h3>
-        <img src={down} alt='down-arrow'/>
-      </div>
-      <div className='display-insights-body-div'>
-        <h2>{insights[currentStep].question}</h2>
-        <li>{insights[currentStep].answers[0]}</li>
-        <li>{insights[currentStep].answers[1]}</li>
-        <li>{insights[currentStep].answers[2]}</li>
-      </div>
-      <button type='button' onClick={showNextInsight}>Next</button>
+        <button onClick={toggleBlock}>
+          <img src={down} alt='down-arrow' className={upClass} />
+        </button>
+      </header>
+      { isClicked &&
+        <ul className='display-insights-body-div'>
+          <h2>{insights[currentStep].question}</h2>
+          <li>{insights[currentStep].answers[0]}</li>
+          <li>{insights[currentStep].answers[1]}</li>
+          <li>{insights[currentStep].answers[2]}</li>
+        </ul>
+      }
+      { isClicked &&
+        <button type='button' onClick={showNextInsight}>Next</button>}
     </section>
   )
 }
