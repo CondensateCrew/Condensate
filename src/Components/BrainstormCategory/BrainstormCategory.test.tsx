@@ -2,79 +2,70 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { IBrainstormForm } from '../../interfaces';
+import { mount } from 'enzyme';
 import BrainstormCategory from './BrainstormCategory';
 
 describe('BrainstormCategory', () => {
-  let wrapper;
+  let wrapper: any;
+
+  const mockFormState = {
+    question: '',
+    categories: [],
+    action: 'create an app',
+    reset: true
+  };
+
+  const mockCategory = {
+    id: 1,
+    name: 'Technology'
+  };
+
+  const mockSetCategory = jest.fn();
+
+  const mockProps = {
+    category: mockCategory,
+    formState: mockFormState,
+    setCategory: mockSetCategory
+  }
+
   beforeEach(() => {
-    interface Props {
-      category: string,
-      formState: IBrainstormForm,
-      setCategory: (formState: IBrainstormForm) => void
-    }
-  });
+    wrapper = mount(
+      <BrainstormCategory {...mockProps}/>
+    );
+  })
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('should match the snapshot', () => {
-      let mockFormState = {
-        question: '',
-        categories: [],
-        action: 'create an app',
-        reset: true
-      };
-
-      let mockSetCategory = jest.fn();
-
-      wrapper = shallow(<BrainstormCategory
-        category={'Technology'}
-        formState={mockFormState}
-        setCategory={mockSetCategory}
-      />);
-
-      expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
+
   it('should render a different snapshot after a click event', () => {
-    let mockFormState = {
-      question: '',
-      categories: [],
-      action: 'create an app',
-      reset: true
-    };
-
-    let mockSetCategory = jest.fn();
-
-    wrapper = mount(<BrainstormCategory
-      category={'Technology'}
-      formState={mockFormState}
-      setCategory={mockSetCategory}
-    />);
-
     wrapper.find('button').simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
-  it('should call addRemoveCategory when button is clicked', () => {
-    let mockFormState = {
-      question: '',
-      categories: [],
-      action: 'create an app',
-      reset: true
+
+  it('should call addRemoveCategory when inactive button is clicked', () => {
+    const mockArgument = {
+      ...mockFormState,
+      categories: [...mockFormState.categories, mockCategory]
     };
-
-    let mockSetCategory = jest.fn();
-
-    wrapper = mount(<BrainstormCategory
-      category={'Technology'}
-      formState={mockFormState}
-      setCategory={mockSetCategory}
-    />);
-    const instance = wrapper.instance();
     wrapper.find('button').simulate('click');
 
-    expect(mockSetCategory).toHaveBeenCalled();
+    expect(mockSetCategory).toHaveBeenCalledWith(mockArgument);
+  });
+
+  it('should call addRemoveCategory when active button is clicked', () => {
+    const mockArgument = {
+      ...mockFormState,
+      categories: []
+    };
+
+    wrapper.find('button').simulate('click');
+    wrapper.find('button').simulate('click');
+
+    expect(mockSetCategory).toHaveBeenCalledWith(mockArgument);
   });
 });

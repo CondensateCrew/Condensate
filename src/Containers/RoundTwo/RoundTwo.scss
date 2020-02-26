@@ -2,31 +2,29 @@
 @import '../../css/index.scss';
 
 .round-two-main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  header {
+    width: 100%;
+  }
   footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
+    width: 100%;
     p {
       width: fit-content;
     }
   }
 }
 
-.round-two-section {
-  display: flex;
-}
-
-.instructions-div-wrapper {
-  width: 40vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .question-numbers-div {
   display: flex;
   justify-content: center;
-    h2 {  
+    h2 {
       @extend %buttons;
       border-radius: $one-line-border-radius;
       padding: $one-line-padding-space;
@@ -44,43 +42,41 @@ h2.completed-round {
 }
 
 .template-question-section-wrapper {
+  background: $primary-gradient;
   .current-question {
     background-color: $genius-color;
     background-image: $genius-gradient;
   }
 }
 
-.template-question-div-wrapper {
-  margin: $medium-space;
-}
-
 .responses-section {
-  height: 43.5vh;
-  max-height: 50vh;
-  width: 100%;
   margin-top: $small-space;
+  background: $primary-gradient;
   box-shadow: $external-shadow;
   border-radius: $big-blocks-border-radius;
   padding: $medium-space;
+  header {
+    @extend %one-line-block;
+    padding: $one-line-padding-space;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    input {
+      @extend %regular-input;
+      width: 80%;
+      margin: 0;
+    }
+    img {
+      width: $medium-text;
+      margin-left: $small-space;
+      @extend %hover-transform;
+    }
+  }
 }
 
 .responses-div {
-  height: 30vh;
-  max-height: 30vh;
+  height: 34vh;
   overflow: scroll;
-}
-
-.responses-input-div {
-  input {
-    @extend %regular-input;
-    width: 80%;
-  }
-  img {
-    width: 1.5rem;
-    margin-left: .5rem;
-    margin-bottom: -.2rem;
-    &:hover {
-      cursor:pointer;
-    }
-  }
 }

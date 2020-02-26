@@ -4,21 +4,34 @@
 
 import React from 'react';
 import InputElement from './InputElement';
-import { mount, shallow } from 'enzyme';
-import { UserSignupPosting, } from '../../interfaces';
+import { mount } from 'enzyme';
 
-describe('LoginForm component', () => {
-  let wrapper;
+type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
+
+describe('InputElement component', () => {
+  let wrapper: any;
+
+  const mockTypeInput: checkedInputType = 'first-name';
+  const mockUser = {
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+  };
+  const mockSetUser = jest.fn();
+  const mockSetPassword = jest.fn();
+  const mockSetError = jest.fn();
+
+  const mockProps = {
+    typeInput: mockTypeInput,
+    user: mockUser,
+    setPassword: mockSetPassword,
+    setUser: mockSetUser,
+    setError: mockSetError
+  };
+
   beforeEach(() => {
-    type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
-
-    interface Props {
-      typeInput: checkedInputType,
-      user: UserSignupPosting,
-      setPassword: (repeatPassword: string) => void
-      setUser: (user: UserSignupPosting) => void
-      setError: (error: string) => void
-    }
+    wrapper = mount(<InputElement {...mockProps}/>);
   });
 
   afterEach(() => {
@@ -26,80 +39,58 @@ describe('LoginForm component', () => {
   });
 
 
-  it('should match the snapshot', () => {
-    const mockTypeInput = 'first-name';
-    const mockUser = {
-      email: '',
-      password: '',
-      firstName: '',
-      lastName: '',
-    };
-    const mockSetUser = jest.fn();
-    const mockSetPassword = jest.fn();
-    const mockSetError = jest.fn();
-
-    wrapper = shallow(<InputElement
-      typeInput={mockTypeInput}
-      user={mockUser}
-      setPassword={mockSetPassword}
-      setUser={mockSetUser}
-      setError={mockSetError}
-    />);
-
+  it('should match the snapshot if type is first-name', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should match the snapshot if type is last-name', () => {
+    const wrapper = mount(
+      <InputElement {...mockProps} typeInput="last-name"/>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match the snapshot if type is email', () => {
+    const wrapper = mount(
+      <InputElement {...mockProps} typeInput="email"/>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match the snapshot if type is password', () => {
+    const wrapper = mount(
+      <InputElement {...mockProps} typeInput="password"/>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match the snapshot if type is repeat-password', () => {
+    const wrapper = mount(
+      <InputElement {...mockProps} typeInput="repeat-password"/>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('Change Events', () => {
+    const mockEvent = {target: {value: 'Goose'}};
+
     it('should update local state when a change event occurs', () => {
-      const mockTypeInput = 'first-name';
-      const mockUser = {
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-      };
-      const mockSetUser = jest.fn();
-      const mockSetPassword = jest.fn();
-      const mockSetError = jest.fn();
-
-      wrapper = mount(<InputElement
-        typeInput={mockTypeInput}
-        user={mockUser}
-        setPassword={mockSetPassword}
-        setUser={mockSetUser}
-        setError={mockSetError}
-      />);
-      const mockEvent = {target: {value: 'Goose'}};
-
       expect(wrapper.find('input').getDOMNode().value).toEqual('');
       wrapper.find('input').simulate('change', mockEvent);
       expect(wrapper.find('input').getDOMNode().value).toEqual('Goose');
     });
 
     it('should call setUser when a change event occurs', () => {
-      const mockTypeInput = 'first-name';
-      const mockUser = {
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-      };
-      const mockSetUser = jest.fn();
-      const mockSetPassword = jest.fn();
-      const mockSetError = jest.fn();
-
-      wrapper = mount(<InputElement
-        typeInput={mockTypeInput}
-        user={mockUser}
-        setPassword={mockSetPassword}
-        setUser={mockSetUser}
-        setError={mockSetError}
-      />);
-      const mockEvent = {target: {value: 'Goose'}};
-
-      const instance = wrapper.instance();
-
       wrapper.find('input').simulate('change', mockEvent);
       expect(mockSetUser).toHaveBeenCalled();
+    });
+
+    it('should call setPassword when a change event occurs', () => {
+      const wrapper = mount(
+        <InputElement {...mockProps} typeInput="repeat-password"/>
+      );
+      wrapper.find('input').simulate('change', mockEvent);
+      expect(mockSetPassword).toHaveBeenCalled();
     });
   });
 });

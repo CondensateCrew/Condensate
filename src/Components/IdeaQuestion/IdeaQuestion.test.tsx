@@ -3,54 +3,43 @@
  */
 
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { IBrainstormForm } from '../../interfaces';
 import IdeaQuestion from './IdeaQuestion';
 
 describe('IdeaQuestion Component', () => {
-  let wrapper;
+  let wrapper: any;
+
+  let mockFormState = {
+    question: '',
+    categories: [],
+    action: 'create an app',
+    reset: true
+  };
+  let mockSetQuestion = jest.fn();
+
   beforeEach(() => {
-    interface Props {
-      formState: IBrainstormForm,
-      setQuestion: (formState: IBrainstormForm) => void
-    }
+    wrapper = mount(<IdeaQuestion
+      formState={mockFormState}
+      setQuestion={mockSetQuestion}/>);
   })
 
   afterEach(() => {
     jest.clearAllMocks();
   })
   it('should match the snapshot with all the data passed through', () => {
-    let mockFormState = {
-      question: '',
-      categories: [],
-      action: 'create an app',
-      reset: true
-    };
-    let mockSetQuestion = jest.fn();
-
-    wrapper = shallow(<IdeaQuestion
-      formState={mockFormState}
-      setQuestion={mockSetQuestion}/>);
-
     expect(wrapper).toMatchSnapshot();
   });
-  describe('handleChange', () => {
-    it('should update question when change events occur', () => {
-      const mockEvent: Object = {target: {value: 'What is love?'}}
-      let mockFormState = {
-        question: '',
-        categories: [],
-        action: 'create an app',
-        reset: true
-      };
-      let mockSetQuestion = jest.fn();
 
-      wrapper = mount(<IdeaQuestion
-        formState={mockFormState}
-        setQuestion={mockSetQuestion}/>);
+  it('should call setQuestion after changes in input occur', () => {
+    const mockEvent: Object = {target: {value: 'What is love?'}}
+    wrapper.find('input').simulate('change', mockEvent);
+    expect(mockSetQuestion).toHaveBeenCalled();
+  });
 
-      wrapper.find('input').simulate('change', mockEvent);
-      expect(wrapper.find('input').getDOMNode().value).toEqual('What is love?')
-    });
+  it('should update question when change events occur', () => {
+    const mockEvent: Object = {target: {value: 'What is love?'}}
+    wrapper.find('input').simulate('change', mockEvent);
+    expect(wrapper.find('input').getDOMNode().value).toEqual('What is love?')
   });
 });

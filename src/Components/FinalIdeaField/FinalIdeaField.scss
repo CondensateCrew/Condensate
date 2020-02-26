@@ -12,27 +12,27 @@
 .final-idea-question-div {
   display: flex;
   justify-content: space-evenly;
-  width: 62%;
+  width: 40vw;
+  background: $primary-gradient;
   border-radius: $one-line-border-radius;
   box-shadow: $external-shadow;
   padding: $medium-space;
   margin: $small-space;
   img {
-    width: 1.25rem;
+    width: $big-text;
   }
 }
 
 .final-idea-field-div {
-  width: 62%;
-  height: 40vh;
+  background: $primary-gradient;
+  width: 40vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   border-radius: $one-line-border-radius;
   box-shadow: $external-shadow;
-  padding: $medium-space;
-
+  padding: $big-block-padding-space + $tiny-space;
   textarea {
     resize: none;
     width: 100%;
@@ -40,8 +40,8 @@
     padding: $medium-space;
     box-shadow: $inner-shadow;
     border-radius: $one-line-border-radius;
+    margin-bottom: $small-space;
   }
-
   button {
     @extend %regular-btn;
   }

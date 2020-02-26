@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FinalIdeaField component should match the snapshot 1`] = `
+<FinalIdeaField>
+  <section
+    className="final-idea-field-section"
+  >
+    <div
+      className="final-idea-question-div"
+    >
+      <h3>
+        question?
+      </h3>
+    </div>
+    <div
+      className="final-idea-field-div"
+    >
+      <textarea
+        onChange={[Function]}
+        placeholder="Type your idea here..."
+        value=""
+      />
+      <button>
+        Post Idea
+      </button>
+    </div>
+  </section>
+</FinalIdeaField>
+`;
