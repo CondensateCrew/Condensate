@@ -69,12 +69,12 @@ exports[`RoundTwo Component should match the snapshot when rendering for the fir
           className="template-question-section-wrapper"
         >
           <TemplateQuestion
-            templateQuestion="A goose flies south."
+            templateQuestion="Play with a toy"
           >
             <h3
               className="template-question-h3"
             >
-              A goose flies south.
+              Play with a toy
             </h3>
           </TemplateQuestion>
           <section
