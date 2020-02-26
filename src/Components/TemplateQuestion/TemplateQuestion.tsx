@@ -1,4 +1,5 @@
 import React from 'react';
+import { WordSample } from 'interfaces';
 import './TemplateQuestion.scss';
 
 interface Props {

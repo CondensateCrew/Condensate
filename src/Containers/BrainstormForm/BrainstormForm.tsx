@@ -18,7 +18,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
   const [ formState, setFormState ] = useState<IBrainstormForm>({
     question: '',
     categories: [],
-    action: 'create an app',
+    action: {id: 1, action: 'create an app'},
     reset: false
   });
   const [ disabled, setIsDisabled ] = useState<boolean>(true);
@@ -29,12 +29,12 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
   let history = useHistory();
 
   const resetForm = ():void => {
-      setFormState({
-        question: '',
-        categories: [],
-        action: 'create an app',
-        reset: true
-      })
+      // setFormState({
+      //   question: '',
+      //   categories: [],
+      //   action: {id: 1, 'create an app'},
+      //   reset: true
+      // })
       cancel(!brainstormFormState)
   }
 
@@ -59,14 +59,14 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
       }
     });
 
-    setSummary(`I want to ${formState.action.toLowerCase()} about ${categoriesSum.join(', ')} to answer the question: ${formState.question}`)
+    setSummary(`I want to ${formState.action.action.toLowerCase()} about ${categoriesSum.join(', ')} to answer the question: ${formState.question}`)
   }
 
   const handleSubmit = ():void => {
     let currentBS = {
       id: 4,
       question: formState.question,
-      idea: '',
+      response: '',
       action: formState.action,
       isGenius: false,
       categories: formState.categories

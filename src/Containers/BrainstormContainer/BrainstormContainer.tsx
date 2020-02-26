@@ -7,12 +7,6 @@ import mockBrainstorms from './mockData'
 import BrainstormCard from 'Components/BrainstormCard/BrainstormCard';
 
 const BrainstormContainer:React.FC = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(addAllBrainstorms(mockBrainstorms));
-  }, [dispatch]);
-
   const { allBrainstorms, queryValue, filterValue} = useSelector((state: AppStore) => ({
     allBrainstorms: state.allBrainstorms,
     queryValue: state.query,
@@ -29,8 +23,8 @@ const BrainstormContainer:React.FC = () => {
           : ctg.name === filterValue
       })
       && (bs.question.toLowerCase().includes(queryValue.toLowerCase())//eslint-disable-line
-      || bs.idea.toLowerCase().includes(queryValue.toLowerCase())//eslint-disable-line
-      || bs.action.toLowerCase().includes(queryValue.toLowerCase()))//eslint-disable-line
+      || bs.response.toLowerCase().includes(queryValue.toLowerCase())//eslint-disable-line
+      || bs.action.action.toLowerCase().includes(queryValue.toLowerCase()))//eslint-disable-line
     ));
 
   const cards = filteredBrainstorms.map((bs: Brainstorm) => (
