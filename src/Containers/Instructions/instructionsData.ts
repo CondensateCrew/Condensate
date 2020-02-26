@@ -9,7 +9,7 @@ interface ITypesData {
 
 export const firstIinstructions: IInstructionsData  = {
   instructions: [
-    'In the next 90 seconds choose 9 words',
+    'In the next 60 seconds choose 9 words',
     'Choose whichever words compel you',
     'They should elicit positive feelings',
     'Relax',
@@ -20,7 +20,7 @@ export const firstIinstructions: IInstructionsData  = {
 
 export const secondIinstructions: IInstructionsData  = {
   instructions: [
-    'You will have 90 seconds',
+    'You will have 60 seconds',
     'To write as many questions as you can',
     'Try to write the first thing that comes to your mind',
     'The more spontaneous and provocative the better!'
