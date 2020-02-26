@@ -2,7 +2,6 @@ import React from 'react';
 import BrainstormContainer from './BrainstormContainer';
 import mockBrainstorms from './mockData'
 import { shallow } from 'enzyme';
-import { useSelector, useDispatch } from "react-redux";
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({

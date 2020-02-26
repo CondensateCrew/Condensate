@@ -6,15 +6,17 @@ import React from 'react';
 import RoundTwo from './RoundTwo';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import mockQuestionTemplate from 'data/mockQuestionTemplate';
 
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
   useSelector: () => ({
     timeEnded: false,
-    questionTemplates: mockQuestionTemplate,
+    questionTemplates: [{
+      word: 'toy',
+      sentence: 'Play with a toy'
+    }],
+    chosenWords: ['toy']
   }),
   useDispatch: () => mockDispatch
 }));

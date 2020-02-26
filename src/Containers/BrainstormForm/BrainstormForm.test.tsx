@@ -3,18 +3,19 @@
  */
 
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import BrainstormForm from './BrainstormForm';
-import { useDispatch } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
 const mockDispatch = jest.fn();
-    jest.mock('react-redux', () => ({
-      useDispatch: () => mockDispatch
-    }));
+jest.mock('react-redux', () => ({
+  useDispatch: () => mockDispatch,
+  useSelector: () => [{id: 1, action: 'Build'}]
+}));
 
-describe('BrainstormCategory', () => {
-  let wrapper;
+describe('BrainstormForm', () => {
+  let wrapper: any;
+
   beforeEach(() => {
     jest.mock('react-router-dom', () => ({
       useHistory: () => ({

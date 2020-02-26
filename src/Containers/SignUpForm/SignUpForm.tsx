@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addUser } from 'redux/actions';
+import { addUser, addWordSamples, addAllActions, addAllCategories } from 'redux/actions';
 import { UserSignupPosting } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
 import { useHistory } from 'react-router-dom';
-import { postUser } from 'apiCalls/apiCalls';
+import { postUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
 
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
 
@@ -66,8 +66,8 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       body: JSON.stringify({
         first_name: user.firstName,
         last_name: user.lastName,
+        password: user.password,
         email: user.email,
-        password: user.password
       })
     }
 
@@ -77,7 +77,21 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       firstName: newUser.first_name,
       lastName: newUser.last_name
     }
-    dispatch(addUser(modifiedUser))
+    const setUpDashOptions = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({token: modifiedUser.id})
+    }
+
+    const setUpRes = await getSetUp(setUpDashOptions);
+    const dashRes = await getDashboard(setUpDashOptions);
+
+    await dispatch(addUser(modifiedUser));
+    await dispatch(addWordSamples(setUpRes));
+    await dispatch(addAllActions(dashRes.actions));
+    await dispatch(addAllCategories(dashRes.categories));
     history.push('/dashboard')
   }
 

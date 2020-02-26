@@ -3,7 +3,7 @@ import {
   Category,
   Brainstorm,
   UserLoginReceived,
-  RandomWordCollection,
+  WordSample,
   Insight,
   IAddUserAction,
   ILogoutUserAction,
@@ -15,7 +15,7 @@ import {
   IDeleteBrainstormAction,
   IAddAllCategoriesAction,
   IAddNewCategoryAction,
-  IAddRandomWordCollectionsAction,
+  IAddWordSamplesAction,
   IAddQuestionTemplatesAction,
   IAddSecretSauceAction,
   IAddCurrentBrainstormAction,
@@ -88,7 +88,7 @@ export const addNewCategory = (category: Category): IAddNewCategoryAction => ({
 });
 
 // randomWordCollections reducer action creators
-export const addRandomWordCollections = (collections: RandomWordCollection[]): IAddRandomWordCollectionsAction => ({
+export const addWordSamples = (collections: WordSample[]): IAddWordSamplesAction => ({
   type: 'ADD_ALL_COLLECTIONS',
   collections: collections
 });

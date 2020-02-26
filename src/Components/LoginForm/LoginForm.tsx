@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { validateCredentials } from '_utils';
-import { getUser } from 'apiCalls/apiCalls';
-import { UserLoginPosting } from 'interfaces';//eslint-disable-line
-import { addUser } from 'redux/actions';
+import { getUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
+import { addUser, addWordSamples, addSecretSauce, addAllActions, addAllCategories, addAllBrainstorms } from 'redux/actions';
 import { useHistory } from 'react-router-dom';
+import { WordSample } from 'interfaces';
 
 interface Props {
   isLogin: boolean,
@@ -58,11 +58,32 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
     }
 
     const user = await getUser(options)
+
     const modifiedUser = {
       id: user.token,
       firstName: user.first_name,
       lastName: user.last_name
     }
+    const setUpDashOptions = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({token: modifiedUser.id})
+    }
+
+    const setUpRes = await getSetUp(setUpDashOptions);
+    const dashRes = await getDashboard(setUpDashOptions);
+    const secretSauce = await setUpRes.map((word: WordSample):string => {
+      return word.word
+    })
+
+    await dispatch(addUser(modifiedUser));
+    await dispatch(addWordSamples(setUpRes));
+    await dispatch(addSecretSauce(secretSauce))
+    await dispatch(addAllActions(dashRes.actions));
+    await dispatch(addAllCategories(dashRes.categories));
+    await dispatch(addAllBrainstorms(dashRes.brainstorms))
     dispatch(addUser(modifiedUser))
     history.push('/dashboard')
   }

@@ -1,6 +1,6 @@
-import { ActionObject, RandomWordCollection } from 'interfaces';
+import { ActionObject, WordSample } from 'interfaces';
 
-type state = RandomWordCollection[] | [ ];
+type state = WordSample[] | [ ];
 
 const randomWordCollections = (state: state = [ ], action: ActionObject) => {
   switch(action.type) {

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisplayInsights component should match the snapshot 1`] = `
+<section
+  className="display-insights-section"
+>
+  <header>
+    <h3>
+      Insights
+    </h3>
+    <button
+      onClick={[Function]}
+    >
+      <img
+        alt="down-arrow"
+        className=""
+        src="down.svg"
+      />
+    </button>
+  </header>
+</section>
+`;
+
+exports[`DisplayInsights component should match the snapshot if block is opened 1`] = `
+<section
+  className="display-insights-section"
+>
+  <header>
+    <h3>
+      Insights
+    </h3>
+    <button
+      onClick={[Function]}
+    >
+      <img
+        alt="down-arrow"
+        className="up-btn"
+        src="down.svg"
+      />
+    </button>
+  </header>
+  <ul
+    className="display-insights-body-div"
+  >
+    <h2>
+      Play with a toy
+    </h2>
+    <li
+      key="0"
+    >
+      Do I?
+    </li>
+  </ul>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Next
+  </button>
+</section>
+`;

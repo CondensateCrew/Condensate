@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BrainstormCategory should match the snapshot 1`] = `
+exports[`BrainstormForm should match the snapshot 1`] = `
 <MemoryRouter
   initialEntries={
     Array [
@@ -66,7 +66,7 @@ exports[`BrainstormCategory should match the snapshot 1`] = `
           <IdeaQuestion
             formState={
               Object {
-                "action": "Create an app",
+                "action": undefined,
                 "categories": Array [],
                 "question": "",
                 "reset": false,
@@ -108,7 +108,7 @@ exports[`BrainstormCategory should match the snapshot 1`] = `
           <ActionsField
             formState={
               Object {
-                "action": "Create an app",
+                "action": undefined,
                 "categories": Array [],
                 "question": "",
                 "reset": false,

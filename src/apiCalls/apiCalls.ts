@@ -1,45 +1,42 @@
 import { IOptions } from 'interfaces';
 
 export const postUser = async (options:IOptions) => {
-  try {
-    const res = await fetch('https://condensate-backend.herokuapp.com/users', options)
-    if (!res.ok) {
-      throw Error('Failure to post new user')
-    }
-    return await res.json()
-
-  } catch(error) {
-    throw Error(error)
+  const res = await fetch('https://condensate-backend.herokuapp.com/users', options)
+  if (!res.ok) {
+    throw Error('Failure to post new user')
   }
+  return await res.json()
 }
 
 export const getUser = async (options:IOptions) => {
-  try {
-    const res = await fetch('https://condensate-backend.herokuapp.com/login', options)
-    if (res.status !== 303) {
-      throw Error('Failure to get user')
-    }
-    return await res.json()
-
-  } catch(error) {
-    throw Error(error)
+  const res = await fetch('https://condensate-backend.herokuapp.com/login', options)
+  if (res.status !== 303) {
+    throw Error('Failure to get user')
   }
+
+  return await res.json()
 }
 
-export const getSetUp = async () => {
-
+export const getSetUp = async (options:IOptions) => {
+  const res = await fetch('https://condensate-backend.herokuapp.com/game_setup', options)
+  if (res.status !== 200) {
+    throw Error('Failure to get game setup: words and examples')
+  }
+  return await res.json()
 }
 
-export const getDashboard = async () => {
-
+export const getDashboard = async (options:IOptions) => {
+  const res = await fetch('https://condensate-backend.herokuapp.com/dashboard', options)
+  if (!res.ok) {
+    throw Error('Failure to get all brainstorms, actions, and categories')
+  }
+  return await res.json()
 }
 
-export const postBrainstorm = async () => {
-
+export const postBrainstorm = async (options:IOptions) => {
+  const res = await fetch('https://condensate-backend.herokuapp.com/ideas', options)
+  if (!res.ok) {
+    throw Error('Failure to post brainstorm')
+  }
+  return await res.json()
 }
-// { "idea": "First Idea",
-//  "id": "b1dbd403ad7a5c034854a25a93e70cef",
-//   "action": "Write a magazine article",
-//    "isGenuis": "False",
-//     "question": "Write a piece about exercise habits",
-//      "categories": [{"name": "Health"}] }",

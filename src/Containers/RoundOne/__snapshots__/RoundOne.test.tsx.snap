@@ -9,7 +9,7 @@ exports[`RoundOne component should match the snapshot 1`] = `
   <footer>
     <ChosenWordTrain />
     <Timer
-      time={90}
+      time={60}
     />
   </footer>
 </main>
@@ -24,7 +24,7 @@ exports[`RoundOne component should match the snapshot if time is ended 1`] = `
   <footer>
     <ChosenWordTrain />
     <Timer
-      time={90}
+      time={60}
     />
   </footer>
 </main>

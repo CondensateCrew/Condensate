@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';//eslint-disable-line
 // import { addInsight } from 'redux/actions';
 import { AppStore, Insight } from 'interfaces';//eslint-disable-line
-import mockInsights from 'data/mockInsights';
+// import mockInsights from 'data/mockInsights';
 import './DisplayInsights.scss';
 import down from 'assets/down.svg';
 
 const DisplayInsights:React.FC = () => {
-  const [ currentStep, setCurrentStep ] = useState<number>(0)
+  const [ currentStep, setCurrentStep ] = useState<number>(0);
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
-  const [ insights, setInsights ] = useState<Insight[]>(mockInsights)//eslint-disable-line
+  const insights = useSelector((store: AppStore) => store.insights);
 
-  // const insights = useSelector((state: AppStore) => state.insights)
+  const responses = insights[currentStep].answers.map((answer:string, index: number) => {
+    return <li key={index}>{answer}</li>
+  });
 
   const showNextInsight = ():void => {
     if (currentStep > 1) {
@@ -34,10 +36,8 @@ const DisplayInsights:React.FC = () => {
       </header>
       { isClicked &&
         <ul className='display-insights-body-div'>
-          <h2>{insights[currentStep].question}</h2>
-          <li>{insights[currentStep].answers[0]}</li>
-          <li>{insights[currentStep].answers[1]}</li>
-          <li>{insights[currentStep].answers[2]}</li>
+          <h2>{insights[currentStep].question.sentence}</h2>
+          {responses}
         </ul>
       }
       { isClicked &&

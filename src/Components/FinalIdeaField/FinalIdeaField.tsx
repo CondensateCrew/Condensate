@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addCurrentBrainstorm } from 'redux/actions';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { postBrainstorm } from 'apiCalls/apiCalls';
 import { AppStore } from 'interfaces';
-import mockCurrentBrainstorm from 'data/mockCurrentBrainstorm';
 import './FinalIdeaField.scss';
 // import edit from '../../assets/edit.svg';
+import { useHistory } from 'react-router-dom';
 
 const FinalIdeaField:React.FC = () => {
   const [ brainstormIdea, setBrainstormIdea ] = useState<string>('');
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(addCurrentBrainstorm(mockCurrentBrainstorm))
-  }, [dispatch])
+  const { id, action, isGenius, question, categories } = useSelector((state: AppStore) => ({
+    id: state.user.id,
+    action: state.currentBrainstorm.action,
+    isGenius: state.currentBrainstorm.isGenius,
+    question: state.currentBrainstorm.question,
+    categories: state.currentBrainstorm.categories
+  }));
+  let history = useHistory();
 
 const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm.question)
 
@@ -20,9 +23,26 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
     setBrainstormIdea(e.target.value)
   }
 
+  const postBrainstormIdea = async () => {
+    const brainstorm = {
+      idea: brainstormIdea,
+      id,
+      action,
+      isGenius,
+      question,
+      categories
+    }
 
-  const postBrainstormIdea = () => {//eslint-disable-line
-    // apiCall to POST final idea to the server, then redirect back to dashboard
+    const options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(brainstorm)
+    }
+
+    const res = await postBrainstorm(options) //eslint-disable-line
+    history.push('/dashboard')
   }
 
   return (
@@ -36,7 +56,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       <div className='final-idea-field-div'>
         <textarea onChange={handleChange} value={brainstormIdea}
         placeholder="Type your idea here..."></textarea>
-        <button>Post Idea</button>
+        <button onClick={postBrainstormIdea}>Post Idea</button>
       </div>
     </section>
   )

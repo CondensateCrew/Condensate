@@ -1,17 +1,399 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginForm component should match the snapshot 1`] = `
-<label
-  htmlFor="first-name"
+exports[`InputElement component should match the snapshot if type is email 1`] = `
+<InputElement
+  setError={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "",
+        ],
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  setPassword={[MockFunction]}
+  setUser={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  typeInput="email"
+  user={
+    Object {
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+    }
+  }
 >
-  first name
-  *
-  <input
-    id="first-name"
-    onChange={[Function]}
-    placeholder="Your First Name"
-    type="text"
-    value=""
-  />
-</label>
+  <label
+    htmlFor="email"
+  >
+    email
+    *
+    <input
+      id="email"
+      onChange={[Function]}
+      placeholder="email@mail.com"
+      type="text"
+      value=""
+    />
+  </label>
+</InputElement>
+`;
+
+exports[`InputElement component should match the snapshot if type is first-name 1`] = `
+<InputElement
+  setError={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  setPassword={[MockFunction]}
+  setUser={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  typeInput="first-name"
+  user={
+    Object {
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+    }
+  }
+>
+  <label
+    htmlFor="first-name"
+  >
+    first name
+    *
+    <input
+      id="first-name"
+      onChange={[Function]}
+      placeholder="Your First Name"
+      type="text"
+      value=""
+    />
+  </label>
+</InputElement>
+`;
+
+exports[`InputElement component should match the snapshot if type is last-name 1`] = `
+<InputElement
+  setError={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "",
+        ],
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  setPassword={[MockFunction]}
+  setUser={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  typeInput="last-name"
+  user={
+    Object {
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+    }
+  }
+>
+  <label
+    htmlFor="last-name"
+  >
+    last name
+    *
+    <input
+      id="last-name"
+      onChange={[Function]}
+      placeholder="Your Last Name"
+      type="text"
+      value=""
+    />
+  </label>
+</InputElement>
+`;
+
+exports[`InputElement component should match the snapshot if type is password 1`] = `
+<InputElement
+  setError={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "",
+        ],
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  setPassword={[MockFunction]}
+  setUser={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  typeInput="password"
+  user={
+    Object {
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+    }
+  }
+>
+  <label
+    htmlFor="password"
+  >
+    password
+    *
+    <input
+      id="password"
+      onChange={[Function]}
+      placeholder="Your Password"
+      type="password"
+      value=""
+    />
+  </label>
+</InputElement>
+`;
+
+exports[`InputElement component should match the snapshot if type is repeat-password 1`] = `
+<InputElement
+  setError={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "",
+        ],
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  setPassword={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  setUser={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "email": "",
+            "firstName": "",
+            "lastName": "",
+            "password": "",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  typeInput="repeat-password"
+  user={
+    Object {
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+    }
+  }
+>
+  <label
+    htmlFor="repeat-password"
+  >
+    repeat password
+    *
+    <input
+      id="repeat-password"
+      onChange={[Function]}
+      placeholder="Repeat Password"
+      type="password"
+      value=""
+    />
+  </label>
+</InputElement>
 `;

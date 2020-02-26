@@ -2,10 +2,13 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { IBrainstormForm } from '../../interfaces';
 import ActionsField from './ActionsField';
-import mockActions from '../../data/mockActions';
+
+jest.mock('react-redux', () => ({
+  useSelector: () => [{id: 1, action: 'Build an app'}]
+}));
 
 describe('ActionsField', () => {
   let wrapper;

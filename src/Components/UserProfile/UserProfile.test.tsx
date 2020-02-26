@@ -1,6 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import UserProfile from './UserProfile';
+import { logOutUser } from 'redux/actions';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -11,13 +12,13 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch
 }));
 
+jest.mock('redux/actions');
+
 describe('UserProfile', () => {
-  let wrapper;
+  let wrapper: any;
+
   beforeEach(() => {
-    interface Props {
-      firstName: string,
-      lastName: string,
-    }
+    wrapper = shallow(<UserProfile />);
   });
 
   afterEach(() => {
@@ -25,15 +26,17 @@ describe('UserProfile', () => {
   });
 
   it('should match the snapshot', () => {
-    const mockFirst = 'Alan';
-    const mockLast = 'Bird';
-    
-    wrapper = shallow(<UserProfile 
-      firstName={mockFirst}
-      lastName={mockLast}
-    />);
-
     expect(wrapper).toMatchSnapshot();
   });
-});
 
+  it('should match the snapshot if menu is clicked', () => {
+    wrapper.find('.menu-svg').simulate('click');
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should call logOutUser when logout button is clicked', () => {
+    wrapper.find('.menu-svg').simulate('click');
+    wrapper.find('.logout').simulate('click');
+    expect(logOutUser).toHaveBeenCalled();
+  });
+});

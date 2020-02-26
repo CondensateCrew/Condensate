@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import mockActions from '../../data/mockActions';
+import { useSelector } from 'react-redux';
+import { AppStore, Action } from 'interfaces';
 import './ActionsField.scss';
 import down from 'assets/down.svg';
-
 import { IBrainstormForm } from '../../interfaces';
-
 interface Props {
   formState: IBrainstormForm
   setAction: (formState: IBrainstormForm) => void;
@@ -13,6 +12,7 @@ interface Props {
 const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const [ selectedAction, setSelectedAction ] = useState<string>('Create an app');
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
+  const actionsCollection = useSelector((store:AppStore) => store.actions);
 
   const handleChange = (e:React.MouseEvent<HTMLElement>):void => {
     const currentTarget = e.target as HTMLElement;
@@ -23,14 +23,19 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const toggleBlock = (): void => setIsClicked(!isClicked);
 
   const updateAction = () => {
-    setAction({...formState, action: selectedAction})
+    let newChosenAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
+      if (action.action === selectedAction) {
+        return action
+      }
+    })
+    setAction({...formState, action: newChosenAction[0]})
   }
 
   useEffect(updateAction, [ selectedAction ]);
 
-  const actions = mockActions.map((action:string, index:number) => {//eslint-disable-line
-    if (selectedAction.toLowerCase() !== action.toLowerCase()) {
-      return <li key={index} onClick={handleChange}>{action}</li>
+  const actions = actionsCollection.map((action:Action) => {//eslint-disable-line
+    if (selectedAction.toLowerCase() !== action.action.toLowerCase()) {
+      return <li key={action.id} onClick={handleChange}>{action.action}</li>
     }
   });
 

@@ -1,12 +1,16 @@
 import React from 'react';
 import Dashboard from './Dashboard';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
+
+jest.mock('react-redux', () => ({
+  useSelector: () => ['Tech']
+}));
 
 describe('Dashboard component', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    wrapper = shallow(<Dashboard />);    
+    wrapper = shallow(<Dashboard />);
   });
 
   afterEach(() => {

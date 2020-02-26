@@ -20,14 +20,14 @@ export interface UserSignupPosting {
 
 export interface Action {
   id: number,
-  name: string
+  action: string
 }
 
 export interface Brainstorm {
   id: number,
   question: string,
-  idea: string,
-  action: string,
+  response: string,
+  action: Action,
   isGenius: boolean,
   categories: Category[]
 }
@@ -36,7 +36,7 @@ export interface IBrainstormForm {
   id?: number, 
   question: string,
   categories: Category[],
-  action: string,
+  action: Action,
   reset: boolean
 }
 
@@ -47,17 +47,13 @@ export interface Category {
 
 export interface Insight {
   id: number,
-  question: string,
+  question: WordSample,
   answers: string[]
 }
 
-export interface WordContext {
-  type: string,
-  connectedWord: string[]
-}
-
-export interface RandomWordCollection {
-  [key: string]: WordContext
+export interface WordSample {
+  word: string,
+  sentence: string
 }
 
 export interface AppStore {
@@ -65,7 +61,7 @@ export interface AppStore {
   allBrainstorms: Brainstorm[],
   actions: Action[],
   categories: Category[],
-  readonly randomWordCollections: RandomWordCollection[],
+  readonly randomWordCollections: WordSample[],
   readonly questionTemplates: string[],
   readonly secretSauce: string[],
   currentBrainstorm: Brainstorm,
@@ -133,9 +129,9 @@ export interface IAddNewCategoryAction {
   category: Category
 }
 
-export interface IAddRandomWordCollectionsAction {
+export interface IAddWordSamplesAction {
   type: 'ADD_ALL_COLLECTIONS',
-  collections: RandomWordCollection[]
+  collections: WordSample[]
 }
 
 export interface IAddQuestionTemplatesAction {
