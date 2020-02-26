@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import mockActions from '../../data/mockActions';
+import { useSelector } from 'react-redux';
+import { AppStore, Action } from 'interfaces';
+// import mockActions from '../../data/mockActions';
 import './ActionsField.scss';
 import down from 'assets/down.svg';
 
@@ -13,6 +15,7 @@ interface Props {
 const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const [ selectedAction, setSelectedAction ] = useState<string>('Create an app');
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
+  const actionsCollection = useSelector((store:AppStore) => store.actions);
 
   const handleChange = (e:React.MouseEvent<HTMLElement>):void => {
     const currentTarget = e.target as HTMLElement;
@@ -28,8 +31,8 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
   useEffect(updateAction, [ selectedAction ]);
 
-  const actions = mockActions.map((action:string, index:number) => {//eslint-disable-line
-    if (selectedAction.toLowerCase() !== action.toLowerCase()) {
+  const actions = actionsCollection.map((action:Action, index:number) => {//eslint-disable-line
+    if (selectedAction.toLowerCase() !== action.action.toLowerCase()) {
       return <li key={index} onClick={handleChange}>{action}</li>
     }
   });

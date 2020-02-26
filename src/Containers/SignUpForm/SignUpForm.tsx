@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addUser, addWordSamples, addAllActions, addAllBrainstorms, addAllCategories } from 'redux/actions';
+import { addUser, addWordSamples, addAllActions, addAllCategories } from 'redux/actions';
 import { UserSignupPosting } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
