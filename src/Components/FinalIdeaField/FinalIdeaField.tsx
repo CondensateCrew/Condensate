@@ -28,26 +28,26 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
     setBrainstormIdea(e.target.value)
   }
 
-  // const postBrainstormIdea = async () => {
-  //   const brainstorm = {
-  //     idea: brainstormIdea,
-  //     id, 
-  //     action,
-  //     isGenius,
-  //     question,
-  //     categories
-  //   }
+  const postBrainstormIdea = async () => {
+    const brainstorm = {
+      idea: brainstormIdea,
+      id, 
+      action,
+      isGenius,
+      question,
+      categories
+    }
 
-  //   const options = {
-  //     method: 'POST',
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(brainstorm)
-  //   }
+    const options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(brainstorm)
+    }
 
-  //   const res = await postBrainstorm(options)
-  // }
+    const res = await postBrainstorm(options) //eslint-disable-line
+  }
 
   return (
     <section className='final-idea-field-section'>
@@ -60,7 +60,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       <div className='final-idea-field-div'>
         <textarea onChange={handleChange} value={brainstormIdea}
         placeholder="Type your idea here..."></textarea>
-        <button>Post Idea</button>
+        <button onClick={postBrainstormIdea}>Post Idea</button>
       </div>
     </section>
   )

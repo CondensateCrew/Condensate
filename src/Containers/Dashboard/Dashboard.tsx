@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './Dashboard.scss';
-import { Category, AppStore } from 'interfaces';
+import { AppStore } from 'interfaces';
 import BrainstormContainer from '../BrainstormContainer/BrainstormContainer';
 import SearchBar from '../SearchBar/SearchBar';
 import CategoriesFilter from '../CategoriesFilter/CategoriesFilter';
@@ -9,17 +9,16 @@ import BrainstormForm from '../BrainstormForm/BrainstormForm';
 import UserProfile from '../../Components/UserProfile/UserProfile';
 import addIcon from '../../assets/add.svg';
 
-const categories: Category[] = [
-  {id: 1, name: 'Tech'},
-  {id: 2, name: 'Education'},
-  {id: 3, name: 'Environment'},
-  {id: 4, name: 'Money'},
-  {id: 5, name: 'Food'}];
+// const categories: Category[] = [
+//   {id: 1, name: 'Tech'},
+//   {id: 2, name: 'Education'},
+//   {id: 3, name: 'Environment'},
+//   {id: 4, name: 'Money'},
+//   {id: 5, name: 'Food'}];
 
 const Dashboard: React.FC = () => {
   const [ brainstormFormState, setBrainstormForm ] = useState<boolean>(false);
   const categories = useSelector((store:AppStore) => store.categories);
-  let brainstormForm;
 
   const toggleMenu = () => {
     setBrainstormForm(!brainstormFormState)
