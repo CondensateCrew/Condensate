@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './SecretSauce.scss';
 import down from '../../assets/down.svg';
 import refresh from '../../assets/refresh.svg';
-import mockRandomWords from 'data/mockRandomWords';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { AppStore } from 'interfaces';
-import { addSecretSauce } from 'redux/actions';
 
 const SecretSauce:React.FC = () => {
   const [ currentStep, setCurrentStep ] = useState<number>(0);
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(addSecretSauce(mockRandomWords))
-  }, [dispatch])
-
   const secretSauce  = useSelector((state:AppStore) => state.secretSauce)
-
   const refreshSecretSauce = ():void => {
-    if (currentStep < 9) {
+    if (currentStep < 20) {
       setCurrentStep(currentStep + 1)
     } else {
       setCurrentStep(0)

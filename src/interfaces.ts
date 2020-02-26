@@ -26,8 +26,8 @@ export interface Action {
 export interface Brainstorm {
   id: number,
   question: string,
-  idea: string,
-  action: string,
+  response: string,
+  action: Action,
   isGenius: boolean,
   categories: Category[]
 }
@@ -36,7 +36,7 @@ export interface IBrainstormForm {
   id?: number, 
   question: string,
   categories: Category[],
-  action: string,
+  action: Action,
   reset: boolean
 }
 
@@ -47,7 +47,7 @@ export interface Category {
 
 export interface Insight {
   id: number,
-  question: string,
+  question: WordSample,
   answers: string[]
 }
 
@@ -55,10 +55,6 @@ export interface WordSample {
   word: string,
   sentence: string
 }
-
-// export interface RandomWordCollection {
-//   [key: string]: WordSample
-// }
 
 export interface AppStore {
   user: UserLoginReceived,

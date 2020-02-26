@@ -1,65 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard component should match the snapshot 1`] = `
-<main
-  className="dashboard"
->
-  <aside
-    className="aside"
-  >
-    <h1>
-      condensate
-    </h1>
-    <UserProfile />
-    <div
-      className="dashboard-brainstorm-form-div"
-    >
-      <button>
-        <img
-          alt="add-icon"
-          onClick={[Function]}
-          src="add.svg"
-        />
-      </button>
-      <h3>
-        start new brainstorm
-      </h3>
-    </div>
-  </aside>
-  <header>
-    <CategoriesFilter
-      categories={
-        Array [
-          Object {
-            "id": 1,
-            "name": "Tech",
-          },
-          Object {
-            "id": 2,
-            "name": "Education",
-          },
-          Object {
-            "id": 3,
-            "name": "Environment",
-          },
-          Object {
-            "id": 4,
-            "name": "Money",
-          },
-          Object {
-            "id": 5,
-            "name": "Food",
-          },
-        ]
-      }
-    />
-    <SearchBar />
-  </header>
-  <main>
-    <BrainstormContainer />
-  </main>
-</main>
-`;
+exports[`Dashboard component should match the snapshot 1`] = `undefined`;
 
 exports[`Dashboard component should match the snapshot when the new brainstorm button has been clicked 1`] = `
 <main

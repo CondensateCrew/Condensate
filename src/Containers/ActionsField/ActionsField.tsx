@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore, Action } from 'interfaces';
-// import mockActions from '../../data/mockActions';
 import './ActionsField.scss';
 import down from 'assets/down.svg';
-
 import { IBrainstormForm } from '../../interfaces';
-
 interface Props {
   formState: IBrainstormForm
   setAction: (formState: IBrainstormForm) => void;
@@ -26,14 +23,19 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const toggleBlock = (): void => setIsClicked(!isClicked);
 
   const updateAction = () => {
-    setAction({...formState, action: selectedAction})
+    let newChosenAction = actionsCollection.filter((action:Action) => {
+      if (action.action === selectedAction) {
+        return action
+      }
+    })
+    setAction({...formState, action: newChosenAction[0]})
   }
 
   useEffect(updateAction, [ selectedAction ]);
 
   const actions = actionsCollection.map((action:Action, index:number) => {//eslint-disable-line
     if (selectedAction.toLowerCase() !== action.action.toLowerCase()) {
-      return <li key={index} onClick={handleChange}>{action.action}</li>
+      return <li key={action.id} onClick={handleChange}>{action.action}</li>
     }
   });
 

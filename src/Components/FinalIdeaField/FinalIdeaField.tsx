@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCurrentBrainstorm } from 'redux/actions';
+import { addNewBrainstorm } from 'redux/actions';
 import { postBrainstorm } from 'apiCalls/apiCalls';
 import { AppStore } from 'interfaces';
-import mockCurrentBrainstorm from 'data/mockCurrentBrainstorm';
 import './FinalIdeaField.scss';
 // import edit from '../../assets/edit.svg';
+import { useHistory } from 'react-router-dom';
 
 const FinalIdeaField:React.FC = () => {
   const [ brainstormIdea, setBrainstormIdea ] = useState<string>('');
@@ -16,11 +16,8 @@ const FinalIdeaField:React.FC = () => {
     isGenius: state.currentBrainstorm.isGenius,
     question: state.currentBrainstorm.question,
     categories: state.currentBrainstorm.categories
-  }))
-
-  useEffect(() => {
-    dispatch(addCurrentBrainstorm(mockCurrentBrainstorm))
-  }, [dispatch])
+  }));
+  let history = useHistory();
 
 const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm.question)
 
@@ -47,6 +44,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
     }
 
     const res = await postBrainstorm(options) //eslint-disable-line
+    history.push('/dashboard')
   }
 
   return (
