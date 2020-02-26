@@ -4,7 +4,6 @@ import { AppStore } from 'interfaces';
 import { useHistory } from 'react-router-dom';
 import { addQuestionTemplates, reverseTime, addInsight } from 'redux/actions';
 import mockQuestionTemplate from 'data/mockQuestionTemplate';
-import Instruction from 'Components/Instruction/Instruction';
 import TemplateQuestion from 'Components/TemplateQuestion/TemplateQuestion';
 import GenerateInsights from 'Components/GenerateInsights/GenerateInsights';
 import Header from 'Components/Header/Header';
