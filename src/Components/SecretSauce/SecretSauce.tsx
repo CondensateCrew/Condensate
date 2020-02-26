@@ -8,7 +8,8 @@ import { AppStore } from 'interfaces';
 import { addSecretSauce } from 'redux/actions';
 
 const SecretSauce:React.FC = () => {
-  const [ currentStep, setCurrentStep ] = useState<number>(0)
+  const [ currentStep, setCurrentStep ] = useState<number>(0);
+  const [ isClicked, setIsClicked ] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -26,16 +27,23 @@ const SecretSauce:React.FC = () => {
     }
   }
 
+  const toggleBlock = () => setIsClicked(!isClicked);
+  const upClass = (isClicked) ? 'up-btn' : '';
+
   return (
     <section className='secret-sauce-section'>
-      <div className='secret-sauce-header-div'>
+      <header className='secret-sauce-header-div'>
         <h3>Random Word</h3>
-        <img src={down} alt='down-arrow'/>
-      </div>
-      <div className='secret-sauce-display-div'>
-        <h2>{secretSauce[currentStep]}</h2>
-        <img onClick={refreshSecretSauce} src={refresh} alt='refresh-recycle icon'/>
-      </div>
+        <button onClick={toggleBlock}>
+          <img src={down} alt='down-arrow' className={upClass} />
+        </button>
+      </header>
+      { isClicked &&
+        <main className='secret-sauce-display-div'>
+          <h2>{secretSauce[currentStep]}</h2>
+          <img onClick={refreshSecretSauce} src={refresh} alt='refresh-recycle icon'/>
+        </main>
+      }
     </section>
   )
 }

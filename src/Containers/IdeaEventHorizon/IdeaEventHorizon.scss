@@ -3,8 +3,11 @@
 
 .idea-event-horizon-section {
   display: flex;
-  padding: $largest-space;
+  align-items: flex-start;
+  padding: $largest-space 0;
+  height: 100%;
   aside {
-    width: 30%;
+    width: 30vw;
+    height: 100%;
   }
 }
