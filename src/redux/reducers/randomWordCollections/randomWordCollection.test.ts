@@ -1,5 +1,5 @@
 import randomWordCollectionsReducer from './randomWordCollections';
-import { ActionObject, RandomWordCollection, IAddRandomWordCollectionsAction } from 'interfaces';
+import { ActionObject, WordSample, IAddWordSamplesAction } from 'interfaces';
 
 type emptyArray = [ ];
 
@@ -16,21 +16,19 @@ describe('randomWordCollectionsReducer', () => {
   });
 
   it("should return the array of random collections if type of action is ADD_ALL_COLLECTIONS", () => {
-    const mockCollections: RandomWordCollection[] = [{
-      'question': {
-        type: 'noun',
-        connectedWord: ['answer']
-      }
+    const mockCollections: WordSample[] = [{
+      word: 'question',
+      sentence: 'what is the question?'
     }];
 
-    const mockAction: IAddRandomWordCollectionsAction = {
+    const mockAction: IAddWordSamplesAction = {
       type: 'ADD_ALL_COLLECTIONS',
       collections: mockCollections
     };
 
-    const expected: RandomWordCollection[] = mockCollections;
+    const expected: WordSample[] = mockCollections;
 
-    const result: RandomWordCollection[] = randomWordCollectionsReducer(undefined, mockAction);
+    const result: WordSample[] = randomWordCollectionsReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   })

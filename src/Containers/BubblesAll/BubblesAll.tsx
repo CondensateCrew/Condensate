@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppStore } from 'interfaces';
+import { AppStore, WordSample } from 'interfaces';
 import { Redirect } from 'react-router-dom';
-import collection from './mockData';
+// import collection from './mockData';
 import { addChosenWord } from 'redux/actions';
 
 const BubblesAll: React.FC = () => {
   const dispatch = useDispatch();
-  let randomWords: string[] = Object.keys(collection);
+  // let randomWords: string[] = Object.keys(collection);
+  const { timeEnded, randomWordCollections } = useSelector((store: AppStore) => ({
+    timeEnded: store.timeEnded,
+    randomWordCollections: store.randomWordCollections
+  }));
+  let randomWords = randomWordCollections.map((word:WordSample) => word.word)
   const firstStack = randomWords.splice(0, 8);
-  const timeEnded = useSelector((store: AppStore) => store.timeEnded);
 
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);
 
