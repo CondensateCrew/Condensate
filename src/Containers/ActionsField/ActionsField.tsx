@@ -24,7 +24,6 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
     });
 
     setSelectedAction(newAction[0]);
-    updateAction();
     setIsClicked(false);
   }
 
