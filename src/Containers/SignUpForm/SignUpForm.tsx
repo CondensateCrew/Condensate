@@ -4,7 +4,7 @@ import { addUser, addWordSamples, addAllActions, addAllCategories, addSecretSauc
 import { UserSignupPosting, WordSample } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { postUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
 
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
@@ -25,8 +25,8 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const [ repeatPassword, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
+  const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
   const dispatch = useDispatch();
-  let history = useHistory();
 
   const validateButton = (): void => {
     if (user.email === '') return setDisabled(true);
@@ -54,49 +54,54 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     event.preventDefault();
     validateInputs();
 
-    if (error !== '') {
-      console.log(user);
-    }
+    if (error === '') {
+      const token = await postNewUser();
+      await fetchGameStuff(token);
 
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
+      return error === '' && setIsLoaded(true);
+    }
+  }
+
+  const postNewUser = async () => {
+    try {
+      const userNew = {
         first_name: user.firstName,
         last_name: user.lastName,
         password: user.password,
         email: user.email,
-      })
-    }
+      };
 
-    const newUser = await postUser(options)
-    const modifiedUser = {
-      id: newUser.token,
-      firstName: newUser.first_name,
-      lastName: newUser.last_name
-    }
-    const setUpDashOptions = {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({token: modifiedUser.id})
-    }
+      const { token, first_name, last_name} = await postUser(userNew);
 
-    const setUpRes = await getSetUp(setUpDashOptions);
-    const dashRes = await getDashboard(setUpDashOptions);
-    const secretSauce = await setUpRes.map((word: WordSample):string => {
-      return word.word
-    });
+      const modifiedUser = {
+        id: token,
+        firstName: first_name,
+        lastName: last_name
+      }
 
-    await dispatch(addUser(modifiedUser));
-    await dispatch(addWordSamples(setUpRes));
-    await dispatch(addAllActions(dashRes.actions));
-    await dispatch(addSecretSauce(secretSauce));
-    await dispatch(addAllCategories(dashRes.categories));
-    history.push('/dashboard')
+      dispatch(addUser(modifiedUser));
+
+      return token;
+    }
+    catch (error) {
+      setError(error.message);
+    }
+  }
+
+  const fetchGameStuff = async (token: string) => {
+    try {
+      const setUpRes = await getSetUp(token);
+      dispatch(addWordSamples(setUpRes));
+      const dashRes = await getDashboard(token);
+      dispatch(addAllActions(dashRes.actions));
+      dispatch(addAllCategories(dashRes.categories));
+      const secretSauce = await setUpRes
+        .map((word: WordSample): string => word.word);
+      dispatch(addSecretSauce(secretSauce));
+    }
+    catch (error) {
+      setError(error.message);
+    }
   }
 
   const toggleForm = (): void => toggleTab(!isLogin);
@@ -118,17 +123,21 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     ));
 
   return (
-    <div className="sign-up-form">
-      <header>
-        <h2 className="active">Sign Up</h2>
-        <h2 className="hidden" onClick={toggleForm}>Login</h2>
-      </header>
-      <form>
-        {error !== '' && <p className="error-notification">{error}</p>}
-        {inputsElements}
-        <button disabled={disabled} onClick={submitUser}>Sign Up</button>
-      </form>
-    </div>
+    isLoaded
+      ? <Redirect to='/dashboard' />
+      : (
+        <div className="sign-up-form">
+          <header>
+            <h2 className="active">Sign Up</h2>
+            <h2 className="hidden" onClick={toggleForm}>Login</h2>
+          </header>
+          <form>
+            {error !== '' && <p className="error-notification">{error}</p>}
+            {inputsElements}
+            <button disabled={disabled} onClick={submitUser}>Sign Up</button>
+          </form>
+        </div>
+      )
   );
 }
 
