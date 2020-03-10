@@ -44,15 +44,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       categories
     }
 
-    const options = {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(brainstorm)
-    }
-
-    const res = await postBrainstorm(options) //eslint-disable-line
+    const res = await postBrainstorm(brainstorm) //eslint-disable-line
     dispatch(addNewBrainstorm(otherBrainstorm));
     history.push('/dashboard')
   }
