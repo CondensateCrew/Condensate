@@ -44,7 +44,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       categories
     }
 
-    const res = await postBrainstorm(brainstorm) //eslint-disable-line
+    await postBrainstorm(brainstorm)
     dispatch(addNewBrainstorm(otherBrainstorm));
     history.push('/dashboard')
   }
