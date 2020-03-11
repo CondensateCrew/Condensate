@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';//eslint-disable-line
-// import { addInsight } from 'redux/actions';
-import { AppStore, Insight } from 'interfaces';//eslint-disable-line
-// import mockInsights from 'data/mockInsights';
+import { useSelector } from 'react-redux';
+import { AppStore } from 'interfaces';
 import './DisplayInsights.scss';
 import down from 'assets/down.svg';
 
