@@ -67,7 +67,7 @@ exports[`BrainstormForm should match the snapshot 1`] = `
             formState={
               Object {
                 "action": Object {
-                  "action": "Create an App",
+                  "action": "Create an app",
                   "id": 1,
                 },
                 "categories": Array [],
@@ -112,7 +112,7 @@ exports[`BrainstormForm should match the snapshot 1`] = `
             formState={
               Object {
                 "action": Object {
-                  "action": "Create an App",
+                  "action": "Create an app",
                   "id": 1,
                 },
                 "categories": Array [],

@@ -5,7 +5,7 @@ import './ActionsField.scss';
 import down from 'assets/down.svg';
 import { IBrainstormForm } from '../../interfaces';
 interface Props {
-  formState: IBrainstormForm
+  formState: IBrainstormForm;
   setAction: (formState: IBrainstormForm) => void;
 }
 
@@ -17,33 +17,45 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const handleChange = (e:React.MouseEvent<HTMLElement>):void => {
     const currentTarget = e.target as HTMLElement;
 
-    let newAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
-        if (action.action === currentTarget.innerText) {
-          return action
-        }
+    let newAction:(Action | undefined) = actionsCollection.find((action:Action) => {
+      if (action.action === currentTarget.innerText) {
+        return action
+      }
+      return undefined
     });
 
-    setSelectedAction(newAction[0]);
+    if (!newAction) {
+      newAction = {id: 1, action: 'Create an app'};
+    };
+
+    setSelectedAction(newAction);
     setIsClicked(false);
   }
 
   const toggleBlock = (): void => setIsClicked(!isClicked);
 
   const updateAction = () => {
-    let newChosenAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
+    let newChosenAction: (Action | undefined) = actionsCollection.find((action:Action) => {
       if (action.action === selectedAction.action) {
         return action
       }
-    })
-    setAction({...formState, action: newChosenAction[0]})
+      return undefined
+    });
+
+    if (!newChosenAction) {
+      newChosenAction = {id: 1, action: 'Create an app'};
+    };
+
+    setAction({...formState, action: newChosenAction});
   }
 
   useEffect(updateAction, [ selectedAction ]);
 
-  const actions = actionsCollection.map((action:Action) => {//eslint-disable-line
+  const actions:(JSX.Element | undefined)[] = actionsCollection.map((action:Action) => {
     if (selectedAction.action.toLowerCase() !== action.action.toLowerCase()) {
       return <li key={action.id} onClick={handleChange}>{action.action}</li>
-    }
+    };
+      return undefined
   });
 
   const headerState = (isClicked) ? 'clicked' : '';
