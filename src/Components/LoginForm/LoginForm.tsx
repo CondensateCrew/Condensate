@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { validateCredentials } from '_utils';
 import { getUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
 import { addUser, addWordSamples, addSecretSauce, addAllActions, addAllCategories, addAllBrainstorms } from 'redux/actions';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { WordSample } from 'interfaces';
 
 interface Props {
@@ -15,9 +15,9 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const [ email, setEmail ] = useState<string>('');
   const [ password, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
+  const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const dispatch = useDispatch();
-  let history = useHistory();
 
   const toggleForm = ():void => toggleTab(!isLogin);
 
@@ -41,51 +41,49 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       setDisabled(false)
     }
   }
-  
+
   const handleSubmit = async () => {
     if (!validateCredentials(email)) {
       return setError('Please enter valid email')
     }
-    const options = {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password
-      })
+
+    const token = await fetchUser();
+    await fetchGameStuff(token);
+
+    if(error === '') setIsLoaded(true);
+  }
+
+  const fetchUser = async () => {
+    try {
+      const user = await getUser({ email, password });
+      const modifiedUser = {
+        id: user.token,
+        firstName: user.first_name,
+        lastName: user.last_name
+      }
+      dispatch(addUser(modifiedUser));
+      return user.token
     }
-
-    const user = await getUser(options)
-
-    const modifiedUser = {
-      id: user.token,
-      firstName: user.first_name,
-      lastName: user.last_name
+    catch(error) {
+      setError(error.message);
     }
-    const setUpDashOptions = {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({token: modifiedUser.id})
+  }
+
+  const fetchGameStuff = async (token: string) => {
+    try {
+      const setUpRes = await getSetUp(token);
+      dispatch(addWordSamples(setUpRes));
+      const dashRes = await getDashboard(token);
+      dispatch(addAllActions(dashRes.actions));
+      dispatch(addAllCategories(dashRes.categories));
+      dispatch(addAllBrainstorms(dashRes.brainstorms))
+      const secretSauce = await setUpRes
+        .map((word: WordSample): string => word.word);
+      dispatch(addSecretSauce(secretSauce));
     }
-
-    const setUpRes = await getSetUp(setUpDashOptions);
-    const dashRes = await getDashboard(setUpDashOptions);
-    const secretSauce = await setUpRes.map((word: WordSample):string => {
-      return word.word
-    })
-
-    await dispatch(addUser(modifiedUser));
-    await dispatch(addWordSamples(setUpRes));
-    await dispatch(addSecretSauce(secretSauce));
-    await dispatch(addAllActions(dashRes.actions));
-    await dispatch(addAllCategories(dashRes.categories));
-    await dispatch(addAllBrainstorms(dashRes.brainstorms))
-    dispatch(addUser(modifiedUser))
-    history.push('/dashboard')
+    catch(error) {
+      setError(error.message);
+    }
   }
 
   const alertRequired = () => {
@@ -97,24 +95,28 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   useEffect(validateButton, [ email, password, error ]);
 
   return (
-    <div>
-      <header>
-        <h2 className='active'>Login</h2>
-        <h2 className='hidden' onClick={toggleForm}>Sign Up</h2>
-      </header>
-      <form>
-        {error !== '' && <p className="error-notification">{error}</p>}
-        <label htmlFor='email'>Email
-          <input id='email' type='text' name='email' placeholder='name@email.com' value={email}
-          onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' required />
-        </label>
-        <label htmlFor='password'>Password
-          <input id='password' type='password' name='password' placeholder='********' value={password}
-          onChange={handlePasswordChange} onBlur={alertRequired} required />
-        </label>
-        <button type='button' disabled={disabled} onClick={handleSubmit}>Login</button>
-      </form>
-    </div>
+    isLoaded
+      ? <Redirect to='/dashboard' />
+      : (
+        <div>
+          <header>
+            <h2 className='active'>Login</h2>
+            <h2 className='hidden' onClick={toggleForm}>Sign Up</h2>
+          </header>
+          <form>
+            {error !== '' && <p className="error-notification">{error}</p>}
+            <label htmlFor='email'>Email
+              <input id='email' type='text' name='email' placeholder='name@email.com' value={email}
+              onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' required />
+            </label>
+            <label htmlFor='password'>Password
+              <input id='password' type='password' name='password' placeholder='********' value={password}
+              onChange={handlePasswordChange} onBlur={alertRequired} required />
+            </label>
+            <button type='button' disabled={disabled} onClick={handleSubmit}>Login</button>
+          </form>
+        </div>
+      )
   )
 }
 
