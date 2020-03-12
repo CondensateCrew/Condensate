@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { postBrainstorm } from 'apiCalls/apiCalls';
-import { AppStore } from 'interfaces';
+import { AppStore, Brainstorm, Category } from 'interfaces';
 import { addNewBrainstorm } from 'redux/actions';
 import './FinalIdeaField.scss';
 // import edit from '../../assets/edit.svg';
 import { useHistory } from 'react-router-dom';
+
+interface postedBrainstorm {
+  idea: string,
+  id: string,
+  action: string,
+  isGenius: boolean,
+  question: string,
+  categories: Category[]
+}
 
 const FinalIdeaField:React.FC = () => {
   const [ brainstormIdea, setBrainstormIdea ] = useState<string>('');
@@ -19,14 +28,14 @@ const FinalIdeaField:React.FC = () => {
   }));
   let history = useHistory();
 
-const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm.question);
+  const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm.question);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setBrainstormIdea(e.target.value);
   };
 
   const postBrainstormIdea = async () => {
-    const brainstorm = {
+    const brainstorm: postedBrainstorm = {
       idea: brainstormIdea,
       id,
       action: action.action,
@@ -35,7 +44,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       categories
     };
 
-    const otherBrainstorm = {
+    const otherBrainstorm: Brainstorm = {
       response: brainstormIdea,
       id: Date.now(),
       action: action,
@@ -63,7 +72,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
         <button type='button' onClick={postBrainstormIdea}>Post Idea</button>
       </div>
     </section>
-  )
+  );
 }
 
 export default FinalIdeaField;

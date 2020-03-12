@@ -8,7 +8,7 @@ const LoadingImage: React.FC = () => {
       <p></p>
       <p></p>
     </div>
-  )
+  );
 }
 
 export default LoadingImage;

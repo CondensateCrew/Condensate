@@ -10,7 +10,7 @@ interface Props {
 
 const Insights:React.FC<Props> = ({ text, responses, setResponses }) => {
   const removeResponse = ():void => {
-    let newResponses = responses.filter((response:string) => response !== text);
+    let newResponses: string[] = responses.filter((response:string) => response !== text);
     setResponses(newResponses);
   }
 
@@ -19,7 +19,7 @@ const Insights:React.FC<Props> = ({ text, responses, setResponses }) => {
       <h3>{text}</h3>
       <img onClick={removeResponse} src={Close} alt='delete icon' />
     </div>
-  )
+  );
 }
 
 export default Insights;

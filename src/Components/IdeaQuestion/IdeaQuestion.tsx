@@ -4,25 +4,27 @@ import { IBrainstormForm } from '../../interfaces';
 
 interface Props {
   formState: IBrainstormForm,
-  setQuestion: (formState: IBrainstormForm) => void;
+  setQuestion: (formState: IBrainstormForm) => void
 };
 
-const IdeaQuestion:React.FC<Props>= ({ formState, setQuestion }) => {
+const IdeaQuestion:React.FC<Props> = ({ formState, setQuestion }) => {
   const [ questionValue, setQuestionValue ] = useState<string>('');
 
-  const updateQuestion = () => {
-    setQuestion({...formState, question: questionValue})
-  };
+  const updateQuestion = ():void => setQuestion({...formState, question: questionValue});
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
-    setQuestionValue(e.target.value)
+    setQuestionValue(e.target.value);
   };
 
   useEffect(updateQuestion, [questionValue]);
 
   return (
-    <input className='idea-question-input' value={questionValue} type='text' 
-    placeholder='Enter your idea here...' onChange={handleChange}/>
-  )
+    <input
+      className='idea-question-input'
+      value={questionValue}
+      type='text'
+      placeholder='Enter your idea here...'
+      onChange={handleChange}/>
+  );
 }
 
 export default IdeaQuestion;

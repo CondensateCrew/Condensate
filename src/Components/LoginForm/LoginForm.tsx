@@ -9,7 +9,7 @@ import LoadingImage from 'Components/LoadingImage/LoadingImage';
 
 interface Props {
   isLogin: boolean,
-  toggleTab: (login: boolean) => void;
+  toggleTab: (login: boolean) => void
 };
 
 const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
@@ -41,7 +41,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
 
   const validateButton = ():void => {
     if (email.length > 0 && password.length > 0) {
-      setDisabled(false)
+      setDisabled(false);
     }
   }
 
@@ -94,7 +94,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
     }
   };
 
-  const alertRequired = () => {
+  const alertRequired = (): void => {
     if (password === '' && !isLoading) {
       return setError('Please enter a password');
     }
@@ -131,7 +131,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
           </form>
         </div>
       )
-  )
+  );
 }
 
 export default LoginForm;
