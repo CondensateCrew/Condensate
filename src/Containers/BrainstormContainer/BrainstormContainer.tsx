@@ -13,14 +13,14 @@ const BrainstormContainer:React.FC = () => {
 
   const filteredBrainstorms: (Brainstorm | undefined)[] = allBrainstorms
     .filter((bs: Brainstorm) => (
-      filterValue === 'genius' && bs.isGenius === true  //eslint-disable-line
-      || //eslint-disable-line
+      ((filterValue === 'genius' && bs.isGenius === true)
+      ||
       bs.categories.find(ctg => {
         return (filterValue === '')
           ? ctg.name !== filterValue
           : ctg.name === filterValue
-      })
-      && (bs.question.toLowerCase().includes(queryValue.toLowerCase()) //eslint-disable-line
+      }))
+      && (bs.question.toLowerCase().includes(queryValue.toLowerCase())
       || bs.response.toLowerCase().includes(queryValue.toLowerCase())
       || bs.action.action.toLowerCase().includes(queryValue.toLowerCase()))
     ));
