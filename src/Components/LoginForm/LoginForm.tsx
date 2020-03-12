@@ -33,10 +33,9 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   };
 
   const validateEmail = () => {
-    if (!validateCredentials(email) && !isLoading) {
-      return setError('Please enter valid email');
-    }
-    setError('');
+    return (!validateCredentials(email) && !isLoading)
+      ? setError('Please enter valid email')
+      : setError('');
   };
 
   const validateButton = ():void => {
