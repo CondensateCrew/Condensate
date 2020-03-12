@@ -11,7 +11,7 @@ describe('apiCalls', () => {
   });
 
   describe('postUser', () => {
-    let mockUser, mockOptions:IOptions, mockResponse:UserLoginReceived;
+    let mockUser: any, mockOptions:IOptions, mockResponse:UserLoginReceived;
     beforeEach(() => {
       mockUser = {
         first_name: 'Tennessee',
@@ -44,7 +44,7 @@ describe('apiCalls', () => {
     it('should fetch with the correct arguments', () => {
       const expected = ['https://condensate-backend.herokuapp.com/users', mockOptions];
 
-      postUser(mockOptions);
+      postUser(mockUser);
 
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
@@ -57,7 +57,7 @@ describe('apiCalls', () => {
         });
       });
 
-      expect(postUser(mockOptions)).resolves.toEqual(mockResponse);
+      expect(postUser(mockUser)).resolves.toEqual(mockResponse);
     });
 
     it('SAD: should throw an error if response is not okay', () => {
@@ -66,7 +66,7 @@ describe('apiCalls', () => {
           ok: false
         })
       });
-      expect(postUser(mockOptions)).rejects.toEqual(Error('Failure to post new user'))
+      expect(postUser(mockUser)).rejects.toEqual(Error('Failure to post new user'))
     });
 
     it('SAD: should throw an error if the promise does not resolve', () => {
@@ -74,12 +74,12 @@ describe('apiCalls', () => {
         return Promise.reject(Error('fetch failed'))
       });
 
-      expect(postUser(mockOptions)).rejects.toEqual(Error('fetch failed'))
+      expect(postUser(mockUser)).rejects.toEqual(Error('fetch failed'))
     });
   });
 
   describe('getUser', () => {
-    let mockUser, mockOptions:IOptions, mockResponse:UserLoginReceived;
+    let mockUser: any, mockOptions:IOptions, mockResponse:UserLoginReceived;
     beforeEach(() => {
       mockUser = {
         email: 'violetsinthemountains@email.com',
@@ -111,13 +111,13 @@ describe('apiCalls', () => {
     it('should fetch with the correct arguments', () => {
       const expected = ['https://condensate-backend.herokuapp.com/login', mockOptions];
 
-      getUser(mockOptions);
+      getUser(mockUser);
 
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
 
     it('should return an object with all the user data', () => {
-      expect(getUser(mockOptions)).resolves.toEqual(mockResponse);
+      expect(getUser(mockUser)).resolves.toEqual(mockResponse);
     });
 
     it('SAD: should throw an error if response is not okay', () => {
@@ -126,7 +126,7 @@ describe('apiCalls', () => {
           status: 500
         })
       });
-      expect(getUser(mockOptions)).rejects.toEqual(Error('Failure to get user'))
+      expect(getUser(mockUser)).rejects.toEqual(Error('Failure to get user'))
     });
 
     it('SAD: should throw an error if the promise does not resolve', () => {
@@ -134,8 +134,7 @@ describe('apiCalls', () => {
         return Promise.reject(Error('fetch failed'))
       });
 
-      expect(getUser(mockOptions)).rejects.toThrowError('fetch failed')
+      expect(getUser(mockUser)).rejects.toThrowError('fetch failed')
     });
   });
-
 });

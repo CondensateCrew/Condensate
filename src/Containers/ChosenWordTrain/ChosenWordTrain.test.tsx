@@ -3,7 +3,7 @@ import ChosenWordTrain from './ChosenWordTrain';
 import { shallow } from 'enzyme';
 
 jest.mock('react-redux', () => ({
-  useSelector: () => ({chosenWords: ['Temp']})
+  useSelector: () => ['Temp']
 }));
 
 describe('ChosenWordTrain component', () => {
