@@ -14,7 +14,7 @@ const RoundTwo:React.FC = () => {
   const [ inputValue, setInputValue ] = useState<string>('');
   const [ responses, setResponses ] = useState<string[]>([]);
   const [ currentStep, setCurrentStep] = useState<number>(0);
-  const [ time, setTime ] = useState<number>(60);//eslint-disable-line
+  const [ time ] = useState<number>(60);
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -24,18 +24,7 @@ const RoundTwo:React.FC = () => {
     chosenWords: store.chosenWords
   }));
 
-  let prompts:WordSample[] = exampleSentences.filter((wordObj:WordSample):any => {
-    let sentence = false;
-    chosenWords.forEach((word:string) => {
-      if (wordObj.word === word) {
-        sentence = true;
-      }
-    })
-    if (sentence) {
-      return wordObj;
-    }
-    return undefined;
-  });
+  let prompts:WordSample[] = exampleSentences.filter((wordObj:WordSample) => chosenWords.includes(wordObj.word));
 
   useEffect(() => {//eslint-disable-line
     if (timeEnded)  {
@@ -51,36 +40,41 @@ const RoundTwo:React.FC = () => {
       setResponses([]);
       dispatch(reverseTime());
     }
-  })
+  });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>):void => {
     setInputValue(e.target.value);
   };
 
-  const handleInputSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleInputSubmit = (e: KeyboardEvent<HTMLInputElement>):void => {
     if (e.keyCode === 13) {
       setResponses([inputValue, ...responses]);
       setInputValue('');
     }
   };
 
-  const handleSubmit = (e: MouseEvent<HTMLElement> | KeyboardEvent<HTMLInputElement>) => {
-    if (inputValue === '') {
-      return
+  const handleSubmit = (e: MouseEvent<HTMLElement> | KeyboardEvent<HTMLInputElement>):void => {
+    if (inputValue !== '') {
+      setResponses([inputValue, ...responses]);
+      setInputValue('');
     }
-    setResponses([inputValue, ...responses]);
-    setInputValue('');
   };
 
-  let insights = responses.map((insight:string, idx:number) => {
-    return <GenerateInsights text={insight} responses={responses}
-    key={idx} id={idx} setResponses={setResponses}/>
-  });
+  let insights: JSX.Element[] = responses.map((insight:string, idx:number) => (
+    <GenerateInsights
+      text={insight}
+      responses={responses}
+      key={idx}
+      id={idx}
+      setResponses={setResponses}/>
+  ));
 
-  const displayRounds = ['1', '2', '3'].map((step: string, ind: number) => {
-    const current = (currentStep === ind) ? 'current-round' : '';
-    const addClass = (currentStep > ind) ? 'completed-round' : current;
-    return <h2 key={ind} id={`step-${ind}`} className={`question-number-h2 ${addClass}`}>{step}</h2>
+  const displayRounds: JSX.Element[] = ['1', '2', '3'].map((step: string, ind: number) => {
+    const current: string = (currentStep === ind) ? 'current-round' : '';
+    const addClass: string = (currentStep > ind) ? 'completed-round' : current;
+    return (
+      <h2 key={ind} id={`step-${ind}`} className={`question-number-h2 ${addClass}`}>{step}</h2>
+    );
   });
 
   return (
@@ -106,7 +100,7 @@ const RoundTwo:React.FC = () => {
         {!timeEnded && <Timer time={time}/>}
       </footer>
     </main>
-  )
+  );
 }
 
 export default RoundTwo;

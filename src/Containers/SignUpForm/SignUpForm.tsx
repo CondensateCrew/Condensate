@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser, addWordSamples, addAllActions, addAllCategories, addSecretSauce } from 'redux/actions';
-import { UserSignupPosting, WordSample } from '../../interfaces';
+import { UserSignupPosting, WordSample, UserLoginReceived } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
 import { Redirect } from 'react-router-dom';
@@ -12,8 +12,15 @@ type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'rep
 
 interface Props {
   isLogin: boolean,
-  toggleTab: (login: boolean) => void;
+  toggleTab: (login: boolean) => void
 };
+
+interface UserPosted {
+  first_name: string,
+  last_name: string,
+  password: string,
+  email: string,
+}
 
 const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   const [ user, setUser ] = useState<UserSignupPosting>({
@@ -22,7 +29,6 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     firstName: '',
     lastName: '',
   });
-
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const [ repeatPassword, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
@@ -59,7 +65,6 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     if (error === '') {
       const token = await postNewUser();
       await fetchGameStuff(token);
-
       return error === '' && setIsLoaded(true);
     }
   }
@@ -68,7 +73,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     try {
       setDisabled(true);
       setIsLoading(true);
-      const userNew = {
+      const userNew: UserPosted = {
         first_name: user.firstName,
         last_name: user.lastName,
         password: user.password,
@@ -77,11 +82,11 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
 
       const { token, first_name, last_name} = await postUser(userNew);
 
-      const modifiedUser = {
+      const modifiedUser: UserLoginReceived = {
         id: token,
         firstName: first_name,
         lastName: last_name
-      }
+      };
 
       dispatch(addUser(modifiedUser));
 
@@ -114,21 +119,12 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   const toggleForm = (): void => toggleTab(!isLogin);
 
   const inputs: checkedInputType[] = ['first-name', 'last-name', 'email', 'password', 'repeat-password'];
-  const inputsElements = inputs
-    .map((input: checkedInputType) => (
-      <InputElement
-        key={input}
-        typeInput={input}
-        {... {
-          isLoading,
-          user,
-          repeatPassword,
-          setPassword,
-          setUser,
-          setError
-        }}
-      />
-    ));
+  const inputsElements: JSX.Element[] = inputs.map((input: checkedInputType) => (
+    <InputElement
+      key={input} typeInput={input}
+      {... { isLoading, user, repeatPassword, setPassword, setUser, setError }}
+    />
+  ));
 
   return (
     isLoaded
