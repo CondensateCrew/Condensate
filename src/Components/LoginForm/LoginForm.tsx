@@ -5,6 +5,7 @@ import { getUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
 import { addUser, addWordSamples, addSecretSauce, addAllActions, addAllCategories, addAllBrainstorms } from 'redux/actions';
 import { Redirect } from 'react-router-dom';
 import { WordSample } from 'interfaces';
+import LoadingImage from 'Components/LoadingImage/LoadingImage';
 
 interface Props {
   isLogin: boolean,
@@ -16,8 +17,10 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const [ password, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
   const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
+  const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const dispatch = useDispatch();
+
 
   const toggleForm = ():void => toggleTab(!isLogin);
 
@@ -30,7 +33,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   }
 
   const validateEmail = () => {
-    if (!validateCredentials(email)) {
+    if (!validateCredentials(email) && !isLoading) {
       return setError('Please enter valid email')
     }
     setError('')
@@ -55,6 +58,8 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
 
   const fetchUser = async () => {
     try {
+      setDisabled(true);
+      setIsLoading(true);
       const user = await getUser({ email, password });
       const modifiedUser = {
         id: user.token,
@@ -66,6 +71,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
     }
     catch(error) {
       setError(error.message);
+      setDisabled(false);
     }
   }
 
@@ -80,14 +86,16 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       const secretSauce = await setUpRes
         .map((word: WordSample): string => word.word);
       dispatch(addSecretSauce(secretSauce));
+      setIsLoading(false);
     }
     catch(error) {
       setError(error.message);
+      setDisabled(false);
     }
   }
 
   const alertRequired = () => {
-    if (password === '') {
+    if (password === '' && !isLoading) {
       return setError('Please enter a password')
     }
   }
@@ -107,13 +115,19 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
             {error !== '' && <p className="error-notification">{error}</p>}
             <label htmlFor='email'>Email
               <input id='email' type='text' name='email' placeholder='name@email.com' value={email}
-              onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' required />
+              onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' readOnly={isLoading} required />
             </label>
             <label htmlFor='password'>Password
               <input id='password' type='password' name='password' placeholder='********' value={password}
-              onChange={handlePasswordChange} onBlur={alertRequired} required />
+              onChange={handlePasswordChange} onBlur={alertRequired} readOnly={isLoading} required />
             </label>
-            <button type='button' disabled={disabled} onClick={handleSubmit}>Login</button>
+            <button type='button' disabled={disabled} onClick={handleSubmit}>
+              {
+                isLoading
+                  ? <LoadingImage />
+                  : 'Login'
+              }
+              </button>
           </form>
         </div>
       )
