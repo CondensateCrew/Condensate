@@ -9,7 +9,7 @@ import types from './instructionsData';
 
 interface Props {
   type: string
-}
+};
 
 const Instructions:React.FC<Props> = ({ type }) => {
   const instructions: string[] = types[type].instructions;
@@ -36,9 +36,7 @@ const Instructions:React.FC<Props> = ({ type }) => {
   }, [instructions, count]);
 
   useEffect(() => {
-    if (count > instructions.length) {
-      dispatch(endInstructions());
-    }
+    if (count > instructions.length) dispatch(endInstructions());
   }, [ count, dispatch, instructions.length ]);
 
   return (
@@ -51,7 +49,7 @@ const Instructions:React.FC<Props> = ({ type }) => {
         }
       </section>
     </main>
-  )
+  );
 }
 
 export default Instructions;

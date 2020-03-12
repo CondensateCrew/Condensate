@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser, addWordSamples, addAllActions, addAllCategories, addSecretSauce } from 'redux/actions';
-import { UserSignupPosting, WordSample } from '../../interfaces';
+import { UserSignupPosting, WordSample, UserLoginReceived } from '../../interfaces';
 import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
 import { Redirect } from 'react-router-dom';
 import { postUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
+import LoadingImage from 'Components/LoadingImage/LoadingImage';
 
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
 
 interface Props {
   isLogin: boolean,
   toggleTab: (login: boolean) => void
+};
+
+interface UserPosted {
+  first_name: string,
+  last_name: string,
+  password: string,
+  email: string,
 }
 
 const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
@@ -21,11 +29,11 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     firstName: '',
     lastName: '',
   });
-
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const [ repeatPassword, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
   const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
+  const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const validateButton = (): void => {
@@ -34,7 +42,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     if (user.firstName === '') return setDisabled(true);
     if (user.lastName === '') return setDisabled(true);
     if (user.password !== repeatPassword) return setDisabled(true);
-    setError('')
+    setError('');
     return setDisabled(false);
   }
 
@@ -46,7 +54,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     if (user.password !== repeatPassword) return setError('Passwords are not the same');
     if (!validateCredentials(user.email)) return setError('Please, enter a valid email');
     return setError('');
-  }
+  };
 
   useEffect(validateButton, [ user, repeatPassword ]);
 
@@ -57,14 +65,15 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     if (error === '') {
       const token = await postNewUser();
       await fetchGameStuff(token);
-
       return error === '' && setIsLoaded(true);
     }
   }
 
   const postNewUser = async () => {
     try {
-      const userNew = {
+      setDisabled(true);
+      setIsLoading(true);
+      const userNew: UserPosted = {
         first_name: user.firstName,
         last_name: user.lastName,
         password: user.password,
@@ -73,11 +82,11 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
 
       const { token, first_name, last_name} = await postUser(userNew);
 
-      const modifiedUser = {
+      const modifiedUser: UserLoginReceived = {
         id: token,
         firstName: first_name,
         lastName: last_name
-      }
+      };
 
       dispatch(addUser(modifiedUser));
 
@@ -85,6 +94,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     }
     catch (error) {
       setError(error.message);
+      setIsLoading(false);
     }
   }
 
@@ -98,29 +108,23 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       const secretSauce = await setUpRes
         .map((word: WordSample): string => word.word);
       dispatch(addSecretSauce(secretSauce));
+      setIsLoading(false);
     }
     catch (error) {
       setError(error.message);
+      setIsLoading(false);
     }
-  }
+  };
 
   const toggleForm = (): void => toggleTab(!isLogin);
 
-  const inputs: checkedInputType[] = ['first-name', 'last-name', 'email', 'password', 'repeat-password']
-  const inputsElements = inputs
-    .map((input: checkedInputType) => (
-      <InputElement
-        key={input}
-        typeInput={input}
-        {... {
-          user,
-          repeatPassword,
-          setPassword,
-          setUser,
-          setError
-        }}
-      />
-    ));
+  const inputs: checkedInputType[] = ['first-name', 'last-name', 'email', 'password', 'repeat-password'];
+  const inputsElements: JSX.Element[] = inputs.map((input: checkedInputType) => (
+    <InputElement
+      key={input} typeInput={input}
+      {... { isLoading, user, repeatPassword, setPassword, setUser, setError }}
+    />
+  ));
 
   return (
     isLoaded
@@ -134,7 +138,13 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
           <form>
             {error !== '' && <p className="error-notification">{error}</p>}
             {inputsElements}
-            <button disabled={disabled} onClick={submitUser}>Sign Up</button>
+            <button disabled={disabled} onClick={submitUser}>
+            {
+              isLoading
+                ? <LoadingImage />
+                : 'Sign Up'
+            }
+            </button>
           </form>
         </div>
       )

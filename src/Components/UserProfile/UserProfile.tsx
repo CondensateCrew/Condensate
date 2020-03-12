@@ -1,7 +1,7 @@
 import './UserProfile.scss';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AppStore } from 'interfaces';
+import { AppStore, ILogoutUserAction } from 'interfaces';
 import AlanBird from '../../assets/avatar.jpg';
 import menu from '../../assets/menu-dot.svg';
 import close from '../../assets/close.svg';
@@ -19,7 +19,7 @@ const UserProfile:React.FC = () => {
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
 
   const toggleMenu = (): void => setIsClicked(!isClicked);
-  const logoutUser = () => dispatch(logOutUser());
+  const logoutUser = (): ILogoutUserAction => dispatch(logOutUser());
 
   return (
     <div className='user-profile-div'>
@@ -33,7 +33,7 @@ const UserProfile:React.FC = () => {
         </section>
       }
     </div>
-  )
+  );
 }
 
-export default UserProfile
+export default UserProfile;

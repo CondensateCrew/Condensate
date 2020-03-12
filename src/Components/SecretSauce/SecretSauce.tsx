@@ -8,18 +8,16 @@ import { AppStore } from 'interfaces';
 const SecretSauce:React.FC = () => {
   const [ currentStep, setCurrentStep ] = useState<number>(0);
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
+  const secretSauce  = useSelector((state:AppStore) => state.secretSauce);
 
-  const secretSauce  = useSelector((state:AppStore) => state.secretSauce)
   const refreshSecretSauce = ():void => {
-    if (currentStep < 20) {
-      setCurrentStep(currentStep + 1)
-    } else {
-      setCurrentStep(0)
-    }
+    return (currentStep < 20)
+      ? setCurrentStep(currentStep + 1)
+      : setCurrentStep(0);
   }
 
-  const toggleBlock = () => setIsClicked(!isClicked);
-  const upClass = (isClicked) ? 'up-btn' : '';
+  const toggleBlock = (): void => setIsClicked(!isClicked);
+  const upClass: string = (isClicked) ? 'up-btn' : '';
 
   return (
     <section className='secret-sauce-section'>
@@ -36,7 +34,7 @@ const SecretSauce:React.FC = () => {
         </main>
       }
     </section>
-  )
+  );
 }
 
 export default SecretSauce;

@@ -79,6 +79,7 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
             </header>
             <form>
               <InputElement
+                isLoading={false}
                 key="first-name"
                 repeatPassword=""
                 setError={[Function]}
@@ -103,12 +104,14 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
                     id="first-name"
                     onChange={[Function]}
                     placeholder="Your First Name"
+                    readOnly={false}
                     type="text"
                     value=""
                   />
                 </label>
               </InputElement>
               <InputElement
+                isLoading={false}
                 key="last-name"
                 repeatPassword=""
                 setError={[Function]}
@@ -133,12 +136,14 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
                     id="last-name"
                     onChange={[Function]}
                     placeholder="Your Last Name"
+                    readOnly={false}
                     type="text"
                     value=""
                   />
                 </label>
               </InputElement>
               <InputElement
+                isLoading={false}
                 key="email"
                 repeatPassword=""
                 setError={[Function]}
@@ -163,12 +168,14 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
                     id="email"
                     onChange={[Function]}
                     placeholder="email@mail.com"
+                    readOnly={false}
                     type="text"
                     value=""
                   />
                 </label>
               </InputElement>
               <InputElement
+                isLoading={false}
                 key="password"
                 repeatPassword=""
                 setError={[Function]}
@@ -193,12 +200,14 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
                     id="password"
                     onChange={[Function]}
                     placeholder="Your Password"
+                    readOnly={false}
                     type="password"
                     value=""
                   />
                 </label>
               </InputElement>
               <InputElement
+                isLoading={false}
                 key="repeat-password"
                 repeatPassword=""
                 setError={[Function]}
@@ -223,6 +232,7 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
                     id="repeat-password"
                     onChange={[Function]}
                     placeholder="Repeat Password"
+                    readOnly={false}
                     type="password"
                     value=""
                   />

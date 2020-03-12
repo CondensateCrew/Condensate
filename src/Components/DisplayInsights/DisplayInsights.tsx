@@ -1,30 +1,27 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';//eslint-disable-line
-// import { addInsight } from 'redux/actions';
-import { AppStore, Insight } from 'interfaces';//eslint-disable-line
-// import mockInsights from 'data/mockInsights';
+import { useSelector } from 'react-redux';
+import { AppStore, Insight } from 'interfaces';
 import './DisplayInsights.scss';
 import down from 'assets/down.svg';
 
 const DisplayInsights:React.FC = () => {
   const [ currentStep, setCurrentStep ] = useState<number>(0);
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
-  const insights = useSelector((store: AppStore) => store.insights);
+  const insights: Insight[] = useSelector((store: AppStore) => store.insights);
+  const insightAnswers: string[] = insights[currentStep].answers;
 
-  const responses = insights[currentStep].answers.map((answer:string, index: number) => {
-    return <li key={index}>{answer}</li>
-  });
+  const responses: JSX.Element[] = insightAnswers.map((answer:string, index: number) => (
+    <li key={index}>{answer}</li>
+  ));
 
   const showNextInsight = ():void => {
-    if (currentStep > 1) {
-      setCurrentStep(0)
-    } else {
-      setCurrentStep(currentStep + 1)
-    }
+    return (currentStep > 1)
+      ? setCurrentStep(0)
+      : setCurrentStep(currentStep + 1);
   };
 
-  const toggleBlock = () => setIsClicked(!isClicked);
-  const upClass = (isClicked) ? 'up-btn' : '';
+  const toggleBlock = ():void => setIsClicked(!isClicked);
+  const upClass: string = (isClicked) ? 'up-btn' : '';
 
   return (
     <section className='display-insights-section'>
@@ -43,7 +40,7 @@ const DisplayInsights:React.FC = () => {
       { isClicked &&
         <button type='button' onClick={showNextInsight}>Next</button>}
     </section>
-  )
+  );
 }
 
 export default DisplayInsights;

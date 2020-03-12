@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { Redirect } from 'react-router-dom';
-// import collection from './mockData';
 import { addChosenWord, reverseInstructions } from 'redux/actions';
 
 const BubblesAll: React.FC = () => {
@@ -12,14 +11,14 @@ const BubblesAll: React.FC = () => {
     randomWordCollections: store.randomWordCollections
   }));
 
-  let randomWords = randomWordCollections.map((word: WordSample) => word.word)
-  const firstStack = randomWords.splice(0, 8);
+  let randomWords: string[] = randomWordCollections.map((word: WordSample) => word.word)
+  const firstStack: string[] = randomWords.splice(0, 8);
 
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);
 
   useEffect(() => {
     dispatch(reverseInstructions());
-    
+
     const timer = setInterval(() => {
       setBubbles(randomWords.splice(0, 8));
     }, 8000);
@@ -27,13 +26,13 @@ const BubblesAll: React.FC = () => {
     return () => clearInterval(timer);
   }, []); //eslint-disable-line
 
-  const sendToChosen = (event: React.MouseEvent) => {
+  const sendToChosen = (event: React.MouseEvent): void => {
     const currentTarget = event.target as HTMLElement;
     updateElements(currentTarget);
     dispatch(addChosenWord(currentTarget.id));
   }
 
-  const bubbleEls = bubbles.map((bubble: string, i: number) => (
+  const bubbleEls: JSX.Element[] = bubbles.map((bubble: string, i: number) => (
     <p
       key={`${bubble}-${i + 1}`}
       className="bubble randomly">
@@ -49,7 +48,7 @@ const BubblesAll: React.FC = () => {
         : <Redirect to='/instructions/second-rd' />
       }
     </section>
-  )
+  );
 }
 
 export const updateElements = (currentTarget: HTMLElement): void => {

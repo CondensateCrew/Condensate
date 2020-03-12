@@ -5,7 +5,7 @@ import { addChosenWord, removeAllWords } from 'redux/actions';
 
 interface Props {
   chosenWords: string[]
-}
+};
 
 const BubblesReducer: React.FC<Props> = ({ chosenWords }) => {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const BubblesReducer: React.FC<Props> = ({ chosenWords }) => {
         }
       </section>
     </section>
-  )
+  );
 }
 
 export const updateElements = (currentTarget: HTMLElement): void => {

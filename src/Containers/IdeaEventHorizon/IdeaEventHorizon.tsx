@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';//eslint-disable-line
 import './IdeaEventHorizon.scss';
 import Header from 'Components/Header/Header';
 import FinalIdeaField from 'Components/FinalIdeaField/FinalIdeaField';
@@ -18,7 +17,7 @@ const IdeaEventHorizon:React.FC = () => {
         </aside>
       </section>
     </main>
-  )
+  );
 }
 
 export default IdeaEventHorizon;

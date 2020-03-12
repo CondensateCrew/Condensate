@@ -8,9 +8,7 @@ import ChosenWordTrain from 'Containers/ChosenWordTrain/ChosenWordTrain';
 import Timer from 'Components/Timer/Timer';
 
 const RoundOne:React.FC = () => {
-  const { timeEnded } = useSelector((store: AppStore) => ({
-    timeEnded: store.timeEnded,
-  }));
+  const timeEnded = useSelector((store: AppStore) => store.timeEnded);
 
   return (
     <main className="round-one-board">
@@ -23,7 +21,7 @@ const RoundOne:React.FC = () => {
         </footer>
       }
     </main>
-  )
+  );
 }
 
 export default RoundOne;

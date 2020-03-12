@@ -11,12 +11,13 @@ interface Props {
   action: Action,
   isGenius: boolean,
   categories: Category[]
-}
+};
 
 const BrainstormCard: React.FC<Props> = (props) => {
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
   const { id, question, response, action, isGenius, categories } = props;
-  const catgs = categories.map((ctg: Category) => (
+
+  const catgs: JSX.Element[] = categories.map((ctg: Category) => (
     <p key={`ctg-${ctg.name.toLowerCase()}`}>{ctg.name}</p>
   ));
 
@@ -39,7 +40,7 @@ const BrainstormCard: React.FC<Props> = (props) => {
         { catgs }
       </footer>
     </div>
-  )
+  );
 }
 
 export default BrainstormCard;

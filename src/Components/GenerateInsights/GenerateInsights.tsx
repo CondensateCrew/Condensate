@@ -7,12 +7,11 @@ interface Props {
   responses: string[],
   setResponses: (responses: string[]) => void,
   id:number
-}
+};
 
 const GenerateInsights:React.FC<Props> = ({ text, responses, setResponses, id }) => {
-
   const removeResponse = (e: React.SyntheticEvent<HTMLElement>):void => {
-    let newResponses = responses;
+    let newResponses: string[] = responses;
     newResponses.splice(id, 1);
     setResponses([...newResponses]);
   };
@@ -22,7 +21,7 @@ const GenerateInsights:React.FC<Props> = ({ text, responses, setResponses, id })
       <h3>{text}</h3>
       <img onClick={removeResponse} src={Close} alt='delete icon' />
     </div>
-  )
+  );
 }
 
 export default GenerateInsights;

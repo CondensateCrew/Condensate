@@ -6,15 +6,15 @@ import down from 'assets/down.svg';
 import IdeaQuestion from 'Components/IdeaQuestion/IdeaQuestion';
 import CategoriesField from '../CategoriesField/CategoriesField';
 import ActionsField from '../ActionsField/ActionsField';
-import { IBrainstormForm, Category } from 'interfaces';
+import { IBrainstormForm, Category, Brainstorm } from 'interfaces';
 import { addCurrentBrainstorm } from 'redux/actions';
 import { useHistory } from 'react-router-dom';
 
 interface Props {
   brainstormFormState: boolean,
-  cancel: (brainstormFormState:boolean) => void;
+  cancel: (brainstormFormState:boolean) => void
 }
-const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
+const BrainstormForm:React.FC<Props> = ({ brainstormFormState, cancel }) => {
   const [ formState, setFormState ] = useState<IBrainstormForm>({
     question: '',
     categories: [],
@@ -35,62 +35,58 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
       //   action: {id: 1, 'create an app'},
       //   reset: true
       // })
-      cancel(!brainstormFormState)
-  }
+      cancel(!brainstormFormState);
+  };
 
-  const validateFields = (state: IBrainstormForm) => {
-    if (state.question.length > 0 && state.categories.length > 0) {
-      return true
-    }
-      return false
-  }
+  const validateFields = (state: IBrainstormForm): boolean => (
+    state.question.length > 0 && state.categories.length > 0
+  );
 
   const writeError = ():void => {
     if (formState.question === '') return setError('Please add a question');
     if (formState.categories === []) return setError('Please select a category');
-  }
+  };
 
   const writeSummary = ():void => {
-    let categoriesSum = formState.categories.map((ctg:Category) => {
-      if (ctg.name === 'Environment') {
-        return 'the environment'
-      } else {
-        return ctg.name.toLowerCase();
-      }
+    let categoriesSum: string[] = formState.categories.map((ctg:Category) => {
+      return (ctg.name === 'Environment')
+        ? 'the environment'
+        : ctg.name.toLowerCase();
     });
 
-    setSummary(`I want to ${formState.action.action.toLowerCase()} about ${categoriesSum.join(', ')} to answer the question: ${formState.question}`)
-  }
+    setSummary(`I want to ${formState.action.action.toLowerCase()} about ${categoriesSum.join(', ')} to answer the question: ${formState.question}`);
+  };
 
   const handleSubmit = ():void => {
-    let currentBS = {
+    let currentBS: Brainstorm = {
       id: Date.now(),
       question: formState.question,
       response: '',
       action: formState.action,
       isGenius: false,
       categories: formState.categories
-    }
-    validateFields(formState) ? dispatch(addCurrentBrainstorm(currentBS))
-    : writeError();
+    };
+
+    validateFields(formState)
+      ? dispatch(addCurrentBrainstorm(currentBS))
+      : writeError();
 
     history.push('/instructions/first-rd');
-  }
+  };
 
   const toggleCategory = (): void => setIsClickedCategory(!isClickedCategory);
 
-  useEffect(() => {//eslint-disable-line
+  useEffect(() => {
     if (!formState.action) {
-      setFormState({...formState, action: {id: 1, action: 'Create an App'}})
+      setFormState({...formState, action: {id: 1, action: 'Create an App'}});
     }
-      if (validateFields(formState)) {
-        setIsDisabled(false)
-        writeSummary();
-      } else {
-        setIsDisabled(true)
-      }
-  }, [formState])//eslint-disable-line
-
+    if (validateFields(formState)) {
+      setIsDisabled(false);
+      writeSummary();
+    } else {
+      setIsDisabled(true);
+    }
+  }, [formState]); //eslint-disable-line
 
   return (
     <form className='brainstorm-form'>
@@ -120,7 +116,7 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
         <button type='button' onClick={handleSubmit} disabled={disabled} className='start-btn'>start</button>
       </div>
     </form>
-  )
+  );
 }
 
 export default BrainstormForm;

@@ -12,10 +12,7 @@ import addIcon from '../../assets/add.svg';
 const Dashboard: React.FC = () => {
   const [ brainstormFormState, setBrainstormForm ] = useState<boolean>(false);
   const categories = useSelector((store:AppStore) => store.categories);
-
-  const toggleMenu = () => {
-    setBrainstormForm(!brainstormFormState)
-  };
+  const toggleMenu = ():void => setBrainstormForm(!brainstormFormState);
 
   return (
     <main className="dashboard">
@@ -41,7 +38,7 @@ const Dashboard: React.FC = () => {
       </header>
       <main><BrainstormContainer /></main>
     </main>
-  )
+  );
 }
 
 export default Dashboard;

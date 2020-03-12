@@ -4,47 +4,49 @@ import { AppStore, Action } from 'interfaces';
 import './ActionsField.scss';
 import down from 'assets/down.svg';
 import { IBrainstormForm } from '../../interfaces';
+
 interface Props {
-  formState: IBrainstormForm
-  setAction: (formState: IBrainstormForm) => void;
-}
+  formState: IBrainstormForm,
+  setAction: (formState: IBrainstormForm) => void
+};
 
 const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
-  const [ selectedAction, setSelectedAction ] = useState<Action>({id: 1, action: 'Create an app'});
+  const [ selectedAction, setSelectedAction ] = useState<Action>({
+    id: 1,
+    action: 'Create an app'
+  });
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
-  const actionsCollection = useSelector((store:AppStore) => store.actions);
+  const actionsCollection: Action[] = useSelector((store:AppStore) => store.actions);
+  const currentAction: string = selectedAction.action;
 
   const handleChange = (e:React.MouseEvent<HTMLElement>):void => {
-    const currentTarget = e.target as HTMLElement;
-
-    let newAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
-        if (action.action === currentTarget.innerText) {
-          return action
-        }
-    });
-
-    setSelectedAction(newAction[0]);
+    const { innerText } = e.target as HTMLElement;
+    let newAction:(Action | undefined) = actionsCollection
+      .find((action:Action) => action.action === innerText);
+    if (newAction) {
+      setSelectedAction(newAction);
+    };
     setIsClicked(false);
   }
 
   const toggleBlock = (): void => setIsClicked(!isClicked);
 
   const updateAction = () => {
-    let newChosenAction = actionsCollection.filter((action:Action) => { //eslint-disable-line
-      if (action.action === selectedAction.action) {
-        return action
-      }
-    })
-    setAction({...formState, action: newChosenAction[0]})
+    let newChosenAction: (Action | undefined) = actionsCollection
+      .find((action:Action) => action.action === currentAction);
+    if (newChosenAction) {
+      setAction({...formState, action: newChosenAction});
+    };
   }
 
   useEffect(updateAction, [ selectedAction ]);
 
-  const actions = actionsCollection.map((action:Action) => {//eslint-disable-line
-    if (selectedAction.action.toLowerCase() !== action.action.toLowerCase()) {
-      return <li key={action.id} onClick={handleChange}>{action.action}</li>
-    }
-  });
+  const actions:(JSX.Element | null)[] = actionsCollection
+    .map((action:Action) => {
+      return (currentAction.toLowerCase() !== action.action.toLowerCase())
+        ? <li key={action.id} onClick={handleChange}>{action.action}</li>
+        : null;
+    });
 
   const headerState = (isClicked) ? 'clicked' : '';
 

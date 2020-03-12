@@ -1,4 +1,4 @@
-import './CategoriesFilter.scss'
+import './CategoriesFilter.scss';
 import React, { MouseEvent, useState } from 'react';
 import { Category, AppStore } from 'interfaces';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,35 +8,40 @@ import close from 'assets/close.svg';
 
 interface Props {
   categories: Category[]
-}
+};
 
 const CategoriesFilter:React.FC<Props> = ({categories}) => {
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
   const dispatch = useDispatch();
   const filter = useSelector((state: AppStore) => state.filter);
+
   const filterCard = (event: MouseEvent<HTMLButtonElement>): void => {
     const { id } = event.target as HTMLButtonElement;
     dispatch(addFilter(id));
     setIsClicked(false);
   };
+
   const clearFilter = (): void => {
     dispatch(removeFilter());
     setIsClicked(false);
   };
-  const allBlocks = categories.map((ctg: Category) => (
+
+  const allBlocks: JSX.Element[] = categories.map((ctg: Category) => (
     <button key={ctg.id} id={ctg.name} onClick={filterCard}>{ctg.name}</button>
   ));
 
-  const firstCategories = categories.map((ctg: Category, ind: number) => (
-    ind < 3 && <button key={ctg.id} id={ctg.name} onClick={filterCard}>{ctg.name}</button>
-  ));
+  const firstCategories: (JSX.Element | undefined)[] = categories.map((ctg: Category, ind: number) => {
+    return (ind < 2)
+      ? <button key={ctg.id} id={ctg.name} onClick={filterCard}>{ctg.name}</button>
+      : undefined;
+  });
 
-  const toggleBlock = (event: React.MouseEvent) => {
+  const toggleBlock = (event: React.MouseEvent): void => {
     event.preventDefault();
     setIsClicked(!isClicked);
   }
 
-  const closedBlock = (
+  const closedBlock: JSX.Element = (
     <section className="filter closed-filter">
       {
         filter !== ''
@@ -57,7 +62,7 @@ const CategoriesFilter:React.FC<Props> = ({categories}) => {
     </section>
   );
 
-  const openedBlock = (
+  const openedBlock: JSX.Element = (
     <section className="filter">
       <div className="opened-filter">
         <div>

@@ -21,11 +21,5 @@ exports[`RoundOne component should match the snapshot if time is ended 1`] = `
 >
   <Header />
   <GameBoard />
-  <footer>
-    <ChosenWordTrain />
-    <Timer
-      time={60}
-    />
-  </footer>
 </main>
 `;

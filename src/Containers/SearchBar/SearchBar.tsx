@@ -11,9 +11,11 @@ const SearchBar: React.FC = () => {
   const [ isSubmitted, setIsSubmitted ] = useState<boolean>(false);
   const [ query, setQuery ] = useState<string>('');
 
-  const toggleForm = () => setIsClicked(!isClicked);
+  const toggleForm = ():void => setIsClicked(!isClicked);
 
-  const handleChanges = (event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value);
+  const handleChanges = (event: ChangeEvent<HTMLInputElement>):void => {
+    setQuery(event.target.value);
+  };
 
   const submitQuery = (event: FormEvent<HTMLFormElement> | MouseEvent): void => {
     event.preventDefault();
@@ -22,7 +24,7 @@ const SearchBar: React.FC = () => {
     setIsSubmitted(!isSubmitted);
   };
 
-  const cleanForm = () => {
+  const cleanForm = (): void => {
     toggleForm();
     dispatch(removeQuery());
     setQuery('');
@@ -50,7 +52,7 @@ const SearchBar: React.FC = () => {
         </form>
       }
     </>
-  )
+  );
 }
 
 export default SearchBar;
