@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';//eslint-disable-line
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './GameBoard.scss';
 import { AppStore } from 'interfaces';

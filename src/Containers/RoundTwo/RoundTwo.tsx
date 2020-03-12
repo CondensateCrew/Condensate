@@ -24,7 +24,7 @@ const RoundTwo:React.FC = () => {
     chosenWords: store.chosenWords
   }));
 
-  let prompts = questionTemplates.filter((wordObj:WordSample) => { //eslint-disable-line
+  let prompts:WordSample[] = questionTemplates.filter((wordObj:WordSample):any => {
     let sentence = false;
     chosenWords.forEach((word:string) => {
       if (wordObj.word === word) {
@@ -34,6 +34,7 @@ const RoundTwo:React.FC = () => {
     if (sentence) {
       return wordObj
     }
+    return undefined
   });
 
   useEffect(() => {//eslint-disable-line
@@ -50,16 +51,16 @@ const RoundTwo:React.FC = () => {
       setResponses([]);
       dispatch(reverseTime());
     }
-  },)
+  })
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value)
+    setInputValue(e.target.value);
   };
 
   const handleInputSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) {
-      setResponses([inputValue, ...responses])
-      setInputValue('')
+      setResponses([inputValue, ...responses]);
+      setInputValue('');
     }
   };
 
@@ -67,8 +68,8 @@ const RoundTwo:React.FC = () => {
     if (inputValue === '') {
       return
     }
-    setResponses([inputValue, ...responses])
-    setInputValue('')
+    setResponses([inputValue, ...responses]);
+    setInputValue('');
   };
 
   let insights = responses.map((insight:string, idx:number) => {
