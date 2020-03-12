@@ -28,7 +28,7 @@ const CategoriesFilter:React.FC<Props> = ({categories}) => {
   ));
 
   const firstCategories = categories.map((ctg: Category, ind: number) => (
-    ind < 3 && <button key={ctg.id} id={ctg.name} onClick={filterCard}>{ctg.name}</button>
+    ind < 2 && <button key={ctg.id} id={ctg.name} onClick={filterCard}>{ctg.name}</button>
   ));
 
   const toggleBlock = (event: React.MouseEvent) => {
