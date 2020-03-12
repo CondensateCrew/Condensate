@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
   const categories = useSelector((store:AppStore) => store.categories);
 
   const toggleMenu = () => {
-    setBrainstormForm(!brainstormFormState)
+    setBrainstormForm(!brainstormFormState);
   };
 
   return (

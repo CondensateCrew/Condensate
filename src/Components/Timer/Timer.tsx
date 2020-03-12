@@ -5,17 +5,17 @@ import { endTime } from 'redux/actions';
 
 interface Props {
   time: number;
-}
+};
 
 const Timer: React.FC<Props> = ({time}) => {
   const [ timerCount, setTimerCount ] = useState<number>(time);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimerCount(timerCount - 1);
     }, 1000);
     if ( timerCount === 0 ) dispatch(endTime());
-    
     return () => clearTimeout(timer);
   }, [timerCount, dispatch]);
 

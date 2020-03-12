@@ -36,4 +36,4 @@ const UserProfile:React.FC = () => {
   )
 }
 
-export default UserProfile
+export default UserProfile;

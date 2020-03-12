@@ -13,13 +13,12 @@ const BrainstormCategory:React.FC<Props> = ({ category, formState, setCategory }
 
   const addRemoveCategory = (): void => {
     if (active) {
-      setCategory({...formState, categories: [...formState.categories, category]})
+      setCategory({...formState, categories: [...formState.categories, category]});
+    } else {
+      let newCategories = formState.categories.filter((ctg:Category) => ctg !== category);
+      setCategory({...formState, categories: newCategories});
     }
-    if (!active) {
-      let newCategories = formState.categories.filter((ctg:Category) => ctg !== category)
-      setCategory({...formState, categories: newCategories})
-    }
-  }
+  };
 
   useEffect(() => {
     if(formState.categories.includes(category)) {

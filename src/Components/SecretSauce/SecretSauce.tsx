@@ -9,12 +9,12 @@ const SecretSauce:React.FC = () => {
   const [ currentStep, setCurrentStep ] = useState<number>(0);
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
 
-  const secretSauce  = useSelector((state:AppStore) => state.secretSauce)
+  const secretSauce  = useSelector((state:AppStore) => state.secretSauce);
   const refreshSecretSauce = ():void => {
     if (currentStep < 20) {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep(currentStep + 1);
     } else {
-      setCurrentStep(0)
+      setCurrentStep(0);
     }
   }
 

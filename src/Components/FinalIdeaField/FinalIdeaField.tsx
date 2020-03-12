@@ -19,11 +19,11 @@ const FinalIdeaField:React.FC = () => {
   }));
   let history = useHistory();
 
-const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm.question)
+const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm.question);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setBrainstormIdea(e.target.value)
-  }
+    setBrainstormIdea(e.target.value);
+  };
 
   const postBrainstormIdea = async () => {
     const brainstorm = {
@@ -33,7 +33,7 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       isGenius,
       question,
       categories
-    }
+    };
 
     const otherBrainstorm = {
       response: brainstormIdea,
@@ -42,12 +42,12 @@ const originalQuestion = useSelector((state:AppStore) => state.currentBrainstorm
       isGenius,
       question,
       categories
-    }
+    };
 
-    await postBrainstorm(brainstorm)
+    await postBrainstorm(brainstorm);
     dispatch(addNewBrainstorm(otherBrainstorm));
-    history.push('/dashboard')
-  }
+    history.push('/dashboard');
+  };
 
   return (
     <section className='final-idea-field-section'>

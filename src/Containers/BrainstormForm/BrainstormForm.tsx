@@ -35,14 +35,14 @@ const BrainstormForm:React.FC<Props> = ({brainstormFormState, cancel }) => {
       //   action: {id: 1, 'create an app'},
       //   reset: true
       // })
-      cancel(!brainstormFormState)
+      cancel(!brainstormFormState);
   };
 
   const validateFields = (state: IBrainstormForm) => {
     if (state.question.length > 0 && state.categories.length > 0) {
-      return true
+      return true;
     }
-      return false
+      return false;
   };
 
   const writeError = ():void => {

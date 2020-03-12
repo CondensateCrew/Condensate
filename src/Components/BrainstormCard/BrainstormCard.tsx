@@ -10,8 +10,8 @@ interface Props {
   response: string,
   action: Action,
   isGenius: boolean,
-  categories: Category[]
-}
+  categories: Category[];
+};
 
 const BrainstormCard: React.FC<Props> = (props) => {
   const [ isClicked, setIsClicked ] = useState<boolean>(false);

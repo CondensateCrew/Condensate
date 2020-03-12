@@ -6,23 +6,23 @@ type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'rep
 interface Props {
   typeInput: checkedInputType,
   user: UserSignupPosting,
-  setPassword: (repeatPassword: string) => void
-  setUser: (user: UserSignupPosting) => void
-  setError: (error: string) => void
-}
+  setPassword: (repeatPassword: string) => void,
+  setUser: (user: UserSignupPosting) => void,
+  setError: (error: string) => void;
+};
 
 enum checkType {
   'first-name' = 'firstName',
   'last-name' = 'lastName'
-}
+};
 
 enum placeholderText {
   'first-name' = 'Your First Name',
   'last-name' = 'Your Last Name',
   'email' = 'email@mail.com',
   'password' = 'Your Password',
-  'repeat-password' = 'Repeat Password',
-}
+  'repeat-password' = 'Repeat Password'
+};
 
 const InputElement: React.FC<Props> = ({ typeInput, user, setPassword, setUser, setError }) => {
   const [ textValue, setTextValue ] = useState<string>('');
@@ -39,13 +39,13 @@ const InputElement: React.FC<Props> = ({ typeInput, user, setPassword, setUser, 
     else {
       setUser({...user, [typeInput]: textValue});
     }
-  }
+  };
 
   useEffect (changeUserInfo, [ textValue ]);
 
   const handleChanges = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setTextValue(event.target.value);
-  }
+  };
 
   const tp: string = (typeInput === 'password' || typeInput === 'repeat-password')
     ? 'password'

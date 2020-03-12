@@ -2,8 +2,8 @@ import React from 'react';
 import './TemplateQuestion.scss';
 
 interface Props {
-  templateQuestion: string
-}
+  templateQuestion: string;
+};
 
 const TemplateQuestion:React.FC<Props> = ({ templateQuestion }) => {
   return (

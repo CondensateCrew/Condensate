@@ -8,8 +8,8 @@ import { Redirect } from 'react-router-dom';
 import types from './instructionsData';
 
 interface Props {
-  type: string
-}
+  type: string;
+};
 
 const Instructions:React.FC<Props> = ({ type }) => {
   const instructions: string[] = types[type].instructions;
