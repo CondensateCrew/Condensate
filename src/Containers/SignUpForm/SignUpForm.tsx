@@ -6,6 +6,7 @@ import InputElement from '../../Components/InputElement/InputElement';
 import { validateCredentials } from '../../_utils';
 import { Redirect } from 'react-router-dom';
 import { postUser, getSetUp, getDashboard } from 'apiCalls/apiCalls';
+import LoadingImage from 'Components/LoadingImage/LoadingImage';
 
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
 
@@ -26,6 +27,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   const [ repeatPassword, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
   const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
+  const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const validateButton = (): void => {
@@ -64,6 +66,8 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
 
   const postNewUser = async () => {
     try {
+      setDisabled(true);
+      setIsLoading(true);
       const userNew = {
         first_name: user.firstName,
         last_name: user.lastName,
@@ -85,6 +89,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     }
     catch (error) {
       setError(error.message);
+      setIsLoading(false);
     }
   }
 
@@ -98,9 +103,11 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       const secretSauce = await setUpRes
         .map((word: WordSample): string => word.word);
       dispatch(addSecretSauce(secretSauce));
+      setIsLoading(false);
     }
     catch (error) {
       setError(error.message);
+      setIsLoading(false);
     }
   }
 
@@ -113,6 +120,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
         key={input}
         typeInput={input}
         {... {
+          isLoading,
           user,
           repeatPassword,
           setPassword,
@@ -134,7 +142,13 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
           <form>
             {error !== '' && <p className="error-notification">{error}</p>}
             {inputsElements}
-            <button disabled={disabled} onClick={submitUser}>Sign Up</button>
+            <button disabled={disabled} onClick={submitUser}>
+            {
+              isLoading
+                ? <LoadingImage />
+                : 'Sign Up'
+            }
+            </button>
           </form>
         </div>
       )
