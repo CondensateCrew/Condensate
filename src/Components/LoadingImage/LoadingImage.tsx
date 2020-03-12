@@ -1,5 +1,5 @@
 import './LoadingImage.scss'
-import React, { MouseEvent, useState } from 'react';
+import React from 'react';
 
 const LoadingImage: React.FC = () => {
   return (
