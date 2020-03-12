@@ -57,7 +57,7 @@ const BubblesReducer: React.FC<Props> = ({ chosenWords }) => {
         }
       </section>
     </section>
-  )
+  );
 }
 
 export const updateElements = (currentTarget: HTMLElement): void => {

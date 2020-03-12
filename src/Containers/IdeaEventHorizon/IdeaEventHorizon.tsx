@@ -17,7 +17,7 @@ const IdeaEventHorizon:React.FC = () => {
         </aside>
       </section>
     </main>
-  )
+  );
 }
 
 export default IdeaEventHorizon;

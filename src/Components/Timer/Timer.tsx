@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux';
 import { endTime } from 'redux/actions';
 
 interface Props {
-  time: number;
+  time: number
 };
 
-const Timer: React.FC<Props> = ({time}) => {
+const Timer: React.FC<Props> = ({ time }) => {
   const [ timerCount, setTimerCount ] = useState<number>(time);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimerCount(timerCount - 1);
@@ -21,7 +21,7 @@ const Timer: React.FC<Props> = ({time}) => {
 
   return (
     <p className="timer">{timerCount}</p>
-  )
+  );
 }
 
 export default Timer;

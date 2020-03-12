@@ -26,5 +26,9 @@
   }
   &>div {
     @extend %initial-form;
+    input:read-only:focus {
+      outline: 0;
+      box-shadow: $inner-shadow;
+    }
   }
 }

@@ -4,17 +4,15 @@ import './ChosenWordTrain.scss';
 import { AppStore } from 'interfaces';
 
 const ChosenWordTrain: React.FC = () => {
-  const { chosenWords } = useSelector((store: AppStore) => ({
-    chosenWords: store.chosenWords
-  }));
+  const chosenWords = useSelector((store: AppStore) => store.chosenWords);
 
-  const blocks = chosenWords.map((word: string) => (
+  const blocks: JSX.Element[] = chosenWords.map((word: string) => (
     <p key={word}>{word}</p>
   ));
 
   return (
     <section className="chosen-train">{ blocks }</section>
-  )
+  );
 }
 
 export default ChosenWordTrain;

@@ -4,6 +4,7 @@ import { UserSignupPosting } from '../../interfaces';
 type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'repeat-password';
 
 interface Props {
+  isLoading: boolean,
   typeInput: checkedInputType,
   user: UserSignupPosting,
   setPassword: (repeatPassword: string) => void,
@@ -24,7 +25,9 @@ enum placeholderText {
   'repeat-password' = 'Repeat Password'
 };
 
-const InputElement: React.FC<Props> = ({ typeInput, user, setPassword, setUser, setError }) => {
+const InputElement: React.FC<Props> = (props) => {
+  const { typeInput, user, setPassword, setUser, setError, isLoading } = props;
+
   const [ textValue, setTextValue ] = useState<string>('');
 
   const changeUserInfo = (): void => {
@@ -61,7 +64,8 @@ const InputElement: React.FC<Props> = ({ typeInput, user, setPassword, setUser, 
         type={tp}
         placeholder={placeholderText[typeInput]}
         value={textValue}
-        onChange={handleChanges} />
+        onChange={handleChanges}
+        readOnly={isLoading} />
     </label>
   );
 }

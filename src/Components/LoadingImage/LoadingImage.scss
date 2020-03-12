@@ -1,0 +1,67 @@
+@import "../../css/variables.scss";
+
+.bubble-loading {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  p {
+    background: $hover-btn-gradient;
+    border-radius: 50%;
+    box-shadow: $doubled-shadow;
+    margin: 0 0.5*$tiny-space;
+    width: $small-text; height: $small-text;
+    $total: 3;
+    @for $i from 1 through $total {
+      &:nth-child(#{$i}) {
+        $size: 0.3 * ($i - 1);
+        transform: scale(1 - $size);
+        animation: growing-#{$i} 2.5s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes growing-1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.3);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+
+@keyframes growing-2 {
+  0% {
+    transform: scale(0.7);
+  }
+  25% {
+    transform: scale(0.6);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  75% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(0.7);
+  }
+}
+
+@keyframes growing-3 {
+  0% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1);
+  }
+  0% {
+    transform: scale(0.4);
+  }
+}

@@ -23,8 +23,7 @@ const GameBoard: React.FC = () => {
         : <BubblesReducer chosenWords={chosenWords} />
       }
     </main>
-  )
+  );
 }
 
 export default GameBoard;
-
