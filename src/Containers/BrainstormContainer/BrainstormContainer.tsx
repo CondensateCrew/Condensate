@@ -11,23 +11,26 @@ const BrainstormContainer:React.FC = () => {
     filterValue: state.filter
   }));
 
-  const filteredBrainstorms: Brainstorm[] = allBrainstorms
+  const filteredBrainstorms: (Brainstorm | undefined)[] = allBrainstorms
     .filter((bs: Brainstorm) => (
-      filterValue === 'genius' && bs.isGenius === true//eslint-disable-line
-      ||//eslint-disable-line
+      filterValue === 'genius' && bs.isGenius === true  //eslint-disable-line
+      || //eslint-disable-line
       bs.categories.find(ctg => {
         return (filterValue === '')
           ? ctg.name !== filterValue
           : ctg.name === filterValue
       })
-      && (bs.question.toLowerCase().includes(queryValue.toLowerCase())//eslint-disable-line
-      || bs.response.toLowerCase().includes(queryValue.toLowerCase())//eslint-disable-line
-      || bs.action.action.toLowerCase().includes(queryValue.toLowerCase()))//eslint-disable-line
+      && (bs.question.toLowerCase().includes(queryValue.toLowerCase()) //eslint-disable-line
+      || bs.response.toLowerCase().includes(queryValue.toLowerCase())
+      || bs.action.action.toLowerCase().includes(queryValue.toLowerCase()))
     ));
 
-  const cards = filteredBrainstorms.map((bs: Brainstorm) => (
-    <BrainstormCard key={`bs-${bs.id}`} {...bs} />
-  ));
+  const cards:JSX.Element[] = filteredBrainstorms.map((bs:(Brainstorm | undefined) ):any => {
+    if (bs) {
+      return <BrainstormCard key={`bs-${bs.id}`} {...bs} />
+    }
+    return undefined
+  });
 
   return (
     <section className="bs-container">
