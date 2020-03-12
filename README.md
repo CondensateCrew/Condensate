@@ -75,7 +75,7 @@ Visitors once signed up or logged in are presented with their dashboard, and are
 ![2020-03-11 10 18 11](https://user-images.githubusercontent.com/27719824/76439245-b792be80-6381-11ea-91ed-ef3130c9e573.gif)
 
 
-After coming up with a question they seek to answer with their new brainstorm idea, they can select categories that the idea pertains too, as well as a basic action. Default categories and actions are provided to help streamline the ideation process, while mitigating any cognitive expense prior to the beginning of the brainstorm session. Once the form is filled out, a summary generates, and they can proceed to enter a new session.
+After coming up with a question they seek to answer with their new brainstorm idea, they can select categories that the idea pertains to, as well as a basic action. Default categories and actions are provided to help streamline the ideation process, while mitigating any cognitive expense prior to the beginning of the brainstorm session. Once the form is filled out, a summary generates and they can proceed to enter a new session.
 
 ### ROUND 1
 
@@ -85,7 +85,7 @@ The first round of the brainstorm session begins with an abstract, free-form wor
 
 ![2020-03-11 10 21 18](https://user-images.githubusercontent.com/27719824/76440491-89ae7980-6383-11ea-9cfb-e03b659be7d6.gif)
 
-After selecting 9 words, they will then be prompted to winnow their selection down to three words, whereupon they will begin the second round. 
+After selecting 9 words, they will then be prompted to winnow their selection down to three words whereupon they will begin the second round. 
 
 
 ### ROUND 2
@@ -93,7 +93,7 @@ After selecting 9 words, they will then be prompted to winnow their selection do
 
 ![2020-03-11 10 22 59](https://user-images.githubusercontent.com/27719824/76440604-b367a080-6383-11ea-967c-6f0419c2c16e.gif)
 
-In the second round, they will be provided an example sentence from one of the three words that they have selected. The objective in this round is to come up with as many questions pertaining to the example sentence as they can think of. This logic comes from a Harvard Business Review study where a group of participants were asked to brainstorm by asking questions, reported feeling more satisfied and energized rather than trying to come up with new ideas on the spot.
+In the second round, they will be provided an example sentence from one of the three words that they have selected. The objective in this round is to come up with as many questions pertaining to the example sentence as they can think of. This logic comes from a Harvard Business Review study where a group of participants that were asked to brainstorm by asking questions, reported feeling more satisfied and energized rather than trying to come up with new ideas on the spot.
 
 (Source: https://hbr.org/2018/03/better-brainstorming)
 
@@ -103,11 +103,11 @@ In the second round, they will be provided an example sentence from one of the t
 
 After completing three rounds of question generation the user will begin the third round. In the third and final round, the user returns to their original question from when they filled out the form. On the right hand side, they have the option to incorporate a random word. 
 
-This logic stems from a part of Adam Grant's book ***Originals***, which cited a research study where participants had been tasked with coming up with a new idea given some stimulus. In the study the first stimulus was to create an app based on a notebook, which resulted in ideas that were useful but not very original. When given a stimulus that was not directly related to the tasked assignment, the resulting ideas were deemed more original.
+This logic stems from a part of Adam Grant's book ***Originals***, which cited a research study where participants had been tasked with coming up with a new app to help interviewees in an interview given some stimulus. In the study the first stimulus was to create an app based on a notebook, which resulted in the majority coming up with a note-taking app. Useful, but not very original. When given a stimulus that was not directly related to the tasked assignment, the resulting ideas were deemed more original.
 
-Beneath the random word generator they are able to review the questions they provided during Round 2, in case the way they thought about the example sentence triggers a new way of thinking about their original question. 
+Beneath the random word generator they are able to review the questions they provided during Round 2, in case the way they thought about the example sentences triggers a new way of thinking about their original question. 
 
-Once they have filled out the text area they are able to submit and will be returned to the dashboard, where the recently completed idea will now exist for the user to review and edit. 
+Once they have filled out the text area they are able to submit and will be returned to the dashboard, where the recently completed brainstorm will now exist for the user to review and edit. 
  
 
 
