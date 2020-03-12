@@ -15,7 +15,7 @@ const WelcomePage: React.FC = () => {
       { !isLogin ? <SignUpForm isLogin={isLogin} toggleTab={setIsLogin} />
       : <LoginForm isLogin={isLogin} toggleTab={setIsLogin}/>}
     </main>
-  );
+  )
 }
 
 export default WelcomePage;

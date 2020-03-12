@@ -12,8 +12,8 @@ type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'rep
 
 interface Props {
   isLogin: boolean,
-  toggleTab: (login: boolean) => void
-}
+  toggleTab: (login: boolean) => void;
+};
 
 const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
   const [ user, setUser ] = useState<UserSignupPosting>({
@@ -36,7 +36,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     if (user.firstName === '') return setDisabled(true);
     if (user.lastName === '') return setDisabled(true);
     if (user.password !== repeatPassword) return setDisabled(true);
-    setError('')
+    setError('');
     return setDisabled(false);
   }
 
@@ -48,7 +48,7 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
     if (user.password !== repeatPassword) return setError('Passwords are not the same');
     if (!validateCredentials(user.email)) return setError('Please, enter a valid email');
     return setError('');
-  }
+  };
 
   useEffect(validateButton, [ user, repeatPassword ]);
 
@@ -109,11 +109,11 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab }) => {
       setError(error.message);
       setIsLoading(false);
     }
-  }
+  };
 
   const toggleForm = (): void => toggleTab(!isLogin);
 
-  const inputs: checkedInputType[] = ['first-name', 'last-name', 'email', 'password', 'repeat-password']
+  const inputs: checkedInputType[] = ['first-name', 'last-name', 'email', 'password', 'repeat-password'];
   const inputsElements = inputs
     .map((input: checkedInputType) => (
       <InputElement

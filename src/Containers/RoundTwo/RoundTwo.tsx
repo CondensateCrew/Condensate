@@ -28,25 +28,25 @@ const RoundTwo:React.FC = () => {
     let sentence = false;
     chosenWords.forEach((word:string) => {
       if (wordObj.word === word) {
-        sentence = true
+        sentence = true;
       }
     })
     if (sentence) {
-      return wordObj
+      return wordObj;
     }
-    return undefined
+    return undefined;
   });
 
   useEffect(() => {//eslint-disable-line
     if (timeEnded)  {
       if (currentStep >= 2) {
-        history.push('/round-three')
+        history.push('/round-three');
       }
       dispatch(addInsight({
         id: currentStep,
         question: prompts[currentStep],
         answers: responses
-      }))
+      }));
       setCurrentStep(currentStep + 1);
       setResponses([]);
       dispatch(reverseTime());

@@ -6,9 +6,9 @@ import addIcon from '../../assets/add.svg';//eslint-disable-line
 import { IBrainstormForm, Category } from '../../interfaces';
 
 interface Props {
-  formState: IBrainstormForm
-  setCategory: (formState: IBrainstormForm) => void
-}
+  formState: IBrainstormForm,
+  setCategory: (formState: IBrainstormForm) => void;
+};
 
 const CategoryField:React.FC<Props>= ({ formState, setCategory }) => {
   const categories = mockCategories.map((category: Category, index:number) => <BrainstormCategory key={index} category={category}

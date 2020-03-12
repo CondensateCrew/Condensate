@@ -5,14 +5,13 @@ import './Insights.scss';
 interface Props {
   text: string,
   responses: string[],
-  setResponses: (responses: string[]) => void
-}
+  setResponses: (responses: string[]) => void;
+};
 
 const Insights:React.FC<Props> = ({ text, responses, setResponses }) => {
-
   const removeResponse = ():void => {
-    let newResponses = responses.filter((response:string) => response !== text)
-    setResponses(newResponses)
+    let newResponses = responses.filter((response:string) => response !== text);
+    setResponses(newResponses);
   }
 
   return (

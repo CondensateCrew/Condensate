@@ -6,11 +6,10 @@ interface Props {
   text: string,
   responses: string[],
   setResponses: (responses: string[]) => void,
-  id:number
-}
+  id:number;
+};
 
 const GenerateInsights:React.FC<Props> = ({ text, responses, setResponses, id }) => {
-
   const removeResponse = (e: React.SyntheticEvent<HTMLElement>):void => {
     let newResponses = responses;
     newResponses.splice(id, 1);

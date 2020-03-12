@@ -8,8 +8,8 @@ import deleteIcon from 'assets/delete.svg';
 
 interface Props {
   id: number,
-  setIsClicked: (isClicked: boolean) => void
-}
+  setIsClicked: (isClicked: boolean) => void;
+};
 
 const MenuBlock: React.FC<Props> = ({setIsClicked, id}) => {
   const closeMenu = (): void => setIsClicked(false);

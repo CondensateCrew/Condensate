@@ -5,9 +5,9 @@ import './ActionsField.scss';
 import down from 'assets/down.svg';
 import { IBrainstormForm } from '../../interfaces';
 interface Props {
-  formState: IBrainstormForm;
+  formState: IBrainstormForm,
   setAction: (formState: IBrainstormForm) => void;
-}
+};
 
 const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const [ selectedAction, setSelectedAction ] = useState<Action>({id: 1, action: 'Create an app'});
@@ -19,9 +19,9 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
 
     let newAction:(Action | undefined) = actionsCollection.find((action:Action) => {
       if (action.action === currentTarget.innerText) {
-        return action
+        return action;
       }
-      return undefined
+      return undefined;
     });
 
     if (!newAction) {
@@ -37,9 +37,9 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const updateAction = () => {
     let newChosenAction: (Action | undefined) = actionsCollection.find((action:Action) => {
       if (action.action === selectedAction.action) {
-        return action
+        return action;
       }
-      return undefined
+      return undefined;
     });
 
     if (!newChosenAction) {
@@ -55,7 +55,7 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
     if (selectedAction.action.toLowerCase() !== action.action.toLowerCase()) {
       return <li key={action.id} onClick={handleChange}>{action.action}</li>
     };
-      return undefined
+      return undefined;
   });
 
   const headerState = (isClicked) ? 'clicked' : '';

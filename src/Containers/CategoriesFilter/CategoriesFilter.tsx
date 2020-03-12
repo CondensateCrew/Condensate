@@ -1,4 +1,4 @@
-import './CategoriesFilter.scss'
+import './CategoriesFilter.scss';
 import React, { MouseEvent, useState } from 'react';
 import { Category, AppStore } from 'interfaces';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,8 +7,8 @@ import dropdown from 'assets/down.svg';
 import close from 'assets/close.svg';
 
 interface Props {
-  categories: Category[]
-}
+  categories: Category[];
+};
 
 const CategoriesFilter:React.FC<Props> = ({categories}) => {
   const [ isClicked, setIsClicked ] = useState<boolean>(false);

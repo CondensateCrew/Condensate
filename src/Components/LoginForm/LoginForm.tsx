@@ -9,8 +9,8 @@ import LoadingImage from 'Components/LoadingImage/LoadingImage';
 
 interface Props {
   isLogin: boolean,
-  toggleTab: (login: boolean) => void
-}
+  toggleTab: (login: boolean) => void;
+};
 
 const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
   const [ email, setEmail ] = useState<string>('');
@@ -26,18 +26,18 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setEmail(e.target.value);
-  }
+  };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
-    setPassword(e.target.value)
-  }
+    setPassword(e.target.value);
+  };
 
   const validateEmail = () => {
     if (!validateCredentials(email) && !isLoading) {
-      return setError('Please enter valid email')
+      return setError('Please enter valid email');
     }
-    setError('')
-  }
+    setError('');
+  };
 
   const validateButton = ():void => {
     if (email.length > 0 && password.length > 0) {
@@ -65,15 +65,15 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
         id: user.token,
         firstName: user.first_name,
         lastName: user.last_name
-      }
+      };
       dispatch(addUser(modifiedUser));
-      return user.token
+      return user.token;
     }
     catch(error) {
       setError(error.message);
       setDisabled(false);
     }
-  }
+  };
 
   const fetchGameStuff = async (token: string) => {
     try {
@@ -82,7 +82,7 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       const dashRes = await getDashboard(token);
       dispatch(addAllActions(dashRes.actions));
       dispatch(addAllCategories(dashRes.categories));
-      dispatch(addAllBrainstorms(dashRes.brainstorms))
+      dispatch(addAllBrainstorms(dashRes.brainstorms));
       const secretSauce = await setUpRes
         .map((word: WordSample): string => word.word);
       dispatch(addSecretSauce(secretSauce));
@@ -92,13 +92,13 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       setError(error.message);
       setDisabled(false);
     }
-  }
+  };
 
   const alertRequired = () => {
     if (password === '' && !isLoading) {
-      return setError('Please enter a password')
+      return setError('Please enter a password');
     }
-  }
+  };
 
   useEffect(validateButton, [ email, password, error ]);
 

@@ -15,9 +15,9 @@ const DisplayInsights:React.FC = () => {
 
   const showNextInsight = ():void => {
     if (currentStep > 1) {
-      setCurrentStep(0)
+      setCurrentStep(0);
     } else {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep(currentStep + 1);
     }
   };
 

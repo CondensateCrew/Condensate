@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { Redirect } from 'react-router-dom';
-// import collection from './mockData';
 import { addChosenWord, reverseInstructions } from 'redux/actions';
 
 const BubblesAll: React.FC = () => {
