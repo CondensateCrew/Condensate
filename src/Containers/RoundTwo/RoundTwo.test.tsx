@@ -12,7 +12,7 @@ const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
   useSelector: () => ({
     timeEnded: false,
-    questionTemplates: [{
+    exampleSentences: [{
       word: 'toy',
       sentence: 'Play with a toy'
     }],

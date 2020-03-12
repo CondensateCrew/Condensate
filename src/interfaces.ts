@@ -62,7 +62,7 @@ export interface AppStore {
   actions: Action[],
   categories: Category[],
   readonly randomWordCollections: WordSample[],
-  readonly questionTemplates: string[],
+  readonly exampleSentences: string[],
   readonly secretSauce: string[],
   currentBrainstorm: Brainstorm,
   chosenWords: string[],
@@ -134,9 +134,9 @@ export interface IAddWordSamplesAction {
   collections: WordSample[]
 }
 
-export interface IAddQuestionTemplatesAction {
-  type: 'ADD_ALL_TEMPLATES',
-  templates: string[]
+export interface IAddExampleSentencesAction {
+  type: 'ADD_ALL_SENTENCES',
+  sentences: string[]
 }
 
 export interface IAddSecretSauceAction {

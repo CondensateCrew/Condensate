@@ -186,18 +186,18 @@ describe("randomWordCollections", () => {
   });
 });
 
-describe("questionTemplates", () => {
-  it("should return object with a type of ADD_ALL_COLLECTIONS when addQuestionTemplates is called", () => {
+describe("exampleSentences", () => {
+  it("should return object with a type of ADD_ALL_COLLECTIONS when addExampleSentences is called", () => {
     const questionsMock: string[] = [
       'What does <sth> do with <sec>?'
     ];
 
-    const expected: interfaces.IAddQuestionTemplatesAction = {
-      type: 'ADD_ALL_TEMPLATES',
-      templates: questionsMock
+    const expected: interfaces.IAddExampleSentencesAction = {
+      type: 'ADD_ALL_SENTENCES',
+      sentences: questionsMock
     };
 
-    const result = actions.addQuestionTemplates(questionsMock)
+    const result = actions.addExampleSentences(questionsMock)
 
     expect(result).toEqual(expected);
   });

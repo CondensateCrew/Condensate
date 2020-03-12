@@ -4,7 +4,7 @@ import allBrainstorms from '../reducers/allBrainstorms/allBrainstorms';
 import categories from '../reducers/categories/categories';
 import actions from '../reducers/actions/actions';
 import randomWordCollections from '../reducers/randomWordCollections/randomWordCollections';
-import questionTemplates from '../reducers/questionTemplates/questionTemplates';
+import exampleSentences from '../reducers/exampleSentences/exampleSentences';
 import secretSauce from '../reducers/secretSauce/secretSauce';
 import currentBrainstorm from '../reducers/currentBrainstorm/currentBrainstorm';
 import chosenWords from '../reducers/chosenWords/chosenWords';
@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   categories,
   actions,
   randomWordCollections,
-  questionTemplates,
+  exampleSentences,
   secretSauce,
   currentBrainstorm,
   chosenWords,
