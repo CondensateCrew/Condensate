@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { useHistory } from 'react-router-dom';
 import { reverseTime, addInsight } from 'redux/actions';
-import TemplateQuestion from 'Components/TemplateQuestion/TemplateQuestion';
+import ExampleSentence from 'Components/ExampleSentence/ExampleSentence';
 import GenerateInsights from 'Components/GenerateInsights/GenerateInsights';
 import Header from 'Components/Header/Header';
 import Timer from 'Components/Timer/Timer';
@@ -18,13 +18,13 @@ const RoundTwo:React.FC = () => {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const { timeEnded, questionTemplates, chosenWords } = useSelector((store: AppStore) => ({
+  const { timeEnded, exampleSentences, chosenWords } = useSelector((store: AppStore) => ({
     timeEnded: store.timeEnded,
-    questionTemplates: store.randomWordCollections,
+    exampleSentences: store.randomWordCollections,
     chosenWords: store.chosenWords
   }));
 
-  let prompts:WordSample[] = questionTemplates.filter((wordObj:WordSample):any => {
+  let prompts:WordSample[] = exampleSentences.filter((wordObj:WordSample):any => {
     let sentence = false;
     chosenWords.forEach((word:string) => {
       if (wordObj.word === word) {
@@ -87,7 +87,7 @@ const RoundTwo:React.FC = () => {
     <main className='round-two-main'>
       <Header />
       <section className='template-question-section-wrapper'>
-        <TemplateQuestion templateQuestion={prompts[currentStep].sentence}/>
+        <ExampleSentence exampleSentence={prompts[currentStep].sentence}/>
         <section className='responses-section'>
           <header>
             <input id='responses-input' onKeyDown={handleInputSubmit} onChange={handleChange}

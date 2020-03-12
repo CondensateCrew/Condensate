@@ -16,7 +16,7 @@ import {
   IAddAllCategoriesAction,
   IAddNewCategoryAction,
   IAddWordSamplesAction,
-  IAddQuestionTemplatesAction,
+  IAddExampleSentencesAction,
   IAddSecretSauceAction,
   IAddCurrentBrainstormAction,
   IRemoveCurrentBrainstormAction,
@@ -93,10 +93,10 @@ export const addWordSamples = (collections: WordSample[]): IAddWordSamplesAction
   collections: collections
 });
 
-// questionTemplates reducer action creators
-export const addQuestionTemplates = (templates: string[]): IAddQuestionTemplatesAction => ({
-  type: 'ADD_ALL_TEMPLATES',
-  templates: templates
+// exampleSentences reducer action creators
+export const addExampleSentences = (sentences: string[]): IAddExampleSentencesAction => ({
+  type: 'ADD_ALL_SENTENCES',
+  sentences: sentences
 });
 
 // secretSauce reducer action creators

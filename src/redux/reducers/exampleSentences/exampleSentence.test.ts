@@ -1,16 +1,16 @@
-import questionTemplatesReducer from './questionTemplates';
-import { ActionObject, IAddQuestionTemplatesAction } from 'interfaces';
+import exampleSentenceReducer from './exampleSentences';
+import { ActionObject, IAddExampleSentencesAction } from 'interfaces';
 
 type emptyArray = [ ];
 
-describe('questionTemplatesReducer', () => {
+describe('exampleSentenceReducer', () => {
   it("should return initial value", () => {
     const mockAction: ActionObject = {
       type: '',
-      templates: undefined
+      sentences: undefined
     };
     const expected: emptyArray = [ ];
-    const result = questionTemplatesReducer(undefined, mockAction);
+    const result = exampleSentenceReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   });
@@ -20,14 +20,14 @@ describe('questionTemplatesReducer', () => {
       'What do you eat?'
     ];
 
-    const mockAction: IAddQuestionTemplatesAction = {
-      type: 'ADD_ALL_TEMPLATES',
-      templates: mockTemplates
+    const mockAction: IAddExampleSentencesAction = {
+      type: 'ADD_ALL_SENTENCES',
+      sentences: mockTemplates
     };
 
     const expected: string[] = mockTemplates;
 
-    const result: string[] = questionTemplatesReducer(undefined, mockAction);
+    const result: string[] = exampleSentenceReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
   })
