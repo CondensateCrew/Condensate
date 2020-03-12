@@ -8,7 +8,7 @@ interface Props {
   user: UserSignupPosting,
   setPassword: (repeatPassword: string) => void,
   setUser: (user: UserSignupPosting) => void,
-  setError: (error: string) => void;
+  setError: (error: string) => void
 };
 
 enum checkType {

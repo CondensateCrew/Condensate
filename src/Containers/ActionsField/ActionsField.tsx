@@ -35,12 +35,8 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   const toggleBlock = (): void => setIsClicked(!isClicked);
 
   const updateAction = () => {
-    let newChosenAction: (Action | undefined) = actionsCollection.find((action:Action) => {
-      if (action.action === selectedAction.action) {
-        return action;
-      }
-      return undefined;
-    });
+    let newChosenAction: (Action | undefined) = actionsCollection
+    .find((action:Action) => action.action === selectedAction.action) 
 
     if (!newChosenAction) {
       newChosenAction = {id: 1, action: 'Create an app'};
