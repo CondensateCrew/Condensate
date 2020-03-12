@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExampleSentence Component should match the snapshot 1`] = `
+<ExampleSentence
+  exampleSentence="A neighbor sings at a most ungodly hour"
+>
+  <h3
+    className="template-question-h3"
+  >
+    A neighbor sings at a most ungodly hour
+  </h3>
+</ExampleSentence>
+`;

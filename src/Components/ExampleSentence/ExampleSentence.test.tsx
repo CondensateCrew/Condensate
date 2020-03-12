@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import ExampleSentence from './ExampleSentence';
 import { mount } from 'enzyme';
