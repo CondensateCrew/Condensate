@@ -107,8 +107,8 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab}) => {
       : (
         <div>
           <header>
-            <h2 className='active'>Login</h2>
-            <h2 className='hidden' onClick={toggleForm}>Sign Up</h2>
+            <h2 className='active-tab'>Login</h2>
+            <h2 className='hidden-tab' onClick={toggleForm}>Sign Up</h2>
           </header>
           <form>
             {error !== '' && <p className="error-notification">{error}</p>}
