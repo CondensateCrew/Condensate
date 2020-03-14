@@ -34,7 +34,7 @@ describe('WelcomePage Component', () => {
   it('should match the snapshot with isLogin set to false and display SignUpForm', () => {
     wrapper = mount(<MemoryRouter initialEntries={[ { pathname: '/', key: 'testKey' } ]}><WelcomePage /></MemoryRouter>)
 
-    wrapper.find('.hidden').simulate('click');
+    wrapper.find('.hidden-tab').simulate('click');
     expect(wrapper).toMatchSnapshot();
   });
 });
