@@ -58,7 +58,9 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to fal
           </h2>
         </aside>
         <SignUpForm
+          error=""
           isLogin={false}
+          setCookie={[Function]}
           toggleTab={[Function]}
         >
           <div
@@ -268,7 +270,9 @@ exports[`WelcomePage Component should match the snapshot with isLogin set to tru
     </h2>
   </aside>
   <LoginForm
+    error=""
     isLogin={true}
+    setCookie={[Function]}
     toggleTab={[Function]}
   />
 </main>
