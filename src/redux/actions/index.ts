@@ -32,6 +32,7 @@ import {
   IEndInstructionsAction,
   IReverseInstructionsAction,
   IRemoveAllWordsAction,
+  ICleanStore
 } from 'interfaces';
 
 // user reducer action creators
@@ -173,3 +174,7 @@ export const endInstructions = (): IEndInstructionsAction => ({
 export const reverseInstructions = (): IReverseInstructionsAction => ({
   type: 'REVERSE_INSTRUCTIONS'
 });
+
+export const cleanStore = (): ICleanStore => ({
+  type: 'CLEAN_STORE'
+})

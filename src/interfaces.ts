@@ -33,7 +33,7 @@ export interface Brainstorm {
 }
 
 export interface IBrainstormForm {
-  id?: number, 
+  id?: number,
   question: string,
   categories: Category[],
   action: Action,
@@ -205,6 +205,11 @@ export interface IReverseInstructionsAction {
 export interface IRemoveAllWordsAction {
   type: 'REMOVE_ALL_WORDS'
 }
+
+export interface ICleanStore {
+  type: 'CLEAN_STORE'
+}
+
 export interface IHeaders {
   [key: string]: string
 }
