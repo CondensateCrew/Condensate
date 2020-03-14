@@ -10,14 +10,17 @@ import { Store, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './redux/reducers';
 import { AppStore } from './interfaces';
+import { CookiesProvider } from 'react-cookie';
 
 const store: Store<AppStore> = createStore(rootReducer, composeWithDevTools());
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </CookiesProvider>
   </Provider>
 );
 
