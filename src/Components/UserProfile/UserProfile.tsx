@@ -13,7 +13,6 @@ import logout from '../../assets/logout.svg';
 
 const UserProfile:React.FC = () => {
   const dispatch = useDispatch();
-  const [ isLoggedIn, setLogIn ] = useState<boolean>(true)
   const { firstName, lastName } = useSelector((state:AppStore) => ({
     firstName: state.user.firstName,
     lastName: state.user.lastName
@@ -31,11 +30,6 @@ const UserProfile:React.FC = () => {
     setRedirected(true);
   };
 
-  const handleLogOut = ():void => {
-    logoutUser();
-    setLogIn(false);
-  }
-
   return (
     <div className='user-profile-div'>
       { isRedirected && <Redirect to='/' /> }
@@ -44,7 +38,7 @@ const UserProfile:React.FC = () => {
       {!isClicked
         ? <img className='menu-svg' src={menu} alt='menu-svg' onClick={toggleMenu} />
         : <section>
-          <img className='logout' src={logout} alt='logout' onClick={handleLogOut}/>
+          <img className='logout' src={logout} alt='logout' onClick={logoutUser}/>
           <img className='close' src={close} alt='close' onClick={toggleMenu} />
         </section>
       }
