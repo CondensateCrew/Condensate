@@ -93,29 +93,6 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie }) => {
   ));
 
   return (
-<<<<<<< HEAD
-    isLoaded
-      ? <Redirect to='/dashboard' />
-      : (
-        <div className="sign-up-form">
-          <header>
-            <h2 className="hidden-tab" onClick={toggleForm}>Login</h2>
-            <h2 className="active-tab">Sign Up</h2>
-          </header>
-          <form>
-            {error !== '' && <p className="error-notification">{error}</p>}
-            {inputsElements}
-            <button disabled={disabled} onClick={submitUser}>
-            {
-              isLoading
-                ? <LoadingImage />
-                : 'Sign Up'
-            }
-            </button>
-          </form>
-        </div>
-      )
-=======
     <div className="sign-up-form">
       <header>
         <h2 className="active">Sign Up</h2>
@@ -133,7 +110,6 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie }) => {
         </button>
       </form>
     </div>
->>>>>>> Adding cookies to Login and Sign Up functionality
   );
 }
 
