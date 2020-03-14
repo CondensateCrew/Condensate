@@ -10,6 +10,8 @@ const userReducer = (state:object = {}, action:ActionObject) => {
       }
     case 'LOG_OUT_USER':
       return {}
+    case 'CLEAN_STORE':
+      return {};
     default:
       return state
   }

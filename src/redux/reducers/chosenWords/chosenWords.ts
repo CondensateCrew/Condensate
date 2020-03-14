@@ -10,6 +10,8 @@ const chosenWords = (state: state = [ ], action: ActionObject) => {
       return state.filter(word => word !== action.chosenWord);
     case 'REMOVE_ALL_WORDS':
       return [];
+    case 'CLEAN_STORE':
+      return [ ];
     default:
       return state;
   }

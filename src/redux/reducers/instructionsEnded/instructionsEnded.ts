@@ -6,6 +6,8 @@ const instructionsEnded = (state: boolean = false, action: ActionObject) => {
       return true;
     case 'REVERSE_INSTRUCTIONS':
       return false;
+    case 'CLEAN_STORE':
+      return false;
     default:
       return state;
   }

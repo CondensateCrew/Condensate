@@ -8,6 +8,8 @@ const categories = (state: state = [ ], action: ActionObject) => {
       return action.categories;
     case 'ADD_CATEGORY':
       return [...state, action.category];
+    case 'CLEAN_STORE':
+      return [ ];
     default:
       return state;
   }

@@ -8,6 +8,8 @@ const actions = (state: state = [ ], action: ActionObject) => {
       return action.actions;
     case 'ADD_NEW_ACTION':
       return [...state, action.action];
+    case 'CLEAN_STORE':
+      return [ ];
     default:
       return state;
   }

@@ -8,6 +8,8 @@ const currentBrainstorm = (state: state = { }, action: ActionObject) => {
       return action.currentBrainstorm;
     case 'REMOVE_CURRENT_BRAINSTORM':
       return {};
+    case 'CLEAN_STORE':
+      return {};
     default:
       return state;
   }
