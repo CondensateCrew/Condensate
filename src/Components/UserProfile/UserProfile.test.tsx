@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import UserProfile from './UserProfile';
-import { logOutUser } from 'redux/actions';
+import { cleanStore } from 'redux/actions';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -34,9 +34,9 @@ describe('UserProfile', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should call logOutUser when logout button is clicked', () => {
+  it('should call cleanStore when logout button is clicked', () => {
     wrapper.find('.menu-svg').simulate('click');
     wrapper.find('.logout').simulate('click');
-    expect(logOutUser).toHaveBeenCalled();
+    expect(cleanStore).toHaveBeenCalled();
   });
 });
