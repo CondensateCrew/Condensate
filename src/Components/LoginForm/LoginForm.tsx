@@ -68,40 +68,10 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie}) => {
   useEffect(validateButton, [ email, password, error ]);
 
   return (
-<<<<<<< HEAD
-    isLoaded
-      ? <Redirect to='/dashboard' />
-      : (
-        <div>
-          <header>
-            <h2 className='active-tab'>Login</h2>
-            <h2 className='hidden-tab' onClick={toggleForm}>Sign Up</h2>
-          </header>
-          <form>
-            {error !== '' && <p className="error-notification">{error}</p>}
-            <label htmlFor='email'>Email
-              <input id='email' type='text' name='email' placeholder='name@email.com' value={email}
-              onChange={handleEmailChange} onBlur={validateEmail} autoComplete='off' readOnly={isLoading} required />
-            </label>
-            <label htmlFor='password'>Password
-              <input id='password' type='password' name='password' placeholder='********' value={password}
-              onChange={handlePasswordChange} onBlur={alertRequired} readOnly={isLoading} required />
-            </label>
-            <button type='button' disabled={disabled} onClick={handleSubmit}>
-              {
-                isLoading
-                  ? <LoadingImage />
-                  : 'Login'
-              }
-              </button>
-          </form>
-        </div>
-      )
-=======
     <div>
       <header>
-        <h2 className='active'>Login</h2>
-        <h2 className='hidden' onClick={toggleForm}>Sign Up</h2>
+        <h2 className='active-tab'>Login</h2>
+        <h2 className='hidden-tab' onClick={toggleForm}>Sign Up</h2>
       </header>
       <form>
         {error !== '' && <p className="error-notification">{error}</p>}
@@ -122,7 +92,6 @@ const LoginForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie}) => {
           </button>
       </form>
     </div>
->>>>>>> Adding cookies to Login and Sign Up functionality
   );
 }
 
