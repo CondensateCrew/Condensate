@@ -168,6 +168,10 @@ export interface IAddInsightAction {
   insight: Insight
 }
 
+export interface IRemoveInsightsAction {
+  type: 'REMOVE_INSIGHTS'
+}
+
 export interface IAddQueryAction {
   type: 'ADD_QUERY',
   query: string
