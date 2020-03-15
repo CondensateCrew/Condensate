@@ -4,10 +4,13 @@ exports[`IdeaQuestion Component should match the snapshot with all the data pass
 <IdeaQuestion
   formState={
     Object {
-      "action": "create an app",
+      "action": Object {
+        "action": "create an app",
+        "id": 1,
+      },
       "categories": Array [],
       "question": "",
-      "reset": true,
+      "reset": false,
     }
   }
   setQuestion={
@@ -15,10 +18,13 @@ exports[`IdeaQuestion Component should match the snapshot with all the data pass
       "calls": Array [
         Array [
           Object {
-            "action": "create an app",
+            "action": Object {
+              "action": "create an app",
+              "id": 1,
+            },
             "categories": Array [],
             "question": "",
-            "reset": true,
+            "reset": false,
           },
         ],
       ],
