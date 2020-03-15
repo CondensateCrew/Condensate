@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, KeyboardEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { useHistory } from 'react-router-dom';
@@ -53,7 +53,7 @@ const RoundTwo:React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: MouseEvent<HTMLElement> | KeyboardEvent<HTMLInputElement>):void => {
+  const handleSubmit = ():void => {
     if (inputValue !== '') {
       setResponses([inputValue, ...responses]);
       setInputValue('');
