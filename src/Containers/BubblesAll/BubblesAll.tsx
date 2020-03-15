@@ -13,7 +13,6 @@ const BubblesAll: React.FC = () => {
 
   let randomWords: string[] = randomWordCollections.map((word: WordSample) => word.word)
   const firstStack: string[] = randomWords.splice(0, 8);
-
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);
   
   useEffect(() => {
