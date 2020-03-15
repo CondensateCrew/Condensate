@@ -10,6 +10,9 @@ exports[`App component should match the snapshot 1`] = `
       path="/"
       render={[Function]}
     />
+    <Redirect
+      to="/"
+    />
     <Route
       path="/dashboard"
       render={[Function]}
@@ -37,7 +40,7 @@ exports[`App component should match the snapshot 1`] = `
 </div>
 `;
 
-exports[`App component should match the snapshot 2`] = `
+exports[`App component should match the snapshot if there is user logged 1`] = `
 <div
   className="App"
 >
