@@ -158,6 +158,11 @@ export interface IAddChosenWordAction {
   chosenWord: string
 }
 
+export interface IAddForgottenWordsAction {
+  type: 'ADD_FORGOTTEN_WORDS',
+  forgottenWords: string[]
+}
+
 export interface IRemoveChosenWordAction {
   type: 'REMOVE_WORD',
   chosenWord: string
