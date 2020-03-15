@@ -40,6 +40,9 @@ const ActionsField:React.FC<Props> = ({ formState, setAction }) => {
   }
 
   useEffect(updateAction, [ selectedAction ]);
+  useEffect(() => {
+    if (formState.reset) return setSelectedAction({id: 1, action: 'Create an app'});
+  }, [formState]);
 
   const actions:(JSX.Element | null)[] = actionsCollection
     .map((action:Action) => {

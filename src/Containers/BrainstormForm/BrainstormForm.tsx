@@ -28,14 +28,18 @@ const BrainstormForm:React.FC<Props> = ({ brainstormFormState, cancel }) => {
   const dispatch = useDispatch();
   let history = useHistory();
 
+  const cancelForm = ():void => {
+    cancel(!brainstormFormState);
+  };
+
   const resetForm = ():void => {
-      // setFormState({
-      //   question: '',
-      //   categories: [],
-      //   action: {id: 1, 'create an app'},
-      //   reset: true
-      // })
-      cancel(!brainstormFormState);
+    setFormState({
+      question: '',
+      categories: [],
+      action: {id: 1, action: 'Create an App'},
+      reset: !formState.reset
+    });
+    setSummary('');
   };
 
   const validateFields = (state: IBrainstormForm): boolean => (
@@ -77,6 +81,10 @@ const BrainstormForm:React.FC<Props> = ({ brainstormFormState, cancel }) => {
   const toggleCategory = (): void => setIsClickedCategory(!isClickedCategory);
 
   useEffect(() => {
+    if (formState.reset) return setFormState({...formState, reset: false});
+  }, [formState]);
+
+  useEffect(() => {
     if (!formState.action) {
       setFormState({...formState, action: {id: 1, action: 'Create an App'}});
     }
@@ -111,8 +119,8 @@ const BrainstormForm:React.FC<Props> = ({ brainstormFormState, cancel }) => {
         <textarea readOnly className='brainstorm-summary-textarea' value={summary} placeholder='Typed summary here...'></textarea>
       </div>
       <div className='brainstorm-form-menu'>
-        <button type='button' className='cancel-btn' onClick={resetForm}>cancel</button>
-        <button className='clean-btn'><img className='broom' alt='broom-icon' src={broom}/></button>
+        <button type='button' className='cancel-btn' onClick={cancelForm}>cancel</button>
+        <button type='button' onClick={resetForm} className='clean-btn'><img className='broom' alt='broom-icon' src={broom}/></button>
         <button type='button' onClick={handleSubmit} disabled={disabled} className='start-btn'>start</button>
       </div>
     </form>
