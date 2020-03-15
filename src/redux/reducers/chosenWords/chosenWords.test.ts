@@ -1,5 +1,5 @@
 import chosenWordsReducer from './chosenWords';
-import { ActionObject, IAddChosenWordAction, IRemoveChosenWordAction, IRemoveAllWordsAction, ICleanStore } from 'interfaces';
+import { ActionObject, IAddChosenWordAction, IAddForgottenWordsAction, IRemoveChosenWordAction, IRemoveAllWordsAction, ICleanStore } from 'interfaces';
 
 type emptyArray = [ ];
 
@@ -26,6 +26,22 @@ describe('chosenWordsReducer', () => {
     const expected: string[] = [mockChosenWord];
 
     const result: string[] = chosenWordsReducer(undefined, mockAction);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return an array with three words if type of action is ADD_FORGOTTEN_WORDS", () => {
+    const mockState:string[] = ['Community']
+    const mockForgottenWords: string[] = ['Bear','Pie','Fly'];
+
+    const mockAction: IAddForgottenWordsAction = {
+      type: 'ADD_FORGOTTEN_WORDS',
+      forgottenWords: mockForgottenWords
+    };
+
+    const expected: string[] = ['Community', 'Bear', 'Pie'];
+
+    const result: string[] = chosenWordsReducer(mockState, mockAction);
 
     expect(result).toEqual(expected);
   });
