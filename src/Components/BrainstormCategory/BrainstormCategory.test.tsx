@@ -4,15 +4,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import BrainstormCategory from './BrainstormCategory';
+import { IBrainstormForm } from 'interfaces';
 
 describe('BrainstormCategory', () => {
   let wrapper: any;
 
-  const mockFormState = {
+  const mockFormState: IBrainstormForm = {
     question: '',
     categories: [],
-    action: 'create an app',
-    reset: true
+    action: {id: 1, action: 'create an app'},
+    reset: false
   };
 
   const mockCategory = {
@@ -67,5 +68,19 @@ describe('BrainstormCategory', () => {
     wrapper.find('button').simulate('click');
 
     expect(mockSetCategory).toHaveBeenCalledWith(mockArgument);
+  });
+
+  it('should reset local state when formState.reset is true', () => {
+    wrapper.find('button').simulate('click');
+    expect(wrapper).toMatchSnapshot();
+
+    wrapper.setProps({
+      category: mockCategory,
+      formState: {...mockFormState, reset: true},
+      mockSetCategory: jest.fn()
+    });
+
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
   });
 });
