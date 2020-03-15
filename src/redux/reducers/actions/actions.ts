@@ -1,6 +1,6 @@
-import { ActionObject } from 'interfaces';
+import { ActionObject, Action } from 'interfaces';
 
-type state = string[] | [ ];
+type state = Action[] | [ ];
 
 const actions = (state: state = [ ], action: ActionObject) => {
   switch(action.type) {
