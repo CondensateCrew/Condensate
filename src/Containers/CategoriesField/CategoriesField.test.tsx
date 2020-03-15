@@ -4,6 +4,16 @@ import { IBrainstormForm } from '../../interfaces';
 import CategoriesField from './CategoriesField';
 import mockCategories from '../../data/mockCategories';
 
+jest.mock('react-redux', () => ({
+  useSelector: () => [
+    {id: 1, name: 'Education'},
+    {id: 2, name: 'Technology'},
+    {id: 3, name: 'Environment'},
+    {id: 4, name: 'Food'},
+    {id: 5, name: 'Music'}
+  ]
+}));
+
 describe('CategoriesField', () => {
   let wrapper;
   beforeEach(() => {
