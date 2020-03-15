@@ -9,13 +9,13 @@ const Header: React.FC = () => {
   const [ isRedirected, setIsRedirected ] = useState<boolean>(false);
   const dispatch = useDispatch();
   const redirect = ():void => setIsRedirected(true);
-  
-  const backToDashboard = async () => {
-    await redirect();
+
+  const backToDashboard = (): void => {
     dispatch(removeCurrentBrainstorm());
     dispatch(reverseInstructions());
     dispatch(removeAllWords());
     dispatch(removeInsights());
+    redirect();
   };
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import './IdeaEventHorizon.scss';
-import Header from 'Components/Header/Header';
+import Header from 'Containers/Header/Header';
 import FinalIdeaField from 'Containers/FinalIdeaField/FinalIdeaField';
 import SecretSauce from 'Components/SecretSauce/SecretSauce';
 import DisplayInsights from 'Containers/DisplayInsights/DisplayInsights';

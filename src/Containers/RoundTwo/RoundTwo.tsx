@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { reverseTime, addInsight } from 'redux/actions';
 import ExampleSentence from 'Components/ExampleSentence/ExampleSentence';
 import GenerateInsights from 'Components/GenerateInsights/GenerateInsights';
-import Header from 'Components/Header/Header';
+import Header from 'Containers/Header/Header';
 import Timer from 'Components/Timer/Timer';
 import Check from 'assets/check.svg';
 import './RoundTwo.scss';

@@ -2,7 +2,7 @@ import './Instructions.scss';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppStore } from 'interfaces';
-import Header from 'Components/Header/Header';
+import Header from 'Containers/Header/Header';
 import { endInstructions, reverseInstructions, reverseTime } from 'redux/actions';
 import { Redirect } from 'react-router-dom';
 import types from './instructionsData';
