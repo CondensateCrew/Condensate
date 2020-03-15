@@ -31,6 +31,10 @@ const BrainstormCategory:React.FC<Props> = (props) => {
 
   useEffect(addRemoveCategory, [ active ]);
 
+  useEffect(() => {
+    if (formState.reset) return setActive(false);
+  }, [formState]);
+
   const btnClassName: string = active ? 'category-btn active' : 'category-btn';
 
   return (

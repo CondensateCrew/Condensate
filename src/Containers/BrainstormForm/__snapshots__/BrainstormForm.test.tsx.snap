@@ -169,6 +169,8 @@ exports[`BrainstormForm should match the snapshot 1`] = `
           </button>
           <button
             className="clean-btn"
+            onClick={[Function]}
+            type="button"
           >
             <img
               alt="broom-icon"
