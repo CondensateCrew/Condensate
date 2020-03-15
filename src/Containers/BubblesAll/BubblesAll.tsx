@@ -16,16 +16,6 @@ const BubblesAll: React.FC = () => {
 
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);
   
-  const addWords = () => {
-    setTimeout(() => {
-      let num = Math.floor((Math.random() * 61));
-      dispatch(addForgottenWords(randomWordCollections
-        .slice(num, num + 3)
-        .map((wordObj:WordSample) => wordObj.word)
-        ))}, 2000);
-    return <Redirect to='/instructions/second-rd' />
-  }
-
   useEffect(() => {
     dispatch(reverseInstructions());
 
@@ -52,6 +42,16 @@ const BubblesAll: React.FC = () => {
       <button id={bubble.toLowerCase()} onClick={sendToChosen}>{bubble}</button>
     </p>
   ));
+
+  const addWords = () => {
+    setTimeout(() => {
+      let num = Math.floor((Math.random() * 61));
+      dispatch(addForgottenWords(randomWordCollections
+        .slice(num, num + 3)
+        .map((wordObj:WordSample) => wordObj.word)
+        ))}, 2000);
+    return <Redirect to='/instructions/second-rd' />
+  };
 
   return (
     <section className="all-bbls">
