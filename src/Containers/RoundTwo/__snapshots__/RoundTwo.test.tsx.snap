@@ -84,6 +84,7 @@ exports[`RoundTwo Component should match the snapshot when rendering for the fir
               <input
                 autoComplete="off"
                 id="responses-input"
+                maxLength={100}
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder="Write your question here..."
