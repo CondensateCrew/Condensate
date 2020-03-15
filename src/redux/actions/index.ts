@@ -21,6 +21,7 @@ import {
   IAddCurrentBrainstormAction,
   IRemoveCurrentBrainstormAction,
   IAddChosenWordAction,
+  IAddForgottenWordsAction,
   IRemoveChosenWordAction,
   IAddInsightAction,
   IRemoveInsightsAction,
@@ -121,6 +122,11 @@ export const removeCurrentBrainstorm = (): IRemoveCurrentBrainstormAction => ({
 export const addChosenWord = (chosenWord: string): IAddChosenWordAction => ({
   type: 'ADD_WORD',
   chosenWord: chosenWord
+});
+
+export const addForgottenWords = (forgottenWords: string[]): IAddForgottenWordsAction => ({
+  type: 'ADD_FORGOTTEN_WORDS',
+  forgottenWords: forgottenWords
 });
 
 export const removeChosenWord = (chosenWord: string): IRemoveChosenWordAction => ({
