@@ -22,9 +22,7 @@ const BubblesAll: React.FC = () => {
       setBubbles(randomWords.splice(0, 8));
     }, 8000);
 
-    return () => {
-      clearInterval(timer);
-    }
+    return () => clearInterval(timer);
   }, []); //eslint-disable-line
 
   const sendToChosen = (event: React.MouseEvent): void => {
