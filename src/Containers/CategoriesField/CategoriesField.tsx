@@ -1,7 +1,9 @@
 import React from 'react';
 import './CategoriesField.scss';
+import { useSelector } from 'react-redux';
+import { AppStore } from 'interfaces';
 import BrainstormCategory from '../../Components/BrainstormCategory/BrainstormCategory';
-import mockCategories from '../../data/mockCategories';
+// import mockCategories from '../../data/mockCategories';
 // import addIcon from '../../assets/add.svg';
 import { IBrainstormForm, Category } from '../../interfaces';
 
@@ -11,7 +13,8 @@ interface Props {
 };
 
 const CategoryField:React.FC<Props>= ({ formState, setCategory }) => {
-  const categories: JSX.Element[] = mockCategories.map((category: Category, index:number) => (
+  const categoriesData = useSelector((store:AppStore) => store.categories)
+  const categories: JSX.Element[] = categoriesData.map((category: Category, index:number) => (
     <BrainstormCategory
       key={index}
       category={category}
