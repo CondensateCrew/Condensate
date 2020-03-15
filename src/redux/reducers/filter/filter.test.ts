@@ -1,5 +1,5 @@
 import filterReducer from './filter';
-import { ActionObject, IAddFilterAction, IRemoveFilterAction } from 'interfaces';
+import { ActionObject, IAddFilterAction, IRemoveFilterAction, ICleanStore } from 'interfaces';
 
 describe('filterReducer', () => {
   it("should return initial value", () => {
@@ -36,6 +36,17 @@ describe('filterReducer', () => {
     const expected: string = '';
 
     const result: string = filterReducer('Tech', mockAction);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return the empty string if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const expected: string = '';
+    const result = filterReducer('Tech', mockAction);
 
     expect(result).toEqual(expected);
   });

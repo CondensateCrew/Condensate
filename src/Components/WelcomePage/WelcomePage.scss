@@ -31,4 +31,7 @@
       box-shadow: $inner-shadow;
     }
   }
+  &>.bubble-loading {
+    transform: scale(3);
+  }
 }

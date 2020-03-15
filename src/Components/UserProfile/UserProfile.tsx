@@ -1,13 +1,15 @@
 import './UserProfile.scss';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AppStore, ILogoutUserAction } from 'interfaces';
+import { useCookies } from 'react-cookie';
+import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { cleanStore } from 'redux/actions';
+import { AppStore } from 'interfaces';
 import AlanBird from '../../assets/avatar.jpg';
 import menu from '../../assets/menu-dot.svg';
 import close from '../../assets/close.svg';
 import logout from '../../assets/logout.svg';
-import { logOutUser } from 'redux/actions';
-import { useDispatch } from 'react-redux';
 
 const UserProfile:React.FC = () => {
   const dispatch = useDispatch();
@@ -15,14 +17,22 @@ const UserProfile:React.FC = () => {
     firstName: state.user.firstName,
     lastName: state.user.lastName
   }));
-
   const [ isClicked, setIsClicked ] = useState<boolean>(false);
+  const [ isRedirected, setRedirected ] = useState<boolean>(false);
+  const [ cookies, setCookie, removeCookie ] = useCookies(['token', 'name']); //eslint-disable-line
 
   const toggleMenu = (): void => setIsClicked(!isClicked);
-  const logoutUser = (): ILogoutUserAction => dispatch(logOutUser());
+
+  const logoutUser = () => {
+    dispatch(cleanStore());
+    removeCookie('name');
+    removeCookie('token');
+    setRedirected(true);
+  };
 
   return (
     <div className='user-profile-div'>
+      { isRedirected && <Redirect to='/' /> }
       <img className='profile-pic' src={AlanBird} alt='user profile'/>
       <h2>{`${firstName || 'Alan'} ${lastName || 'Birds'}`}</h2>
       {!isClicked

@@ -1,5 +1,5 @@
 import timeEndedReducer from './timeEnded';
-import { ActionObject, IEndTimeAction, IReverseTimeAction } from 'interfaces';
+import { ActionObject, IEndTimeAction, IReverseTimeAction, ICleanStore } from 'interfaces';
 
 describe('instructionsEndedReducer', () => {
   it("should return initial value", () => {
@@ -35,5 +35,15 @@ describe('instructionsEndedReducer', () => {
     const result = timeEndedReducer(true, mockAction);
 
     expect(result).toEqual(expected);
+  });
+
+  it("should return false if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const result = timeEndedReducer(true, mockAction);
+
+    expect(result).toEqual(false);
   });
 });

@@ -408,3 +408,15 @@ describe("instructionsEnded", () => {
     expect(result).toEqual(expected);
   });
 });
+
+describe("cleanStore", () => {
+  it("should return object with a type of CLEAN_STORE when cleanStore is called", () => {
+    const expected: interfaces.ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const result = actions.cleanStore()
+
+    expect(result).toEqual(expected);
+  });
+});

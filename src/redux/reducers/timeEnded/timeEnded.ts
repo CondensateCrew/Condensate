@@ -6,6 +6,8 @@ const timeEnded = (state: boolean = false, action: ActionObject) => {
       return true;
     case 'REVERSE_TIME':
       return false;
+    case 'CLEAN_STORE':
+      return false;
     default:
       return state;
   }

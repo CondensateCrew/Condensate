@@ -1,6 +1,6 @@
-import { ActionObject } from 'interfaces';
+import { ActionObject, Action } from 'interfaces';
 
-type state = string[] | [ ];
+type state = Action[] | [ ];
 
 const actions = (state: state = [ ], action: ActionObject) => {
   switch(action.type) {
@@ -8,6 +8,8 @@ const actions = (state: state = [ ], action: ActionObject) => {
       return action.actions;
     case 'ADD_NEW_ACTION':
       return [...state, action.action];
+    case 'CLEAN_STORE':
+      return [ ];
     default:
       return state;
   }

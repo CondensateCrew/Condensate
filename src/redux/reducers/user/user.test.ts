@@ -1,42 +1,53 @@
 import userReducer from './user';
 import { ActionObject } from 'interfaces';
-import { UserLoginReceived } from 'interfaces';
+import { UserLoginReceived, ICleanStore } from 'interfaces';
 
 describe('userReducer', () => {
-  let action: ActionObject;
-
-  beforeEach(() => {
-    action = {type: '', payload: {}}
-  });
+  const mockUser: UserLoginReceived =  {
+    firstName: 'Zedd',
+    lastName: 'Icarus',
+    id: '4',
+  };
 
   it('should return the default state', () => {
-    const expected = {}
-    const result = userReducer(undefined, action)
-    expect(result).toEqual(expected)
+    const action: ActionObject = {
+      type: '',
+      action: ''
+    };
+    const expected = {};
+    const result = userReducer(undefined, action);
+    expect(result).toEqual(expected);
   });
 
   it('should return the login info if the action type is "ADD_USER"', () => {
-    const mockUser =  {
-      firstName: 'Zedd',
-      lastName: 'Icarus',
-      id: 4,
+    const action = {
+      type: 'ADD_USER',
+      user: mockUser
     };
-    const action = {type: 'ADD_USER', user: mockUser};
 
-    const expected = {
-      firstName: 'Zedd',
-      lastName: 'Icarus',
-      id: 4,
-    };
+    const expected: UserLoginReceived = mockUser;
 
     const result = userReducer(undefined, action);
     expect(result).toEqual(expected);
   });
 
   it('should return an empty object is the action type is "LOG_OUT_USER"', () => {
-    const action = {type: 'LOG_OUT_USER'};
+    const action = {
+      type: 'LOG_OUT_USER'
+    };
+
     const expected = {};
-    const result = userReducer({id: 4, firstName: 'Zedd', lastName: 'Icarus'}, action);
+    const result = userReducer(mockUser, action);
     expect(result).toEqual(expected);
+  });
+
+  it("should return the empty object if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const result = userReducer(mockUser, mockAction);
+
+    expect(result).toEqual({});
   });
 });

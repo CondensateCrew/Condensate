@@ -17,6 +17,8 @@ const allBrainstorms = (state: state = [ ], action: ActionObject) => {
       return [...state, action.brainstorm];
     case 'DELETE_BRAINSTORM':
       return state.filter(bs => bs.id !== action.id);
+    case 'CLEAN_STORE':
+      return [ ];
     default:
       return state;
   }
