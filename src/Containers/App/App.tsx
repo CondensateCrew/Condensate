@@ -8,7 +8,7 @@ import Dashboard from 'Containers/Dashboard/Dashboard';
 import RoundOne from 'Containers/RoundOne/RoundOne';
 import RoundTwo from 'Containers/RoundTwo/RoundTwo';
 import Instructions from 'Containers/Instructions/Instructions';
-import IdeaEventHorizon from 'Containers/IdeaEventHorizon/IdeaEventHorizon';
+import IdeaEventHorizon from 'Components/IdeaEventHorizon/IdeaEventHorizon';
 
 const App: React.FC = () => {
   const user = useSelector((store: AppStore) => store.user);
