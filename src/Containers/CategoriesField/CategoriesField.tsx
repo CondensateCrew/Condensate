@@ -3,7 +3,6 @@ import './CategoriesField.scss';
 import { useSelector } from 'react-redux';
 import { AppStore } from 'interfaces';
 import BrainstormCategory from '../../Components/BrainstormCategory/BrainstormCategory';
-// import mockCategories from '../../data/mockCategories';
 // import addIcon from '../../assets/add.svg';
 import { IBrainstormForm, Category } from '../../interfaces';
 
