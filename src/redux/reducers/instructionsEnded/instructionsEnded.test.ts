@@ -1,5 +1,5 @@
 import instructionsEndedReducer from './instructionsEnded';
-import { ActionObject } from 'interfaces';
+import { ActionObject, ICleanStore, IEndInstructionsAction, IReverseInstructionsAction } from 'interfaces';
 
 describe('instructionsEndedReducer', () => {
   it("should return initial value", () => {
@@ -14,7 +14,7 @@ describe('instructionsEndedReducer', () => {
   });
 
   it("should return true if type of action is END_INSTRUCTIONS", () => {
-    const mockAction: ActionObject = {
+    const mockAction: IEndInstructionsAction = {
       type: 'END_INSTRUCTIONS'
     };
 
@@ -26,7 +26,7 @@ describe('instructionsEndedReducer', () => {
   });
 
   it("should return false if type of action is REVERSE_INSTRUCTIONS", () => {
-    const mockAction: ActionObject = {
+    const mockAction: IReverseInstructionsAction = {
       type: 'REVERSE_INSTRUCTIONS'
     };
 
@@ -35,5 +35,15 @@ describe('instructionsEndedReducer', () => {
     const result = instructionsEndedReducer(true, mockAction);
 
     expect(result).toEqual(expected);
+  });
+
+  it("should return false if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const result = instructionsEndedReducer(true, mockAction);
+
+    expect(result).toEqual(false);
   });
 });

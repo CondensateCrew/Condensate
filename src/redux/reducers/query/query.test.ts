@@ -1,5 +1,5 @@
 import queryReducer from './query';
-import { ActionObject, IAddQueryAction, IRemoveQueryAction } from 'interfaces';
+import { ActionObject, IAddQueryAction, IRemoveQueryAction, ICleanStore } from 'interfaces';
 
 describe('queryReducer', () => {
   it("should return initial value", () => {
@@ -36,6 +36,17 @@ describe('queryReducer', () => {
     const expected: string = '';
 
     const result: string = queryReducer('app', mockAction);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return the empty string if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const expected: string = '';
+    const result = queryReducer('app', mockAction);
 
     expect(result).toEqual(expected);
   });

@@ -1,9 +1,18 @@
 import insightsReducer from './insights';
-import { ActionObject, Insight, IAddInsightAction } from 'interfaces';
+import { ActionObject, Insight, IAddInsightAction, ICleanStore } from 'interfaces';
 
 type emptyArray = [];
 
 describe('insightsReducer', () => {
+  const mockInsight: Insight = {
+    id: 1,
+    question: {
+      word: 'What?',
+      sentence: 'What do you eat?'
+    },
+    answers: ['Fighting']
+  };
+
   it("should return initial value", () => {
     const mockAction: ActionObject = {
       type: '',
@@ -16,12 +25,6 @@ describe('insightsReducer', () => {
   });
 
   it("should return the array with a new insight if type of action is ADD_INSIGHT", () => {
-    const mockInsight: Insight = {
-      id: 1,
-      question: 'What?',
-      answers: ['Fighting']
-    };
-
     const mockAction: IAddInsightAction = {
       type: 'ADD_INSIGHT',
       insight: mockInsight
@@ -32,5 +35,16 @@ describe('insightsReducer', () => {
     const result: Insight[] = insightsReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
-  })
+  });
+
+  it("should return the empty array if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const expected: emptyArray = [ ];
+    const result = insightsReducer([mockInsight], mockAction);
+
+    expect(result).toEqual(expected);
+  });
 });

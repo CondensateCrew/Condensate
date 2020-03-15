@@ -1,5 +1,5 @@
 import exampleSentenceReducer from './exampleSentences';
-import { ActionObject, IAddExampleSentencesAction } from 'interfaces';
+import { ActionObject, IAddExampleSentencesAction, ICleanStore } from 'interfaces';
 
 type emptyArray = [ ];
 
@@ -30,5 +30,16 @@ describe('exampleSentenceReducer', () => {
     const result: string[] = exampleSentenceReducer(undefined, mockAction);
 
     expect(result).toEqual(expected);
-  })
+  });
+
+  it("should return the empty array if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const expected: emptyArray = [ ];
+    const result = exampleSentenceReducer(['What do you eat?'], mockAction);
+
+    expect(result).toEqual(expected);
+  });
 });

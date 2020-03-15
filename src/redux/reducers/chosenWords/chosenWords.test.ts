@@ -1,5 +1,5 @@
 import chosenWordsReducer from './chosenWords';
-import { ActionObject, IAddChosenWordAction, IRemoveChosenWordAction, IRemoveAllWordsAction } from 'interfaces';
+import { ActionObject, IAddChosenWordAction, IRemoveChosenWordAction, IRemoveAllWordsAction, ICleanStore } from 'interfaces';
 
 type emptyArray = [ ];
 
@@ -53,6 +53,17 @@ describe('chosenWordsReducer', () => {
     const expected: emptyArray = [ ];
 
     const result: string[] = chosenWordsReducer(['Bear'], mockAction);
+
+    expect(result).toEqual(expected);
+  });
+
+  it("should return the empty array if type of action is CLEAN_STORE", () => {
+    const mockAction: ICleanStore = {
+      type: 'CLEAN_STORE'
+    };
+
+    const expected: emptyArray = [ ];
+    const result = chosenWordsReducer(['Bear'], mockAction);
 
     expect(result).toEqual(expected);
   });
