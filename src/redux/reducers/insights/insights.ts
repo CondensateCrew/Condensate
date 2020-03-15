@@ -8,6 +8,8 @@ const insights = (state: state = [], action: ActionObject) => {
       return [...state, action.insight];
     case 'CLEAN_STORE':
       return [ ];
+    case 'REMOVE_INSIGHTS':
+      return [ ];
     default:
       return state;
   }

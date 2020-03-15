@@ -10,11 +10,11 @@ import IdeaQuestion from './IdeaQuestion';
 describe('IdeaQuestion Component', () => {
   let wrapper: any;
 
-  let mockFormState = {
+  let mockFormState: IBrainstormForm = {
     question: '',
     categories: [],
-    action: 'create an app',
-    reset: true
+    action: {id: 1, action: 'create an app'},
+    reset: false
   };
   let mockSetQuestion = jest.fn();
 
@@ -41,5 +41,22 @@ describe('IdeaQuestion Component', () => {
     const mockEvent: Object = {target: {value: 'What is love?'}}
     wrapper.find('input').simulate('change', mockEvent);
     expect(wrapper.find('input').getDOMNode().value).toEqual('What is love?')
+  });
+
+  it('should reset its state when formState.reset is true', () => {
+    let mockFormState: IBrainstormForm = {
+      question: '',
+      categories: [],
+      action: {id: 1, action: 'create an app'},
+      reset: true
+    };
+    wrapper = mount(<IdeaQuestion
+      formState={mockFormState}
+      setQuestion={mockSetQuestion}/>);
+
+
+  const mockEvent: Object = {target: {value: 'What is love?'}}
+  wrapper.find('input').simulate('change', mockEvent);
+  expect(wrapper.find('input').getDOMNode().value).toEqual('')
   });
 });
