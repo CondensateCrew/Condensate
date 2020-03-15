@@ -23,6 +23,7 @@ import {
   IAddChosenWordAction,
   IRemoveChosenWordAction,
   IAddInsightAction,
+  IRemoveInsightsAction,
   IAddQueryAction,
   IRemoveQueryAction,
   IAddFilterAction,
@@ -135,6 +136,10 @@ export const removeAllWords = (): IRemoveAllWordsAction => ({
 export const addInsight = (insight: Insight): IAddInsightAction => ({
   type: 'ADD_INSIGHT',
   insight: insight
+});
+
+export const removeInsights = (): IRemoveInsightsAction => ({
+  type: 'REMOVE_INSIGHTS'
 });
 
 // query reducer action creators
