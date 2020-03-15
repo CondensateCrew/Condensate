@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { Redirect } from 'react-router-dom';
-import { addChosenWord, reverseInstructions } from 'redux/actions';
+import { addChosenWord, reverseInstructions, addForgottenWords } from 'redux/actions';
 
 const BubblesAll: React.FC = () => {
   const dispatch = useDispatch();
@@ -15,6 +15,16 @@ const BubblesAll: React.FC = () => {
   const firstStack: string[] = randomWords.splice(0, 8);
 
   const [ bubbles, setBubbles ] = useState<string[]>(firstStack);
+  
+  const addWords = () => {
+    setTimeout(() => {
+      let num = Math.floor((Math.random() * 61));
+      dispatch(addForgottenWords(randomWordCollections
+        .slice(num, num + 3)
+        .map((wordObj:WordSample) => wordObj.word)
+        ))}, 2000);
+    return <Redirect to='/instructions/second-rd' />
+  }
 
   useEffect(() => {
     dispatch(reverseInstructions());
@@ -23,7 +33,9 @@ const BubblesAll: React.FC = () => {
       setBubbles(randomWords.splice(0, 8));
     }, 8000);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+    }
   }, []); //eslint-disable-line
 
   const sendToChosen = (event: React.MouseEvent): void => {
@@ -45,7 +57,7 @@ const BubblesAll: React.FC = () => {
     <section className="all-bbls">
       { !timeEnded
         ? bubbleEls
-        : <Redirect to='/instructions/second-rd' />
+        : addWords()
       }
     </section>
   );
