@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AppStore } from 'interfaces';
-import WelcomePage from 'Components/WelcomePage/WelcomePage';
+import WelcomePage from 'Containers/WelcomePage/WelcomePage';
 import Dashboard from 'Containers/Dashboard/Dashboard';
 import RoundOne from 'Containers/RoundOne/RoundOne';
 import RoundTwo from 'Containers/RoundTwo/RoundTwo';

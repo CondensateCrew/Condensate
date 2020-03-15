@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import LoginForm from '../LoginForm/LoginForm';
-import SignUpForm from '../../Containers/SignUpForm/SignUpForm';
-import LoadingImage from '../LoadingImage/LoadingImage';
+import LoginForm from 'Components/LoginForm/LoginForm';
+import SignUpForm from 'Containers/SignUpForm/SignUpForm';
+import LoadingImage from 'Components/LoadingImage/LoadingImage';
 import { getSetUp, getDashboard } from 'apiCalls/apiCalls';
 import { addUser, addWordSamples, addAllActions, addAllBrainstorms, addAllCategories, addSecretSauce } from 'redux/actions';
-import { WordSample } from '../../interfaces';
+import { WordSample } from 'interfaces';
 
 const WelcomePage: React.FC = () => {
   const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
