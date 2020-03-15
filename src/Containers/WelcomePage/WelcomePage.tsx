@@ -4,7 +4,7 @@ import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import LoginForm from 'Components/LoginForm/LoginForm';
-import SignUpForm from 'Containers/SignUpForm/SignUpForm';
+import SignUpForm from 'Components/SignUpForm/SignUpForm';
 import LoadingImage from 'Components/LoadingImage/LoadingImage';
 import { getSetUp, getDashboard } from 'apiCalls/apiCalls';
 import { addUser, addWordSamples, addAllActions, addAllBrainstorms, addAllCategories, addSecretSauce } from 'redux/actions';
