@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { removeCurrentBrainstorm, reverseInstructions, removeAllWords, removeInsights } from 'redux/actions';
@@ -11,22 +11,28 @@ const Header: React.FC = () => {
   const redirect = ():void => setIsRedirected(true);
 
   const backToDashboard = (): void => {
-    dispatch(removeCurrentBrainstorm());
-    dispatch(reverseInstructions());
-    dispatch(removeAllWords());
-    dispatch(removeInsights());
-    redirect();
+    if (isRedirected) {
+      dispatch(removeCurrentBrainstorm());
+      dispatch(reverseInstructions());
+      dispatch(removeAllWords());
+      dispatch(removeInsights());
+    }
   };
 
+  useEffect(backToDashboard, [isRedirected]);
+
   return (
-    <header className="round-header">
-      {isRedirected && <Redirect to="/dashboard" />}
-      <button onClick={backToDashboard}>
-        <img src={back} alt="back"/>
-        to dashboard
-      </button>
-      <h1>Condensate</h1>
-    </header>
+    isRedirected
+      ? <Redirect to="/dashboard" />
+      : (
+        <header className="round-header">
+          <button onClick={redirect}>
+            <img src={back} alt="back"/>
+            to dashboard
+          </button>
+          <h1>Condensate</h1>
+        </header>
+      )
   );
 }
 

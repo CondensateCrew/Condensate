@@ -14,7 +14,7 @@ const RoundTwo:React.FC = () => {
   const [ inputValue, setInputValue ] = useState<string>('');
   const [ responses, setResponses ] = useState<string[]>([]);
   const [ currentStep, setCurrentStep] = useState<number>(0);
-  const [ time ] = useState<number>(60);
+  const [ time ] = useState<number>(6);
   const dispatch = useDispatch();
   let history = useHistory();
 
