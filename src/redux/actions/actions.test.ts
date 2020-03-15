@@ -269,6 +269,19 @@ describe("chosenWords", () => {
     expect(result).toEqual(expected);
   });
 
+  it("should return object with a type of ADD_FORGOTTEN_WORDS when addForgottenWords is called", () => {
+    const mockForgottenWords: string[] = ['Elephant', 'Novel', 'Biscuits'];
+
+    const expected: interfaces.IAddForgottenWordsAction = {
+      type: 'ADD_FORGOTTEN_WORDS',
+      forgottenWords: mockForgottenWords
+    };
+
+    const result = actions.addForgottenWords(mockForgottenWords);
+
+    expect(result).toEqual(expected);
+  });
+
   it("should return object with a type of REMOVE_WORD when removeChosenWord is called", () => {
     const wordMock: string = 'Elephant';
 
@@ -310,6 +323,15 @@ describe("insights", () => {
     };
 
     const result = actions.addInsight(insightMock)
+
+    expect(result).toEqual(expected);
+  });
+  it("should return object with a type of REMOVE_INSIGHTS when removeInsights is called", () => {
+    const expected: interfaces.IRemoveInsightsAction = {
+      type: 'REMOVE_INSIGHTS',
+    };
+
+    const result = actions.removeInsights()
 
     expect(result).toEqual(expected);
   });
