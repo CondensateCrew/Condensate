@@ -1,5 +1,5 @@
 import insightsReducer from './insights';
-import { ActionObject, Insight, IAddInsightAction, ICleanStore } from 'interfaces';
+import { ActionObject, Insight, IAddInsightAction, ICleanStore, IRemoveInsightsAction } from 'interfaces';
 
 type emptyArray = [];
 
@@ -40,6 +40,16 @@ describe('insightsReducer', () => {
   it("should return the empty array if type of action is CLEAN_STORE", () => {
     const mockAction: ICleanStore = {
       type: 'CLEAN_STORE'
+    };
+
+    const expected: emptyArray = [ ];
+    const result = insightsReducer([mockInsight], mockAction);
+
+    expect(result).toEqual(expected);
+  });
+  it("should return the empty array if type of action is REMOVE_INSIGHTS", () => {
+    const mockAction: IRemoveInsightsAction = {
+      type: 'REMOVE_INSIGHTS'
     };
 
     const expected: emptyArray = [ ];
