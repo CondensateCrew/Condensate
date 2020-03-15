@@ -84,7 +84,7 @@ const RoundTwo:React.FC = () => {
         <ExampleSentence exampleSentence={prompts[currentStep].sentence}/>
         <section className='responses-section'>
           <header>
-            <input id='responses-input' onKeyDown={handleInputSubmit} onChange={handleChange}
+            <input id='responses-input' maxLength={100} onKeyDown={handleInputSubmit} onChange={handleChange}
             type='text' value={inputValue} autoComplete='off' placeholder='Write your question here...' />
             <img src={Check} onClick={handleSubmit} alt='submit-checkmark-icon' />
           </header>

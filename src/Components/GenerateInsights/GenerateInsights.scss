@@ -2,7 +2,8 @@
 @import '../../css/index.scss';
 
 .insights-div {
-  width: 90%;
+  max-width: 34vw;
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
