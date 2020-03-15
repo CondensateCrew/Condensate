@@ -3,7 +3,7 @@ import './IdeaEventHorizon.scss';
 import Header from 'Components/Header/Header';
 import FinalIdeaField from 'Components/FinalIdeaField/FinalIdeaField';
 import SecretSauce from 'Components/SecretSauce/SecretSauce';
-import DisplayInsights from 'Components/DisplayInsights/DisplayInsights';
+import DisplayInsights from 'Containers/DisplayInsights/DisplayInsights';
 
 const IdeaEventHorizon:React.FC = () => {
   return (
