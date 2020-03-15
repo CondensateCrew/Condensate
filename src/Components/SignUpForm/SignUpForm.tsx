@@ -9,7 +9,9 @@ type checkedInputType = 'first-name' | 'last-name' | 'email' | 'password' | 'rep
 
 interface Props {
   isLogin: boolean,
+  isLoading: boolean,
   toggleTab: (login: boolean) => void,
+  setIsLoading: (loading: boolean) => void,
   setCookie: (name: string, value: any, options?: object) => void
 };
 
@@ -20,7 +22,8 @@ interface UserPosted {
   email: string,
 }
 
-const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie }) => {
+const SignUpForm: React.FC<Props> = (props) => {
+  const { isLogin, toggleTab, setCookie, isLoading, setIsLoading } = props;
   const [ user, setUser ] = useState<UserSignupPosting>({
     email: '',
     password: '',
@@ -30,7 +33,6 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie }) => {
   const [ disabled, setDisabled ] = useState<boolean>(true);
   const [ repeatPassword, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
-  const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
   const validateButton = (): void => {
     if (user.email === '') return setDisabled(true);
@@ -82,7 +84,9 @@ const SignUpForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie }) => {
     }
   }
 
-  const toggleForm = (): void => toggleTab(!isLogin);
+  const toggleForm = ():void => {
+    if (!isLoading) toggleTab(!isLogin);
+  };
 
   const inputs: checkedInputType[] = ['first-name', 'last-name', 'email', 'password', 'repeat-password'];
   const inputsElements: JSX.Element[] = inputs.map((input: checkedInputType) => (

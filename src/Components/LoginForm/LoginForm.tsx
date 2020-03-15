@@ -5,18 +5,22 @@ import LoadingImage from 'Components/LoadingImage/LoadingImage';
 
 interface Props {
   isLogin: boolean,
+  isLoading: boolean,
   toggleTab: (login: boolean) => void,
+  setIsLoading: (loading: boolean) => void,
   setCookie: (name: string, value: any, options?: object) => void
 };
 
-const LoginForm: React.FC<Props> = ({ isLogin, toggleTab, setCookie}) => {
+const LoginForm: React.FC<Props> = (props) => {
+  const { isLogin, toggleTab, setCookie, isLoading, setIsLoading } = props;
   const [ email, setEmail ] = useState<string>('');
   const [ password, setPassword ] = useState<string>('');
   const [ error, setError ] = useState<string>('');
-  const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ disabled, setDisabled ] = useState<boolean>(true);
 
-  const toggleForm = ():void => toggleTab(!isLogin);
+  const toggleForm = (): void => {
+    if (!isLoading) toggleTab(!isLogin);
+  };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setEmail(e.target.value);

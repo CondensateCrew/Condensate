@@ -12,6 +12,7 @@ import { WordSample } from 'interfaces';
 
 const WelcomePage: React.FC = () => {
   const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
+  const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const [ isLogin, setIsLogin ] = useState<boolean>(true);
   const [ token, setToken ] = useState<string>('');
   const [ name, setName ] = useState<string>('');
@@ -59,10 +60,10 @@ const WelcomePage: React.FC = () => {
 
   const formSelected: JSX.Element = (isLogin)
     ? <LoginForm
-      {...{isLogin, error, setCookie}}
+      {...{isLogin, error, setCookie, isLoading, setIsLoading}}
       toggleTab={setIsLogin}/>
     : <SignUpForm
-      {...{isLogin, error, setCookie}}
+      {...{isLogin, error, setCookie, isLoading, setIsLoading}}
       toggleTab={setIsLogin} />
 
   return (
