@@ -1,22 +1,253 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ActionsField should match the snapshot 1`] = `
-<div
-  className="action-toggle"
+exports[`ActionsField should call setAction/handleChange when a new li is clicked 1`] = `
+<ActionsField
+  formState={
+    Object {
+      "action": Object {
+        "action": "create an app",
+        "id": 1,
+      },
+      "categories": Array [],
+      "question": "",
+      "reset": false,
+    }
+  }
+  setAction={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "action": Object {
+              "action": "Write a Song",
+              "id": 5,
+            },
+            "categories": Array [],
+            "question": "",
+            "reset": false,
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
 >
-  <header
-    className=""
-    onClick={[Function]}
+  <div
+    className="action-toggle"
   >
-    <p
-      className="chosen"
+    <header
+      className=""
+      onClick={[Function]}
     >
-      Create an app
-    </p>
-    <img
-      alt="down"
-      src="down.svg"
-    />
-  </header>
-</div>
+      <p
+        className="chosen"
+      >
+        Write a Song
+      </p>
+      <img
+        alt="down"
+        src="down.svg"
+      />
+    </header>
+  </div>
+</ActionsField>
+`;
+
+exports[`ActionsField should display more actions when down arrow is clicked 1`] = `
+<ActionsField
+  formState={
+    Object {
+      "action": Object {
+        "action": "create an app",
+        "id": 1,
+      },
+      "categories": Array [],
+      "question": "",
+      "reset": false,
+    }
+  }
+  setAction={[MockFunction]}
+>
+  <div
+    className="action-toggle"
+  >
+    <header
+      className="clicked"
+      onClick={[Function]}
+    >
+      <p
+        className="chosen"
+      >
+        Create an app
+      </p>
+      <img
+        alt="down"
+        src="down.svg"
+      />
+    </header>
+    <ul
+      className="clicked"
+    >
+      <li
+        key="2"
+        onClick={[Function]}
+      >
+        Write a Story
+      </li>
+      <li
+        key="3"
+        onClick={[Function]}
+      >
+        Plan a Lesson
+      </li>
+      <li
+        key="4"
+        onClick={[Function]}
+      >
+        Make a Recipe
+      </li>
+      <li
+        key="5"
+        onClick={[Function]}
+      >
+        Write a Song
+      </li>
+    </ul>
+  </div>
+</ActionsField>
+`;
+
+exports[`ActionsField should match the snapshot 1`] = `
+<ActionsField
+  formState={
+    Object {
+      "action": Object {
+        "action": "create an app",
+        "id": 1,
+      },
+      "categories": Array [],
+      "question": "",
+      "reset": false,
+    }
+  }
+  setAction={[MockFunction]}
+>
+  <div
+    className="action-toggle"
+  >
+    <header
+      className=""
+      onClick={[Function]}
+    >
+      <p
+        className="chosen"
+      >
+        Create an app
+      </p>
+      <img
+        alt="down"
+        src="down.svg"
+      />
+    </header>
+  </div>
+</ActionsField>
+`;
+
+exports[`ActionsField should reset the local state when formState.reset is true 1`] = `
+<ActionsField
+  formState={
+    Object {
+      "action": Object {
+        "action": "create an app",
+        "id": 1,
+      },
+      "categories": Array [],
+      "question": "",
+      "reset": false,
+    }
+  }
+  setAction={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "action": Object {
+              "action": "Write a Story",
+              "id": 2,
+            },
+            "categories": Array [],
+            "question": "",
+            "reset": false,
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <div
+    className="action-toggle"
+  >
+    <header
+      className=""
+      onClick={[Function]}
+    >
+      <p
+        className="chosen"
+      >
+        Write a Story
+      </p>
+      <img
+        alt="down"
+        src="down.svg"
+      />
+    </header>
+  </div>
+</ActionsField>
+`;
+
+exports[`ActionsField should reset the local state when formState.reset is true 2`] = `
+<ActionsField
+  formState={
+    Object {
+      "action": Object {
+        "action": "create an app",
+        "id": 1,
+      },
+      "categories": Array [],
+      "question": "",
+      "reset": true,
+    }
+  }
+  setAction={[MockFunction]}
+>
+  <div
+    className="action-toggle"
+  >
+    <header
+      className=""
+      onClick={[Function]}
+    >
+      <p
+        className="chosen"
+      >
+        Create an app
+      </p>
+      <img
+        alt="down"
+        src="down.svg"
+      />
+    </header>
+  </div>
+</ActionsField>
 `;
