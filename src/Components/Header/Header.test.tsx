@@ -2,6 +2,12 @@ import React from 'react';
 import Header from './Header';
 import { shallow } from 'enzyme';
 
+const mockDispatch = jest.fn();
+
+jest.mock('react-redux', () => ({
+  useDispatch: () => mockDispatch
+}));
+
 describe('Header time component', () => {
   it('should match the snapshot', () => {
     const wrapper = shallow(<Header />);
