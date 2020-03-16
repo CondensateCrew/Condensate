@@ -1,41 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SignUpForm component should match the snapshot 1`] = `
-<Router
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "canGo": [Function],
-      "createHref": [Function],
-      "entries": Array [
-        Object {
-          "hash": "",
-          "key": "testKey",
-          "pathname": "/",
-          "search": "",
-        },
-      ],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "index": 0,
-      "length": 1,
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "key": "testKey",
-        "pathname": "/",
-        "search": "",
-      },
-      "push": [Function],
-      "replace": [Function],
-    }
-  }
+<div
+  className="sign-up-form"
 >
-  <SignUpForm
-    isLogin={false}
-    toggleTab={[MockFunction]}
-  />
-</Router>
+  <header>
+    <h2
+      className="hidden-tab"
+      onClick={[Function]}
+    >
+      Login
+    </h2>
+    <h2
+      className="active-tab"
+    >
+      Sign Up
+    </h2>
+  </header>
+  <form>
+    <InputElement
+      isLoading={false}
+      key="first-name"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="first-name"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="last-name"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="last-name"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="email"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="email"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="password"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="password"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="repeat-password"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="repeat-password"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      Sign Up
+    </button>
+  </form>
+</div>
 `;
