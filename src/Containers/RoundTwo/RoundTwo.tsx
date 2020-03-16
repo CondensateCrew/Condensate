@@ -14,7 +14,7 @@ const RoundTwo:React.FC = () => {
   const [ inputValue, setInputValue ] = useState<string>('');
   const [ responses, setResponses ] = useState<string[]>([]);
   const [ currentStep, setCurrentStep] = useState<number>(0);
-  const [ time ] = useState<number>(60);
+  const [ time ] = useState<number>(6);
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -28,14 +28,13 @@ const RoundTwo:React.FC = () => {
 
   useEffect(() => {//eslint-disable-line
     if (timeEnded)  {
-      if (currentStep >= 2) {
-        history.push('/round-three');
-      }
+      if (currentStep >= 2) history.push('/round-three');
       dispatch(addInsight({
         id: currentStep,
         question: prompts[currentStep],
         answers: responses
       }));
+      setInputValue('');
       setCurrentStep(currentStep + 1);
       setResponses([]);
       dispatch(reverseTime());
