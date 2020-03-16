@@ -1,26 +1,40 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { IBrainstormForm } from '../../interfaces';
+import { shallow } from 'enzyme';
+import { IBrainstormForm, Category } from '../../interfaces';
 import CategoriesField from './CategoriesField';
-import mockCategories from '../../data/mockCategories';
+
+const mockCategory: Category[] = [
+  {id: 1, name: 'Education'},
+  {id: 2, name: 'Technology'},
+  {id: 3, name: 'Environment'},
+  {id: 4, name: 'Food'},
+  {id: 5, name: 'Music'}
+];
 
 jest.mock('react-redux', () => ({
-  useSelector: () => [
-    {id: 1, name: 'Education'},
-    {id: 2, name: 'Technology'},
-    {id: 3, name: 'Environment'},
-    {id: 4, name: 'Food'},
-    {id: 5, name: 'Music'}
-  ]
+  useSelector: () => mockCategory
 }));
 
 describe('CategoriesField', () => {
-  let wrapper;
+  let wrapper: any;
+  const mockFormState: IBrainstormForm = {
+    question: '',
+    categories: [],
+    action: {
+      id: 1,
+      action: 'create an app'
+    },
+    reset: true
+  };
+
+  const mockSetCategory = jest.fn();
+  const mockProps = {
+    formState: mockFormState,
+    setCategory: mockSetCategory
+  };
+
   beforeEach(() => {
-    interface Props {
-      formState: IBrainstormForm,
-      setCategory: (formState: IBrainstormForm) => void
-    }
+    wrapper = shallow(<CategoriesField {...mockProps} />);
   });
 
   afterEach(() => {
@@ -28,21 +42,6 @@ describe('CategoriesField', () => {
   });
 
   it('should match the snapshot', () => {
-    let mockFormState = {
-      question: '',
-      categories: [],
-      action: 'create an app',
-      reset: true
-    };
-
-    let mockSetCategory = jest.fn();
-
-    wrapper = shallow(<CategoriesField 
-      formState={mockFormState}
-      setCategory={mockSetCategory}
-    />);
-    
     expect(wrapper).toMatchSnapshot();
   });
-
 });
