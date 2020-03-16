@@ -2,6 +2,7 @@
 
 exports[`InputElement component should match the snapshot if type is email 1`] = `
 <InputElement
+  isLoading={true}
   setError={
     [MockFunction] {
       "calls": Array [
@@ -76,6 +77,7 @@ exports[`InputElement component should match the snapshot if type is email 1`] =
       id="email"
       onChange={[Function]}
       placeholder="email@mail.com"
+      readOnly={true}
       type="text"
       value=""
     />
@@ -85,6 +87,7 @@ exports[`InputElement component should match the snapshot if type is email 1`] =
 
 exports[`InputElement component should match the snapshot if type is first-name 1`] = `
 <InputElement
+  isLoading={true}
   setError={
     [MockFunction] {
       "calls": Array [
@@ -140,6 +143,7 @@ exports[`InputElement component should match the snapshot if type is first-name 
       id="first-name"
       onChange={[Function]}
       placeholder="Your First Name"
+      readOnly={true}
       type="text"
       value=""
     />
@@ -149,6 +153,7 @@ exports[`InputElement component should match the snapshot if type is first-name 
 
 exports[`InputElement component should match the snapshot if type is last-name 1`] = `
 <InputElement
+  isLoading={true}
   setError={
     [MockFunction] {
       "calls": Array [
@@ -223,6 +228,7 @@ exports[`InputElement component should match the snapshot if type is last-name 1
       id="last-name"
       onChange={[Function]}
       placeholder="Your Last Name"
+      readOnly={true}
       type="text"
       value=""
     />
@@ -232,6 +238,7 @@ exports[`InputElement component should match the snapshot if type is last-name 1
 
 exports[`InputElement component should match the snapshot if type is password 1`] = `
 <InputElement
+  isLoading={true}
   setError={
     [MockFunction] {
       "calls": Array [
@@ -306,6 +313,7 @@ exports[`InputElement component should match the snapshot if type is password 1`
       id="password"
       onChange={[Function]}
       placeholder="Your Password"
+      readOnly={true}
       type="password"
       value=""
     />
@@ -315,6 +323,7 @@ exports[`InputElement component should match the snapshot if type is password 1`
 
 exports[`InputElement component should match the snapshot if type is repeat-password 1`] = `
 <InputElement
+  isLoading={true}
   setError={
     [MockFunction] {
       "calls": Array [
@@ -391,6 +400,7 @@ exports[`InputElement component should match the snapshot if type is repeat-pass
       id="repeat-password"
       onChange={[Function]}
       placeholder="Repeat Password"
+      readOnly={true}
       type="password"
       value=""
     />

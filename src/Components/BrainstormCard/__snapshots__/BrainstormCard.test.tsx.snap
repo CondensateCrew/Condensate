@@ -14,8 +14,12 @@ exports[`BrainstormCard component should match the snapshot 1`] = `
       src="menu-dot.svg"
     />
   </header>
-  <h5 />
-  <p />
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
   <footer>
     <p
       className="genius-label"
@@ -45,8 +49,12 @@ exports[`BrainstormCard component should match the snapshot if brainstorm is not
       src="menu-dot.svg"
     />
   </header>
-  <h5 />
-  <p />
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
   <footer>
     <p
       key="ctg-tech"
@@ -70,8 +78,12 @@ exports[`BrainstormCard component should match the snapshot if brainstorm is not
       setIsClicked={[Function]}
     />
   </header>
-  <h5 />
-  <p />
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
   <footer>
     <p
       key="ctg-tech"
@@ -95,8 +107,12 @@ exports[`BrainstormCard component should match the snapshot if menu is clicked 1
       setIsClicked={[Function]}
     />
   </header>
-  <h5 />
-  <p />
+  <h5>
+    Build an app
+  </h5>
+  <p>
+    Idea
+  </p>
   <footer>
     <p
       className="genius-label"
