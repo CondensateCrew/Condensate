@@ -1,12 +1,12 @@
-import React, { useState, useEffect, MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, KeyboardEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppStore, WordSample } from 'interfaces';
 import { useHistory } from 'react-router-dom';
 import { reverseTime, addInsight } from 'redux/actions';
 import ExampleSentence from 'Components/ExampleSentence/ExampleSentence';
 import GenerateInsights from 'Components/GenerateInsights/GenerateInsights';
-import Header from 'Components/Header/Header';
-import Timer from 'Components/Timer/Timer';
+import Header from 'Containers/Header/Header';
+import Timer from 'Containers/Timer/Timer';
 import Check from 'assets/check.svg';
 import './RoundTwo.scss';
 
@@ -28,14 +28,13 @@ const RoundTwo:React.FC = () => {
 
   useEffect(() => {//eslint-disable-line
     if (timeEnded)  {
-      if (currentStep >= 2) {
-        history.push('/round-three');
-      }
+      if (currentStep >= 2) history.push('/round-three');
       dispatch(addInsight({
         id: currentStep,
         question: prompts[currentStep],
         answers: responses
       }));
+      setInputValue('');
       setCurrentStep(currentStep + 1);
       setResponses([]);
       dispatch(reverseTime());
@@ -53,7 +52,7 @@ const RoundTwo:React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: MouseEvent<HTMLElement> | KeyboardEvent<HTMLInputElement>):void => {
+  const handleSubmit = ():void => {
     if (inputValue !== '') {
       setResponses([inputValue, ...responses]);
       setInputValue('');

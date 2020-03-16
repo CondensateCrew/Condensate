@@ -20,23 +20,7 @@ exports[`Header time component should match the snapshot 1`] = `
 `;
 
 exports[`Header time component should match the snapshot after button is clicked 1`] = `
-<header
-  className="round-header"
->
-  <Redirect
-    to="/dashboard"
-  />
-  <button
-    onClick={[Function]}
-  >
-    <img
-      alt="back"
-      src="down.svg"
-    />
-    to dashboard
-  </button>
-  <h1>
-    Condensate
-  </h1>
-</header>
+<Redirect
+  to="/dashboard"
+/>
 `;

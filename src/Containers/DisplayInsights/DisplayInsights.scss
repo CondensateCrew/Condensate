@@ -59,6 +59,12 @@
     margin: 0 $small-space;
     border-bottom: 2px solid $dark-shadow-primary-transparent;
     text-align: left;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    width: 90%;
     &:last-child {
       border-bottom: none;
     }

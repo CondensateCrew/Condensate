@@ -20,6 +20,12 @@
   h3 {
     font-size: 1rem;
     text-align: left;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    width: 90%;
   }
   box-shadow: $external-shadow;
 }

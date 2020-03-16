@@ -6,7 +6,7 @@ import BrainstormContainer from '../BrainstormContainer/BrainstormContainer';
 import SearchBar from '../SearchBar/SearchBar';
 import CategoriesFilter from '../CategoriesFilter/CategoriesFilter';
 import BrainstormForm from '../BrainstormForm/BrainstormForm';
-import UserProfile from '../../Components/UserProfile/UserProfile';
+import UserProfile from 'Containers/UserProfile/UserProfile';
 import addIcon from '../../assets/add.svg';
 
 const Dashboard: React.FC = () => {

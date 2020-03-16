@@ -8,10 +8,16 @@ describe('BrainstormCard component', () => {
   const mockProps = {
     id: 1,
     question: 'What?',
-    idea: 'Idea',
-    action: 'Build an app',
+    response: 'Idea',
+    action: {
+      id: 1,
+      action: 'Build an app'
+    },
     isGenius: true,
-    categories: [{id: 1, name: 'Tech'}]
+    categories: [{
+      id: 1,
+      name: 'Tech'
+    }]
   };
 
   beforeEach(() => {
@@ -32,12 +38,16 @@ describe('BrainstormCard component', () => {
   });
 
   it('should match the snapshot if brainstorm is not genius', () => {
-    const wrapper = shallow(<BrainstormCard {...mockProps} isGenius={false}/>);
+    const wrapper = shallow(
+      <BrainstormCard {...mockProps} isGenius={false}/>
+    );
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should match the snapshot if brainstorm is not genius and menu is clicked', () => {
-    const wrapper = shallow(<BrainstormCard {...mockProps} isGenius={false}/>);
+    const wrapper = shallow(
+      <BrainstormCard {...mockProps} isGenius={false}/>
+    );
     wrapper.find('img[alt="menu"]').simulate('click');
     expect(wrapper).toMatchSnapshot();
   });

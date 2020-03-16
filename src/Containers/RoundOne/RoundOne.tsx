@@ -2,10 +2,10 @@ import './RoundOne.scss';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore } from 'interfaces';
-import Header from 'Components/Header/Header';
+import Header from 'Containers/Header/Header';
 import GameBoard from 'Containers/GameBoard/GameBoard';
 import ChosenWordTrain from 'Containers/ChosenWordTrain/ChosenWordTrain';
-import Timer from 'Components/Timer/Timer';
+import Timer from 'Containers/Timer/Timer';
 
 const RoundOne:React.FC = () => {
   const timeEnded = useSelector((store: AppStore) => store.timeEnded);

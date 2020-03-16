@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm component should match the snapshot 1`] = `
+<div
+  className="sign-up-form"
+>
+  <header>
+    <h2
+      className="hidden-tab"
+      onClick={[Function]}
+    >
+      Login
+    </h2>
+    <h2
+      className="active-tab"
+    >
+      Sign Up
+    </h2>
+  </header>
+  <form>
+    <InputElement
+      isLoading={false}
+      key="first-name"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="first-name"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="last-name"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="last-name"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="email"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="email"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="password"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="password"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <InputElement
+      isLoading={false}
+      key="repeat-password"
+      repeatPassword=""
+      setError={[Function]}
+      setPassword={[Function]}
+      setUser={[Function]}
+      typeInput="repeat-password"
+      user={
+        Object {
+          "email": "",
+          "firstName": "",
+          "lastName": "",
+          "password": "",
+        }
+      }
+    />
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      Sign Up
+    </button>
+  </form>
+</div>
+`;
