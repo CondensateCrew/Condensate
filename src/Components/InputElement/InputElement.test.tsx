@@ -23,6 +23,7 @@ describe('InputElement component', () => {
   const mockSetError = jest.fn();
 
   const mockProps = {
+    isLoading: true,
     typeInput: mockTypeInput,
     user: mockUser,
     setPassword: mockSetPassword,
