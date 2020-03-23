@@ -36,13 +36,13 @@ If you wish to have a local version of this application on your machine, run the
 - `npm start` - to start the application on a local server
 - `npm test` - to run the test suite 
 
-***Coming Soon: Electron Desktop Application ***
-
 ## Deployment 
 
 If you would like to see a working version of this application click on the link below.
 
 [Link to Heroku](https://condensate-app.herokuapp.com/)
+
+[Electron Desktop App](https://github.com/CondensateCrew/condensate-desktop-app)
 
 
 ## Workflow
